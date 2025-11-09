@@ -1,0 +1,3922 @@
+[
+  {
+    "id": 10071,
+    "name": "Warning Shot!",
+    "description": "Slightly increase velocity with a long spurt starting halfway through the race.",
+    "rarity": 3,
+    "category": 5,
+    "condition_1": "distance_rate>=50&distance_rate<=60&order_rate>50",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
+    "id": 10081,
+    "name": "Xceleration",
+    "description": "Become stronger at challenging rivals and moderately increase velocity when positioned toward the front with 200m or less remaining.",
+    "rarity": 3,
+    "category": 5,
+    "condition_1": "order>=3&order_rate<=50&remain_distance<=200&bashin_diff_infront<=1@order>=3&order_rate<=50&remain_distance<=200&bashin_diff_behind<=1",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
+    "id": 10091,
+    "name": "Red Ace",
+    "description": "Slightly swell with the determination to stay number one in the second half of the race.",
+    "rarity": 3,
+    "category": 5,
+    "condition_1": "distance_rate>=50&order==1&bashin_diff_behind<=1",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
+    "id": 10111,
+    "name": "Focused Mind",
+    "description": "Moderately increase velocity with a strong turn of foot when passing another runner toward the back on the final straight.",
+    "rarity": 3,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner==0&change_order_onetime<0&order>=4",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
+    "id": 10141,
+    "name": "Coraz\u00f3n \u2606 Ardiente",
+    "description": "Slightly hang on to the advantage when positioned toward the front with energy to spare on the final straight.",
+    "rarity": 3,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner==0&hp_per>=30&order<=2",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
+    "id": 10181,
+    "name": "Empress's Pride",
+    "description": "Moderately increase velocity with the stride of an empress when passing another runner toward the back on the final corner.",
+    "rarity": 3,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner!=0&order>=4&change_order_onetime<0",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
+    "id": 10241,
+    "name": "1st Place Kiss\u2606",
+    "description": "Slightly increase ability to break out of the pack on the straight after engaging in a challenge toward the front on the final corner.",
+    "rarity": 3,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner!=0&blocked_side_continuetime>=2&order<=3",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
+    "id": 10271,
+    "name": "Feel the Burn!",
+    "description": "Moderately increase acceleration in an attempt to move up on a corner late-race.",
+    "rarity": 3,
+    "category": 5,
+    "condition_1": "phase>=2&corner!=0&order_rate>=65&order_rate<=70",
+    "condition_2": "",
+    "icon_id": 20043
+  },
+  {
+    "id": 10321,
+    "name": "Introduction to Physiology",
+    "description": "Moderately recover endurance when conserving energy on a corner in the second half of the race.",
+    "rarity": 3,
+    "category": 5,
+    "condition_1": "distance_rate>=50&corner!=0&order>=3&order_rate<=40",
+    "condition_2": "",
+    "icon_id": 20023
+  },
+  {
+    "id": 10351,
+    "name": "V Is for Victory!",
+    "description": "Refuse to back down from a challenge, moderately increasing velocity on the final straight.",
+    "rarity": 3,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner==0&order<=5&blocked_side_continuetime>=2",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
+    "id": 10411,
+    "name": "Class Rep + Speed = Bakushin",
+    "description": "Moderately increase velocity with BAKUSHIN power when engaged in a challenge toward the front in the second half of the race.",
+    "rarity": 3,
+    "category": 5,
+    "condition_1": "distance_rate>=50&order<=3&blocked_side_continuetime>=2",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
+    "id": 10451,
+    "name": "Clear Heart",
+    "description": "Moderately recover endurance when well-positioned mid-race.",
+    "rarity": 3,
+    "category": 5,
+    "condition_1": "phase_random==1&order>=2&order_rate<=40",
+    "condition_2": "",
+    "icon_id": 20023
+  },
+  {
+    "id": 10521,
+    "name": "Super-Duper Stoked",
+    "description": "Moderately recover endurance with a glance at nearby runners when positioned toward the back on the final corner.",
+    "rarity": 3,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner!=0&order_rate>50&near_count>=1",
+    "condition_2": "",
+    "icon_id": 20023
+  },
+  {
+    "id": 10561,
+    "name": "Luck Be with Me!",
+    "description": "Moderately clear a path forward with the power of divination when the way ahead is jammed late-race.",
+    "rarity": 3,
+    "category": 5,
+    "condition_1": "phase>=2&order>=3&blocked_front==1",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
+    "id": 10601,
+    "name": "I Can Win Sometimes, Right?",
+    "description": "Moderately increase velocity with an arousal of fighting spirit when positioned 3rd and about to lose late-race.",
+    "rarity": 3,
+    "category": 5,
+    "condition_1": "phase>=2&order==3&bashin_diff_behind<=1",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
+    "id": 10611,
+    "name": "Call Me King",
+    "description": "Increase velocity in a true display of skill with 200m remaining after racing calmly.",
+    "rarity": 3,
+    "category": 5,
+    "condition_1": "temptation_count==0&remain_distance<=201&remain_distance>=199&order>=5&order_rate<=60",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
+    "id": 100011,
+    "name": "Shooting Star",
+    "description": "Ride the momentum and increase velocity after passing another runner toward the front late-race.",
+    "rarity": 5,
+    "category": 5,
+    "condition_1": "phase>=2&order>=2&order_rate<=50&change_order_onetime<0",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
+    "id": 100021,
+    "name": "The View from the Lead Is Mine!",
+    "description": "Increase velocity by drawing on all remaining strength when in the lead by a fair margin on the final straight.",
+    "rarity": 5,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner==0&order==1&bashin_diff_behind>=1",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
+    "id": 100031,
+    "name": "Sky-High Teio Step",
+    "description": "Greatly increase velocity with flashy footwork when closing the gap to runners ahead on the final straight.",
+    "rarity": 5,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner==0&order<=3&bashin_diff_infront<=1&is_overtake==1",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
+    "id": 100041,
+    "name": "Red Shift/LP1211-M",
+    "description": "Increase acceleration by shifting gears when positioned toward the front on the final corner or later.",
+    "rarity": 5,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&order<=5&order_rate<=50",
+    "condition_2": "",
+    "icon_id": 20043
+  },
+  {
+    "id": 100061,
+    "name": "Triumphant Pulse",
+    "description": "Greatly increase ability to break out of the pack by opening up a path when positioned toward the front with 200m remaining.",
+    "rarity": 5,
+    "category": 5,
+    "condition_1": "order>=2&order<=5&order_rate<=50&remain_distance<=201&remain_distance>=199",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
+    "id": 100071,
+    "name": "Anchors Aweigh!",
+    "description": "Moderately increase velocity steadily with a long spurt starting halfway through the race.",
+    "rarity": 4,
+    "category": 5,
+    "condition_1": "distance_rate>=50&distance_rate<=60&order_rate>50",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
+    "id": 100081,
+    "name": "Cut and Drive!",
+    "description": "Become stronger at challenging rivals and increase velocity when positioned toward the front with 200m or less remaining.",
+    "rarity": 4,
+    "category": 5,
+    "condition_1": "order>=3&order_rate<=50&remain_distance<=200&bashin_diff_infront<=1@order>=3&order_rate<=50&remain_distance<=200&bashin_diff_behind<=1",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
+    "id": 100091,
+    "name": "Resplendent Red Ace",
+    "description": "Swell with the determination to stay number one in the second half of the race.",
+    "rarity": 4,
+    "category": 5,
+    "condition_1": "distance_rate>=50&order==1&bashin_diff_behind<=1",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
+    "id": 100101,
+    "name": "Shooting for Victory!",
+    "description": "Increase acceleration with a pow, a wow, and a bang when well-positioned on the final corner.",
+    "rarity": 5,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner!=0&order>=3&order_rate<=50",
+    "condition_2": "",
+    "icon_id": 20043
+  },
+  {
+    "id": 100111,
+    "name": "Where There's a Will, There's a Way",
+    "description": "Increase velocity with a strong turn of foot when passing another runner toward the back on the final straight.",
+    "rarity": 4,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner==0&change_order_onetime<0&order>=4",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
+    "id": 100131,
+    "name": "The Duty of Dignity Calls",
+    "description": "Increase velocity with the determination to not be overtaken when positioned toward the front on the final corner.",
+    "rarity": 5,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner!=0&distance_diff_rate<=30",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
+    "id": 100141,
+    "name": "Victoria por plancha \u2606",
+    "description": "Hang onto the advantage when positioned toward the front with energy to spare on the final straight.",
+    "rarity": 4,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner==0&hp_per>=30&order<=2",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
+    "id": 100151,
+    "name": "This Dance Is for Vittoria!",
+    "description": "Increase velocity with royal brilliance when engaged in a challenge toward the front on the final corner.",
+    "rarity": 5,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner!=0&bashin_diff_infront<=1&bashin_diff_behind<=1&blocked_side_continuetime>=2&order<=4",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
+    "id": 100171,
+    "name": "Behold Thine Emperor's Divine Might",
+    "description": "Greatly increase velocity on the final straight after passing another runner 3 times late-race.",
+    "rarity": 5,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&change_order_up_end_after>=3&corner==0",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
+    "id": 100181,
+    "name": "Blazing Pride",
+    "description": "Increase velocity with the stride of an empress when passing another runner toward the back on the final corner.",
+    "rarity": 4,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner!=0&order>=4&change_order_onetime<0",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
+    "id": 100231,
+    "name": "\u2234win Q.E.D.",
+    "description": "Increase velocity by deriving the winning equation when passing another runner toward the front on the final corner.",
+    "rarity": 5,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner!=0&change_order_onetime<0&order<=4",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
+    "id": 100241,
+    "name": "Flashy\u2606Landing",
+    "description": "Increase ability to break out of the pack on the straight after engaging in a challenge toward the front on the final corner.",
+    "rarity": 4,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner!=0&blocked_side_continuetime>=2&order<=3",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
+    "id": 100261,
+    "name": "G00 1st. F\u221e;",
+    "description": "Increase velocity when positioned toward the front after making it to the final straight without faltering.",
+    "rarity": 5,
+    "category": 5,
+    "condition_1": "is_badstart==0&temptation_count==0&order<=3&is_finalcorner==1&corner==0",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
+    "id": 100271,
+    "name": "Let's Pump Some Iron!",
+    "description": "Increase acceleration in an attempt to move up on a corner late-race.",
+    "rarity": 4,
+    "category": 5,
+    "condition_1": "phase>=2&corner!=0&order_rate>=65&order_rate<=70",
+    "condition_2": "",
+    "icon_id": 20043
+  },
+  {
+    "id": 100301,
+    "name": "Blue Rose Closer",
+    "description": "Increase velocity with strong willpower when breaking out of the pack on the final straight.",
+    "rarity": 5,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner==0&order<=4&change_order_onetime<0",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
+    "id": 100321,
+    "name": "U=ma2",
+    "description": "Recover endurance when conserving energy on a corner in the second half of the race.",
+    "rarity": 4,
+    "category": 5,
+    "condition_1": "distance_rate>=50&corner!=0&order>=3&order_rate<=40",
+    "condition_2": "",
+    "icon_id": 20023
+  },
+  {
+    "id": 100351,
+    "name": "Our Ticket to Win!",
+    "description": "Refuse to back down from a challenge, increasing velocity on the final straight.",
+    "rarity": 4,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner==0&order<=5&blocked_side_continuetime>=2",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
+    "id": 100411,
+    "name": "Genius x Bakushin = Victory",
+    "description": "Increase velocity with BAKUSHIN power when engaged in a challenge toward the front in the second half of the race.",
+    "rarity": 4,
+    "category": 5,
+    "condition_1": "distance_rate>=50&order<=3&blocked_side_continuetime>=2",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
+    "id": 100451,
+    "name": "Pure Heart",
+    "description": "Recover endurance when well-positioned mid-race.",
+    "rarity": 4,
+    "category": 5,
+    "condition_1": "phase_random==1&order>=2&order_rate<=40",
+    "condition_2": "",
+    "icon_id": 20023
+  },
+  {
+    "id": 100521,
+    "name": "Super-Duper Climax",
+    "description": "Recover endurance with a glance at nearby runners when positioned toward the back on the final corner.",
+    "rarity": 4,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner!=0&order_rate>50&near_count>=1",
+    "condition_2": "",
+    "icon_id": 20023
+  },
+  {
+    "id": 100561,
+    "name": "I See Victory in My Future!",
+    "description": "Clear a path forward with the power of divination when the way ahead is jammed late-race.",
+    "rarity": 4,
+    "category": 5,
+    "condition_1": "phase>=2&order>=3&blocked_front==1",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
+    "id": 100601,
+    "name": "Just a Little Farther!",
+    "description": "Increase velocity with flaring fighting spirit when positioned 3rd and about to lose late-race.",
+    "rarity": 4,
+    "category": 5,
+    "condition_1": "phase>=2&order==3&bashin_diff_behind<=1",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
+    "id": 100611,
+    "name": "Prideful King",
+    "description": "Greatly increase velocity in a true display of skill with 200m remaining after racing calmly.",
+    "rarity": 4,
+    "category": 5,
+    "condition_1": "temptation_count==0&remain_distance<=201&remain_distance>=199&order>=5&order_rate<=60",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
+    "id": 200011,
+    "name": "Right-Handed \u25ce",
+    "description": "Increase performance on right-handed tracks.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "rotation==1",
+    "condition_2": "",
+    "icon_id": 10011
+  },
+  {
+    "id": 200012,
+    "name": "Right-Handed \u25cb",
+    "description": "Moderately increase performance on right-handed tracks.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "rotation==1",
+    "condition_2": "",
+    "icon_id": 10011
+  },
+  {
+    "id": 200013,
+    "name": "Right-Handed \u00d7",
+    "description": "Moderately decrease performance on right-handed tracks.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "rotation==1",
+    "condition_2": "",
+    "icon_id": 10014
+  },
+  {
+    "id": 200021,
+    "name": "Left-Handed \u25ce",
+    "description": "Increase performance on left-handed tracks.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "rotation==2",
+    "condition_2": "",
+    "icon_id": 10011
+  },
+  {
+    "id": 200022,
+    "name": "Left-Handed \u25cb",
+    "description": "Moderately increase performance on left-handed tracks.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "rotation==2",
+    "condition_2": "",
+    "icon_id": 10011
+  },
+  {
+    "id": 200023,
+    "name": "Left-Handed \u00d7",
+    "description": "Moderately decrease performance on left-handed tracks.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "rotation==2",
+    "condition_2": "",
+    "icon_id": 10014
+  },
+  {
+    "id": 200031,
+    "name": "Tokyo Racecourse \u25ce",
+    "description": "Increase performance at Tokyo Racecourse.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "track_id==10006",
+    "condition_2": "",
+    "icon_id": 10021
+  },
+  {
+    "id": 200032,
+    "name": "Tokyo Racecourse \u25cb",
+    "description": "Moderately increase performance at Tokyo Racecourse.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "track_id==10006",
+    "condition_2": "",
+    "icon_id": 10021
+  },
+  {
+    "id": 200033,
+    "name": "Tokyo Racecourse \u00d7",
+    "description": "Moderately decrease performance at Tokyo Racecourse.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "track_id==10006",
+    "condition_2": "",
+    "icon_id": 10024
+  },
+  {
+    "id": 200041,
+    "name": "Nakayama Racecourse \u25ce",
+    "description": "Increase performance at Nakayama Racecourse.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "track_id==10005",
+    "condition_2": "",
+    "icon_id": 10021
+  },
+  {
+    "id": 200042,
+    "name": "Nakayama Racecourse \u25cb",
+    "description": "Moderately increase performance at Nakayama Racecourse.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "track_id==10005",
+    "condition_2": "",
+    "icon_id": 10021
+  },
+  {
+    "id": 200043,
+    "name": "Nakayama Racecourse \u00d7",
+    "description": "Moderately decrease performance at Nakayama Racecourse.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "track_id==10005",
+    "condition_2": "",
+    "icon_id": 10024
+  },
+  {
+    "id": 200051,
+    "name": "Hanshin Racecourse \u25ce",
+    "description": "Increase performance at Hanshin Racecourse.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "track_id==10009",
+    "condition_2": "",
+    "icon_id": 10021
+  },
+  {
+    "id": 200052,
+    "name": "Hanshin Racecourse \u25cb",
+    "description": "Moderately increase performance at Hanshin Racecourse.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "track_id==10009",
+    "condition_2": "",
+    "icon_id": 10021
+  },
+  {
+    "id": 200053,
+    "name": "Hanshin Racecourse \u00d7",
+    "description": "Moderately decrease performance at Hanshin Racecourse.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "track_id==10009",
+    "condition_2": "",
+    "icon_id": 10024
+  },
+  {
+    "id": 200061,
+    "name": "Kyoto Racecourse \u25ce",
+    "description": "Increase performance at Kyoto Racecourse.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "track_id==10008",
+    "condition_2": "",
+    "icon_id": 10021
+  },
+  {
+    "id": 200062,
+    "name": "Kyoto Racecourse \u25cb",
+    "description": "Moderately increase performance at Kyoto Racecourse.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "track_id==10008",
+    "condition_2": "",
+    "icon_id": 10021
+  },
+  {
+    "id": 200063,
+    "name": "Kyoto Racecourse \u00d7",
+    "description": "Moderately decrease performance at Kyoto Racecourse.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "track_id==10008",
+    "condition_2": "",
+    "icon_id": 10024
+  },
+  {
+    "id": 200071,
+    "name": "Chukyo Racecourse \u25ce",
+    "description": "Increase performance at Chukyo Racecourse.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "track_id==10007",
+    "condition_2": "",
+    "icon_id": 10021
+  },
+  {
+    "id": 200072,
+    "name": "Chukyo Racecourse \u25cb",
+    "description": "Moderately increase performance at Chukyo Racecourse.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "track_id==10007",
+    "condition_2": "",
+    "icon_id": 10021
+  },
+  {
+    "id": 200073,
+    "name": "Chukyo Racecourse \u00d7",
+    "description": "Moderately decrease performance at Chukyo Racecourse.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "track_id==10007",
+    "condition_2": "",
+    "icon_id": 10024
+  },
+  {
+    "id": 200081,
+    "name": "Sapporo Racecourse \u25ce",
+    "description": "Increase performance at Sapporo Racecourse.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "track_id==10001",
+    "condition_2": "",
+    "icon_id": 10021
+  },
+  {
+    "id": 200082,
+    "name": "Sapporo Racecourse \u25cb",
+    "description": "Moderately increase performance at Sapporo Racecourse.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "track_id==10001",
+    "condition_2": "",
+    "icon_id": 10021
+  },
+  {
+    "id": 200083,
+    "name": "Sapporo Racecourse \u00d7",
+    "description": "Moderately decrease performance at Sapporo Racecourse.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "track_id==10001",
+    "condition_2": "",
+    "icon_id": 10024
+  },
+  {
+    "id": 200091,
+    "name": "Hakodate Racecourse \u25ce",
+    "description": "Increase performance at Hakodate Racecourse.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "track_id==10002",
+    "condition_2": "",
+    "icon_id": 10021
+  },
+  {
+    "id": 200092,
+    "name": "Hakodate Racecourse \u25cb",
+    "description": "Moderately increase performance at Hakodate Racecourse.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "track_id==10002",
+    "condition_2": "",
+    "icon_id": 10021
+  },
+  {
+    "id": 200093,
+    "name": "Hakodate Racecourse \u00d7",
+    "description": "Moderately decrease performance at Hakodate Racecourse.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "track_id==10002",
+    "condition_2": "",
+    "icon_id": 10024
+  },
+  {
+    "id": 200101,
+    "name": "Fukushima Racecourse \u25ce",
+    "description": "Increase performance at Fukushima Racecourse.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "track_id==10004",
+    "condition_2": "",
+    "icon_id": 10021
+  },
+  {
+    "id": 200102,
+    "name": "Fukushima Racecourse \u25cb",
+    "description": "Moderately increase performance at Fukushima Racecourse.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "track_id==10004",
+    "condition_2": "",
+    "icon_id": 10021
+  },
+  {
+    "id": 200103,
+    "name": "Fukushima Racecourse \u00d7",
+    "description": "Moderately decrease performance at Fukushima Racecourse.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "track_id==10004",
+    "condition_2": "",
+    "icon_id": 10024
+  },
+  {
+    "id": 200111,
+    "name": "Niigata Racecourse \u25ce",
+    "description": "Increase performance at Niigata Racecourse.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "track_id==10003",
+    "condition_2": "",
+    "icon_id": 10021
+  },
+  {
+    "id": 200112,
+    "name": "Niigata Racecourse \u25cb",
+    "description": "Moderately increase performance at Niigata Racecourse.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "track_id==10003",
+    "condition_2": "",
+    "icon_id": 10021
+  },
+  {
+    "id": 200113,
+    "name": "Niigata Racecourse \u00d7",
+    "description": "Moderately decrease performance at Niigata Racecourse.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "track_id==10003",
+    "condition_2": "",
+    "icon_id": 10024
+  },
+  {
+    "id": 200121,
+    "name": "Kokura Racecourse \u25ce",
+    "description": "Increase performance at Kokura Racecourse.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "track_id==10010",
+    "condition_2": "",
+    "icon_id": 10021
+  },
+  {
+    "id": 200122,
+    "name": "Kokura Racecourse \u25cb",
+    "description": "Moderately increase performance at Kokura Racecourse.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "track_id==10010",
+    "condition_2": "",
+    "icon_id": 10021
+  },
+  {
+    "id": 200123,
+    "name": "Kokura Racecourse \u00d7",
+    "description": "Moderately decrease performance at Kokura Racecourse.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "track_id==10010",
+    "condition_2": "",
+    "icon_id": 10024
+  },
+  {
+    "id": 200131,
+    "name": "Standard Distance \u25ce",
+    "description": "Increase performance over standard distances (multiples of 400m).",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "is_basis_distance==1",
+    "condition_2": "",
+    "icon_id": 10021
+  },
+  {
+    "id": 200132,
+    "name": "Standard Distance \u25cb",
+    "description": "Moderately increase performance over standard distances (multiples of 400m).",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "is_basis_distance==1",
+    "condition_2": "",
+    "icon_id": 10021
+  },
+  {
+    "id": 200133,
+    "name": "Standard Distance \u00d7",
+    "description": "Moderately decrease performance over standard distances (multiples of 400m).",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "is_basis_distance==1",
+    "condition_2": "",
+    "icon_id": 10024
+  },
+  {
+    "id": 200141,
+    "name": "Non-Standard Distance \u25ce",
+    "description": "Increase performance over non-standard distances (non-multiples of 400m).",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "is_basis_distance==0",
+    "condition_2": "",
+    "icon_id": 10021
+  },
+  {
+    "id": 200142,
+    "name": "Non-Standard Distance \u25cb",
+    "description": "Moderately increase performance over non-standard distances (non-multiples of 400m).",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "is_basis_distance==0",
+    "condition_2": "",
+    "icon_id": 10021
+  },
+  {
+    "id": 200143,
+    "name": "Non-Standard Distance \u00d7",
+    "description": "Moderately decrease performance over non-standard distances (non-multiples of 400m).",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "is_basis_distance==0",
+    "condition_2": "",
+    "icon_id": 10024
+  },
+  {
+    "id": 200151,
+    "name": "Firm Conditions \u25ce",
+    "description": "Increase performance on firm ground.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "ground_condition==1",
+    "condition_2": "",
+    "icon_id": 10031
+  },
+  {
+    "id": 200152,
+    "name": "Firm Conditions \u25cb",
+    "description": "Moderately increase performance on firm ground.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "ground_condition==1",
+    "condition_2": "",
+    "icon_id": 10031
+  },
+  {
+    "id": 200153,
+    "name": "Firm Conditions \u00d7",
+    "description": "Moderately decrease performance on firm ground.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "ground_condition==1",
+    "condition_2": "",
+    "icon_id": 10034
+  },
+  {
+    "id": 200161,
+    "name": "Wet Conditions \u25ce",
+    "description": "Increase performance on good, soft, and heavy ground.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "ground_condition==2@ground_condition==3@ground_condition==4",
+    "condition_2": "",
+    "icon_id": 10031
+  },
+  {
+    "id": 200162,
+    "name": "Wet Conditions \u25cb",
+    "description": "Moderately increase performance on good, soft, and heavy ground.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "ground_condition==2@ground_condition==3@ground_condition==4",
+    "condition_2": "",
+    "icon_id": 10031
+  },
+  {
+    "id": 200163,
+    "name": "Wet Conditions \u00d7",
+    "description": "Moderately decrease performance on good, soft, and heavy ground.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "ground_condition==2@ground_condition==3@ground_condition==4",
+    "condition_2": "",
+    "icon_id": 10034
+  },
+  {
+    "id": 200171,
+    "name": "Spring Runner \u25ce",
+    "description": "Increase performance in spring.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "season==1@season==5",
+    "condition_2": "",
+    "icon_id": 10011
+  },
+  {
+    "id": 200172,
+    "name": "Spring Runner \u25cb",
+    "description": "Moderately increase performance in spring.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "season==1@season==5",
+    "condition_2": "",
+    "icon_id": 10011
+  },
+  {
+    "id": 200173,
+    "name": "Spring Runner \u00d7",
+    "description": "Moderately decrease performance in spring.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "season==1@season==5",
+    "condition_2": "",
+    "icon_id": 10014
+  },
+  {
+    "id": 200181,
+    "name": "Summer Runner \u25ce",
+    "description": "Increase performance in summer.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "season==2",
+    "condition_2": "",
+    "icon_id": 10011
+  },
+  {
+    "id": 200182,
+    "name": "Summer Runner \u25cb",
+    "description": "Moderately increase performance in summer.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "season==2",
+    "condition_2": "",
+    "icon_id": 10011
+  },
+  {
+    "id": 200183,
+    "name": "Summer Runner \u00d7",
+    "description": "Moderately decrease performance in summer.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "season==2",
+    "condition_2": "",
+    "icon_id": 10014
+  },
+  {
+    "id": 200191,
+    "name": "Fall Runner \u25ce",
+    "description": "Increase performance in fall.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "season==3",
+    "condition_2": "",
+    "icon_id": 10011
+  },
+  {
+    "id": 200192,
+    "name": "Fall Runner \u25cb",
+    "description": "Moderately increase performance in fall.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "season==3",
+    "condition_2": "",
+    "icon_id": 10011
+  },
+  {
+    "id": 200193,
+    "name": "Fall Runner \u00d7",
+    "description": "Moderately decrease performance in fall.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "season==3",
+    "condition_2": "",
+    "icon_id": 10014
+  },
+  {
+    "id": 200201,
+    "name": "Winter Runner \u25ce",
+    "description": "Increase performance in winter.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "season==4",
+    "condition_2": "",
+    "icon_id": 10011
+  },
+  {
+    "id": 200202,
+    "name": "Winter Runner \u25cb",
+    "description": "Moderately increase performance in winter.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "season==4",
+    "condition_2": "",
+    "icon_id": 10011
+  },
+  {
+    "id": 200203,
+    "name": "Winter Runner \u00d7",
+    "description": "Moderately decrease performance in winter.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "season==4",
+    "condition_2": "",
+    "icon_id": 10014
+  },
+  {
+    "id": 200211,
+    "name": "Sunny Days \u25ce",
+    "description": "Increase performance in sunny weather.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "weather==1",
+    "condition_2": "",
+    "icon_id": 10041
+  },
+  {
+    "id": 200212,
+    "name": "Sunny Days \u25cb",
+    "description": "Moderately increase performance in sunny weather.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "weather==1",
+    "condition_2": "",
+    "icon_id": 10041
+  },
+  {
+    "id": 200221,
+    "name": "Cloudy Days \u25ce",
+    "description": "Increase performance in cloudy weather.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "weather==2",
+    "condition_2": "",
+    "icon_id": 10041
+  },
+  {
+    "id": 200222,
+    "name": "Cloudy Days \u25cb",
+    "description": "Moderately increase performance in cloudy weather.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "weather==2",
+    "condition_2": "",
+    "icon_id": 10041
+  },
+  {
+    "id": 200231,
+    "name": "Rainy Days \u25ce",
+    "description": "Increase performance in rainy weather.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "weather==3",
+    "condition_2": "",
+    "icon_id": 10041
+  },
+  {
+    "id": 200232,
+    "name": "Rainy Days \u25cb",
+    "description": "Moderately increase performance in rainy weather.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "weather==3",
+    "condition_2": "",
+    "icon_id": 10041
+  },
+  {
+    "id": 200233,
+    "name": "Rainy Days \u00d7",
+    "description": "Moderately decrease performance in rainy weather.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "weather==3",
+    "condition_2": "",
+    "icon_id": 10044
+  },
+  {
+    "id": 200241,
+    "name": "Snowy Days \u25ce",
+    "description": "Increase performance in snowy weather.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "weather==4",
+    "condition_2": "",
+    "icon_id": 10041
+  },
+  {
+    "id": 200242,
+    "name": "Snowy Days \u25cb",
+    "description": "Moderately increase performance in snowy weather.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "weather==4",
+    "condition_2": "",
+    "icon_id": 10041
+  },
+  {
+    "id": 200251,
+    "name": "Inner Post Proficiency \u25ce",
+    "description": "Increase performance in brackets 1\u20133.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "post_number<=3",
+    "condition_2": "",
+    "icon_id": 10051
+  },
+  {
+    "id": 200252,
+    "name": "Inner Post Proficiency \u25cb",
+    "description": "Moderately increase performance in brackets 1\u20133.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "post_number<=3",
+    "condition_2": "",
+    "icon_id": 10051
+  },
+  {
+    "id": 200253,
+    "name": "Inner Post Averseness",
+    "description": "Moderately decrease performance in brackets 1\u20133.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "post_number<=3",
+    "condition_2": "",
+    "icon_id": 10054
+  },
+  {
+    "id": 200261,
+    "name": "Outer Post Proficiency \u25ce",
+    "description": "Increase performance in brackets 6\u20138.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "post_number>=6",
+    "condition_2": "",
+    "icon_id": 10011
+  },
+  {
+    "id": 200262,
+    "name": "Outer Post Proficiency \u25cb",
+    "description": "Moderately increase performance in brackets 6\u20138.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "post_number>=6",
+    "condition_2": "",
+    "icon_id": 10011
+  },
+  {
+    "id": 200263,
+    "name": "Outer Post Averseness",
+    "description": "Moderately decrease performance in brackets 6\u20138.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "post_number>=6",
+    "condition_2": "",
+    "icon_id": 10014
+  },
+  {
+    "id": 200271,
+    "name": "Maverick \u25ce",
+    "description": "Increase performance when no other runners are using the same strategy.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "running_style_count_same<=1",
+    "condition_2": "",
+    "icon_id": 10011
+  },
+  {
+    "id": 200272,
+    "name": "Maverick \u25cb",
+    "description": "Moderately increase performance when no other runners are using the same strategy.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "running_style_count_same<=1",
+    "condition_2": "",
+    "icon_id": 10011
+  },
+  {
+    "id": 200281,
+    "name": "Competitive Spirit \u25ce",
+    "description": "Increase performance when at least 5 other runners are using the same strategy.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "running_style_count_same>=6",
+    "condition_2": "",
+    "icon_id": 10031
+  },
+  {
+    "id": 200282,
+    "name": "Competitive Spirit \u25cb",
+    "description": "Moderately increase performance when at least 5 other runners are using the same strategy.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "running_style_count_same>=6",
+    "condition_2": "",
+    "icon_id": 10031
+  },
+  {
+    "id": 200283,
+    "name": "Wallflower",
+    "description": "Moderately decrease performance when at least 5 other runners are using the same strategy.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "running_style_count_same>=6",
+    "condition_2": "",
+    "icon_id": 10034
+  },
+  {
+    "id": 200291,
+    "name": "Target in Sight \u25ce",
+    "description": "Increase performance when the favorite is using the same strategy.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "running_style_equal_popularity_one==1",
+    "condition_2": "",
+    "icon_id": 10041
+  },
+  {
+    "id": 200292,
+    "name": "Target in Sight \u25cb",
+    "description": "Moderately increase performance when the favorite is using the same strategy.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "running_style_equal_popularity_one==1",
+    "condition_2": "",
+    "icon_id": 10041
+  },
+  {
+    "id": 200301,
+    "name": "Long Shot \u25ce",
+    "description": "Increase performance when 4th favorite or below.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "popularity>=4",
+    "condition_2": "",
+    "icon_id": 10011
+  },
+  {
+    "id": 200302,
+    "name": "Long Shot \u25cb",
+    "description": "Moderately increase performance when 4th favorite or below.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "popularity>=4",
+    "condition_2": "",
+    "icon_id": 10011
+  },
+  {
+    "id": 200311,
+    "name": "G1 Averseness",
+    "description": "Moderately decrease performance in G1 or otherwise important races.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "grade==100",
+    "condition_2": "",
+    "icon_id": 10014
+  },
+  {
+    "id": 200321,
+    "name": "Paddock Fright",
+    "description": "Moderately decrease performance when the favorite.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "popularity==1",
+    "condition_2": "",
+    "icon_id": 10024
+  },
+  {
+    "id": 200331,
+    "name": "Professor of Curvature",
+    "description": "Increase velocity on a corner with skilled turning.",
+    "rarity": 2,
+    "category": 4,
+    "condition_1": "corner_random==1@corner_random==2@corner_random==3@corner_random==4",
+    "condition_2": "",
+    "icon_id": 20012
+  },
+  {
+    "id": 200332,
+    "name": "Corner Adept \u25cb",
+    "description": "Slightly increase velocity on a corner with skilled turning.",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "corner_random==1@corner_random==2@corner_random==3@corner_random==4",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 200333,
+    "name": "Corner Adept \u00d7",
+    "description": "Moderately decrease velocity on a corner with clumsy turning.",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "corner_random==1@corner_random==2@corner_random==3@corner_random==4",
+    "condition_2": "",
+    "icon_id": 20014
+  },
+  {
+    "id": 200341,
+    "name": "Corner Connoisseur",
+    "description": "Increase acceleration on a corner with masterful turning.",
+    "rarity": 2,
+    "category": 4,
+    "condition_1": "corner_random==1@corner_random==2@corner_random==3@corner_random==4",
+    "condition_2": "",
+    "icon_id": 20042
+  },
+  {
+    "id": 200342,
+    "name": "Corner Acceleration \u25cb",
+    "description": "Slightly increase acceleration on a corner with masterful turning.",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "corner_random==1@corner_random==2@corner_random==3@corner_random==4",
+    "condition_2": "",
+    "icon_id": 20041
+  },
+  {
+    "id": 200343,
+    "name": "Corner Acceleration \u00d7",
+    "description": "Moderately decrease acceleration on a corner with awkward turning.",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "corner_random==1@corner_random==2@corner_random==3@corner_random==4",
+    "condition_2": "",
+    "icon_id": 20044
+  },
+  {
+    "id": 200351,
+    "name": "Swinging Maestro",
+    "description": "Recover endurance on a corner with efficient turning.",
+    "rarity": 2,
+    "category": 4,
+    "condition_1": "corner_random==1@corner_random==2@corner_random==3@corner_random==4",
+    "condition_2": "",
+    "icon_id": 20022
+  },
+  {
+    "id": 200352,
+    "name": "Corner Recovery \u25cb",
+    "description": "Slightly recover endurance on a corner with efficient turning.",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "corner_random==1@corner_random==2@corner_random==3@corner_random==4",
+    "condition_2": "",
+    "icon_id": 20021
+  },
+  {
+    "id": 200353,
+    "name": "Corner Recovery \u00d7",
+    "description": "Moderately lose endurance on a corner with inefficient turning.",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "corner_random==1@corner_random==2@corner_random==3@corner_random==4",
+    "condition_2": "",
+    "icon_id": 20024
+  },
+  {
+    "id": 200361,
+    "name": "Beeline Burst",
+    "description": "Increase velocity on a straight.",
+    "rarity": 2,
+    "category": 4,
+    "condition_1": "straight_random==1",
+    "condition_2": "",
+    "icon_id": 20012
+  },
+  {
+    "id": 200362,
+    "name": "Straightaway Adept",
+    "description": "Slightly increase velocity on a straight.",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "straight_random==1",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 200371,
+    "name": "Rushing Gale!",
+    "description": "Increase acceleration on a straight.",
+    "rarity": 2,
+    "category": 4,
+    "condition_1": "straight_random==1",
+    "condition_2": "",
+    "icon_id": 20042
+  },
+  {
+    "id": 200372,
+    "name": "Straightaway Acceleration",
+    "description": "Slightly increase acceleration on a straight.",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "straight_random==1",
+    "condition_2": "",
+    "icon_id": 20041
+  },
+  {
+    "id": 200381,
+    "name": "Breath of Fresh Air",
+    "description": "Recover endurance on a straight.",
+    "rarity": 2,
+    "category": 4,
+    "condition_1": "straight_random==1",
+    "condition_2": "",
+    "icon_id": 20022
+  },
+  {
+    "id": 200382,
+    "name": "Straightaway Recovery",
+    "description": "Slightly recover endurance on a straight.",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "straight_random==1",
+    "condition_2": "",
+    "icon_id": 20021
+  },
+  {
+    "id": 200391,
+    "name": "Ramp Revulsion",
+    "description": "Moderately increase fatigue on an uphill.",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "slope==1",
+    "condition_2": "",
+    "icon_id": 20024
+  },
+  {
+    "id": 200401,
+    "name": "Packphobia",
+    "description": "Moderately lose endurance when surrounded.",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "accumulatetime>=2&blocked_all_continuetime>=1",
+    "condition_2": "",
+    "icon_id": 20024
+  },
+  {
+    "id": 200411,
+    "name": "Defeatist",
+    "description": "Moderately increase urge to give up when positioned around the very back on the final straight.",
+    "rarity": 1,
+    "category": 3,
+    "condition_1": "is_finalcorner==1&is_lastspurt==1&straight_random==1&corner==0&distance_diff_rate>=75",
+    "condition_2": "",
+    "icon_id": 20014
+  },
+  {
+    "id": 200421,
+    "name": "Reckless",
+    "description": "Moderately increase carelessness when in the lead with around 200m remaining.",
+    "rarity": 1,
+    "category": 3,
+    "condition_1": "remain_distance==200&order==1&bashin_diff_behind>=1",
+    "condition_2": "",
+    "icon_id": 20014
+  },
+  {
+    "id": 200431,
+    "name": "Concentration",
+    "description": "Decrease time lost to slow starts.",
+    "rarity": 2,
+    "category": 1,
+    "condition_1": "always==1",
+    "condition_2": "",
+    "icon_id": 20062
+  },
+  {
+    "id": 200432,
+    "name": "Focus",
+    "description": "Slightly decrease time lost to slow starts.",
+    "rarity": 1,
+    "category": 1,
+    "condition_1": "always==1",
+    "condition_2": "",
+    "icon_id": 20061
+  },
+  {
+    "id": 200433,
+    "name": "Gatekept",
+    "description": "Moderately increase time lost to slow starts.",
+    "rarity": 1,
+    "category": 1,
+    "condition_1": "always==1",
+    "condition_2": "",
+    "icon_id": 20064
+  },
+  {
+    "id": 200441,
+    "name": "Iron Will",
+    "description": "Recover endurance when the way ahead is jammed early-race.",
+    "rarity": 2,
+    "category": 1,
+    "condition_1": "phase==0&accumulatetime>=5&blocked_front_continuetime>=1",
+    "condition_2": "",
+    "icon_id": 20022
+  },
+  {
+    "id": 200442,
+    "name": "Lay Low",
+    "description": "Slightly recover endurance when the way ahead is jammed early-race.",
+    "rarity": 1,
+    "category": 1,
+    "condition_1": "phase==0&accumulatetime>=5&blocked_front_continuetime>=1",
+    "condition_2": "",
+    "icon_id": 20021
+  },
+  {
+    "id": 200451,
+    "name": "Center Stage",
+    "description": "Increase navigation early-race.",
+    "rarity": 2,
+    "category": 1,
+    "condition_1": "phase_random==0",
+    "condition_2": "",
+    "icon_id": 20052
+  },
+  {
+    "id": 200452,
+    "name": "Prudent Positioning",
+    "description": "Moderately increase navigation early-race.",
+    "rarity": 1,
+    "category": 1,
+    "condition_1": "phase_random==0",
+    "condition_2": "",
+    "icon_id": 20051
+  },
+  {
+    "id": 200461,
+    "name": "It's On!",
+    "description": "Increase velocity when passing another runner mid-race.",
+    "rarity": 2,
+    "category": 2,
+    "condition_1": "phase==1&change_order_onetime<0",
+    "condition_2": "",
+    "icon_id": 20012
+  },
+  {
+    "id": 200462,
+    "name": "Ramp Up",
+    "description": "Slightly increase velocity when passing another runner mid-race.",
+    "rarity": 1,
+    "category": 2,
+    "condition_1": "phase==1&change_order_onetime<0",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 200471,
+    "name": "Indomitable",
+    "description": "Recover endurance when passed by another runner mid-race.",
+    "rarity": 2,
+    "category": 2,
+    "condition_1": "phase==1&change_order_onetime>0",
+    "condition_2": "",
+    "icon_id": 20022
+  },
+  {
+    "id": 200472,
+    "name": "Pace Strategy",
+    "description": "Slightly recover endurance when passed by another runner mid-race.",
+    "rarity": 1,
+    "category": 2,
+    "condition_1": "phase==1&change_order_onetime>0",
+    "condition_2": "",
+    "icon_id": 20021
+  },
+  {
+    "id": 200481,
+    "name": "Unruffled",
+    "description": "Recover endurance when surrounded mid-race.",
+    "rarity": 2,
+    "category": 2,
+    "condition_1": "phase==1&blocked_all_continuetime>=1",
+    "condition_2": "",
+    "icon_id": 20022
+  },
+  {
+    "id": 200482,
+    "name": "Calm in a Crowd",
+    "description": "Slightly recover endurance when surrounded mid-race.",
+    "rarity": 1,
+    "category": 2,
+    "condition_1": "phase==1&blocked_all_continuetime>=1",
+    "condition_2": "",
+    "icon_id": 20021
+  },
+  {
+    "id": 200491,
+    "name": "No Stopping Me!",
+    "description": "Increase maneuverability when the way ahead is blocked in the last spurt.",
+    "rarity": 2,
+    "category": 3,
+    "condition_1": "blocked_front_continuetime>=1&is_lastspurt==1&hp_per>=1",
+    "condition_2": "",
+    "icon_id": 20042
+  },
+  {
+    "id": 200492,
+    "name": "Nimble Navigator",
+    "description": "Slightly increase maneuverability when the way ahead is blocked in the last spurt.",
+    "rarity": 1,
+    "category": 3,
+    "condition_1": "blocked_front_continuetime>=1&is_lastspurt==1&hp_per>=1",
+    "condition_2": "",
+    "icon_id": 20041
+  },
+  {
+    "id": 200501,
+    "name": "Lane Legerdemain",
+    "description": "Increase navigation late-race.",
+    "rarity": 2,
+    "category": 3,
+    "condition_1": "phase_random==2",
+    "condition_2": "",
+    "icon_id": 20052
+  },
+  {
+    "id": 200502,
+    "name": "Go with the Flow",
+    "description": "Moderately increase navigation late-race.",
+    "rarity": 1,
+    "category": 3,
+    "condition_1": "phase_random==2",
+    "condition_2": "",
+    "icon_id": 20051
+  },
+  {
+    "id": 200511,
+    "name": "In Body and Mind",
+    "description": "Increase velocity in the last spurt.",
+    "rarity": 2,
+    "category": 3,
+    "condition_1": "is_lastspurt==1&phase_random==3",
+    "condition_2": "",
+    "icon_id": 20012
+  },
+  {
+    "id": 200512,
+    "name": "Homestretch Haste",
+    "description": "Slightly increase velocity in the last spurt.",
+    "rarity": 1,
+    "category": 3,
+    "condition_1": "is_lastspurt==1&phase_random==3",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 200521,
+    "name": "Running Idle",
+    "description": "Moderately increase fatigue when in the lead by too large of a margin.",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "accumulatetime>=2&order==1&bashin_diff_behind>=1",
+    "condition_2": "",
+    "icon_id": 20024
+  },
+  {
+    "id": 200531,
+    "name": "Taking the Lead",
+    "description": "Increase ability to go to the front early-race. (Front Runner)",
+    "rarity": 2,
+    "category": 1,
+    "condition_1": "running_style==1&phase==0&accumulatetime>=5",
+    "condition_2": "",
+    "icon_id": 20042
+  },
+  {
+    "id": 200532,
+    "name": "Early Lead",
+    "description": "Slightly increase ability to go to the front early-race. (Front Runner)",
+    "rarity": 1,
+    "category": 1,
+    "condition_1": "running_style==1&phase==0&accumulatetime>=5",
+    "condition_2": "",
+    "icon_id": 20041
+  },
+  {
+    "id": 200541,
+    "name": "Escape Artist",
+    "description": "Increase ability to go to the front mid-race. (Front Runner)",
+    "rarity": 2,
+    "category": 2,
+    "condition_1": "running_style==1&phase_random==1&order_rate<=50",
+    "condition_2": "",
+    "icon_id": 20012
+  },
+  {
+    "id": 200542,
+    "name": "Fast-Paced",
+    "description": "Slightly increase ability to go to the front mid-race. (Front Runner)",
+    "rarity": 1,
+    "category": 2,
+    "condition_1": "running_style==1&phase_random==1&order_rate<=50",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 200551,
+    "name": "Unrestrained",
+    "description": "Increase ability to keep the lead on the final corner. (Front Runner)",
+    "rarity": 2,
+    "category": 3,
+    "condition_1": "running_style==1&is_finalcorner_random==1&order==1",
+    "condition_2": "",
+    "icon_id": 20042
+  },
+  {
+    "id": 200552,
+    "name": "Final Push",
+    "description": "Slightly increase ability to keep the lead on the final corner. (Front Runner)",
+    "rarity": 1,
+    "category": 3,
+    "condition_1": "running_style==1&is_finalcorner_random==1&order==1",
+    "condition_2": "",
+    "icon_id": 20041
+  },
+  {
+    "id": 200561,
+    "name": "Calm and Collected",
+    "description": "Decrease fatigue early-race. (Pace Chaser)",
+    "rarity": 2,
+    "category": 1,
+    "condition_1": "running_style==2&phase_random==0&accumulatetime>=5&order_rate<=50",
+    "condition_2": "",
+    "icon_id": 20022
+  },
+  {
+    "id": 200562,
+    "name": "Stamina to Spare",
+    "description": "Slightly decrease fatigue early-race. (Pace Chaser)",
+    "rarity": 1,
+    "category": 1,
+    "condition_1": "running_style==2&phase_random==0&accumulatetime>=5&order_rate<=50",
+    "condition_2": "",
+    "icon_id": 20021
+  },
+  {
+    "id": 200571,
+    "name": "Race Planner",
+    "description": "Decrease fatigue mid-race. (Pace Chaser)",
+    "rarity": 2,
+    "category": 2,
+    "condition_1": "running_style==2&phase_random==1&order_rate<=50",
+    "condition_2": "",
+    "icon_id": 20022
+  },
+  {
+    "id": 200572,
+    "name": "Preferred Position",
+    "description": "Slightly decrease fatigue mid-race. (Pace Chaser)",
+    "rarity": 1,
+    "category": 2,
+    "condition_1": "running_style==2&phase_random==1&order_rate<=50",
+    "condition_2": "",
+    "icon_id": 20021
+  },
+  {
+    "id": 200581,
+    "name": "Speed Star",
+    "description": "Increase ability to break out of the pack on the final corner. (Pace Chaser)",
+    "rarity": 2,
+    "category": 3,
+    "condition_1": "running_style==2&is_finalcorner_random==1&order_rate<=50",
+    "condition_2": "",
+    "icon_id": 20012
+  },
+  {
+    "id": 200582,
+    "name": "Prepared to Pass",
+    "description": "Slightly increase ability to break out of the pack on the final corner. (Pace Chaser)",
+    "rarity": 1,
+    "category": 3,
+    "condition_1": "running_style==2&is_finalcorner_random==1&order_rate<=50",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 200591,
+    "name": "Fast & Furious",
+    "description": "Increase velocity mid-race. (Late Surger)",
+    "rarity": 2,
+    "category": 2,
+    "condition_1": "running_style==3&phase_random==1&order_rate>50",
+    "condition_2": "",
+    "icon_id": 20012
+  },
+  {
+    "id": 200592,
+    "name": "Position Pilfer",
+    "description": "Slightly increase velocity mid-race. (Late Surger)",
+    "rarity": 1,
+    "category": 2,
+    "condition_1": "running_style==3&phase_random==1&order_rate>50",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 200601,
+    "name": "On Your Left!",
+    "description": "Increase acceleration late-race. (Late Surger)",
+    "rarity": 2,
+    "category": 3,
+    "condition_1": "running_style==3&phase_random==2&order_rate>50",
+    "condition_2": "",
+    "icon_id": 20042
+  },
+  {
+    "id": 200602,
+    "name": "Slick Surge",
+    "description": "Slightly increase acceleration late-race. (Late Surger)",
+    "rarity": 1,
+    "category": 3,
+    "condition_1": "running_style==3&phase_random==2&order_rate>50",
+    "condition_2": "",
+    "icon_id": 20041
+  },
+  {
+    "id": 200611,
+    "name": "Rising Dragon",
+    "description": "Increase velocity when passing another runner on the outside on the final corner. (Late Surger)",
+    "rarity": 2,
+    "category": 3,
+    "condition_1": "running_style==3&is_finalcorner==1&corner!=0&is_behind_in==1&change_order_onetime<0",
+    "condition_2": "",
+    "icon_id": 20012
+  },
+  {
+    "id": 200612,
+    "name": "Outer Swell",
+    "description": "Slightly increase velocity when passing another runner on the outside on the final corner. (Late Surger)",
+    "rarity": 1,
+    "category": 3,
+    "condition_1": "running_style==3&is_finalcorner==1&corner!=0&is_behind_in==1&change_order_onetime<0",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 200621,
+    "name": "Sleeping Lion",
+    "description": "Decrease fatigue mid-race. (End Closer)",
+    "rarity": 2,
+    "category": 2,
+    "condition_1": "running_style==4&phase_random==1&distance_diff_rate>=75",
+    "condition_2": "",
+    "icon_id": 20022
+  },
+  {
+    "id": 200622,
+    "name": "Standing By",
+    "description": "Slightly decrease fatigue mid-race. (End Closer)",
+    "rarity": 1,
+    "category": 2,
+    "condition_1": "running_style==4&phase_random==1&distance_diff_rate>=75",
+    "condition_2": "",
+    "icon_id": 20021
+  },
+  {
+    "id": 200631,
+    "name": "Sturm und Drang",
+    "description": "Move up in preparation to close the gap late-race. (End Closer)",
+    "rarity": 2,
+    "category": 3,
+    "condition_1": "running_style==4&phase_random==2&distance_diff_rate>=75",
+    "condition_2": "",
+    "icon_id": 20012
+  },
+  {
+    "id": 200632,
+    "name": "Masterful Gambit",
+    "description": "Slightly move up in preparation to close the gap late-race. (End Closer)",
+    "rarity": 1,
+    "category": 3,
+    "condition_1": "running_style==4&phase_random==2&distance_diff_rate>=75",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 200641,
+    "name": "Encroaching Shadow",
+    "description": "Increase acceleration on a straight in the last spurt. (End Closer)",
+    "rarity": 2,
+    "category": 3,
+    "condition_1": "running_style==4&is_lastspurt==1&corner==0",
+    "condition_2": "",
+    "icon_id": 20042
+  },
+  {
+    "id": 200642,
+    "name": "Straightaway Spurt",
+    "description": "Slightly increase acceleration on a straight in the last spurt. (End Closer)",
+    "rarity": 1,
+    "category": 3,
+    "condition_1": "running_style==4&is_lastspurt==1&corner==0",
+    "condition_2": "",
+    "icon_id": 20041
+  },
+  {
+    "id": 200651,
+    "name": "Turbo Sprint",
+    "description": "Increase acceleration on a straight. (Sprint)",
+    "rarity": 2,
+    "category": 4,
+    "condition_1": "distance_type==1&straight_random==1",
+    "condition_2": "",
+    "icon_id": 20042
+  },
+  {
+    "id": 200652,
+    "name": "Sprinting Gear",
+    "description": "Slightly increase acceleration on a straight. (Sprint)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "distance_type==1&straight_random==1",
+    "condition_2": "",
+    "icon_id": 20041
+  },
+  {
+    "id": 200662,
+    "name": "Wait-and-See",
+    "description": "Slightly decrease fatigue when positioned toward the back mid-race. (Sprint)",
+    "rarity": 1,
+    "category": 2,
+    "condition_1": "distance_type==1&phase_random==1&order_rate>50",
+    "condition_2": "",
+    "icon_id": 20021
+  },
+  {
+    "id": 200671,
+    "name": "Blinding Flash",
+    "description": "Increase spurting ability when positioned toward the back late-race. (Sprint)",
+    "rarity": 2,
+    "category": 3,
+    "condition_1": "distance_type==1&phase_random==2&order_rate>50",
+    "condition_2": "",
+    "icon_id": 20012
+  },
+  {
+    "id": 200672,
+    "name": "Gap Closer",
+    "description": "Slightly increase spurting ability when positioned toward the back late-race. (Sprint)",
+    "rarity": 1,
+    "category": 3,
+    "condition_1": "distance_type==1&phase_random==2&order_rate>50",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 200681,
+    "name": "Mile Maven",
+    "description": "Widen the margin when in the lead early-race. (Mile)",
+    "rarity": 2,
+    "category": 1,
+    "condition_1": "distance_type==2&phase_random==0&accumulatetime>=5&order==1",
+    "condition_2": "",
+    "icon_id": 20012
+  },
+  {
+    "id": 200682,
+    "name": "Productive Plan",
+    "description": "Slightly widen the margin when in the lead early-race. (Mile)",
+    "rarity": 1,
+    "category": 1,
+    "condition_1": "distance_type==2&phase_random==0&accumulatetime>=5&order==1",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 200691,
+    "name": "Keen Eye",
+    "description": "Decrease fatigue when positioned toward the back early-race. (Mile)",
+    "rarity": 2,
+    "category": 1,
+    "condition_1": "distance_type==2&phase_random==0&accumulatetime>=5&order_rate>50",
+    "condition_2": "",
+    "icon_id": 20022
+  },
+  {
+    "id": 200692,
+    "name": "Watchful Eye",
+    "description": "Slightly decrease fatigue when positioned toward the back early-race. (Mile)",
+    "rarity": 1,
+    "category": 1,
+    "condition_1": "distance_type==2&phase_random==0&accumulatetime>=5&order_rate>50",
+    "condition_2": "",
+    "icon_id": 20021
+  },
+  {
+    "id": 200701,
+    "name": "Furious Feat",
+    "description": "Increase passing ability when positioned toward the back late-race. (Mile)",
+    "rarity": 2,
+    "category": 3,
+    "condition_1": "distance_type==2&phase_random==2&order_rate>50",
+    "condition_2": "",
+    "icon_id": 20042
+  },
+  {
+    "id": 200702,
+    "name": "Updrafters",
+    "description": "Slightly increase passing ability when positioned toward the back late-race. (Mile)",
+    "rarity": 1,
+    "category": 3,
+    "condition_1": "distance_type==2&phase_random==2&order_rate>50",
+    "condition_2": "",
+    "icon_id": 20041
+  },
+  {
+    "id": 200711,
+    "name": "Trackblazer",
+    "description": "Decrease fatigue when in the lead mid-race. (Medium)",
+    "rarity": 2,
+    "category": 2,
+    "condition_1": "distance_type==3&phase_random==1&order==1",
+    "condition_2": "",
+    "icon_id": 20022
+  },
+  {
+    "id": 200712,
+    "name": "Rosy Outlook",
+    "description": "Slightly decrease fatigue when in the lead mid-race. (Medium)",
+    "rarity": 1,
+    "category": 2,
+    "condition_1": "distance_type==3&phase_random==1&order==1",
+    "condition_2": "",
+    "icon_id": 20021
+  },
+  {
+    "id": 200721,
+    "name": "Killer Tunes",
+    "description": "Increase positioning ability when positioned toward the front mid-race. (Medium)",
+    "rarity": 2,
+    "category": 2,
+    "condition_1": "distance_type==3&phase_random==1&order_rate<=50",
+    "condition_2": "",
+    "icon_id": 20012
+  },
+  {
+    "id": 200722,
+    "name": "Up-Tempo",
+    "description": "Slightly increase positioning ability when positioned toward the front mid-race. (Medium)",
+    "rarity": 1,
+    "category": 2,
+    "condition_1": "distance_type==3&phase_random==1&order_rate<=50",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 200731,
+    "name": "Unyielding",
+    "description": "Increase ability to fight back when passed by another runner on the final corner. (Medium)",
+    "rarity": 2,
+    "category": 3,
+    "condition_1": "distance_type==3&is_finalcorner==1&corner!=0&change_order_onetime>0",
+    "condition_2": "",
+    "icon_id": 20012
+  },
+  {
+    "id": 200732,
+    "name": "Steadfast",
+    "description": "Slightly increase ability to fight back when passed by another runner on the final corner. (Medium)",
+    "rarity": 1,
+    "category": 3,
+    "condition_1": "distance_type==3&is_finalcorner==1&corner!=0&change_order_onetime>0",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 200741,
+    "name": "Cooldown",
+    "description": "Decrease fatigue by taking a breather upon entering a straight. (Long)",
+    "rarity": 2,
+    "category": 4,
+    "condition_1": "distance_type==4&straight_random==1",
+    "condition_2": "",
+    "icon_id": 20022
+  },
+  {
+    "id": 200742,
+    "name": "Deep Breaths",
+    "description": "Slightly decrease fatigue by taking a breather upon entering a straight. (Long)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "distance_type==4&straight_random==1",
+    "condition_2": "",
+    "icon_id": 20021
+  },
+  {
+    "id": 200751,
+    "name": "Innate Experience",
+    "description": "Increase velocity when near the inner rail on the final corner. (Long)",
+    "rarity": 2,
+    "category": 3,
+    "condition_1": "distance_type==4&is_finalcorner==1&corner!=0&lane_type==0",
+    "condition_2": "",
+    "icon_id": 20012
+  },
+  {
+    "id": 200752,
+    "name": "Inside Scoop",
+    "description": "Slightly increase velocity when near the inner rail on the final corner. (Long)",
+    "rarity": 1,
+    "category": 3,
+    "condition_1": "distance_type==4&is_finalcorner==1&corner!=0&lane_type==0",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 200761,
+    "name": "Adrenaline Rush",
+    "description": "Regain the energy to run after exhausting strength. (Long)",
+    "rarity": 2,
+    "category": 4,
+    "condition_1": "distance_type==4&is_hp_empty_onetime==1",
+    "condition_2": "",
+    "icon_id": 20022
+  },
+  {
+    "id": 200762,
+    "name": "Extra Tank",
+    "description": "Slightly regain the energy to run after exhausting strength. (Long)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "distance_type==4&is_hp_empty_onetime==1",
+    "condition_2": "",
+    "icon_id": 20021
+  },
+  {
+    "id": 200771,
+    "name": "Trick (Front)",
+    "description": "Slightly increase fatigue for rushed runners behind when positioned toward the front mid-race.",
+    "rarity": 1,
+    "category": 2,
+    "condition_1": "phase==1&order_rate<=50&temptation_count_behind>=1",
+    "condition_2": "",
+    "icon_id": 30051
+  },
+  {
+    "id": 200781,
+    "name": "Trick (Rear)",
+    "description": "Slightly increase fatigue for rushed runners ahead when positioned toward the back mid-race.",
+    "rarity": 1,
+    "category": 2,
+    "condition_1": "phase==1&order_rate>50&temptation_count_infront>=1",
+    "condition_2": "",
+    "icon_id": 30051
+  },
+  {
+    "id": 200791,
+    "name": "Frenzied Front Runners",
+    "description": "Increase time needed for front runners to calm down when they become rushed.",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "running_style_temptation_count_nige>=1&is_temptation==0",
+    "condition_2": "",
+    "icon_id": 30041
+  },
+  {
+    "id": 200801,
+    "name": "Frenzied Pace Chasers",
+    "description": "Increase time needed for pace chasers to calm down when they become rushed.",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "running_style_temptation_count_senko>=1&is_temptation==0",
+    "condition_2": "",
+    "icon_id": 30041
+  },
+  {
+    "id": 200811,
+    "name": "Frenzied Late Surgers",
+    "description": "Increase time needed for late surgers to calm down when they become rushed.",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "running_style_temptation_count_sashi>=1&is_temptation==0",
+    "condition_2": "",
+    "icon_id": 30041
+  },
+  {
+    "id": 200821,
+    "name": "Frenzied End Closers",
+    "description": "Increase time needed for end closers to calm down when they become rushed.",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "running_style_temptation_count_oikomi>=1&is_temptation==0",
+    "condition_2": "",
+    "icon_id": 30041
+  },
+  {
+    "id": 200831,
+    "name": "Subdued Front Runners",
+    "description": "Slightly increase fatigue for front runners early-race.",
+    "rarity": 1,
+    "category": 1,
+    "condition_1": "running_style_count_nige_otherself>=1&phase_random==0&accumulatetime>=5",
+    "condition_2": "",
+    "icon_id": 30051
+  },
+  {
+    "id": 200841,
+    "name": "Flustered Front Runners",
+    "description": "Slightly increase fatigue for front runners mid-race.",
+    "rarity": 1,
+    "category": 2,
+    "condition_1": "running_style_count_nige_otherself>=1&phase_random==1",
+    "condition_2": "",
+    "icon_id": 30051
+  },
+  {
+    "id": 200851,
+    "name": "Hesitant Front Runners",
+    "description": "Slightly decrease velocity of front runners late-race.",
+    "rarity": 1,
+    "category": 3,
+    "condition_1": "running_style_count_nige_otherself>=1&phase_random==2",
+    "condition_2": "",
+    "icon_id": 30011
+  },
+  {
+    "id": 200861,
+    "name": "Subdued Pace Chasers",
+    "description": "Slightly increase fatigue for pace chasers early-race.",
+    "rarity": 1,
+    "category": 1,
+    "condition_1": "running_style_count_senko_otherself>=1&phase_random==0&accumulatetime>=5",
+    "condition_2": "",
+    "icon_id": 30051
+  },
+  {
+    "id": 200871,
+    "name": "Flustered Pace Chasers",
+    "description": "Slightly increase fatigue for pace chasers mid-race.",
+    "rarity": 1,
+    "category": 2,
+    "condition_1": "running_style_count_senko_otherself>=1&phase_random==1",
+    "condition_2": "",
+    "icon_id": 30051
+  },
+  {
+    "id": 200881,
+    "name": "Hesitant Pace Chasers",
+    "description": "Slightly decrease velocity of pace chasers late-race.",
+    "rarity": 1,
+    "category": 3,
+    "condition_1": "running_style_count_senko_otherself>=1&phase_random==2",
+    "condition_2": "",
+    "icon_id": 30011
+  },
+  {
+    "id": 200891,
+    "name": "Subdued Late Surgers",
+    "description": "Slightly increase fatigue for late surgers early-race.",
+    "rarity": 1,
+    "category": 1,
+    "condition_1": "running_style_count_sashi_otherself>=1&phase_random==0&accumulatetime>=5",
+    "condition_2": "",
+    "icon_id": 30051
+  },
+  {
+    "id": 200901,
+    "name": "Flustered Late Surgers",
+    "description": "Slightly increase fatigue for late surgers mid-race.",
+    "rarity": 1,
+    "category": 2,
+    "condition_1": "running_style_count_sashi_otherself>=1&phase_random==1",
+    "condition_2": "",
+    "icon_id": 30051
+  },
+  {
+    "id": 200911,
+    "name": "Hesitant Late Surgers",
+    "description": "Slightly decrease velocity of late surgers late-race.",
+    "rarity": 1,
+    "category": 3,
+    "condition_1": "running_style_count_sashi_otherself>=1&phase_random==2",
+    "condition_2": "",
+    "icon_id": 30011
+  },
+  {
+    "id": 200921,
+    "name": "Subdued End Closers",
+    "description": "Slightly increase fatigue for end closers early-race.",
+    "rarity": 1,
+    "category": 1,
+    "condition_1": "running_style_count_oikomi_otherself>=1&phase_random==0&accumulatetime>=5",
+    "condition_2": "",
+    "icon_id": 30051
+  },
+  {
+    "id": 200931,
+    "name": "Flustered End Closers",
+    "description": "Slightly increase fatigue for end closers mid-race.",
+    "rarity": 1,
+    "category": 2,
+    "condition_1": "running_style_count_oikomi_otherself>=1&phase_random==1",
+    "condition_2": "",
+    "icon_id": 30051
+  },
+  {
+    "id": 200941,
+    "name": "Hesitant End Closers",
+    "description": "Slightly decrease velocity of end closers late-race.",
+    "rarity": 1,
+    "category": 3,
+    "condition_1": "running_style_count_oikomi_otherself>=1&phase_random==2",
+    "condition_2": "",
+    "icon_id": 30011
+  },
+  {
+    "id": 200951,
+    "name": "Oi Racecourse \u25ce",
+    "description": "Increase performance at Oi Racecourse.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "track_id==10101",
+    "condition_2": "",
+    "icon_id": 10021
+  },
+  {
+    "id": 200952,
+    "name": "Oi Racecourse \u25cb",
+    "description": "Moderately increase performance at Oi Racecourse.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "track_id==10101",
+    "condition_2": "",
+    "icon_id": 10021
+  },
+  {
+    "id": 200953,
+    "name": "Oi Racecourse \u00d7",
+    "description": "Moderately decrease performance at Oi Racecourse.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "track_id==10101",
+    "condition_2": "",
+    "icon_id": 10024
+  },
+  {
+    "id": 200961,
+    "name": "Sprint Straightaways \u25ce",
+    "description": "Moderately increase velocity on a straight. (Sprint)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "distance_type==1&straight_random==1",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 200962,
+    "name": "Sprint Straightaways \u25cb",
+    "description": "Slightly increase velocity on a straight. (Sprint)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "distance_type==1&straight_random==1",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 200971,
+    "name": "Sprint Corners \u25ce",
+    "description": "Moderately increase velocity on a corner. (Sprint)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "distance_type==1&corner_random==1@distance_type==1&corner_random==2@distance_type==1&corner_random==3@distance_type==1&corner_random==4",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 200972,
+    "name": "Sprint Corners \u25cb",
+    "description": "Slightly increase velocity on a corner. (Sprint)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "distance_type==1&corner_random==1@distance_type==1&corner_random==2@distance_type==1&corner_random==3@distance_type==1&corner_random==4",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 200981,
+    "name": "Staggering Lead",
+    "description": "Increase ability to maintain the lead when leading by a large margin mid-race. (Sprint)",
+    "rarity": 2,
+    "category": 2,
+    "condition_1": "distance_type==1&phase==1&bashin_diff_behind>=5&order==1",
+    "condition_2": "",
+    "icon_id": 20012
+  },
+  {
+    "id": 200982,
+    "name": "Huge Lead",
+    "description": "Slightly increase ability to maintain the lead when leading by a large margin mid-race. (Sprint)",
+    "rarity": 1,
+    "category": 2,
+    "condition_1": "distance_type==1&phase==1&bashin_diff_behind>=5&order==1",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 200991,
+    "name": "Plan X",
+    "description": "Increase passing ability when positioned toward the front mid-race. (Sprint)",
+    "rarity": 2,
+    "category": 2,
+    "condition_1": "distance_type==1&phase_random==1&order>=2&order_rate<=50",
+    "condition_2": "",
+    "icon_id": 20042
+  },
+  {
+    "id": 200992,
+    "name": "Countermeasure",
+    "description": "Slightly increase passing ability when positioned toward the front mid-race. (Sprint)",
+    "rarity": 1,
+    "category": 2,
+    "condition_1": "distance_type==1&phase_random==1&order>=2&order_rate<=50",
+    "condition_2": "",
+    "icon_id": 20041
+  },
+  {
+    "id": 201001,
+    "name": "Perfect Prep!",
+    "description": "Prepare to make for the finish line mid-race. (Sprint)",
+    "rarity": 2,
+    "category": 2,
+    "condition_1": "distance_type==1&phase_random==1",
+    "condition_2": "",
+    "icon_id": 20052
+  },
+  {
+    "id": 201002,
+    "name": "Meticulous Measures",
+    "description": "Moderately prepare to make for the finish line mid-race. (Sprint)",
+    "rarity": 1,
+    "category": 2,
+    "condition_1": "distance_type==1&phase_random==1",
+    "condition_2": "",
+    "icon_id": 20051
+  },
+  {
+    "id": 201012,
+    "name": "Intimidate",
+    "description": "Moderately intimidate runners behind when positioned toward the front early-race. (Sprint)",
+    "rarity": 1,
+    "category": 1,
+    "condition_1": "distance_type==1&phase_random==0&order<=3&accumulatetime>=5",
+    "condition_2": "",
+    "icon_id": 30011
+  },
+  {
+    "id": 201021,
+    "name": "You've Got No Shot",
+    "description": "Cause panic in runners ahead when positioned toward the back early-race. (Sprint)",
+    "rarity": 2,
+    "category": 1,
+    "condition_1": "distance_type==1&phase_random==0&order_rate>50&accumulatetime>=5",
+    "condition_2": "",
+    "icon_id": 30052
+  },
+  {
+    "id": 201022,
+    "name": "Stop Right There!",
+    "description": "Slightly cause panic in runners ahead when positioned toward the back early-race. (Sprint)",
+    "rarity": 1,
+    "category": 1,
+    "condition_1": "distance_type==1&phase_random==0&order_rate>50&accumulatetime>=5",
+    "condition_2": "",
+    "icon_id": 30051
+  },
+  {
+    "id": 201031,
+    "name": "Mile Straightaways \u25ce",
+    "description": "Moderately increase velocity on a straight. (Mile)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "distance_type==2&straight_random==1",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 201032,
+    "name": "Mile Straightaways \u25cb",
+    "description": "Slightly increase velocity on a straight. (Mile)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "distance_type==2&straight_random==1",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 201041,
+    "name": "Mile Corners \u25ce",
+    "description": "Moderately increase velocity on a corner. (Mile)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "distance_type==2&corner_random==1@distance_type==2&corner_random==2@distance_type==2&corner_random==3@distance_type==2&corner_random==4",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 201042,
+    "name": "Mile Corners \u25cb",
+    "description": "Slightly increase velocity on a corner. (Mile)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "distance_type==2&corner_random==1@distance_type==2&corner_random==2@distance_type==2&corner_random==3@distance_type==2&corner_random==4",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 201051,
+    "name": "Changing Gears",
+    "description": "Increase passing ability when positioned toward the front mid-race. (Mile)",
+    "rarity": 2,
+    "category": 2,
+    "condition_1": "distance_type==2&phase_random==1&order_rate<=50",
+    "condition_2": "",
+    "icon_id": 20012
+  },
+  {
+    "id": 201052,
+    "name": "Shifting Gears",
+    "description": "Slightly increase passing ability when positioned toward the front mid-race. (Mile)",
+    "rarity": 1,
+    "category": 2,
+    "condition_1": "distance_type==2&phase_random==1&order_rate<=50",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 201061,
+    "name": "Step on the Gas!",
+    "description": "Increase acceleration when passing another runner mid-race. (Mile)",
+    "rarity": 2,
+    "category": 2,
+    "condition_1": "distance_type==2&phase==1&change_order_onetime<0",
+    "condition_2": "",
+    "icon_id": 20042
+  },
+  {
+    "id": 201062,
+    "name": "Acceleration",
+    "description": "Slightly increase acceleration when passing another runner mid-race. (Mile)",
+    "rarity": 1,
+    "category": 2,
+    "condition_1": "distance_type==2&phase==1&change_order_onetime<0",
+    "condition_2": "",
+    "icon_id": 20041
+  },
+  {
+    "id": 201071,
+    "name": "Big-Sisterly",
+    "description": "Increase passing ability. (Mile)",
+    "rarity": 2,
+    "category": 4,
+    "condition_1": "distance_type==2&is_overtake==1&accumulatetime>=5",
+    "condition_2": "",
+    "icon_id": 20012
+  },
+  {
+    "id": 201072,
+    "name": "Unyielding Spirit",
+    "description": "Slightly increase passing ability. (Mile)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "distance_type==2&is_overtake==1&accumulatetime>=5",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 201081,
+    "name": "Greed for Speed",
+    "description": "Moderately steal velocity from runners behind when in the lead mid-race. (Mile)",
+    "rarity": 2,
+    "category": 2,
+    "condition_1": "distance_type==2&phase_random==1&order==1",
+    "condition_2": "",
+    "icon_id": 30012
+  },
+  {
+    "id": 201082,
+    "name": "Speed Eater",
+    "description": "Slightly steal velocity from runners behind when in the lead mid-race. (Mile)",
+    "rarity": 1,
+    "category": 2,
+    "condition_1": "distance_type==2&phase_random==1&order==1",
+    "condition_2": "",
+    "icon_id": 30011
+  },
+  {
+    "id": 201091,
+    "name": "Battle Formation",
+    "description": "Dull movement for runners ahead when positioned toward the back early-race. (Mile)",
+    "rarity": 2,
+    "category": 1,
+    "condition_1": "distance_type==2&phase_random==0&order_rate>50&accumulatetime>=5",
+    "condition_2": "",
+    "icon_id": 30022
+  },
+  {
+    "id": 201092,
+    "name": "Opening Gambit",
+    "description": "Slightly dull movement for runners ahead when positioned toward the back early-race. (Mile)",
+    "rarity": 1,
+    "category": 1,
+    "condition_1": "distance_type==2&phase_random==0&order_rate>50&accumulatetime>=5",
+    "condition_2": "",
+    "icon_id": 30021
+  },
+  {
+    "id": 201101,
+    "name": "Medium Straightaways \u25ce",
+    "description": "Moderately increase velocity on a straight. (Medium)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "distance_type==3&straight_random==1",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 201102,
+    "name": "Medium Straightaways \u25cb",
+    "description": "Slightly increase velocity on a straight. (Medium)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "distance_type==3&straight_random==1",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 201111,
+    "name": "Medium Corners \u25ce",
+    "description": "Moderately increase velocity on a corner. (Medium)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "distance_type==3&corner_random==1@distance_type==3&corner_random==2@distance_type==3&corner_random==3@distance_type==3&corner_random==4",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 201112,
+    "name": "Medium Corners \u25cb",
+    "description": "Slightly increase velocity on a corner. (Medium)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "distance_type==3&corner_random==1@distance_type==3&corner_random==2@distance_type==3&corner_random==3@distance_type==3&corner_random==4",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 201121,
+    "name": "Clairvoyance",
+    "description": "Widen field of view with heightened observation early-race. (Medium)",
+    "rarity": 2,
+    "category": 1,
+    "condition_1": "distance_type==3&phase_random==0",
+    "condition_2": "",
+    "icon_id": 20092
+  },
+  {
+    "id": 201122,
+    "name": "Hawkeye",
+    "description": "Moderately widen field of view with heightened observation early-race. (Medium)",
+    "rarity": 1,
+    "category": 1,
+    "condition_1": "distance_type==3&phase_random==0",
+    "condition_2": "",
+    "icon_id": 20091
+  },
+  {
+    "id": 201131,
+    "name": "Lightning Step",
+    "description": "Avoid becoming surrounded when positioned toward the back mid-race. (Medium)",
+    "rarity": 2,
+    "category": 2,
+    "condition_1": "distance_type==3&phase_random==1&order_rate>50",
+    "condition_2": "",
+    "icon_id": 20052
+  },
+  {
+    "id": 201132,
+    "name": "Thunderbolt Step",
+    "description": "Moderately avoid becoming surrounded when positioned toward the back mid-race. (Medium)",
+    "rarity": 1,
+    "category": 2,
+    "condition_1": "distance_type==3&phase_random==1&order_rate>50",
+    "condition_2": "",
+    "icon_id": 20051
+  },
+  {
+    "id": 201141,
+    "name": "Miraculous Step",
+    "description": "Decrease fatigue when moving sideways. (Medium)",
+    "rarity": 2,
+    "category": 4,
+    "condition_1": "distance_type==3&is_move_lane==1&accumulatetime>=10@distance_type==3&is_move_lane==2&accumulatetime>=10",
+    "condition_2": "",
+    "icon_id": 20022
+  },
+  {
+    "id": 201142,
+    "name": "Soft Step",
+    "description": "Slightly decrease fatigue when moving sideways. (Medium)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "distance_type==3&is_move_lane==1&accumulatetime>=10@distance_type==3&is_move_lane==2&accumulatetime>=10",
+    "condition_2": "",
+    "icon_id": 20021
+  },
+  {
+    "id": 201151,
+    "name": "Dominator",
+    "description": "Decrease velocity of runners ahead when positioned toward the back late-race. (Medium)",
+    "rarity": 2,
+    "category": 3,
+    "condition_1": "distance_type==3&phase_random==2&order_rate>50",
+    "condition_2": "",
+    "icon_id": 30012
+  },
+  {
+    "id": 201152,
+    "name": "Tether",
+    "description": "Slightly decrease velocity of runners ahead when positioned toward the back late-race. (Medium)",
+    "rarity": 1,
+    "category": 3,
+    "condition_1": "distance_type==3&phase_random==2&order_rate>50",
+    "condition_2": "",
+    "icon_id": 30011
+  },
+  {
+    "id": 201161,
+    "name": "Mystifying Murmur",
+    "description": "Disturb runners directly ahead mid-race. (Medium)",
+    "rarity": 2,
+    "category": 2,
+    "condition_1": "distance_type==3&phase==1&blocked_front_continuetime>=1",
+    "condition_2": "",
+    "icon_id": 30052
+  },
+  {
+    "id": 201162,
+    "name": "Murmur",
+    "description": "Slightly disturb runners directly ahead mid-race. (Medium)",
+    "rarity": 1,
+    "category": 2,
+    "condition_1": "distance_type==3&phase==1&blocked_front_continuetime>=1",
+    "condition_2": "",
+    "icon_id": 30051
+  },
+  {
+    "id": 201171,
+    "name": "Long Straightaways \u25ce",
+    "description": "Moderately increase velocity on a straight. (Long)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "distance_type==4&straight_random==1",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 201172,
+    "name": "Long Straightaways \u25cb",
+    "description": "Slightly increase velocity on a straight. (Long)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "distance_type==4&straight_random==1",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 201181,
+    "name": "Long Corners \u25ce",
+    "description": "Moderately increase velocity on a corner. (Long)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "distance_type==4&corner_random==1@distance_type==4&corner_random==2@distance_type==4&corner_random==3@distance_type==4&corner_random==4",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 201182,
+    "name": "Long Corners \u25cb",
+    "description": "Slightly increase velocity on a corner. (Long)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "distance_type==4&corner_random==1@distance_type==4&corner_random==2@distance_type==4&corner_random==3@distance_type==4&corner_random==4",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 201191,
+    "name": "Vanguard Spirit",
+    "description": "Increase ability to maintain the lead when leading by a large margin mid-race. (Long)",
+    "rarity": 2,
+    "category": 2,
+    "condition_1": "distance_type==4&phase_random==1&bashin_diff_behind>=3&order==1",
+    "condition_2": "",
+    "icon_id": 20012
+  },
+  {
+    "id": 201192,
+    "name": "Keeping the Lead",
+    "description": "Slightly increase ability to maintain the lead when leading by a large margin mid-race. (Long)",
+    "rarity": 1,
+    "category": 2,
+    "condition_1": "distance_type==4&phase_random==1&bashin_diff_behind>=3&order==1",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 201202,
+    "name": "Passing Pro",
+    "description": "Slightly decrease fatigue when determined to pass another runner. (Long)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "distance_type==4&is_overtake==1&accumulatetime>=5",
+    "condition_2": "",
+    "icon_id": 20021
+  },
+  {
+    "id": 201211,
+    "name": "Overwhelming Pressure",
+    "description": "Increase velocity when passing another runner late-race. (Long)",
+    "rarity": 2,
+    "category": 3,
+    "condition_1": "distance_type==4&phase==2&change_order_onetime<0",
+    "condition_2": "",
+    "icon_id": 20012
+  },
+  {
+    "id": 201212,
+    "name": "Pressure",
+    "description": "Slightly increase velocity when passing another runner late-race. (Long)",
+    "rarity": 1,
+    "category": 3,
+    "condition_1": "distance_type==4&phase==2&change_order_onetime<0",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 201221,
+    "name": "Stamina Siphon",
+    "description": "Moderately steal endurance from runners ahead when positioned toward the back mid-race. (Long)",
+    "rarity": 2,
+    "category": 2,
+    "condition_1": "distance_type==4&phase_random==1&order>=5",
+    "condition_2": "",
+    "icon_id": 30052
+  },
+  {
+    "id": 201222,
+    "name": "Stamina Eater",
+    "description": "Very slightly steal endurance from runners ahead when positioned toward the back mid-race. (Long)",
+    "rarity": 1,
+    "category": 2,
+    "condition_1": "distance_type==4&phase_random==1&order>=5",
+    "condition_2": "",
+    "icon_id": 30051
+  },
+  {
+    "id": 201231,
+    "name": "Illusionist",
+    "description": "Narrow the field of view for runners ahead late-race. (Long)",
+    "rarity": 2,
+    "category": 3,
+    "condition_1": "distance_type==4&phase_random==2",
+    "condition_2": "",
+    "icon_id": 30072
+  },
+  {
+    "id": 201232,
+    "name": "Smoke Screen",
+    "description": "Moderately narrow the field of view for runners ahead late-race. (Long)",
+    "rarity": 1,
+    "category": 3,
+    "condition_1": "distance_type==4&phase_random==2",
+    "condition_2": "",
+    "icon_id": 30071
+  },
+  {
+    "id": 201241,
+    "name": "Front Runner Straightaways \u25ce",
+    "description": "Moderately increase velocity on a straight. (Front Runner)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "running_style==1&straight_random==1",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 201242,
+    "name": "Front Runner Straightaways \u25cb",
+    "description": "Slightly increase velocity on a straight. (Front Runner)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "running_style==1&straight_random==1",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 201251,
+    "name": "Front Runner Corners \u25ce",
+    "description": "Moderately increase velocity on a corner. (Front Runner)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "running_style==1&corner_random==1@running_style==1&corner_random==2@running_style==1&corner_random==3@running_style==1&corner_random==4",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 201252,
+    "name": "Front Runner Corners \u25cb",
+    "description": "Slightly increase velocity on a corner. (Front Runner)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "running_style==1&corner_random==1@running_style==1&corner_random==2@running_style==1&corner_random==3@running_style==1&corner_random==4",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 201262,
+    "name": "Dodging Danger",
+    "description": "Moderately avoid becoming surrounded early-race. (Front Runner)",
+    "rarity": 1,
+    "category": 1,
+    "condition_1": "running_style==1&phase==0&blocked_all_continuetime>=1",
+    "condition_2": "",
+    "icon_id": 20051
+  },
+  {
+    "id": 201272,
+    "name": "Leader's Pride",
+    "description": "Slightly avoid being passed early-race. (Front Runner)",
+    "rarity": 1,
+    "category": 1,
+    "condition_1": "running_style==1&phase==0&change_order_onetime>0&accumulatetime>=5",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 201281,
+    "name": "Restless",
+    "description": "Reduce fatigue on an uphill. (Front Runner)",
+    "rarity": 2,
+    "category": 4,
+    "condition_1": "running_style==1&slope==1&accumulatetime>=10",
+    "condition_2": "",
+    "icon_id": 20022
+  },
+  {
+    "id": 201282,
+    "name": "Moxie",
+    "description": "Slightly reduce fatigue on an uphill. (Front Runner)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "running_style==1&slope==1&accumulatetime>=10",
+    "condition_2": "",
+    "icon_id": 20021
+  },
+  {
+    "id": 201291,
+    "name": "Reignition",
+    "description": "Increase acceleration when positioned toward the back mid-race. (Front Runner)",
+    "rarity": 2,
+    "category": 2,
+    "condition_1": "running_style==1&phase_random==1&order_rate>50",
+    "condition_2": "",
+    "icon_id": 20042
+  },
+  {
+    "id": 201292,
+    "name": "Second Wind",
+    "description": "Slightly increase acceleration when positioned toward the back mid-race. (Front Runner)",
+    "rarity": 1,
+    "category": 2,
+    "condition_1": "running_style==1&phase_random==1&order_rate>50",
+    "condition_2": "",
+    "icon_id": 20041
+  },
+  {
+    "id": 201302,
+    "name": "Restart",
+    "description": "Slightly startle runners ahead when failing to get a lead early-race. (Front Runner)",
+    "rarity": 1,
+    "category": 1,
+    "condition_1": "running_style==1&phase_random==0&order_rate>50&accumulatetime>=5",
+    "condition_2": "",
+    "icon_id": 30021
+  },
+  {
+    "id": 201311,
+    "name": "Pace Chaser Straightaways \u25ce",
+    "description": "Moderately increase velocity on a straight. (Pace Chaser)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "running_style==2&straight_random==1",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 201312,
+    "name": "Pace Chaser Straightaways \u25cb",
+    "description": "Slightly increase velocity on a straight. (Pace Chaser)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "running_style==2&straight_random==1",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 201321,
+    "name": "Pace Chaser Corners \u25ce",
+    "description": "Moderately increase velocity on a corner. (Pace Chaser)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "running_style==2&corner_random==1@running_style==2&corner_random==2@running_style==2&corner_random==3@running_style==2&corner_random==4",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 201322,
+    "name": "Pace Chaser Corners \u25cb",
+    "description": "Slightly increase velocity on a corner. (Pace Chaser)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "running_style==2&corner_random==1@running_style==2&corner_random==2@running_style==2&corner_random==3@running_style==2&corner_random==4",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 201331,
+    "name": "Technician",
+    "description": "Moderately increase ability to navigate smoothly. (Pace Chaser)",
+    "rarity": 2,
+    "category": 4,
+    "condition_1": "running_style==2&is_move_lane==1@running_style==2&is_move_lane==2",
+    "condition_2": "",
+    "icon_id": 20042
+  },
+  {
+    "id": 201332,
+    "name": "Shrewd Step",
+    "description": "Slightly increase ability to navigate smoothly. (Pace Chaser)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "running_style==2&is_move_lane==1@running_style==2&is_move_lane==2",
+    "condition_2": "",
+    "icon_id": 20041
+  },
+  {
+    "id": 201341,
+    "name": "Determined Descent",
+    "description": "Moderately improve running on a downhill. (Pace Chaser)",
+    "rarity": 2,
+    "category": 4,
+    "condition_1": "running_style==2&slope==2",
+    "condition_2": "",
+    "icon_id": 20042
+  },
+  {
+    "id": 201342,
+    "name": "Straight Descent",
+    "description": "Slightly improve running on a downhill. (Pace Chaser)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "running_style==2&slope==2",
+    "condition_2": "",
+    "icon_id": 20041
+  },
+  {
+    "id": 201351,
+    "name": "Gourmand",
+    "description": "Recover endurance mid-race. (Pace Chaser)",
+    "rarity": 2,
+    "category": 2,
+    "condition_1": "running_style==2&phase_random==1",
+    "condition_2": "",
+    "icon_id": 20022
+  },
+  {
+    "id": 201352,
+    "name": "Hydrate",
+    "description": "Slightly recover endurance mid-race. (Pace Chaser)",
+    "rarity": 1,
+    "category": 2,
+    "condition_1": "running_style==2&phase_random==1",
+    "condition_2": "",
+    "icon_id": 20021
+  },
+  {
+    "id": 201361,
+    "name": "Shatterproof",
+    "description": "Moderately increase acceleration when positioned toward the back mid-race. (Pace Chaser)",
+    "rarity": 2,
+    "category": 2,
+    "condition_1": "running_style==2&phase_random==1&order_rate>50",
+    "condition_2": "",
+    "icon_id": 20042
+  },
+  {
+    "id": 201362,
+    "name": "Tactical Tweak",
+    "description": "Slightly increase acceleration when positioned toward the back mid-race. (Pace Chaser)",
+    "rarity": 1,
+    "category": 2,
+    "condition_1": "running_style==2&phase_random==1&order_rate>50",
+    "condition_2": "",
+    "icon_id": 20041
+  },
+  {
+    "id": 201371,
+    "name": "Dazzling Disorientation",
+    "description": "Moderately narrow the field of view for runners behind when positioned toward the front late-race. (Pace Chaser)",
+    "rarity": 2,
+    "category": 3,
+    "condition_1": "running_style==2&phase_random==2&order_rate<=50",
+    "condition_2": "",
+    "icon_id": 30072
+  },
+  {
+    "id": 201372,
+    "name": "Disorient",
+    "description": "Slightly narrow the field of view for runners behind when positioned toward the front late-race. (Pace Chaser)",
+    "rarity": 1,
+    "category": 3,
+    "condition_1": "running_style==2&phase_random==2&order_rate<=50",
+    "condition_2": "",
+    "icon_id": 30071
+  },
+  {
+    "id": 201381,
+    "name": "Late Surger Straightaways \u25ce",
+    "description": "Moderately increase velocity on a straight. (Late Surger)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "running_style==3&straight_random==1",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 201382,
+    "name": "Late Surger Straightaways \u25cb",
+    "description": "Slightly increase velocity on a straight. (Late Surger)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "running_style==3&straight_random==1",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 201391,
+    "name": "Later Surger Corners \u25ce",
+    "description": "Moderately increase velocity on a corner. (Late Surger)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "running_style==3&corner_random==1@running_style==3&corner_random==2@running_style==3&corner_random==3@running_style==3&corner_random==4",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 201392,
+    "name": "Late Surger Corners \u25cb",
+    "description": "Slightly increase velocity on a corner. (Late Surger)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "running_style==3&corner_random==1@running_style==3&corner_random==2@running_style==3&corner_random==3@running_style==3&corner_random==4",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 201401,
+    "name": "Hard Worker",
+    "description": "Moderately increase passing ability. (Late Surger)",
+    "rarity": 2,
+    "category": 4,
+    "condition_1": "running_style==3&is_overtake==1&accumulatetime>=5",
+    "condition_2": "",
+    "icon_id": 20042
+  },
+  {
+    "id": 201402,
+    "name": "Fighter",
+    "description": "Slightly increase passing ability. (Late Surger)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "running_style==3&is_overtake==1&accumulatetime>=5",
+    "condition_2": "",
+    "icon_id": 20041
+  },
+  {
+    "id": 201411,
+    "name": "15,000,000 CC",
+    "description": "Increase velocity on an uphill. (Late Surger)",
+    "rarity": 2,
+    "category": 4,
+    "condition_1": "running_style==3&slope==1",
+    "condition_2": "",
+    "icon_id": 20012
+  },
+  {
+    "id": 201412,
+    "name": "1,500,000 CC",
+    "description": "Slightly increase velocity on an uphill. (Late Surger)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "running_style==3&slope==1",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 201421,
+    "name": "Relax",
+    "description": "Recover endurance late-race. (Late Surger)",
+    "rarity": 2,
+    "category": 3,
+    "condition_1": "running_style==3&phase_random==2",
+    "condition_2": "",
+    "icon_id": 20022
+  },
+  {
+    "id": 201422,
+    "name": "A Small Breather",
+    "description": "Slightly recover endurance late-race. (Late Surger)",
+    "rarity": 1,
+    "category": 3,
+    "condition_1": "running_style==3&phase_random==2",
+    "condition_2": "",
+    "icon_id": 20021
+  },
+  {
+    "id": 201431,
+    "name": "The Bigger Picture",
+    "description": "Widen field of view with heightened observation mid-race. (Late Surger)",
+    "rarity": 2,
+    "category": 2,
+    "condition_1": "running_style==3&phase_random==1",
+    "condition_2": "",
+    "icon_id": 20092
+  },
+  {
+    "id": 201432,
+    "name": "Studious",
+    "description": "Slightly widen field of view with heightened observation mid-race. (Late Surger)",
+    "rarity": 1,
+    "category": 2,
+    "condition_1": "running_style==3&phase_random==1",
+    "condition_2": "",
+    "icon_id": 20091
+  },
+  {
+    "id": 201441,
+    "name": "All-Seeing Eyes",
+    "description": "Startle other runners late-race. (Late Surger)",
+    "rarity": 2,
+    "category": 3,
+    "condition_1": "running_style==3&phase_random==2&order_rate>50",
+    "condition_2": "",
+    "icon_id": 30052
+  },
+  {
+    "id": 201442,
+    "name": "Sharp Gaze",
+    "description": "Slightly startle other runners late-race. (Late Surger)",
+    "rarity": 1,
+    "category": 3,
+    "condition_1": "running_style==3&phase_random==2&order_rate>50",
+    "condition_2": "",
+    "icon_id": 30051
+  },
+  {
+    "id": 201451,
+    "name": "End Closer Straightaways \u25ce",
+    "description": "Moderately increase velocity on a straight. (End Closer)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "running_style==4&straight_random==1",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 201452,
+    "name": "End Closer Straightaways \u25cb",
+    "description": "Slightly increase velocity on a straight. (End Closer)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "running_style==4&straight_random==1",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 201461,
+    "name": "End Closer Corners \u25ce",
+    "description": "Moderately increase velocity on a corner. (End Closer)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "running_style==4&corner_random==1@running_style==4&corner_random==2@running_style==4&corner_random==3@running_style==4&corner_random==4",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 201462,
+    "name": "End Closer Corners \u25cb",
+    "description": "Slightly increase velocity on a corner. (End Closer)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "running_style==4&corner_random==1@running_style==4&corner_random==2@running_style==4&corner_random==3@running_style==4&corner_random==4",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 201471,
+    "name": "The Coast Is Clear!",
+    "description": "Moderately widen field of view with situational awareness when moving sideways. (End Closer)",
+    "rarity": 2,
+    "category": 4,
+    "condition_1": "running_style==4&is_move_lane==1@running_style==4&is_move_lane==2",
+    "condition_2": "",
+    "icon_id": 20092
+  },
+  {
+    "id": 201472,
+    "name": "I Can See Right Through You",
+    "description": "Slightly widen field of view with situational awareness when moving sideways. (End Closer)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "running_style==4&is_move_lane==1@running_style==4&is_move_lane==2",
+    "condition_2": "",
+    "icon_id": 20091
+  },
+  {
+    "id": 201481,
+    "name": "Go-Home Specialist",
+    "description": "Reduce fatigue on a downhill. (End Closer)",
+    "rarity": 2,
+    "category": 4,
+    "condition_1": "running_style==4&slope==2&accumulatetime>=10",
+    "condition_2": "",
+    "icon_id": 20022
+  },
+  {
+    "id": 201482,
+    "name": "After-School Stroll",
+    "description": "Slightly reduce fatigue on a downhill. (End Closer)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "running_style==4&slope==2&accumulatetime>=10",
+    "condition_2": "",
+    "icon_id": 20021
+  },
+  {
+    "id": 201491,
+    "name": "Serenity",
+    "description": "Regain composure by calming down when the way ahead is jammed. (End Closer)",
+    "rarity": 2,
+    "category": 4,
+    "condition_1": "running_style==4&blocked_front_continuetime>=1&accumulatetime>=10",
+    "condition_2": "",
+    "icon_id": 20022
+  },
+  {
+    "id": 201492,
+    "name": "Levelheaded",
+    "description": "Slightly regain composure by calming down when the way ahead is jammed. (End Closer)",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "running_style==4&blocked_front_continuetime>=1&accumulatetime>=10",
+    "condition_2": "",
+    "icon_id": 20021
+  },
+  {
+    "id": 201501,
+    "name": "Crusader",
+    "description": "Widen field of view when positioned toward the back late-race. (End Closer)",
+    "rarity": 2,
+    "category": 3,
+    "condition_1": "running_style==4&phase_random==2&order_rate>50",
+    "condition_2": "",
+    "icon_id": 20092
+  },
+  {
+    "id": 201502,
+    "name": "Strategist",
+    "description": "Slightly widen field of view when positioned toward the back late-race. (End Closer)",
+    "rarity": 1,
+    "category": 3,
+    "condition_1": "running_style==4&phase_random==2&order_rate>50",
+    "condition_2": "",
+    "icon_id": 20091
+  },
+  {
+    "id": 201511,
+    "name": "Petrifying Gaze",
+    "description": "Unnerve runners in focus late-race. (End Closer)",
+    "rarity": 2,
+    "category": 3,
+    "condition_1": "running_style==4&phase_random==2&order>=2",
+    "condition_2": "",
+    "icon_id": 30012
+  },
+  {
+    "id": 201512,
+    "name": "Intense Gaze",
+    "description": "Slightly unnerve runners in focus late-race. (End Closer)",
+    "rarity": 1,
+    "category": 3,
+    "condition_1": "running_style==4&phase_random==2&order>=2",
+    "condition_2": "",
+    "icon_id": 30011
+  },
+  {
+    "id": 201521,
+    "name": "Front Runner Savvy \u25ce",
+    "description": "Increase ability to get into a good position. (Front Runner)",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "running_style==1",
+    "condition_2": "",
+    "icon_id": 10051
+  },
+  {
+    "id": 201522,
+    "name": "Front Runner Savvy \u25cb",
+    "description": "Moderately increase ability to get into a good position. (Front Runner)",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "running_style==1",
+    "condition_2": "",
+    "icon_id": 10051
+  },
+  {
+    "id": 201531,
+    "name": "Pace Chaser Savvy \u25ce",
+    "description": "Increase ability to get into a good position. (Pace Chaser)",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "running_style==2",
+    "condition_2": "",
+    "icon_id": 10051
+  },
+  {
+    "id": 201532,
+    "name": "Pace Chaser Savvy \u25cb",
+    "description": "Moderately increase ability to get into a good position. (Pace Chaser)",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "running_style==2",
+    "condition_2": "",
+    "icon_id": 10051
+  },
+  {
+    "id": 201541,
+    "name": "Late Surger Savvy \u25ce",
+    "description": "Increase ability to get into a good position. (Late Surger)",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "running_style==3",
+    "condition_2": "",
+    "icon_id": 10051
+  },
+  {
+    "id": 201542,
+    "name": "Late Surger Savvy \u25cb",
+    "description": "Moderately increase ability to get into a good position. (Late Surger)",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "running_style==3",
+    "condition_2": "",
+    "icon_id": 10051
+  },
+  {
+    "id": 201551,
+    "name": "End Closer Savvy \u25ce",
+    "description": "Increase ability to get into a good position. (End Closer)",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "running_style==4",
+    "condition_2": "",
+    "icon_id": 10051
+  },
+  {
+    "id": 201552,
+    "name": "End Closer Savvy \u25cb",
+    "description": "Moderately increase ability to get into a good position. (End Closer)",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "running_style==4",
+    "condition_2": "",
+    "icon_id": 10051
+  },
+  {
+    "id": 201561,
+    "name": "Super Lucky Seven",
+    "description": "Good things may happen when in bracket 7.",
+    "rarity": 2,
+    "category": 0,
+    "condition_1": "random_lot==50&post_number==7",
+    "condition_2": "",
+    "icon_id": 10062
+  },
+  {
+    "id": 201562,
+    "name": "Lucky Seven",
+    "description": "Moderately good things may happen when in bracket 7.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "random_lot==50&post_number==7",
+    "condition_2": "",
+    "icon_id": 10061
+  },
+  {
+    "id": 201571,
+    "name": "Triple 7s",
+    "description": "Slightly gain energy with 777m remaining.",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "remain_distance<=778&remain_distance>=776",
+    "condition_2": "",
+    "icon_id": 20021
+  },
+  {
+    "id": 201581,
+    "name": "Highlander",
+    "description": "Slightly improve running on an uphill.",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "slope==1",
+    "condition_2": "",
+    "icon_id": 20041
+  },
+  {
+    "id": 201591,
+    "name": "Uma Stan",
+    "description": "Slightly increase velocity when close to many runners.",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "near_count==4@near_count==5@near_count==6@near_count==7",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 201601,
+    "name": "Groundwork",
+    "description": "Slightly increase acceleration after activating many skills early-race.",
+    "rarity": 1,
+    "category": 1,
+    "condition_1": "activate_count_start>=3",
+    "condition_2": "",
+    "icon_id": 20041
+  },
+  {
+    "id": 201611,
+    "name": "Tail Held High",
+    "description": "Slightly increase velocity after activating many skills mid-race.",
+    "rarity": 1,
+    "category": 2,
+    "condition_1": "activate_count_middle>=3",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 201621,
+    "name": "Shake It Out",
+    "description": "Slightly recover endurance after activating many skills late-race.",
+    "rarity": 1,
+    "category": 3,
+    "condition_1": "activate_count_end_after>=3",
+    "condition_2": "",
+    "icon_id": 20021
+  },
+  {
+    "id": 201631,
+    "name": "Sympathy",
+    "description": "Moderately increase performance when many runners share a sympathetic heart.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "same_skill_horse_count>=5",
+    "condition_2": "",
+    "icon_id": 10011
+  },
+  {
+    "id": 201641,
+    "name": "Lone Wolf",
+    "description": "Moderately increase performance when no other runners have the heart of a lone wolf.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "same_skill_horse_count==1",
+    "condition_2": "",
+    "icon_id": 10011
+  },
+  {
+    "id": 201651,
+    "name": "Slipstream",
+    "description": "Slightly decrease wind resistance when following directly behind another runner.",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "infront_near_lane_time>=3&accumulatetime>=10",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 201661,
+    "name": "Playtime's Over!",
+    "description": "Slightly increase velocity when followed by another runner directly behind for a long time.",
+    "rarity": 1,
+    "category": 4,
+    "condition_1": "behind_near_lane_time>=3&accumulatetime>=10",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 900011,
+    "name": "Shooting Star",
+    "description": "Slightly increase velocity when passing another runner toward the front late-race.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "phase>=2&order>=2&order_rate<=50&change_order_onetime<0",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 900021,
+    "name": "The View from the Lead Is Mine!",
+    "description": "Slightly increase velocity when in the lead by a fair margin on the final straight.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner==0&order==1&bashin_diff_behind>=1",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 900031,
+    "name": "Sky-High Teio Step",
+    "description": "Moderately increase velocity when closing the gap to runners ahead on the final straight.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner==0&order<=3&bashin_diff_infront<=1&is_overtake==1",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 900041,
+    "name": "Red Shift/LP1211-M",
+    "description": "Slightly increase acceleration when positioned toward the front on the final corner or later.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&order<=5&order_rate<=50",
+    "condition_2": "",
+    "icon_id": 20041
+  },
+  {
+    "id": 900061,
+    "name": "Triumphant Pulse",
+    "description": "Moderately increase ability to break out of the pack when positioned toward the front with 200m remaining.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "order>=2&order<=5&order_rate<=50&remain_distance<=201&remain_distance>=199",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 900071,
+    "name": "Anchors Aweigh!",
+    "description": "Very slightly increase velocity steadily with a long spurt starting halfway through the race.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "distance_rate>=50&distance_rate<=60&order_rate>50",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 900081,
+    "name": "Cut and Drive!",
+    "description": "Slightly increase velocity when positioned toward the front with 200m or less remaining.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "order>=3&order_rate<=50&remain_distance<=200&bashin_diff_infront<=1@order>=3&order_rate<=50&remain_distance<=200&bashin_diff_behind<=1",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 900091,
+    "name": "Resplendent Red Ace",
+    "description": "Very slightly swell with the determination to stay number one in the second half of the race.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "distance_rate>=50&order==1&bashin_diff_behind<=1",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 900101,
+    "name": "Shooting for Victory!",
+    "description": "Slightly increase acceleration when well-positioned on the final corner.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner!=0&order>=3&order_rate<=50",
+    "condition_2": "",
+    "icon_id": 20041
+  },
+  {
+    "id": 900111,
+    "name": "Where There's a Will, There's a Way",
+    "description": "Slightly increase velocity when passing another runner toward the back on the final straight.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner==0&change_order_onetime<0&order>=4",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 900131,
+    "name": "The Duty of Dignity Calls",
+    "description": "Slightly increase velocity when positioned toward the front on the final corner.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner!=0&distance_diff_rate<=30",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 900141,
+    "name": "Victoria por plancha \u2606",
+    "description": "Very slightly hang on to the advantage when positioned toward the front with energy to spare on the final straight.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner==0&hp_per>=30&order<=2",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 900151,
+    "name": "This Dance Is for Vittoria!",
+    "description": "Slightly increase velocity when engaged in a challenge toward the front on the final corner.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner!=0&bashin_diff_infront<=1&bashin_diff_behind<=1&blocked_side_continuetime>=2&order<=4",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 900171,
+    "name": "Behold Thine Emperor's Divine Might",
+    "description": "Moderately increase velocity on the final straight after passing another runner 3 times late-race.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&change_order_up_end_after>=3&corner==0",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 900181,
+    "name": "Blazing Pride",
+    "description": "Slightly increase velocity when passing another runner toward the back on the final corner.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner!=0&order>=4&change_order_onetime<0",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 900231,
+    "name": "\u2234win Q.E.D.",
+    "description": "Slightly increase velocity when passing another runner toward the front on the final corner.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner!=0&change_order_onetime<0&order<=4",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 900241,
+    "name": "Flashy\u2606Landing",
+    "description": "Very slightly increase ability to break out of the pack on the straight after engaging in a challenge toward the front on the final corner.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner!=0&blocked_side_continuetime>=2&order<=3",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 900261,
+    "name": "G00 1st. F\u221e;",
+    "description": "Slightly increase velocity when positioned toward the front after making it to the final straight without faltering.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "is_badstart==0&temptation_count==0&order<=3&is_finalcorner==1&corner==0",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 900271,
+    "name": "Let's Pump Some Iron!",
+    "description": "Slightly increase acceleration in an attempt to move up on a corner late-race.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "phase>=2&corner!=0&order_rate>=65&order_rate<=70",
+    "condition_2": "",
+    "icon_id": 20041
+  },
+  {
+    "id": 900301,
+    "name": "Blue Rose Closer",
+    "description": "Slightly increase velocity when breaking out of the pack on the final straight.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner==0&order<=4&change_order_onetime<0",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 900321,
+    "name": "U=ma2",
+    "description": "Slightly recover endurance when conserving energy on a corner in the second half of the race.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "distance_rate>=50&corner!=0&order>=3&order_rate<=40",
+    "condition_2": "",
+    "icon_id": 20021
+  },
+  {
+    "id": 900351,
+    "name": "Our Ticket to Win!",
+    "description": "Slightly increase velocity when refusing to back down from a challenge on the final straight.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner==0&order<=5&blocked_side_continuetime>=2",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 900411,
+    "name": "Genius x Bakushin = Victory",
+    "description": "Slightly increase velocity when engaged in a challenge toward the front in the second half of the race.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "distance_rate>=50&order<=3&blocked_side_continuetime>=2",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 900451,
+    "name": "Pure Heart",
+    "description": "Slightly recover endurance when well-positioned mid-race.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "phase_random==1&order>=2&order_rate<=40",
+    "condition_2": "",
+    "icon_id": 20021
+  },
+  {
+    "id": 900521,
+    "name": "Super-Duper Climax",
+    "description": "Slightly recover endurance with a glance at nearby runners when positioned toward the back on the final corner.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner!=0&order_rate>50&near_count>=1",
+    "condition_2": "",
+    "icon_id": 20021
+  },
+  {
+    "id": 900561,
+    "name": "I See Victory in My Future!",
+    "description": "Slightly clear a path forward depending on divination results when the way ahead is jammed late-race.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "phase>=2&order>=3&blocked_front==1",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 900601,
+    "name": "Just a Little Farther!",
+    "description": "Slightly increase velocity when positioned 3rd and about to lose late-race.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "phase>=2&order==3&bashin_diff_behind<=1",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 900611,
+    "name": "Prideful King",
+    "description": "Moderately increase velocity in a true display of skill with 200m remaining after racing calmly.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "temptation_count==0&remain_distance<=201&remain_distance>=199&order>=5&order_rate<=60",
+    "condition_2": "",
+    "icon_id": 20011
+  }
+]

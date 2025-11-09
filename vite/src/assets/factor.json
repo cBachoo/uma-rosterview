@@ -1,0 +1,5594 @@
+[
+  {
+    "id": 101,
+    "rarity": 1,
+    "grade": 1,
+    "type": 1,
+    "name": "Speed",
+    "description": "A Spark that increases Speed."
+  },
+  {
+    "id": 102,
+    "rarity": 2,
+    "grade": 1,
+    "type": 1,
+    "name": "Speed",
+    "description": "A Spark that increases Speed."
+  },
+  {
+    "id": 103,
+    "rarity": 3,
+    "grade": 1,
+    "type": 1,
+    "name": "Speed",
+    "description": "A Spark that increases Speed."
+  },
+  {
+    "id": 201,
+    "rarity": 1,
+    "grade": 1,
+    "type": 1,
+    "name": "Stamina",
+    "description": "A Spark that increases Stamina."
+  },
+  {
+    "id": 202,
+    "rarity": 2,
+    "grade": 1,
+    "type": 1,
+    "name": "Stamina",
+    "description": "A Spark that increases Stamina."
+  },
+  {
+    "id": 203,
+    "rarity": 3,
+    "grade": 1,
+    "type": 1,
+    "name": "Stamina",
+    "description": "A Spark that increases Stamina."
+  },
+  {
+    "id": 301,
+    "rarity": 1,
+    "grade": 1,
+    "type": 1,
+    "name": "Power",
+    "description": "A Spark that increases Power."
+  },
+  {
+    "id": 302,
+    "rarity": 2,
+    "grade": 1,
+    "type": 1,
+    "name": "Power",
+    "description": "A Spark that increases Power."
+  },
+  {
+    "id": 303,
+    "rarity": 3,
+    "grade": 1,
+    "type": 1,
+    "name": "Power",
+    "description": "A Spark that increases Power."
+  },
+  {
+    "id": 401,
+    "rarity": 1,
+    "grade": 1,
+    "type": 1,
+    "name": "Guts",
+    "description": "A Spark that increases Guts."
+  },
+  {
+    "id": 402,
+    "rarity": 2,
+    "grade": 1,
+    "type": 1,
+    "name": "Guts",
+    "description": "A Spark that increases Guts."
+  },
+  {
+    "id": 403,
+    "rarity": 3,
+    "grade": 1,
+    "type": 1,
+    "name": "Guts",
+    "description": "A Spark that increases Guts."
+  },
+  {
+    "id": 501,
+    "rarity": 1,
+    "grade": 1,
+    "type": 1,
+    "name": "Wit",
+    "description": "A Spark that increases Wit."
+  },
+  {
+    "id": 502,
+    "rarity": 2,
+    "grade": 1,
+    "type": 1,
+    "name": "Wit",
+    "description": "A Spark that increases Wit."
+  },
+  {
+    "id": 503,
+    "rarity": 3,
+    "grade": 1,
+    "type": 1,
+    "name": "Wit",
+    "description": "A Spark that increases Wit."
+  },
+  {
+    "id": 1101,
+    "rarity": 1,
+    "grade": 1,
+    "type": 2,
+    "name": "Turf",
+    "description": "A Spark that increases Turf Aptitude."
+  },
+  {
+    "id": 1102,
+    "rarity": 2,
+    "grade": 1,
+    "type": 2,
+    "name": "Turf",
+    "description": "A Spark that increases Turf Aptitude."
+  },
+  {
+    "id": 1103,
+    "rarity": 3,
+    "grade": 1,
+    "type": 2,
+    "name": "Turf",
+    "description": "A Spark that increases Turf Aptitude."
+  },
+  {
+    "id": 1201,
+    "rarity": 1,
+    "grade": 1,
+    "type": 2,
+    "name": "Dirt",
+    "description": "A Spark that increases Dirt Aptitude."
+  },
+  {
+    "id": 1202,
+    "rarity": 2,
+    "grade": 1,
+    "type": 2,
+    "name": "Dirt",
+    "description": "A Spark that increases Dirt Aptitude."
+  },
+  {
+    "id": 1203,
+    "rarity": 3,
+    "grade": 1,
+    "type": 2,
+    "name": "Dirt",
+    "description": "A Spark that increases Dirt Aptitude."
+  },
+  {
+    "id": 2101,
+    "rarity": 1,
+    "grade": 1,
+    "type": 2,
+    "name": "Front Runner",
+    "description": "A Spark that increases Front Runner Aptitude."
+  },
+  {
+    "id": 2102,
+    "rarity": 2,
+    "grade": 1,
+    "type": 2,
+    "name": "Front Runner",
+    "description": "A Spark that increases Front Runner Aptitude."
+  },
+  {
+    "id": 2103,
+    "rarity": 3,
+    "grade": 1,
+    "type": 2,
+    "name": "Front Runner",
+    "description": "A Spark that increases Front Runner Aptitude."
+  },
+  {
+    "id": 2201,
+    "rarity": 1,
+    "grade": 1,
+    "type": 2,
+    "name": "Pace Chaser",
+    "description": "A Spark that increases Pace Chaser Aptitude."
+  },
+  {
+    "id": 2202,
+    "rarity": 2,
+    "grade": 1,
+    "type": 2,
+    "name": "Pace Chaser",
+    "description": "A Spark that increases Pace Chaser Aptitude."
+  },
+  {
+    "id": 2203,
+    "rarity": 3,
+    "grade": 1,
+    "type": 2,
+    "name": "Pace Chaser",
+    "description": "A Spark that increases Pace Chaser Aptitude."
+  },
+  {
+    "id": 2301,
+    "rarity": 1,
+    "grade": 1,
+    "type": 2,
+    "name": "Late Surger",
+    "description": "A Spark that increases Late Surger Aptitude."
+  },
+  {
+    "id": 2302,
+    "rarity": 2,
+    "grade": 1,
+    "type": 2,
+    "name": "Late Surger",
+    "description": "A Spark that increases Late Surger Aptitude."
+  },
+  {
+    "id": 2303,
+    "rarity": 3,
+    "grade": 1,
+    "type": 2,
+    "name": "Late Surger",
+    "description": "A Spark that increases Late Surger Aptitude."
+  },
+  {
+    "id": 2401,
+    "rarity": 1,
+    "grade": 1,
+    "type": 2,
+    "name": "End Closer",
+    "description": "A Spark that increases End Closer Aptitude."
+  },
+  {
+    "id": 2402,
+    "rarity": 2,
+    "grade": 1,
+    "type": 2,
+    "name": "End Closer",
+    "description": "A Spark that increases End Closer Aptitude."
+  },
+  {
+    "id": 2403,
+    "rarity": 3,
+    "grade": 1,
+    "type": 2,
+    "name": "End Closer",
+    "description": "A Spark that increases End Closer Aptitude."
+  },
+  {
+    "id": 3101,
+    "rarity": 1,
+    "grade": 1,
+    "type": 2,
+    "name": "Sprint",
+    "description": "A Spark that increases Sprint-Distance Aptitude."
+  },
+  {
+    "id": 3102,
+    "rarity": 2,
+    "grade": 1,
+    "type": 2,
+    "name": "Sprint",
+    "description": "A Spark that increases Sprint-Distance Aptitude."
+  },
+  {
+    "id": 3103,
+    "rarity": 3,
+    "grade": 1,
+    "type": 2,
+    "name": "Sprint",
+    "description": "A Spark that increases Sprint-Distance Aptitude."
+  },
+  {
+    "id": 3201,
+    "rarity": 1,
+    "grade": 1,
+    "type": 2,
+    "name": "Mile",
+    "description": "A Spark that increases Mile-Distance Aptitude."
+  },
+  {
+    "id": 3202,
+    "rarity": 2,
+    "grade": 1,
+    "type": 2,
+    "name": "Mile",
+    "description": "A Spark that increases Mile-Distance Aptitude."
+  },
+  {
+    "id": 3203,
+    "rarity": 3,
+    "grade": 1,
+    "type": 2,
+    "name": "Mile",
+    "description": "A Spark that increases Mile-Distance Aptitude."
+  },
+  {
+    "id": 3301,
+    "rarity": 1,
+    "grade": 1,
+    "type": 2,
+    "name": "Medium",
+    "description": "A Spark that increases Medium-Distance Aptitude."
+  },
+  {
+    "id": 3302,
+    "rarity": 2,
+    "grade": 1,
+    "type": 2,
+    "name": "Medium",
+    "description": "A Spark that increases Medium-Distance Aptitude."
+  },
+  {
+    "id": 3303,
+    "rarity": 3,
+    "grade": 1,
+    "type": 2,
+    "name": "Medium",
+    "description": "A Spark that increases Medium-Distance Aptitude."
+  },
+  {
+    "id": 3401,
+    "rarity": 1,
+    "grade": 1,
+    "type": 2,
+    "name": "Long",
+    "description": "A Spark that increases Long-Distance Aptitude."
+  },
+  {
+    "id": 3402,
+    "rarity": 2,
+    "grade": 1,
+    "type": 2,
+    "name": "Long",
+    "description": "A Spark that increases Long-Distance Aptitude."
+  },
+  {
+    "id": 3403,
+    "rarity": 3,
+    "grade": 1,
+    "type": 2,
+    "name": "Long",
+    "description": "A Spark that increases Long-Distance Aptitude."
+  },
+  {
+    "id": 1000101,
+    "rarity": 1,
+    "grade": 1,
+    "type": 5,
+    "name": "February S.",
+    "description": "A Spark that increases Power and gives a skill hint for \"Winter Runner \u25cb\"."
+  },
+  {
+    "id": 1000102,
+    "rarity": 2,
+    "grade": 1,
+    "type": 5,
+    "name": "February S.",
+    "description": "A Spark that increases Power and gives a skill hint for \"Winter Runner \u25cb\"."
+  },
+  {
+    "id": 1000103,
+    "rarity": 3,
+    "grade": 1,
+    "type": 5,
+    "name": "February S.",
+    "description": "A Spark that increases Power and gives a skill hint for \"Winter Runner \u25cb\"."
+  },
+  {
+    "id": 1000201,
+    "rarity": 1,
+    "grade": 1,
+    "type": 5,
+    "name": "Takamatsunomiya Kinen",
+    "description": "A Spark that increases Speed and gives a skill hint for \"Chukyo Racecourse \u25cb\"."
+  },
+  {
+    "id": 1000202,
+    "rarity": 2,
+    "grade": 1,
+    "type": 5,
+    "name": "Takamatsunomiya Kinen",
+    "description": "A Spark that increases Speed and gives a skill hint for \"Chukyo Racecourse \u25cb\"."
+  },
+  {
+    "id": 1000203,
+    "rarity": 3,
+    "grade": 1,
+    "type": 5,
+    "name": "Takamatsunomiya Kinen",
+    "description": "A Spark that increases Speed and gives a skill hint for \"Chukyo Racecourse \u25cb\"."
+  },
+  {
+    "id": 1000301,
+    "rarity": 1,
+    "grade": 1,
+    "type": 5,
+    "name": "Osaka Hai",
+    "description": "A Spark that increases Guts and gives a skill hint for \"Standard Distance \u25cb\"."
+  },
+  {
+    "id": 1000302,
+    "rarity": 2,
+    "grade": 1,
+    "type": 5,
+    "name": "Osaka Hai",
+    "description": "A Spark that increases Guts and gives a skill hint for \"Standard Distance \u25cb\"."
+  },
+  {
+    "id": 1000303,
+    "rarity": 3,
+    "grade": 1,
+    "type": 5,
+    "name": "Osaka Hai",
+    "description": "A Spark that increases Guts and gives a skill hint for \"Standard Distance \u25cb\"."
+  },
+  {
+    "id": 1000401,
+    "rarity": 1,
+    "grade": 1,
+    "type": 5,
+    "name": "Oka Sho",
+    "description": "A Spark that increases Guts and gives a skill hint for \"Hanshin Racecourse \u25cb\"."
+  },
+  {
+    "id": 1000402,
+    "rarity": 2,
+    "grade": 1,
+    "type": 5,
+    "name": "Oka Sho",
+    "description": "A Spark that increases Guts and gives a skill hint for \"Hanshin Racecourse \u25cb\"."
+  },
+  {
+    "id": 1000403,
+    "rarity": 3,
+    "grade": 1,
+    "type": 5,
+    "name": "Oka Sho",
+    "description": "A Spark that increases Guts and gives a skill hint for \"Hanshin Racecourse \u25cb\"."
+  },
+  {
+    "id": 1000501,
+    "rarity": 1,
+    "grade": 1,
+    "type": 5,
+    "name": "Satsuki Sho",
+    "description": "A Spark that increases Power and gives a skill hint for \"Nakayama Racecourse \u25cb\"."
+  },
+  {
+    "id": 1000502,
+    "rarity": 2,
+    "grade": 1,
+    "type": 5,
+    "name": "Satsuki Sho",
+    "description": "A Spark that increases Power and gives a skill hint for \"Nakayama Racecourse \u25cb\"."
+  },
+  {
+    "id": 1000503,
+    "rarity": 3,
+    "grade": 1,
+    "type": 5,
+    "name": "Satsuki Sho",
+    "description": "A Spark that increases Power and gives a skill hint for \"Nakayama Racecourse \u25cb\"."
+  },
+  {
+    "id": 1000601,
+    "rarity": 1,
+    "grade": 1,
+    "type": 5,
+    "name": "Tenno Sho (Spring)",
+    "description": "A Spark that increases Stamina and gives a skill hint for \"Spring Runner \u25cb\"."
+  },
+  {
+    "id": 1000602,
+    "rarity": 2,
+    "grade": 1,
+    "type": 5,
+    "name": "Tenno Sho (Spring)",
+    "description": "A Spark that increases Stamina and gives a skill hint for \"Spring Runner \u25cb\"."
+  },
+  {
+    "id": 1000603,
+    "rarity": 3,
+    "grade": 1,
+    "type": 5,
+    "name": "Tenno Sho (Spring)",
+    "description": "A Spark that increases Stamina and gives a skill hint for \"Spring Runner \u25cb\"."
+  },
+  {
+    "id": 1000701,
+    "rarity": 1,
+    "grade": 1,
+    "type": 5,
+    "name": "NHK Mile C.",
+    "description": "A Spark that increases Speed and Power."
+  },
+  {
+    "id": 1000702,
+    "rarity": 2,
+    "grade": 1,
+    "type": 5,
+    "name": "NHK Mile C.",
+    "description": "A Spark that increases Speed and Power."
+  },
+  {
+    "id": 1000703,
+    "rarity": 3,
+    "grade": 1,
+    "type": 5,
+    "name": "NHK Mile C.",
+    "description": "A Spark that increases Speed and Power."
+  },
+  {
+    "id": 1000801,
+    "rarity": 1,
+    "grade": 1,
+    "type": 5,
+    "name": "Victoria Mile",
+    "description": "A Spark that increases Speed and Power."
+  },
+  {
+    "id": 1000802,
+    "rarity": 2,
+    "grade": 1,
+    "type": 5,
+    "name": "Victoria Mile",
+    "description": "A Spark that increases Speed and Power."
+  },
+  {
+    "id": 1000803,
+    "rarity": 3,
+    "grade": 1,
+    "type": 5,
+    "name": "Victoria Mile",
+    "description": "A Spark that increases Speed and Power."
+  },
+  {
+    "id": 1000901,
+    "rarity": 1,
+    "grade": 1,
+    "type": 5,
+    "name": "Japanese Oaks",
+    "description": "A Spark that increases Stamina and gives a skill hint for \"Tokyo Racecourse \u25cb\"."
+  },
+  {
+    "id": 1000902,
+    "rarity": 2,
+    "grade": 1,
+    "type": 5,
+    "name": "Japanese Oaks",
+    "description": "A Spark that increases Stamina and gives a skill hint for \"Tokyo Racecourse \u25cb\"."
+  },
+  {
+    "id": 1000903,
+    "rarity": 3,
+    "grade": 1,
+    "type": 5,
+    "name": "Japanese Oaks",
+    "description": "A Spark that increases Stamina and gives a skill hint for \"Tokyo Racecourse \u25cb\"."
+  },
+  {
+    "id": 1001001,
+    "rarity": 1,
+    "grade": 1,
+    "type": 5,
+    "name": "Japanese Derby",
+    "description": "A Spark that increases Guts and gives a skill hint for \"Tokyo Racecourse \u25cb\"."
+  },
+  {
+    "id": 1001002,
+    "rarity": 2,
+    "grade": 1,
+    "type": 5,
+    "name": "Japanese Derby",
+    "description": "A Spark that increases Guts and gives a skill hint for \"Tokyo Racecourse \u25cb\"."
+  },
+  {
+    "id": 1001003,
+    "rarity": 3,
+    "grade": 1,
+    "type": 5,
+    "name": "Japanese Derby",
+    "description": "A Spark that increases Guts and gives a skill hint for \"Tokyo Racecourse \u25cb\"."
+  },
+  {
+    "id": 1001101,
+    "rarity": 1,
+    "grade": 1,
+    "type": 5,
+    "name": "Yasuda Kinen",
+    "description": "A Spark that increases Speed and gives a skill hint for \"Tokyo Racecourse \u25cb\"."
+  },
+  {
+    "id": 1001102,
+    "rarity": 2,
+    "grade": 1,
+    "type": 5,
+    "name": "Yasuda Kinen",
+    "description": "A Spark that increases Speed and gives a skill hint for \"Tokyo Racecourse \u25cb\"."
+  },
+  {
+    "id": 1001103,
+    "rarity": 3,
+    "grade": 1,
+    "type": 5,
+    "name": "Yasuda Kinen",
+    "description": "A Spark that increases Speed and gives a skill hint for \"Tokyo Racecourse \u25cb\"."
+  },
+  {
+    "id": 1001201,
+    "rarity": 1,
+    "grade": 1,
+    "type": 5,
+    "name": "Takarazuka Kinen",
+    "description": "A Spark that increases Guts and gives a skill hint for \"Summer Runner \u25cb\"."
+  },
+  {
+    "id": 1001202,
+    "rarity": 2,
+    "grade": 1,
+    "type": 5,
+    "name": "Takarazuka Kinen",
+    "description": "A Spark that increases Guts and gives a skill hint for \"Summer Runner \u25cb\"."
+  },
+  {
+    "id": 1001203,
+    "rarity": 3,
+    "grade": 1,
+    "type": 5,
+    "name": "Takarazuka Kinen",
+    "description": "A Spark that increases Guts and gives a skill hint for \"Summer Runner \u25cb\"."
+  },
+  {
+    "id": 1001301,
+    "rarity": 1,
+    "grade": 1,
+    "type": 5,
+    "name": "Sprinters S.",
+    "description": "A Spark that increases Speed and gives a skill hint for \"Standard Distance \u25cb\"."
+  },
+  {
+    "id": 1001302,
+    "rarity": 2,
+    "grade": 1,
+    "type": 5,
+    "name": "Sprinters S.",
+    "description": "A Spark that increases Speed and gives a skill hint for \"Standard Distance \u25cb\"."
+  },
+  {
+    "id": 1001303,
+    "rarity": 3,
+    "grade": 1,
+    "type": 5,
+    "name": "Sprinters S.",
+    "description": "A Spark that increases Speed and gives a skill hint for \"Standard Distance \u25cb\"."
+  },
+  {
+    "id": 1001401,
+    "rarity": 1,
+    "grade": 1,
+    "type": 5,
+    "name": "Shuka Sho",
+    "description": "A Spark that increases Wit and gives a skill hint for \"Kyoto Racecourse \u25cb\"."
+  },
+  {
+    "id": 1001402,
+    "rarity": 2,
+    "grade": 1,
+    "type": 5,
+    "name": "Shuka Sho",
+    "description": "A Spark that increases Wit and gives a skill hint for \"Kyoto Racecourse \u25cb\"."
+  },
+  {
+    "id": 1001403,
+    "rarity": 3,
+    "grade": 1,
+    "type": 5,
+    "name": "Shuka Sho",
+    "description": "A Spark that increases Wit and gives a skill hint for \"Kyoto Racecourse \u25cb\"."
+  },
+  {
+    "id": 1001501,
+    "rarity": 1,
+    "grade": 1,
+    "type": 5,
+    "name": "Kikuka Sho",
+    "description": "A Spark that increases Stamina and gives a skill hint for \"Kyoto Racecourse \u25cb\"."
+  },
+  {
+    "id": 1001502,
+    "rarity": 2,
+    "grade": 1,
+    "type": 5,
+    "name": "Kikuka Sho",
+    "description": "A Spark that increases Stamina and gives a skill hint for \"Kyoto Racecourse \u25cb\"."
+  },
+  {
+    "id": 1001503,
+    "rarity": 3,
+    "grade": 1,
+    "type": 5,
+    "name": "Kikuka Sho",
+    "description": "A Spark that increases Stamina and gives a skill hint for \"Kyoto Racecourse \u25cb\"."
+  },
+  {
+    "id": 1001601,
+    "rarity": 1,
+    "grade": 1,
+    "type": 5,
+    "name": "Tenno Sho (Autumn)",
+    "description": "A Spark that increases Speed and gives a skill hint for \"Fall Runner \u25cb\"."
+  },
+  {
+    "id": 1001602,
+    "rarity": 2,
+    "grade": 1,
+    "type": 5,
+    "name": "Tenno Sho (Autumn)",
+    "description": "A Spark that increases Speed and gives a skill hint for \"Fall Runner \u25cb\"."
+  },
+  {
+    "id": 1001603,
+    "rarity": 3,
+    "grade": 1,
+    "type": 5,
+    "name": "Tenno Sho (Autumn)",
+    "description": "A Spark that increases Speed and gives a skill hint for \"Fall Runner \u25cb\"."
+  },
+  {
+    "id": 1001701,
+    "rarity": 1,
+    "grade": 1,
+    "type": 5,
+    "name": "Queen Elizabeth II Cup",
+    "description": "A Spark that increases Stamina and gives a skill hint for \"Non-Standard Distance \u25cb\"."
+  },
+  {
+    "id": 1001702,
+    "rarity": 2,
+    "grade": 1,
+    "type": 5,
+    "name": "Queen Elizabeth II Cup",
+    "description": "A Spark that increases Stamina and gives a skill hint for \"Non-Standard Distance \u25cb\"."
+  },
+  {
+    "id": 1001703,
+    "rarity": 3,
+    "grade": 1,
+    "type": 5,
+    "name": "Queen Elizabeth II Cup",
+    "description": "A Spark that increases Stamina and gives a skill hint for \"Non-Standard Distance \u25cb\"."
+  },
+  {
+    "id": 1001801,
+    "rarity": 1,
+    "grade": 1,
+    "type": 5,
+    "name": "Mile Ch.",
+    "description": "A Spark that increases Speed and gives a skill hint for \"Standard Distance \u25cb\"."
+  },
+  {
+    "id": 1001802,
+    "rarity": 2,
+    "grade": 1,
+    "type": 5,
+    "name": "Mile Ch.",
+    "description": "A Spark that increases Speed and gives a skill hint for \"Standard Distance \u25cb\"."
+  },
+  {
+    "id": 1001803,
+    "rarity": 3,
+    "grade": 1,
+    "type": 5,
+    "name": "Mile Ch.",
+    "description": "A Spark that increases Speed and gives a skill hint for \"Standard Distance \u25cb\"."
+  },
+  {
+    "id": 1001901,
+    "rarity": 1,
+    "grade": 1,
+    "type": 5,
+    "name": "Japan C.",
+    "description": "A Spark that increases Stamina and gives a skill hint for \"Tokyo Racecourse \u25cb\"."
+  },
+  {
+    "id": 1001902,
+    "rarity": 2,
+    "grade": 1,
+    "type": 5,
+    "name": "Japan C.",
+    "description": "A Spark that increases Stamina and gives a skill hint for \"Tokyo Racecourse \u25cb\"."
+  },
+  {
+    "id": 1001903,
+    "rarity": 3,
+    "grade": 1,
+    "type": 5,
+    "name": "Japan C.",
+    "description": "A Spark that increases Stamina and gives a skill hint for \"Tokyo Racecourse \u25cb\"."
+  },
+  {
+    "id": 1002001,
+    "rarity": 1,
+    "grade": 1,
+    "type": 5,
+    "name": "Champions C.",
+    "description": "A Spark that increases Power and gives a skill hint for \"Chukyo Racecourse \u25cb\"."
+  },
+  {
+    "id": 1002002,
+    "rarity": 2,
+    "grade": 1,
+    "type": 5,
+    "name": "Champions C.",
+    "description": "A Spark that increases Power and gives a skill hint for \"Chukyo Racecourse \u25cb\"."
+  },
+  {
+    "id": 1002003,
+    "rarity": 3,
+    "grade": 1,
+    "type": 5,
+    "name": "Champions C.",
+    "description": "A Spark that increases Power and gives a skill hint for \"Chukyo Racecourse \u25cb\"."
+  },
+  {
+    "id": 1002101,
+    "rarity": 1,
+    "grade": 1,
+    "type": 5,
+    "name": "Hanshin J.F.",
+    "description": "A Spark that increases Speed and Power."
+  },
+  {
+    "id": 1002102,
+    "rarity": 2,
+    "grade": 1,
+    "type": 5,
+    "name": "Hanshin J.F.",
+    "description": "A Spark that increases Speed and Power."
+  },
+  {
+    "id": 1002103,
+    "rarity": 3,
+    "grade": 1,
+    "type": 5,
+    "name": "Hanshin J.F.",
+    "description": "A Spark that increases Speed and Power."
+  },
+  {
+    "id": 1002201,
+    "rarity": 1,
+    "grade": 1,
+    "type": 5,
+    "name": "Asahi Hai F.S.",
+    "description": "A Spark that increases Speed and Guts."
+  },
+  {
+    "id": 1002202,
+    "rarity": 2,
+    "grade": 1,
+    "type": 5,
+    "name": "Asahi Hai F.S.",
+    "description": "A Spark that increases Speed and Guts."
+  },
+  {
+    "id": 1002203,
+    "rarity": 3,
+    "grade": 1,
+    "type": 5,
+    "name": "Asahi Hai F.S.",
+    "description": "A Spark that increases Speed and Guts."
+  },
+  {
+    "id": 1002301,
+    "rarity": 1,
+    "grade": 1,
+    "type": 5,
+    "name": "Arima Kinen",
+    "description": "A Spark that increases Guts and gives a skill hint for \"Nakayama Racecourse \u25cb\"."
+  },
+  {
+    "id": 1002302,
+    "rarity": 2,
+    "grade": 1,
+    "type": 5,
+    "name": "Arima Kinen",
+    "description": "A Spark that increases Guts and gives a skill hint for \"Nakayama Racecourse \u25cb\"."
+  },
+  {
+    "id": 1002303,
+    "rarity": 3,
+    "grade": 1,
+    "type": 5,
+    "name": "Arima Kinen",
+    "description": "A Spark that increases Guts and gives a skill hint for \"Nakayama Racecourse \u25cb\"."
+  },
+  {
+    "id": 1002401,
+    "rarity": 1,
+    "grade": 1,
+    "type": 5,
+    "name": "Hopeful S.",
+    "description": "A Spark that increases Speed and Stamina."
+  },
+  {
+    "id": 1002402,
+    "rarity": 2,
+    "grade": 1,
+    "type": 5,
+    "name": "Hopeful S.",
+    "description": "A Spark that increases Speed and Stamina."
+  },
+  {
+    "id": 1002403,
+    "rarity": 3,
+    "grade": 1,
+    "type": 5,
+    "name": "Hopeful S.",
+    "description": "A Spark that increases Speed and Stamina."
+  },
+  {
+    "id": 1002501,
+    "rarity": 1,
+    "grade": 1,
+    "type": 5,
+    "name": "Teio Sho",
+    "description": "A Spark that increases Power and gives a skill hint for \"Oi Racecourse \u25cb\"."
+  },
+  {
+    "id": 1002502,
+    "rarity": 2,
+    "grade": 1,
+    "type": 5,
+    "name": "Teio Sho",
+    "description": "A Spark that increases Power and gives a skill hint for \"Oi Racecourse \u25cb\"."
+  },
+  {
+    "id": 1002503,
+    "rarity": 3,
+    "grade": 1,
+    "type": 5,
+    "name": "Teio Sho",
+    "description": "A Spark that increases Power and gives a skill hint for \"Oi Racecourse \u25cb\"."
+  },
+  {
+    "id": 1002601,
+    "rarity": 1,
+    "grade": 1,
+    "type": 5,
+    "name": "J.D. Derby",
+    "description": "A Spark that increases Power and gives a skill hint for \"Oi Racecourse \u25cb\"."
+  },
+  {
+    "id": 1002602,
+    "rarity": 2,
+    "grade": 1,
+    "type": 5,
+    "name": "J.D. Derby",
+    "description": "A Spark that increases Power and gives a skill hint for \"Oi Racecourse \u25cb\"."
+  },
+  {
+    "id": 1002603,
+    "rarity": 3,
+    "grade": 1,
+    "type": 5,
+    "name": "J.D. Derby",
+    "description": "A Spark that increases Power and gives a skill hint for \"Oi Racecourse \u25cb\"."
+  },
+  {
+    "id": 1002701,
+    "rarity": 1,
+    "grade": 1,
+    "type": 5,
+    "name": "JBC L. Classic",
+    "description": "A Spark that increases Speed and Guts."
+  },
+  {
+    "id": 1002702,
+    "rarity": 2,
+    "grade": 1,
+    "type": 5,
+    "name": "JBC L. Classic",
+    "description": "A Spark that increases Speed and Guts."
+  },
+  {
+    "id": 1002703,
+    "rarity": 3,
+    "grade": 1,
+    "type": 5,
+    "name": "JBC L. Classic",
+    "description": "A Spark that increases Speed and Guts."
+  },
+  {
+    "id": 1002801,
+    "rarity": 1,
+    "grade": 1,
+    "type": 5,
+    "name": "JBC Sprint",
+    "description": "A Spark that increases Power and Guts."
+  },
+  {
+    "id": 1002802,
+    "rarity": 2,
+    "grade": 1,
+    "type": 5,
+    "name": "JBC Sprint",
+    "description": "A Spark that increases Power and Guts."
+  },
+  {
+    "id": 1002803,
+    "rarity": 3,
+    "grade": 1,
+    "type": 5,
+    "name": "JBC Sprint",
+    "description": "A Spark that increases Power and Guts."
+  },
+  {
+    "id": 1002901,
+    "rarity": 1,
+    "grade": 1,
+    "type": 5,
+    "name": "JBC Classic",
+    "description": "A Spark that increases Stamina and Guts."
+  },
+  {
+    "id": 1002902,
+    "rarity": 2,
+    "grade": 1,
+    "type": 5,
+    "name": "JBC Classic",
+    "description": "A Spark that increases Stamina and Guts."
+  },
+  {
+    "id": 1002903,
+    "rarity": 3,
+    "grade": 1,
+    "type": 5,
+    "name": "JBC Classic",
+    "description": "A Spark that increases Stamina and Guts."
+  },
+  {
+    "id": 1003001,
+    "rarity": 1,
+    "grade": 1,
+    "type": 5,
+    "name": "Tokyo Daishoten",
+    "description": "A Spark that increases Power and gives a skill hint for \"Oi Racecourse \u25cb\"."
+  },
+  {
+    "id": 1003002,
+    "rarity": 2,
+    "grade": 1,
+    "type": 5,
+    "name": "Tokyo Daishoten",
+    "description": "A Spark that increases Power and gives a skill hint for \"Oi Racecourse \u25cb\"."
+  },
+  {
+    "id": 1003003,
+    "rarity": 3,
+    "grade": 1,
+    "type": 5,
+    "name": "Tokyo Daishoten",
+    "description": "A Spark that increases Power and gives a skill hint for \"Oi Racecourse \u25cb\"."
+  },
+  {
+    "id": 2000101,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Right-Handed \u25cb",
+    "description": "A Spark that gives a skill hint for \"Right-Handed \u25cb\"."
+  },
+  {
+    "id": 2000102,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Right-Handed \u25cb",
+    "description": "A Spark that gives a skill hint for \"Right-Handed \u25cb\"."
+  },
+  {
+    "id": 2000103,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Right-Handed \u25cb",
+    "description": "A Spark that gives a skill hint for \"Right-Handed \u25cb\"."
+  },
+  {
+    "id": 2000201,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Left-Handed \u25cb",
+    "description": "A Spark that gives a skill hint for \"Left-Handed \u25cb\"."
+  },
+  {
+    "id": 2000202,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Left-Handed \u25cb",
+    "description": "A Spark that gives a skill hint for \"Left-Handed \u25cb\"."
+  },
+  {
+    "id": 2000203,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Left-Handed \u25cb",
+    "description": "A Spark that gives a skill hint for \"Left-Handed \u25cb\"."
+  },
+  {
+    "id": 2000301,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Tokyo Racecourse \u25cb",
+    "description": "A Spark that gives a skill hint for \"Tokyo Racecourse \u25cb\"."
+  },
+  {
+    "id": 2000302,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Tokyo Racecourse \u25cb",
+    "description": "A Spark that gives a skill hint for \"Tokyo Racecourse \u25cb\"."
+  },
+  {
+    "id": 2000303,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Tokyo Racecourse \u25cb",
+    "description": "A Spark that gives a skill hint for \"Tokyo Racecourse \u25cb\"."
+  },
+  {
+    "id": 2000401,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Nakayama Racecourse \u25cb",
+    "description": "A Spark that gives a skill hint for \"Nakayama Racecourse \u25cb\"."
+  },
+  {
+    "id": 2000402,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Nakayama Racecourse \u25cb",
+    "description": "A Spark that gives a skill hint for \"Nakayama Racecourse \u25cb\"."
+  },
+  {
+    "id": 2000403,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Nakayama Racecourse \u25cb",
+    "description": "A Spark that gives a skill hint for \"Nakayama Racecourse \u25cb\"."
+  },
+  {
+    "id": 2000501,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Hanshin Racecourse \u25cb",
+    "description": "A Spark that gives a skill hint for \"Hanshin Racecourse \u25cb\"."
+  },
+  {
+    "id": 2000502,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Hanshin Racecourse \u25cb",
+    "description": "A Spark that gives a skill hint for \"Hanshin Racecourse \u25cb\"."
+  },
+  {
+    "id": 2000503,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Hanshin Racecourse \u25cb",
+    "description": "A Spark that gives a skill hint for \"Hanshin Racecourse \u25cb\"."
+  },
+  {
+    "id": 2000601,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Kyoto Racecourse \u25cb",
+    "description": "A Spark that gives a skill hint for \"Kyoto Racecourse \u25cb\"."
+  },
+  {
+    "id": 2000602,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Kyoto Racecourse \u25cb",
+    "description": "A Spark that gives a skill hint for \"Kyoto Racecourse \u25cb\"."
+  },
+  {
+    "id": 2000603,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Kyoto Racecourse \u25cb",
+    "description": "A Spark that gives a skill hint for \"Kyoto Racecourse \u25cb\"."
+  },
+  {
+    "id": 2000701,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Chukyo Racecourse \u25cb",
+    "description": "A Spark that gives a skill hint for \"Chukyo Racecourse \u25cb\"."
+  },
+  {
+    "id": 2000702,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Chukyo Racecourse \u25cb",
+    "description": "A Spark that gives a skill hint for \"Chukyo Racecourse \u25cb\"."
+  },
+  {
+    "id": 2000703,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Chukyo Racecourse \u25cb",
+    "description": "A Spark that gives a skill hint for \"Chukyo Racecourse \u25cb\"."
+  },
+  {
+    "id": 2000801,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Sapporo Racecourse \u25cb",
+    "description": "A Spark that gives a skill hint for \"Sapporo Racecourse \u25cb\"."
+  },
+  {
+    "id": 2000802,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Sapporo Racecourse \u25cb",
+    "description": "A Spark that gives a skill hint for \"Sapporo Racecourse \u25cb\"."
+  },
+  {
+    "id": 2000803,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Sapporo Racecourse \u25cb",
+    "description": "A Spark that gives a skill hint for \"Sapporo Racecourse \u25cb\"."
+  },
+  {
+    "id": 2000901,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Hakodate Racecourse \u25cb",
+    "description": "A Spark that gives a skill hint for \"Hakodate Racecourse \u25cb\"."
+  },
+  {
+    "id": 2000902,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Hakodate Racecourse \u25cb",
+    "description": "A Spark that gives a skill hint for \"Hakodate Racecourse \u25cb\"."
+  },
+  {
+    "id": 2000903,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Hakodate Racecourse \u25cb",
+    "description": "A Spark that gives a skill hint for \"Hakodate Racecourse \u25cb\"."
+  },
+  {
+    "id": 2001001,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Fukushima Racecourse \u25cb",
+    "description": "A Spark that gives a skill hint for \"Fukushima Racecourse \u25cb\"."
+  },
+  {
+    "id": 2001002,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Fukushima Racecourse \u25cb",
+    "description": "A Spark that gives a skill hint for \"Fukushima Racecourse \u25cb\"."
+  },
+  {
+    "id": 2001003,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Fukushima Racecourse \u25cb",
+    "description": "A Spark that gives a skill hint for \"Fukushima Racecourse \u25cb\"."
+  },
+  {
+    "id": 2001101,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Niigata Racecourse \u25cb",
+    "description": "A Spark that gives a skill hint for \"Niigata Racecourse \u25cb\"."
+  },
+  {
+    "id": 2001102,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Niigata Racecourse \u25cb",
+    "description": "A Spark that gives a skill hint for \"Niigata Racecourse \u25cb\"."
+  },
+  {
+    "id": 2001103,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Niigata Racecourse \u25cb",
+    "description": "A Spark that gives a skill hint for \"Niigata Racecourse \u25cb\"."
+  },
+  {
+    "id": 2001201,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Kokura Racecourse \u25cb",
+    "description": "A Spark that gives a skill hint for \"Kokura Racecourse \u25cb\"."
+  },
+  {
+    "id": 2001202,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Kokura Racecourse \u25cb",
+    "description": "A Spark that gives a skill hint for \"Kokura Racecourse \u25cb\"."
+  },
+  {
+    "id": 2001203,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Kokura Racecourse \u25cb",
+    "description": "A Spark that gives a skill hint for \"Kokura Racecourse \u25cb\"."
+  },
+  {
+    "id": 2001301,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Standard Distance \u25cb",
+    "description": "A Spark that gives a skill hint for \"Standard Distance \u25cb\"."
+  },
+  {
+    "id": 2001302,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Standard Distance \u25cb",
+    "description": "A Spark that gives a skill hint for \"Standard Distance \u25cb\"."
+  },
+  {
+    "id": 2001303,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Standard Distance \u25cb",
+    "description": "A Spark that gives a skill hint for \"Standard Distance \u25cb\"."
+  },
+  {
+    "id": 2001401,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Non-Standard Distance \u25cb",
+    "description": "A Spark that gives a skill hint for \"Non-Standard Distance \u25cb\"."
+  },
+  {
+    "id": 2001402,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Non-Standard Distance \u25cb",
+    "description": "A Spark that gives a skill hint for \"Non-Standard Distance \u25cb\"."
+  },
+  {
+    "id": 2001403,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Non-Standard Distance \u25cb",
+    "description": "A Spark that gives a skill hint for \"Non-Standard Distance \u25cb\"."
+  },
+  {
+    "id": 2001501,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Firm Conditions \u25cb",
+    "description": "A Spark that gives a skill hint for \"Firm Conditions \u25cb\"."
+  },
+  {
+    "id": 2001502,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Firm Conditions \u25cb",
+    "description": "A Spark that gives a skill hint for \"Firm Conditions \u25cb\"."
+  },
+  {
+    "id": 2001503,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Firm Conditions \u25cb",
+    "description": "A Spark that gives a skill hint for \"Firm Conditions \u25cb\"."
+  },
+  {
+    "id": 2001601,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Wet Conditions \u25cb",
+    "description": "A Spark that gives a skill hint for \"Wet Conditions \u25cb\"."
+  },
+  {
+    "id": 2001602,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Wet Conditions \u25cb",
+    "description": "A Spark that gives a skill hint for \"Wet Conditions \u25cb\"."
+  },
+  {
+    "id": 2001603,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Wet Conditions \u25cb",
+    "description": "A Spark that gives a skill hint for \"Wet Conditions \u25cb\"."
+  },
+  {
+    "id": 2001701,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Spring Runner \u25cb",
+    "description": "A Spark that gives a skill hint for \"Spring Runner \u25cb\"."
+  },
+  {
+    "id": 2001702,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Spring Runner \u25cb",
+    "description": "A Spark that gives a skill hint for \"Spring Runner \u25cb\"."
+  },
+  {
+    "id": 2001703,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Spring Runner \u25cb",
+    "description": "A Spark that gives a skill hint for \"Spring Runner \u25cb\"."
+  },
+  {
+    "id": 2001801,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Summer Runner \u25cb",
+    "description": "A Spark that gives a skill hint for \"Summer Runner \u25cb\"."
+  },
+  {
+    "id": 2001802,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Summer Runner \u25cb",
+    "description": "A Spark that gives a skill hint for \"Summer Runner \u25cb\"."
+  },
+  {
+    "id": 2001803,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Summer Runner \u25cb",
+    "description": "A Spark that gives a skill hint for \"Summer Runner \u25cb\"."
+  },
+  {
+    "id": 2001901,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Fall Runner \u25cb",
+    "description": "A Spark that gives a skill hint for \"Fall Runner \u25cb\"."
+  },
+  {
+    "id": 2001902,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Fall Runner \u25cb",
+    "description": "A Spark that gives a skill hint for \"Fall Runner \u25cb\"."
+  },
+  {
+    "id": 2001903,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Fall Runner \u25cb",
+    "description": "A Spark that gives a skill hint for \"Fall Runner \u25cb\"."
+  },
+  {
+    "id": 2002001,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Winter Runner \u25cb",
+    "description": "A Spark that gives a skill hint for \"Winter Runner \u25cb\"."
+  },
+  {
+    "id": 2002002,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Winter Runner \u25cb",
+    "description": "A Spark that gives a skill hint for \"Winter Runner \u25cb\"."
+  },
+  {
+    "id": 2002003,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Winter Runner \u25cb",
+    "description": "A Spark that gives a skill hint for \"Winter Runner \u25cb\"."
+  },
+  {
+    "id": 2002101,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Sunny Days \u25cb",
+    "description": "A Spark that gives a skill hint for \"Sunny Days \u25cb\"."
+  },
+  {
+    "id": 2002102,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Sunny Days \u25cb",
+    "description": "A Spark that gives a skill hint for \"Sunny Days \u25cb\"."
+  },
+  {
+    "id": 2002103,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Sunny Days \u25cb",
+    "description": "A Spark that gives a skill hint for \"Sunny Days \u25cb\"."
+  },
+  {
+    "id": 2002201,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Cloudy Days \u25cb",
+    "description": "A Spark that gives a skill hint for \"Cloudy Days \u25cb\"."
+  },
+  {
+    "id": 2002202,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Cloudy Days \u25cb",
+    "description": "A Spark that gives a skill hint for \"Cloudy Days \u25cb\"."
+  },
+  {
+    "id": 2002203,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Cloudy Days \u25cb",
+    "description": "A Spark that gives a skill hint for \"Cloudy Days \u25cb\"."
+  },
+  {
+    "id": 2002301,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Rainy Days \u25cb",
+    "description": "A Spark that gives a skill hint for \"Rainy Days \u25cb\"."
+  },
+  {
+    "id": 2002302,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Rainy Days \u25cb",
+    "description": "A Spark that gives a skill hint for \"Rainy Days \u25cb\"."
+  },
+  {
+    "id": 2002303,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Rainy Days \u25cb",
+    "description": "A Spark that gives a skill hint for \"Rainy Days \u25cb\"."
+  },
+  {
+    "id": 2002401,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Snowy Days \u25cb",
+    "description": "A Spark that gives a skill hint for \"Snowy Days \u25cb\"."
+  },
+  {
+    "id": 2002402,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Snowy Days \u25cb",
+    "description": "A Spark that gives a skill hint for \"Snowy Days \u25cb\"."
+  },
+  {
+    "id": 2002403,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Snowy Days \u25cb",
+    "description": "A Spark that gives a skill hint for \"Snowy Days \u25cb\"."
+  },
+  {
+    "id": 2002501,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Inner Post Proficiency \u25cb",
+    "description": "A Spark that gives a skill hint for \"Inner Post Proficiency \u25cb\"."
+  },
+  {
+    "id": 2002502,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Inner Post Proficiency \u25cb",
+    "description": "A Spark that gives a skill hint for \"Inner Post Proficiency \u25cb\"."
+  },
+  {
+    "id": 2002503,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Inner Post Proficiency \u25cb",
+    "description": "A Spark that gives a skill hint for \"Inner Post Proficiency \u25cb\"."
+  },
+  {
+    "id": 2002601,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Outer Post Proficiency \u25cb",
+    "description": "A Spark that gives a skill hint for \"Outer Post Proficiency \u25cb\"."
+  },
+  {
+    "id": 2002602,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Outer Post Proficiency \u25cb",
+    "description": "A Spark that gives a skill hint for \"Outer Post Proficiency \u25cb\"."
+  },
+  {
+    "id": 2002603,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Outer Post Proficiency \u25cb",
+    "description": "A Spark that gives a skill hint for \"Outer Post Proficiency \u25cb\"."
+  },
+  {
+    "id": 2002701,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Maverick \u25cb",
+    "description": "A Spark that gives a skill hint for \"Maverick \u25cb\"."
+  },
+  {
+    "id": 2002702,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Maverick \u25cb",
+    "description": "A Spark that gives a skill hint for \"Maverick \u25cb\"."
+  },
+  {
+    "id": 2002703,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Maverick \u25cb",
+    "description": "A Spark that gives a skill hint for \"Maverick \u25cb\"."
+  },
+  {
+    "id": 2002801,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Competitive Spirit \u25cb",
+    "description": "A Spark that gives a skill hint for \"Competitive Spirit \u25cb\"."
+  },
+  {
+    "id": 2002802,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Competitive Spirit \u25cb",
+    "description": "A Spark that gives a skill hint for \"Competitive Spirit \u25cb\"."
+  },
+  {
+    "id": 2002803,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Competitive Spirit \u25cb",
+    "description": "A Spark that gives a skill hint for \"Competitive Spirit \u25cb\"."
+  },
+  {
+    "id": 2002901,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Target in Sight \u25cb",
+    "description": "A Spark that gives a skill hint for \"Target in Sight \u25cb\"."
+  },
+  {
+    "id": 2002902,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Target in Sight \u25cb",
+    "description": "A Spark that gives a skill hint for \"Target in Sight \u25cb\"."
+  },
+  {
+    "id": 2002903,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Target in Sight \u25cb",
+    "description": "A Spark that gives a skill hint for \"Target in Sight \u25cb\"."
+  },
+  {
+    "id": 2003001,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Long Shot \u25cb",
+    "description": "A Spark that gives a skill hint for \"Long Shot \u25cb\"."
+  },
+  {
+    "id": 2003002,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Long Shot \u25cb",
+    "description": "A Spark that gives a skill hint for \"Long Shot \u25cb\"."
+  },
+  {
+    "id": 2003003,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Long Shot \u25cb",
+    "description": "A Spark that gives a skill hint for \"Long Shot \u25cb\"."
+  },
+  {
+    "id": 2003301,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Corner Adept \u25cb",
+    "description": "A Spark that gives a skill hint for \"Corner Adept \u25cb\"."
+  },
+  {
+    "id": 2003302,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Corner Adept \u25cb",
+    "description": "A Spark that gives a skill hint for \"Corner Adept \u25cb\"."
+  },
+  {
+    "id": 2003303,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Corner Adept \u25cb",
+    "description": "A Spark that gives a skill hint for \"Corner Adept \u25cb\"."
+  },
+  {
+    "id": 2003401,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Corner Acceleration \u25cb",
+    "description": "A Spark that gives a skill hint for \"Corner Acceleration \u25cb\"."
+  },
+  {
+    "id": 2003402,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Corner Acceleration \u25cb",
+    "description": "A Spark that gives a skill hint for \"Corner Acceleration \u25cb\"."
+  },
+  {
+    "id": 2003403,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Corner Acceleration \u25cb",
+    "description": "A Spark that gives a skill hint for \"Corner Acceleration \u25cb\"."
+  },
+  {
+    "id": 2003501,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Corner Recovery \u25cb",
+    "description": "A Spark that gives a skill hint for \"Corner Recovery \u25cb\"."
+  },
+  {
+    "id": 2003502,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Corner Recovery \u25cb",
+    "description": "A Spark that gives a skill hint for \"Corner Recovery \u25cb\"."
+  },
+  {
+    "id": 2003503,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Corner Recovery \u25cb",
+    "description": "A Spark that gives a skill hint for \"Corner Recovery \u25cb\"."
+  },
+  {
+    "id": 2003601,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Straightaway Adept",
+    "description": "A Spark that gives a skill hint for \"Straightaway Adept\"."
+  },
+  {
+    "id": 2003602,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Straightaway Adept",
+    "description": "A Spark that gives a skill hint for \"Straightaway Adept\"."
+  },
+  {
+    "id": 2003603,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Straightaway Adept",
+    "description": "A Spark that gives a skill hint for \"Straightaway Adept\"."
+  },
+  {
+    "id": 2003701,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Straightaway Acceleration",
+    "description": "A Spark that gives a skill hint for \"Straightaway Acceleration\"."
+  },
+  {
+    "id": 2003702,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Straightaway Acceleration",
+    "description": "A Spark that gives a skill hint for \"Straightaway Acceleration\"."
+  },
+  {
+    "id": 2003703,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Straightaway Acceleration",
+    "description": "A Spark that gives a skill hint for \"Straightaway Acceleration\"."
+  },
+  {
+    "id": 2003801,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Straightaway Recovery",
+    "description": "A Spark that gives a skill hint for \"Straightaway Recovery\"."
+  },
+  {
+    "id": 2003802,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Straightaway Recovery",
+    "description": "A Spark that gives a skill hint for \"Straightaway Recovery\"."
+  },
+  {
+    "id": 2003803,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Straightaway Recovery",
+    "description": "A Spark that gives a skill hint for \"Straightaway Recovery\"."
+  },
+  {
+    "id": 2004301,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Focus",
+    "description": "A Spark that gives a skill hint for \"Focus\"."
+  },
+  {
+    "id": 2004302,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Focus",
+    "description": "A Spark that gives a skill hint for \"Focus\"."
+  },
+  {
+    "id": 2004303,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Focus",
+    "description": "A Spark that gives a skill hint for \"Focus\"."
+  },
+  {
+    "id": 2004401,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Lay Low",
+    "description": "A Spark that gives a skill hint for \"Lay Low\"."
+  },
+  {
+    "id": 2004402,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Lay Low",
+    "description": "A Spark that gives a skill hint for \"Lay Low\"."
+  },
+  {
+    "id": 2004403,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Lay Low",
+    "description": "A Spark that gives a skill hint for \"Lay Low\"."
+  },
+  {
+    "id": 2004501,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Prudent Positioning",
+    "description": "A Spark that gives a skill hint for \"Prudent Positioning\"."
+  },
+  {
+    "id": 2004502,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Prudent Positioning",
+    "description": "A Spark that gives a skill hint for \"Prudent Positioning\"."
+  },
+  {
+    "id": 2004503,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Prudent Positioning",
+    "description": "A Spark that gives a skill hint for \"Prudent Positioning\"."
+  },
+  {
+    "id": 2004601,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Ramp Up",
+    "description": "A Spark that gives a skill hint for \"Ramp Up\"."
+  },
+  {
+    "id": 2004602,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Ramp Up",
+    "description": "A Spark that gives a skill hint for \"Ramp Up\"."
+  },
+  {
+    "id": 2004603,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Ramp Up",
+    "description": "A Spark that gives a skill hint for \"Ramp Up\"."
+  },
+  {
+    "id": 2004701,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Pace Strategy",
+    "description": "A Spark that gives a skill hint for \"Pace Strategy\"."
+  },
+  {
+    "id": 2004702,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Pace Strategy",
+    "description": "A Spark that gives a skill hint for \"Pace Strategy\"."
+  },
+  {
+    "id": 2004703,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Pace Strategy",
+    "description": "A Spark that gives a skill hint for \"Pace Strategy\"."
+  },
+  {
+    "id": 2004801,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Calm in a Crowd",
+    "description": "A Spark that gives a skill hint for \"Calm in a Crowd\"."
+  },
+  {
+    "id": 2004802,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Calm in a Crowd",
+    "description": "A Spark that gives a skill hint for \"Calm in a Crowd\"."
+  },
+  {
+    "id": 2004803,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Calm in a Crowd",
+    "description": "A Spark that gives a skill hint for \"Calm in a Crowd\"."
+  },
+  {
+    "id": 2004901,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Nimble Navigator",
+    "description": "A Spark that gives a skill hint for \"Nimble Navigator\"."
+  },
+  {
+    "id": 2004902,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Nimble Navigator",
+    "description": "A Spark that gives a skill hint for \"Nimble Navigator\"."
+  },
+  {
+    "id": 2004903,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Nimble Navigator",
+    "description": "A Spark that gives a skill hint for \"Nimble Navigator\"."
+  },
+  {
+    "id": 2005001,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Go with the Flow",
+    "description": "A Spark that gives a skill hint for \"Go with the Flow\"."
+  },
+  {
+    "id": 2005002,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Go with the Flow",
+    "description": "A Spark that gives a skill hint for \"Go with the Flow\"."
+  },
+  {
+    "id": 2005003,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Go with the Flow",
+    "description": "A Spark that gives a skill hint for \"Go with the Flow\"."
+  },
+  {
+    "id": 2005101,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Homestretch Haste",
+    "description": "A Spark that gives a skill hint for \"Homestretch Haste\"."
+  },
+  {
+    "id": 2005102,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Homestretch Haste",
+    "description": "A Spark that gives a skill hint for \"Homestretch Haste\"."
+  },
+  {
+    "id": 2005103,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Homestretch Haste",
+    "description": "A Spark that gives a skill hint for \"Homestretch Haste\"."
+  },
+  {
+    "id": 2005301,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Early Lead",
+    "description": "A Spark that gives a skill hint for \"Early Lead\"."
+  },
+  {
+    "id": 2005302,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Early Lead",
+    "description": "A Spark that gives a skill hint for \"Early Lead\"."
+  },
+  {
+    "id": 2005303,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Early Lead",
+    "description": "A Spark that gives a skill hint for \"Early Lead\"."
+  },
+  {
+    "id": 2005401,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Fast-Paced",
+    "description": "A Spark that gives a skill hint for \"Fast-Paced\"."
+  },
+  {
+    "id": 2005402,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Fast-Paced",
+    "description": "A Spark that gives a skill hint for \"Fast-Paced\"."
+  },
+  {
+    "id": 2005403,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Fast-Paced",
+    "description": "A Spark that gives a skill hint for \"Fast-Paced\"."
+  },
+  {
+    "id": 2005501,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Final Push",
+    "description": "A Spark that gives a skill hint for \"Final Push\"."
+  },
+  {
+    "id": 2005502,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Final Push",
+    "description": "A Spark that gives a skill hint for \"Final Push\"."
+  },
+  {
+    "id": 2005503,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Final Push",
+    "description": "A Spark that gives a skill hint for \"Final Push\"."
+  },
+  {
+    "id": 2005601,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Stamina to Spare",
+    "description": "A Spark that gives a skill hint for \"Stamina to Spare\"."
+  },
+  {
+    "id": 2005602,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Stamina to Spare",
+    "description": "A Spark that gives a skill hint for \"Stamina to Spare\"."
+  },
+  {
+    "id": 2005603,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Stamina to Spare",
+    "description": "A Spark that gives a skill hint for \"Stamina to Spare\"."
+  },
+  {
+    "id": 2005701,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Preferred Position",
+    "description": "A Spark that gives a skill hint for \"Preferred Position\"."
+  },
+  {
+    "id": 2005702,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Preferred Position",
+    "description": "A Spark that gives a skill hint for \"Preferred Position\"."
+  },
+  {
+    "id": 2005703,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Preferred Position",
+    "description": "A Spark that gives a skill hint for \"Preferred Position\"."
+  },
+  {
+    "id": 2005801,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Prepared to Pass",
+    "description": "A Spark that gives a skill hint for \"Prepared to Pass\"."
+  },
+  {
+    "id": 2005802,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Prepared to Pass",
+    "description": "A Spark that gives a skill hint for \"Prepared to Pass\"."
+  },
+  {
+    "id": 2005803,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Prepared to Pass",
+    "description": "A Spark that gives a skill hint for \"Prepared to Pass\"."
+  },
+  {
+    "id": 2005901,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Position Pilfer",
+    "description": "A Spark that gives a skill hint for \"Position Pilfer\"."
+  },
+  {
+    "id": 2005902,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Position Pilfer",
+    "description": "A Spark that gives a skill hint for \"Position Pilfer\"."
+  },
+  {
+    "id": 2005903,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Position Pilfer",
+    "description": "A Spark that gives a skill hint for \"Position Pilfer\"."
+  },
+  {
+    "id": 2006001,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Slick Surge",
+    "description": "A Spark that gives a skill hint for \"Slick Surge\"."
+  },
+  {
+    "id": 2006002,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Slick Surge",
+    "description": "A Spark that gives a skill hint for \"Slick Surge\"."
+  },
+  {
+    "id": 2006003,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Slick Surge",
+    "description": "A Spark that gives a skill hint for \"Slick Surge\"."
+  },
+  {
+    "id": 2006101,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Outer Swell",
+    "description": "A Spark that gives a skill hint for \"Outer Swell\"."
+  },
+  {
+    "id": 2006102,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Outer Swell",
+    "description": "A Spark that gives a skill hint for \"Outer Swell\"."
+  },
+  {
+    "id": 2006103,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Outer Swell",
+    "description": "A Spark that gives a skill hint for \"Outer Swell\"."
+  },
+  {
+    "id": 2006201,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Standing By",
+    "description": "A Spark that gives a skill hint for \"Standing By\"."
+  },
+  {
+    "id": 2006202,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Standing By",
+    "description": "A Spark that gives a skill hint for \"Standing By\"."
+  },
+  {
+    "id": 2006203,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Standing By",
+    "description": "A Spark that gives a skill hint for \"Standing By\"."
+  },
+  {
+    "id": 2006301,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Masterful Gambit",
+    "description": "A Spark that gives a skill hint for \"Masterful Gambit\"."
+  },
+  {
+    "id": 2006302,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Masterful Gambit",
+    "description": "A Spark that gives a skill hint for \"Masterful Gambit\"."
+  },
+  {
+    "id": 2006303,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Masterful Gambit",
+    "description": "A Spark that gives a skill hint for \"Masterful Gambit\"."
+  },
+  {
+    "id": 2006401,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Straightaway Spurt",
+    "description": "A Spark that gives a skill hint for \"Straightaway Spurt\"."
+  },
+  {
+    "id": 2006402,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Straightaway Spurt",
+    "description": "A Spark that gives a skill hint for \"Straightaway Spurt\"."
+  },
+  {
+    "id": 2006403,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Straightaway Spurt",
+    "description": "A Spark that gives a skill hint for \"Straightaway Spurt\"."
+  },
+  {
+    "id": 2006501,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Sprinting Gear",
+    "description": "A Spark that gives a skill hint for \"Sprinting Gear\"."
+  },
+  {
+    "id": 2006502,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Sprinting Gear",
+    "description": "A Spark that gives a skill hint for \"Sprinting Gear\"."
+  },
+  {
+    "id": 2006503,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Sprinting Gear",
+    "description": "A Spark that gives a skill hint for \"Sprinting Gear\"."
+  },
+  {
+    "id": 2006601,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Wait-and-See",
+    "description": "A Spark that gives a skill hint for \"Wait-and-See\"."
+  },
+  {
+    "id": 2006602,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Wait-and-See",
+    "description": "A Spark that gives a skill hint for \"Wait-and-See\"."
+  },
+  {
+    "id": 2006603,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Wait-and-See",
+    "description": "A Spark that gives a skill hint for \"Wait-and-See\"."
+  },
+  {
+    "id": 2006701,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Gap Closer",
+    "description": "A Spark that gives a skill hint for \"Gap Closer\"."
+  },
+  {
+    "id": 2006702,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Gap Closer",
+    "description": "A Spark that gives a skill hint for \"Gap Closer\"."
+  },
+  {
+    "id": 2006703,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Gap Closer",
+    "description": "A Spark that gives a skill hint for \"Gap Closer\"."
+  },
+  {
+    "id": 2006801,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Productive Plan",
+    "description": "A Spark that gives a skill hint for \"Productive Plan\"."
+  },
+  {
+    "id": 2006802,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Productive Plan",
+    "description": "A Spark that gives a skill hint for \"Productive Plan\"."
+  },
+  {
+    "id": 2006803,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Productive Plan",
+    "description": "A Spark that gives a skill hint for \"Productive Plan\"."
+  },
+  {
+    "id": 2006901,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Watchful Eye",
+    "description": "A Spark that gives a skill hint for \"Watchful Eye\"."
+  },
+  {
+    "id": 2006902,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Watchful Eye",
+    "description": "A Spark that gives a skill hint for \"Watchful Eye\"."
+  },
+  {
+    "id": 2006903,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Watchful Eye",
+    "description": "A Spark that gives a skill hint for \"Watchful Eye\"."
+  },
+  {
+    "id": 2007001,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Updrafters",
+    "description": "A Spark that gives a skill hint for \"Updrafters\"."
+  },
+  {
+    "id": 2007002,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Updrafters",
+    "description": "A Spark that gives a skill hint for \"Updrafters\"."
+  },
+  {
+    "id": 2007003,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Updrafters",
+    "description": "A Spark that gives a skill hint for \"Updrafters\"."
+  },
+  {
+    "id": 2007101,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Rosy Outlook",
+    "description": "A Spark that gives a skill hint for \"Rosy Outlook\"."
+  },
+  {
+    "id": 2007102,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Rosy Outlook",
+    "description": "A Spark that gives a skill hint for \"Rosy Outlook\"."
+  },
+  {
+    "id": 2007103,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Rosy Outlook",
+    "description": "A Spark that gives a skill hint for \"Rosy Outlook\"."
+  },
+  {
+    "id": 2007201,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Up-Tempo",
+    "description": "A Spark that gives a skill hint for \"Up-Tempo\"."
+  },
+  {
+    "id": 2007202,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Up-Tempo",
+    "description": "A Spark that gives a skill hint for \"Up-Tempo\"."
+  },
+  {
+    "id": 2007203,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Up-Tempo",
+    "description": "A Spark that gives a skill hint for \"Up-Tempo\"."
+  },
+  {
+    "id": 2007301,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Steadfast",
+    "description": "A Spark that gives a skill hint for \"Steadfast\"."
+  },
+  {
+    "id": 2007302,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Steadfast",
+    "description": "A Spark that gives a skill hint for \"Steadfast\"."
+  },
+  {
+    "id": 2007303,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Steadfast",
+    "description": "A Spark that gives a skill hint for \"Steadfast\"."
+  },
+  {
+    "id": 2007401,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Deep Breaths",
+    "description": "A Spark that gives a skill hint for \"Deep Breaths\"."
+  },
+  {
+    "id": 2007402,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Deep Breaths",
+    "description": "A Spark that gives a skill hint for \"Deep Breaths\"."
+  },
+  {
+    "id": 2007403,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Deep Breaths",
+    "description": "A Spark that gives a skill hint for \"Deep Breaths\"."
+  },
+  {
+    "id": 2007501,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Inside Scoop",
+    "description": "A Spark that gives a skill hint for \"Inside Scoop\"."
+  },
+  {
+    "id": 2007502,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Inside Scoop",
+    "description": "A Spark that gives a skill hint for \"Inside Scoop\"."
+  },
+  {
+    "id": 2007503,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Inside Scoop",
+    "description": "A Spark that gives a skill hint for \"Inside Scoop\"."
+  },
+  {
+    "id": 2007601,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Extra Tank",
+    "description": "A Spark that gives a skill hint for \"Extra Tank\"."
+  },
+  {
+    "id": 2007602,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Extra Tank",
+    "description": "A Spark that gives a skill hint for \"Extra Tank\"."
+  },
+  {
+    "id": 2007603,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Extra Tank",
+    "description": "A Spark that gives a skill hint for \"Extra Tank\"."
+  },
+  {
+    "id": 2007701,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Trick (Front)",
+    "description": "A Spark that gives a skill hint for \"Trick (Front)\"."
+  },
+  {
+    "id": 2007702,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Trick (Front)",
+    "description": "A Spark that gives a skill hint for \"Trick (Front)\"."
+  },
+  {
+    "id": 2007703,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Trick (Front)",
+    "description": "A Spark that gives a skill hint for \"Trick (Front)\"."
+  },
+  {
+    "id": 2007801,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Trick (Rear)",
+    "description": "A Spark that gives a skill hint for \"Trick (Rear)\"."
+  },
+  {
+    "id": 2007802,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Trick (Rear)",
+    "description": "A Spark that gives a skill hint for \"Trick (Rear)\"."
+  },
+  {
+    "id": 2007803,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Trick (Rear)",
+    "description": "A Spark that gives a skill hint for \"Trick (Rear)\"."
+  },
+  {
+    "id": 2007901,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Frenzied Front Runners",
+    "description": "A Spark that gives a skill hint for \"Frenzied Front Runners\"."
+  },
+  {
+    "id": 2007902,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Frenzied Front Runners",
+    "description": "A Spark that gives a skill hint for \"Frenzied Front Runners\"."
+  },
+  {
+    "id": 2007903,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Frenzied Front Runners",
+    "description": "A Spark that gives a skill hint for \"Frenzied Front Runners\"."
+  },
+  {
+    "id": 2008001,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Frenzied Pace Chasers",
+    "description": "A Spark that gives a skill hint for \"Frenzied Pace Chasers\"."
+  },
+  {
+    "id": 2008002,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Frenzied Pace Chasers",
+    "description": "A Spark that gives a skill hint for \"Frenzied Pace Chasers\"."
+  },
+  {
+    "id": 2008003,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Frenzied Pace Chasers",
+    "description": "A Spark that gives a skill hint for \"Frenzied Pace Chasers\"."
+  },
+  {
+    "id": 2008101,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Frenzied Late Surgers",
+    "description": "A Spark that gives a skill hint for \"Frenzied Late Surgers\"."
+  },
+  {
+    "id": 2008102,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Frenzied Late Surgers",
+    "description": "A Spark that gives a skill hint for \"Frenzied Late Surgers\"."
+  },
+  {
+    "id": 2008103,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Frenzied Late Surgers",
+    "description": "A Spark that gives a skill hint for \"Frenzied Late Surgers\"."
+  },
+  {
+    "id": 2008201,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Frenzied End Closers",
+    "description": "A Spark that gives a skill hint for \"Frenzied End Closers\"."
+  },
+  {
+    "id": 2008202,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Frenzied End Closers",
+    "description": "A Spark that gives a skill hint for \"Frenzied End Closers\"."
+  },
+  {
+    "id": 2008203,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Frenzied End Closers",
+    "description": "A Spark that gives a skill hint for \"Frenzied End Closers\"."
+  },
+  {
+    "id": 2008301,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Subdued Front Runners",
+    "description": "A Spark that gives a skill hint for \"Subdued Front Runners\"."
+  },
+  {
+    "id": 2008302,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Subdued Front Runners",
+    "description": "A Spark that gives a skill hint for \"Subdued Front Runners\"."
+  },
+  {
+    "id": 2008303,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Subdued Front Runners",
+    "description": "A Spark that gives a skill hint for \"Subdued Front Runners\"."
+  },
+  {
+    "id": 2008401,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Flustered Front Runners",
+    "description": "A Spark that gives a skill hint for \"Flustered Front Runners\"."
+  },
+  {
+    "id": 2008402,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Flustered Front Runners",
+    "description": "A Spark that gives a skill hint for \"Flustered Front Runners\"."
+  },
+  {
+    "id": 2008403,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Flustered Front Runners",
+    "description": "A Spark that gives a skill hint for \"Flustered Front Runners\"."
+  },
+  {
+    "id": 2008501,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Hesitant Front Runners",
+    "description": "A Spark that gives a skill hint for \"Hesitant Front Runners\"."
+  },
+  {
+    "id": 2008502,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Hesitant Front Runners",
+    "description": "A Spark that gives a skill hint for \"Hesitant Front Runners\"."
+  },
+  {
+    "id": 2008503,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Hesitant Front Runners",
+    "description": "A Spark that gives a skill hint for \"Hesitant Front Runners\"."
+  },
+  {
+    "id": 2008601,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Subdued Pace Chasers",
+    "description": "A Spark that gives a skill hint for \"Subdued Pace Chasers\"."
+  },
+  {
+    "id": 2008602,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Subdued Pace Chasers",
+    "description": "A Spark that gives a skill hint for \"Subdued Pace Chasers\"."
+  },
+  {
+    "id": 2008603,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Subdued Pace Chasers",
+    "description": "A Spark that gives a skill hint for \"Subdued Pace Chasers\"."
+  },
+  {
+    "id": 2008701,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Flustered Pace Chasers",
+    "description": "A Spark that gives a skill hint for \"Flustered Pace Chasers\"."
+  },
+  {
+    "id": 2008702,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Flustered Pace Chasers",
+    "description": "A Spark that gives a skill hint for \"Flustered Pace Chasers\"."
+  },
+  {
+    "id": 2008703,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Flustered Pace Chasers",
+    "description": "A Spark that gives a skill hint for \"Flustered Pace Chasers\"."
+  },
+  {
+    "id": 2008801,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Hesitant Pace Chasers",
+    "description": "A Spark that gives a skill hint for \"Hesitant Pace Chasers\"."
+  },
+  {
+    "id": 2008802,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Hesitant Pace Chasers",
+    "description": "A Spark that gives a skill hint for \"Hesitant Pace Chasers\"."
+  },
+  {
+    "id": 2008803,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Hesitant Pace Chasers",
+    "description": "A Spark that gives a skill hint for \"Hesitant Pace Chasers\"."
+  },
+  {
+    "id": 2008901,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Subdued Late Surgers",
+    "description": "A Spark that gives a skill hint for \"Subdued Late Surgers\"."
+  },
+  {
+    "id": 2008902,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Subdued Late Surgers",
+    "description": "A Spark that gives a skill hint for \"Subdued Late Surgers\"."
+  },
+  {
+    "id": 2008903,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Subdued Late Surgers",
+    "description": "A Spark that gives a skill hint for \"Subdued Late Surgers\"."
+  },
+  {
+    "id": 2009001,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Flustered Late Surgers",
+    "description": "A Spark that gives a skill hint for \"Flustered Late Surgers\"."
+  },
+  {
+    "id": 2009002,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Flustered Late Surgers",
+    "description": "A Spark that gives a skill hint for \"Flustered Late Surgers\"."
+  },
+  {
+    "id": 2009003,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Flustered Late Surgers",
+    "description": "A Spark that gives a skill hint for \"Flustered Late Surgers\"."
+  },
+  {
+    "id": 2009101,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Hesitant Late Surgers",
+    "description": "A Spark that gives a skill hint for \"Hesitant Late Surgers\"."
+  },
+  {
+    "id": 2009102,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Hesitant Late Surgers",
+    "description": "A Spark that gives a skill hint for \"Hesitant Late Surgers\"."
+  },
+  {
+    "id": 2009103,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Hesitant Late Surgers",
+    "description": "A Spark that gives a skill hint for \"Hesitant Late Surgers\"."
+  },
+  {
+    "id": 2009201,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Subdued End Closers",
+    "description": "A Spark that gives a skill hint for \"Subdued End Closers\"."
+  },
+  {
+    "id": 2009202,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Subdued End Closers",
+    "description": "A Spark that gives a skill hint for \"Subdued End Closers\"."
+  },
+  {
+    "id": 2009203,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Subdued End Closers",
+    "description": "A Spark that gives a skill hint for \"Subdued End Closers\"."
+  },
+  {
+    "id": 2009301,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Flustered End Closers",
+    "description": "A Spark that gives a skill hint for \"Flustered End Closers\"."
+  },
+  {
+    "id": 2009302,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Flustered End Closers",
+    "description": "A Spark that gives a skill hint for \"Flustered End Closers\"."
+  },
+  {
+    "id": 2009303,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Flustered End Closers",
+    "description": "A Spark that gives a skill hint for \"Flustered End Closers\"."
+  },
+  {
+    "id": 2009401,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Hesitant End Closers",
+    "description": "A Spark that gives a skill hint for \"Hesitant End Closers\"."
+  },
+  {
+    "id": 2009402,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Hesitant End Closers",
+    "description": "A Spark that gives a skill hint for \"Hesitant End Closers\"."
+  },
+  {
+    "id": 2009403,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Hesitant End Closers",
+    "description": "A Spark that gives a skill hint for \"Hesitant End Closers\"."
+  },
+  {
+    "id": 2009501,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Oi Racecourse \u25cb",
+    "description": "A Spark that gives a skill hint for \"Oi Racecourse \u25cb\"."
+  },
+  {
+    "id": 2009502,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Oi Racecourse \u25cb",
+    "description": "A Spark that gives a skill hint for \"Oi Racecourse \u25cb\"."
+  },
+  {
+    "id": 2009503,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Oi Racecourse \u25cb",
+    "description": "A Spark that gives a skill hint for \"Oi Racecourse \u25cb\"."
+  },
+  {
+    "id": 2009601,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Sprint Straightaways \u25cb",
+    "description": "A Spark that gives a skill hint for \"Sprint Straightaways \u25cb\"."
+  },
+  {
+    "id": 2009602,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Sprint Straightaways \u25cb",
+    "description": "A Spark that gives a skill hint for \"Sprint Straightaways \u25cb\"."
+  },
+  {
+    "id": 2009603,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Sprint Straightaways \u25cb",
+    "description": "A Spark that gives a skill hint for \"Sprint Straightaways \u25cb\"."
+  },
+  {
+    "id": 2009701,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Sprint Corners \u25cb",
+    "description": "A Spark that gives a skill hint for \"Sprint Corners \u25cb\"."
+  },
+  {
+    "id": 2009702,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Sprint Corners \u25cb",
+    "description": "A Spark that gives a skill hint for \"Sprint Corners \u25cb\"."
+  },
+  {
+    "id": 2009703,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Sprint Corners \u25cb",
+    "description": "A Spark that gives a skill hint for \"Sprint Corners \u25cb\"."
+  },
+  {
+    "id": 2009801,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Huge Lead",
+    "description": "A Spark that gives a skill hint for \"Huge Lead\"."
+  },
+  {
+    "id": 2009802,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Huge Lead",
+    "description": "A Spark that gives a skill hint for \"Huge Lead\"."
+  },
+  {
+    "id": 2009803,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Huge Lead",
+    "description": "A Spark that gives a skill hint for \"Huge Lead\"."
+  },
+  {
+    "id": 2009901,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Countermeasure",
+    "description": "A Spark that gives a skill hint for \"Countermeasure\"."
+  },
+  {
+    "id": 2009902,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Countermeasure",
+    "description": "A Spark that gives a skill hint for \"Countermeasure\"."
+  },
+  {
+    "id": 2009903,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Countermeasure",
+    "description": "A Spark that gives a skill hint for \"Countermeasure\"."
+  },
+  {
+    "id": 2010001,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Meticulous Measures",
+    "description": "A Spark that gives a skill hint for \"Meticulous Measures\"."
+  },
+  {
+    "id": 2010002,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Meticulous Measures",
+    "description": "A Spark that gives a skill hint for \"Meticulous Measures\"."
+  },
+  {
+    "id": 2010003,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Meticulous Measures",
+    "description": "A Spark that gives a skill hint for \"Meticulous Measures\"."
+  },
+  {
+    "id": 2010101,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Intimidate",
+    "description": "A Spark that gives a skill hint for \"Intimidate\"."
+  },
+  {
+    "id": 2010102,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Intimidate",
+    "description": "A Spark that gives a skill hint for \"Intimidate\"."
+  },
+  {
+    "id": 2010103,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Intimidate",
+    "description": "A Spark that gives a skill hint for \"Intimidate\"."
+  },
+  {
+    "id": 2010201,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Stop Right There!",
+    "description": "A Spark that gives a skill hint for \"Stop Right There!\"."
+  },
+  {
+    "id": 2010202,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Stop Right There!",
+    "description": "A Spark that gives a skill hint for \"Stop Right There!\"."
+  },
+  {
+    "id": 2010203,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Stop Right There!",
+    "description": "A Spark that gives a skill hint for \"Stop Right There!\"."
+  },
+  {
+    "id": 2010301,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Mile Straightaways \u25cb",
+    "description": "A Spark that gives a skill hint for \"Mile Straightaways \u25cb\"."
+  },
+  {
+    "id": 2010302,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Mile Straightaways \u25cb",
+    "description": "A Spark that gives a skill hint for \"Mile Straightaways \u25cb\"."
+  },
+  {
+    "id": 2010303,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Mile Straightaways \u25cb",
+    "description": "A Spark that gives a skill hint for \"Mile Straightaways \u25cb\"."
+  },
+  {
+    "id": 2010401,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Mile Corners \u25cb",
+    "description": "A Spark that gives a skill hint for \"Mile Corners \u25cb\"."
+  },
+  {
+    "id": 2010402,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Mile Corners \u25cb",
+    "description": "A Spark that gives a skill hint for \"Mile Corners \u25cb\"."
+  },
+  {
+    "id": 2010403,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Mile Corners \u25cb",
+    "description": "A Spark that gives a skill hint for \"Mile Corners \u25cb\"."
+  },
+  {
+    "id": 2010501,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Shifting Gears",
+    "description": "A Spark that gives a skill hint for \"Shifting Gears\"."
+  },
+  {
+    "id": 2010502,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Shifting Gears",
+    "description": "A Spark that gives a skill hint for \"Shifting Gears\"."
+  },
+  {
+    "id": 2010503,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Shifting Gears",
+    "description": "A Spark that gives a skill hint for \"Shifting Gears\"."
+  },
+  {
+    "id": 2010601,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Acceleration",
+    "description": "A Spark that gives a skill hint for \"Acceleration\"."
+  },
+  {
+    "id": 2010602,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Acceleration",
+    "description": "A Spark that gives a skill hint for \"Acceleration\"."
+  },
+  {
+    "id": 2010603,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Acceleration",
+    "description": "A Spark that gives a skill hint for \"Acceleration\"."
+  },
+  {
+    "id": 2010701,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Unyielding Spirit",
+    "description": "A Spark that gives a skill hint for \"Unyielding Spirit\"."
+  },
+  {
+    "id": 2010702,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Unyielding Spirit",
+    "description": "A Spark that gives a skill hint for \"Unyielding Spirit\"."
+  },
+  {
+    "id": 2010703,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Unyielding Spirit",
+    "description": "A Spark that gives a skill hint for \"Unyielding Spirit\"."
+  },
+  {
+    "id": 2010801,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Speed Eater",
+    "description": "A Spark that gives a skill hint for \"Speed Eater\"."
+  },
+  {
+    "id": 2010802,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Speed Eater",
+    "description": "A Spark that gives a skill hint for \"Speed Eater\"."
+  },
+  {
+    "id": 2010803,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Speed Eater",
+    "description": "A Spark that gives a skill hint for \"Speed Eater\"."
+  },
+  {
+    "id": 2010901,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Opening Gambit",
+    "description": "A Spark that gives a skill hint for \"Opening Gambit\"."
+  },
+  {
+    "id": 2010902,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Opening Gambit",
+    "description": "A Spark that gives a skill hint for \"Opening Gambit\"."
+  },
+  {
+    "id": 2010903,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Opening Gambit",
+    "description": "A Spark that gives a skill hint for \"Opening Gambit\"."
+  },
+  {
+    "id": 2011001,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Medium Straightaways \u25cb",
+    "description": "A Spark that gives a skill hint for \"Medium Straightaways \u25cb\"."
+  },
+  {
+    "id": 2011002,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Medium Straightaways \u25cb",
+    "description": "A Spark that gives a skill hint for \"Medium Straightaways \u25cb\"."
+  },
+  {
+    "id": 2011003,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Medium Straightaways \u25cb",
+    "description": "A Spark that gives a skill hint for \"Medium Straightaways \u25cb\"."
+  },
+  {
+    "id": 2011101,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Medium Corners \u25cb",
+    "description": "A Spark that gives a skill hint for \"Medium Corners \u25cb\"."
+  },
+  {
+    "id": 2011102,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Medium Corners \u25cb",
+    "description": "A Spark that gives a skill hint for \"Medium Corners \u25cb\"."
+  },
+  {
+    "id": 2011103,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Medium Corners \u25cb",
+    "description": "A Spark that gives a skill hint for \"Medium Corners \u25cb\"."
+  },
+  {
+    "id": 2011201,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Hawkeye",
+    "description": "A Spark that gives a skill hint for \"Hawkeye\"."
+  },
+  {
+    "id": 2011202,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Hawkeye",
+    "description": "A Spark that gives a skill hint for \"Hawkeye\"."
+  },
+  {
+    "id": 2011203,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Hawkeye",
+    "description": "A Spark that gives a skill hint for \"Hawkeye\"."
+  },
+  {
+    "id": 2011301,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Thunderbolt Step",
+    "description": "A Spark that gives a skill hint for \"Thunderbolt Step\"."
+  },
+  {
+    "id": 2011302,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Thunderbolt Step",
+    "description": "A Spark that gives a skill hint for \"Thunderbolt Step\"."
+  },
+  {
+    "id": 2011303,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Thunderbolt Step",
+    "description": "A Spark that gives a skill hint for \"Thunderbolt Step\"."
+  },
+  {
+    "id": 2011401,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Soft Step",
+    "description": "A Spark that gives a skill hint for \"Soft Step\"."
+  },
+  {
+    "id": 2011402,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Soft Step",
+    "description": "A Spark that gives a skill hint for \"Soft Step\"."
+  },
+  {
+    "id": 2011403,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Soft Step",
+    "description": "A Spark that gives a skill hint for \"Soft Step\"."
+  },
+  {
+    "id": 2011501,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Tether",
+    "description": "A Spark that gives a skill hint for \"Tether\"."
+  },
+  {
+    "id": 2011502,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Tether",
+    "description": "A Spark that gives a skill hint for \"Tether\"."
+  },
+  {
+    "id": 2011503,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Tether",
+    "description": "A Spark that gives a skill hint for \"Tether\"."
+  },
+  {
+    "id": 2011601,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Murmur",
+    "description": "A Spark that gives a skill hint for \"Murmur\"."
+  },
+  {
+    "id": 2011602,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Murmur",
+    "description": "A Spark that gives a skill hint for \"Murmur\"."
+  },
+  {
+    "id": 2011603,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Murmur",
+    "description": "A Spark that gives a skill hint for \"Murmur\"."
+  },
+  {
+    "id": 2011701,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Long Straightaways \u25cb",
+    "description": "A Spark that gives a skill hint for \"Long Straightaways \u25cb\"."
+  },
+  {
+    "id": 2011702,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Long Straightaways \u25cb",
+    "description": "A Spark that gives a skill hint for \"Long Straightaways \u25cb\"."
+  },
+  {
+    "id": 2011703,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Long Straightaways \u25cb",
+    "description": "A Spark that gives a skill hint for \"Long Straightaways \u25cb\"."
+  },
+  {
+    "id": 2011801,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Long Corners \u25cb",
+    "description": "A Spark that gives a skill hint for \"Long Corners \u25cb\"."
+  },
+  {
+    "id": 2011802,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Long Corners \u25cb",
+    "description": "A Spark that gives a skill hint for \"Long Corners \u25cb\"."
+  },
+  {
+    "id": 2011803,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Long Corners \u25cb",
+    "description": "A Spark that gives a skill hint for \"Long Corners \u25cb\"."
+  },
+  {
+    "id": 2011901,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Keeping the Lead",
+    "description": "A Spark that gives a skill hint for \"Keeping the Lead\"."
+  },
+  {
+    "id": 2011902,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Keeping the Lead",
+    "description": "A Spark that gives a skill hint for \"Keeping the Lead\"."
+  },
+  {
+    "id": 2011903,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Keeping the Lead",
+    "description": "A Spark that gives a skill hint for \"Keeping the Lead\"."
+  },
+  {
+    "id": 2012001,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Passing Pro",
+    "description": "A Spark that gives a skill hint for \"Passing Pro\"."
+  },
+  {
+    "id": 2012002,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Passing Pro",
+    "description": "A Spark that gives a skill hint for \"Passing Pro\"."
+  },
+  {
+    "id": 2012003,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Passing Pro",
+    "description": "A Spark that gives a skill hint for \"Passing Pro\"."
+  },
+  {
+    "id": 2012101,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Pressure",
+    "description": "A Spark that gives a skill hint for \"Pressure\"."
+  },
+  {
+    "id": 2012102,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Pressure",
+    "description": "A Spark that gives a skill hint for \"Pressure\"."
+  },
+  {
+    "id": 2012103,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Pressure",
+    "description": "A Spark that gives a skill hint for \"Pressure\"."
+  },
+  {
+    "id": 2012201,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Stamina Eater",
+    "description": "A Spark that gives a skill hint for \"Stamina Eater\"."
+  },
+  {
+    "id": 2012202,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Stamina Eater",
+    "description": "A Spark that gives a skill hint for \"Stamina Eater\"."
+  },
+  {
+    "id": 2012203,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Stamina Eater",
+    "description": "A Spark that gives a skill hint for \"Stamina Eater\"."
+  },
+  {
+    "id": 2012301,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Smoke Screen",
+    "description": "A Spark that gives a skill hint for \"Smoke Screen\"."
+  },
+  {
+    "id": 2012302,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Smoke Screen",
+    "description": "A Spark that gives a skill hint for \"Smoke Screen\"."
+  },
+  {
+    "id": 2012303,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Smoke Screen",
+    "description": "A Spark that gives a skill hint for \"Smoke Screen\"."
+  },
+  {
+    "id": 2012401,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Front Runner Straightaways \u25cb",
+    "description": "A Spark that gives a skill hint for \"Front Runner Straightaways \u25cb\"."
+  },
+  {
+    "id": 2012402,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Front Runner Straightaways \u25cb",
+    "description": "A Spark that gives a skill hint for \"Front Runner Straightaways \u25cb\"."
+  },
+  {
+    "id": 2012403,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Front Runner Straightaways \u25cb",
+    "description": "A Spark that gives a skill hint for \"Front Runner Straightaways \u25cb\"."
+  },
+  {
+    "id": 2012501,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Front Runner Corners \u25cb",
+    "description": "A Spark that gives a skill hint for \"Front Runner Corners \u25cb\"."
+  },
+  {
+    "id": 2012502,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Front Runner Corners \u25cb",
+    "description": "A Spark that gives a skill hint for \"Front Runner Corners \u25cb\"."
+  },
+  {
+    "id": 2012503,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Front Runner Corners \u25cb",
+    "description": "A Spark that gives a skill hint for \"Front Runner Corners \u25cb\"."
+  },
+  {
+    "id": 2012601,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Dodging Danger",
+    "description": "A Spark that gives a skill hint for \"Dodging Danger\"."
+  },
+  {
+    "id": 2012602,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Dodging Danger",
+    "description": "A Spark that gives a skill hint for \"Dodging Danger\"."
+  },
+  {
+    "id": 2012603,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Dodging Danger",
+    "description": "A Spark that gives a skill hint for \"Dodging Danger\"."
+  },
+  {
+    "id": 2012701,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Leader's Pride",
+    "description": "A Spark that gives a skill hint for \"Leader's Pride\"."
+  },
+  {
+    "id": 2012702,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Leader's Pride",
+    "description": "A Spark that gives a skill hint for \"Leader's Pride\"."
+  },
+  {
+    "id": 2012703,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Leader's Pride",
+    "description": "A Spark that gives a skill hint for \"Leader's Pride\"."
+  },
+  {
+    "id": 2012801,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Moxie",
+    "description": "A Spark that gives a skill hint for \"Moxie\"."
+  },
+  {
+    "id": 2012802,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Moxie",
+    "description": "A Spark that gives a skill hint for \"Moxie\"."
+  },
+  {
+    "id": 2012803,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Moxie",
+    "description": "A Spark that gives a skill hint for \"Moxie\"."
+  },
+  {
+    "id": 2012901,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Second Wind",
+    "description": "A Spark that gives a skill hint for \"Second Wind\"."
+  },
+  {
+    "id": 2012902,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Second Wind",
+    "description": "A Spark that gives a skill hint for \"Second Wind\"."
+  },
+  {
+    "id": 2012903,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Second Wind",
+    "description": "A Spark that gives a skill hint for \"Second Wind\"."
+  },
+  {
+    "id": 2013001,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Restart",
+    "description": "A Spark that gives a skill hint for \"Restart\"."
+  },
+  {
+    "id": 2013002,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Restart",
+    "description": "A Spark that gives a skill hint for \"Restart\"."
+  },
+  {
+    "id": 2013003,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Restart",
+    "description": "A Spark that gives a skill hint for \"Restart\"."
+  },
+  {
+    "id": 2013101,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Pace Chaser Straightaways \u25cb",
+    "description": "A Spark that gives a skill hint for \"Pace Chaser Straightaways \u25cb\"."
+  },
+  {
+    "id": 2013102,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Pace Chaser Straightaways \u25cb",
+    "description": "A Spark that gives a skill hint for \"Pace Chaser Straightaways \u25cb\"."
+  },
+  {
+    "id": 2013103,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Pace Chaser Straightaways \u25cb",
+    "description": "A Spark that gives a skill hint for \"Pace Chaser Straightaways \u25cb\"."
+  },
+  {
+    "id": 2013201,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Pace Chaser Corners \u25cb",
+    "description": "A Spark that gives a skill hint for \"Pace Chaser Corners \u25cb\"."
+  },
+  {
+    "id": 2013202,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Pace Chaser Corners \u25cb",
+    "description": "A Spark that gives a skill hint for \"Pace Chaser Corners \u25cb\"."
+  },
+  {
+    "id": 2013203,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Pace Chaser Corners \u25cb",
+    "description": "A Spark that gives a skill hint for \"Pace Chaser Corners \u25cb\"."
+  },
+  {
+    "id": 2013301,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Shrewd Step",
+    "description": "A Spark that gives a skill hint for \"Shrewd Step\"."
+  },
+  {
+    "id": 2013302,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Shrewd Step",
+    "description": "A Spark that gives a skill hint for \"Shrewd Step\"."
+  },
+  {
+    "id": 2013303,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Shrewd Step",
+    "description": "A Spark that gives a skill hint for \"Shrewd Step\"."
+  },
+  {
+    "id": 2013401,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Straight Descent",
+    "description": "A Spark that gives a skill hint for \"Straight Descent\"."
+  },
+  {
+    "id": 2013402,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Straight Descent",
+    "description": "A Spark that gives a skill hint for \"Straight Descent\"."
+  },
+  {
+    "id": 2013403,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Straight Descent",
+    "description": "A Spark that gives a skill hint for \"Straight Descent\"."
+  },
+  {
+    "id": 2013501,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Hydrate",
+    "description": "A Spark that gives a skill hint for \"Hydrate\"."
+  },
+  {
+    "id": 2013502,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Hydrate",
+    "description": "A Spark that gives a skill hint for \"Hydrate\"."
+  },
+  {
+    "id": 2013503,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Hydrate",
+    "description": "A Spark that gives a skill hint for \"Hydrate\"."
+  },
+  {
+    "id": 2013601,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Tactical Tweak",
+    "description": "A Spark that gives a skill hint for \"Tactical Tweak\"."
+  },
+  {
+    "id": 2013602,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Tactical Tweak",
+    "description": "A Spark that gives a skill hint for \"Tactical Tweak\"."
+  },
+  {
+    "id": 2013603,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Tactical Tweak",
+    "description": "A Spark that gives a skill hint for \"Tactical Tweak\"."
+  },
+  {
+    "id": 2013701,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Disorient",
+    "description": "A Spark that gives a skill hint for \"Disorient\"."
+  },
+  {
+    "id": 2013702,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Disorient",
+    "description": "A Spark that gives a skill hint for \"Disorient\"."
+  },
+  {
+    "id": 2013703,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Disorient",
+    "description": "A Spark that gives a skill hint for \"Disorient\"."
+  },
+  {
+    "id": 2013801,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Late Surger Straightaways \u25cb",
+    "description": "A Spark that gives a skill hint for \"Late Surger Straightaways \u25cb\"."
+  },
+  {
+    "id": 2013802,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Late Surger Straightaways \u25cb",
+    "description": "A Spark that gives a skill hint for \"Late Surger Straightaways \u25cb\"."
+  },
+  {
+    "id": 2013803,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Late Surger Straightaways \u25cb",
+    "description": "A Spark that gives a skill hint for \"Late Surger Straightaways \u25cb\"."
+  },
+  {
+    "id": 2013901,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Late Surger Corners \u25cb",
+    "description": "A Spark that gives a skill hint for \"Late Surger Corners \u25cb\"."
+  },
+  {
+    "id": 2013902,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Late Surger Corners \u25cb",
+    "description": "A Spark that gives a skill hint for \"Late Surger Corners \u25cb\"."
+  },
+  {
+    "id": 2013903,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Late Surger Corners \u25cb",
+    "description": "A Spark that gives a skill hint for \"Late Surger Corners \u25cb\"."
+  },
+  {
+    "id": 2014001,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Fighter",
+    "description": "A Spark that gives a skill hint for \"Fighter\"."
+  },
+  {
+    "id": 2014002,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Fighter",
+    "description": "A Spark that gives a skill hint for \"Fighter\"."
+  },
+  {
+    "id": 2014003,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Fighter",
+    "description": "A Spark that gives a skill hint for \"Fighter\"."
+  },
+  {
+    "id": 2014101,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "1,500,000 CC",
+    "description": "A Spark that gives a skill hint for \"1,500,000 CC\"."
+  },
+  {
+    "id": 2014102,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "1,500,000 CC",
+    "description": "A Spark that gives a skill hint for \"1,500,000 CC\"."
+  },
+  {
+    "id": 2014103,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "1,500,000 CC",
+    "description": "A Spark that gives a skill hint for \"1,500,000 CC\"."
+  },
+  {
+    "id": 2014201,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "A Small Breather",
+    "description": "A Spark that gives a skill hint for \"A Small Breather\"."
+  },
+  {
+    "id": 2014202,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "A Small Breather",
+    "description": "A Spark that gives a skill hint for \"A Small Breather\"."
+  },
+  {
+    "id": 2014203,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "A Small Breather",
+    "description": "A Spark that gives a skill hint for \"A Small Breather\"."
+  },
+  {
+    "id": 2014301,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Studious",
+    "description": "A Spark that gives a skill hint for \"Studious\"."
+  },
+  {
+    "id": 2014302,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Studious",
+    "description": "A Spark that gives a skill hint for \"Studious\"."
+  },
+  {
+    "id": 2014303,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Studious",
+    "description": "A Spark that gives a skill hint for \"Studious\"."
+  },
+  {
+    "id": 2014401,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Sharp Gaze",
+    "description": "A Spark that gives a skill hint for \"Sharp Gaze\"."
+  },
+  {
+    "id": 2014402,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Sharp Gaze",
+    "description": "A Spark that gives a skill hint for \"Sharp Gaze\"."
+  },
+  {
+    "id": 2014403,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Sharp Gaze",
+    "description": "A Spark that gives a skill hint for \"Sharp Gaze\"."
+  },
+  {
+    "id": 2014501,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "End Closer Straightaways \u25cb",
+    "description": "A Spark that gives a skill hint for \"End Closer Straightaways \u25cb\"."
+  },
+  {
+    "id": 2014502,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "End Closer Straightaways \u25cb",
+    "description": "A Spark that gives a skill hint for \"End Closer Straightaways \u25cb\"."
+  },
+  {
+    "id": 2014503,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "End Closer Straightaways \u25cb",
+    "description": "A Spark that gives a skill hint for \"End Closer Straightaways \u25cb\"."
+  },
+  {
+    "id": 2014601,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "End Closer Corners \u25cb",
+    "description": "A Spark that gives a skill hint for \"End Closer Corners \u25cb\"."
+  },
+  {
+    "id": 2014602,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "End Closer Corners \u25cb",
+    "description": "A Spark that gives a skill hint for \"End Closer Corners \u25cb\"."
+  },
+  {
+    "id": 2014603,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "End Closer Corners \u25cb",
+    "description": "A Spark that gives a skill hint for \"End Closer Corners \u25cb\"."
+  },
+  {
+    "id": 2014701,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "I Can See Right Through You",
+    "description": "A Spark that gives a skill hint for \"I Can See Right Through You\"."
+  },
+  {
+    "id": 2014702,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "I Can See Right Through You",
+    "description": "A Spark that gives a skill hint for \"I Can See Right Through You\"."
+  },
+  {
+    "id": 2014703,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "I Can See Right Through You",
+    "description": "A Spark that gives a skill hint for \"I Can See Right Through You\"."
+  },
+  {
+    "id": 2014801,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "After-School Stroll",
+    "description": "A Spark that gives a skill hint for \"After-School Stroll\"."
+  },
+  {
+    "id": 2014802,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "After-School Stroll",
+    "description": "A Spark that gives a skill hint for \"After-School Stroll\"."
+  },
+  {
+    "id": 2014803,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "After-School Stroll",
+    "description": "A Spark that gives a skill hint for \"After-School Stroll\"."
+  },
+  {
+    "id": 2014901,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Levelheaded",
+    "description": "A Spark that gives a skill hint for \"Levelheaded\"."
+  },
+  {
+    "id": 2014902,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Levelheaded",
+    "description": "A Spark that gives a skill hint for \"Levelheaded\"."
+  },
+  {
+    "id": 2014903,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Levelheaded",
+    "description": "A Spark that gives a skill hint for \"Levelheaded\"."
+  },
+  {
+    "id": 2015001,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Strategist",
+    "description": "A Spark that gives a skill hint for \"Strategist\"."
+  },
+  {
+    "id": 2015002,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Strategist",
+    "description": "A Spark that gives a skill hint for \"Strategist\"."
+  },
+  {
+    "id": 2015003,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Strategist",
+    "description": "A Spark that gives a skill hint for \"Strategist\"."
+  },
+  {
+    "id": 2015101,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Intense Gaze",
+    "description": "A Spark that gives a skill hint for \"Intense Gaze\"."
+  },
+  {
+    "id": 2015102,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Intense Gaze",
+    "description": "A Spark that gives a skill hint for \"Intense Gaze\"."
+  },
+  {
+    "id": 2015103,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Intense Gaze",
+    "description": "A Spark that gives a skill hint for \"Intense Gaze\"."
+  },
+  {
+    "id": 2015201,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Front Runner Savvy \u25cb",
+    "description": "A Spark that gives a skill hint for \"Front Runner Savvy \u25cb\"."
+  },
+  {
+    "id": 2015202,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Front Runner Savvy \u25cb",
+    "description": "A Spark that gives a skill hint for \"Front Runner Savvy \u25cb\"."
+  },
+  {
+    "id": 2015203,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Front Runner Savvy \u25cb",
+    "description": "A Spark that gives a skill hint for \"Front Runner Savvy \u25cb\"."
+  },
+  {
+    "id": 2015301,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Pace Chaser Savvy \u25cb",
+    "description": "A Spark that gives a skill hint for \"Pace Chaser Savvy \u25cb\"."
+  },
+  {
+    "id": 2015302,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Pace Chaser Savvy \u25cb",
+    "description": "A Spark that gives a skill hint for \"Pace Chaser Savvy \u25cb\"."
+  },
+  {
+    "id": 2015303,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Pace Chaser Savvy \u25cb",
+    "description": "A Spark that gives a skill hint for \"Pace Chaser Savvy \u25cb\"."
+  },
+  {
+    "id": 2015401,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Late Surger Savvy \u25cb",
+    "description": "A Spark that gives a skill hint for \"Late Surger Savvy \u25cb\"."
+  },
+  {
+    "id": 2015402,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Late Surger Savvy \u25cb",
+    "description": "A Spark that gives a skill hint for \"Late Surger Savvy \u25cb\"."
+  },
+  {
+    "id": 2015403,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Late Surger Savvy \u25cb",
+    "description": "A Spark that gives a skill hint for \"Late Surger Savvy \u25cb\"."
+  },
+  {
+    "id": 2015501,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "End Closer Savvy \u25cb",
+    "description": "A Spark that gives a skill hint for \"End Closer Savvy \u25cb\"."
+  },
+  {
+    "id": 2015502,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "End Closer Savvy \u25cb",
+    "description": "A Spark that gives a skill hint for \"End Closer Savvy \u25cb\"."
+  },
+  {
+    "id": 2015503,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "End Closer Savvy \u25cb",
+    "description": "A Spark that gives a skill hint for \"End Closer Savvy \u25cb\"."
+  },
+  {
+    "id": 2015601,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Lucky Seven",
+    "description": "A Spark that gives a skill hint for \"Lucky Seven\"."
+  },
+  {
+    "id": 2015602,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Lucky Seven",
+    "description": "A Spark that gives a skill hint for \"Lucky Seven\"."
+  },
+  {
+    "id": 2015603,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Lucky Seven",
+    "description": "A Spark that gives a skill hint for \"Lucky Seven\"."
+  },
+  {
+    "id": 2015701,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Triple 7s",
+    "description": "A Spark that gives a skill hint for \"Triple 7s\"."
+  },
+  {
+    "id": 2015702,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Triple 7s",
+    "description": "A Spark that gives a skill hint for \"Triple 7s\"."
+  },
+  {
+    "id": 2015703,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Triple 7s",
+    "description": "A Spark that gives a skill hint for \"Triple 7s\"."
+  },
+  {
+    "id": 2015801,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Highlander",
+    "description": "A Spark that gives a skill hint for \"Highlander\"."
+  },
+  {
+    "id": 2015802,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Highlander",
+    "description": "A Spark that gives a skill hint for \"Highlander\"."
+  },
+  {
+    "id": 2015803,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Highlander",
+    "description": "A Spark that gives a skill hint for \"Highlander\"."
+  },
+  {
+    "id": 2015901,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Uma Stan",
+    "description": "A Spark that gives a skill hint for \"Uma Stan\"."
+  },
+  {
+    "id": 2015902,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Uma Stan",
+    "description": "A Spark that gives a skill hint for \"Uma Stan\"."
+  },
+  {
+    "id": 2015903,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Uma Stan",
+    "description": "A Spark that gives a skill hint for \"Uma Stan\"."
+  },
+  {
+    "id": 2016001,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Groundwork",
+    "description": "A Spark that gives a skill hint for \"Groundwork\"."
+  },
+  {
+    "id": 2016002,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Groundwork",
+    "description": "A Spark that gives a skill hint for \"Groundwork\"."
+  },
+  {
+    "id": 2016003,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Groundwork",
+    "description": "A Spark that gives a skill hint for \"Groundwork\"."
+  },
+  {
+    "id": 2016101,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Tail Held High",
+    "description": "A Spark that gives a skill hint for \"Tail Held High\"."
+  },
+  {
+    "id": 2016102,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Tail Held High",
+    "description": "A Spark that gives a skill hint for \"Tail Held High\"."
+  },
+  {
+    "id": 2016103,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Tail Held High",
+    "description": "A Spark that gives a skill hint for \"Tail Held High\"."
+  },
+  {
+    "id": 2016201,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Shake It Out",
+    "description": "A Spark that gives a skill hint for \"Shake It Out\"."
+  },
+  {
+    "id": 2016202,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Shake It Out",
+    "description": "A Spark that gives a skill hint for \"Shake It Out\"."
+  },
+  {
+    "id": 2016203,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Shake It Out",
+    "description": "A Spark that gives a skill hint for \"Shake It Out\"."
+  },
+  {
+    "id": 2016301,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Sympathy",
+    "description": "A Spark that gives a skill hint for \"Sympathy\"."
+  },
+  {
+    "id": 2016302,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Sympathy",
+    "description": "A Spark that gives a skill hint for \"Sympathy\"."
+  },
+  {
+    "id": 2016303,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Sympathy",
+    "description": "A Spark that gives a skill hint for \"Sympathy\"."
+  },
+  {
+    "id": 2016401,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Lone Wolf",
+    "description": "A Spark that gives a skill hint for \"Lone Wolf\"."
+  },
+  {
+    "id": 2016402,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Lone Wolf",
+    "description": "A Spark that gives a skill hint for \"Lone Wolf\"."
+  },
+  {
+    "id": 2016403,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Lone Wolf",
+    "description": "A Spark that gives a skill hint for \"Lone Wolf\"."
+  },
+  {
+    "id": 2016501,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Slipstream",
+    "description": "A Spark that gives a skill hint for \"Slipstream\"."
+  },
+  {
+    "id": 2016502,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Slipstream",
+    "description": "A Spark that gives a skill hint for \"Slipstream\"."
+  },
+  {
+    "id": 2016503,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Slipstream",
+    "description": "A Spark that gives a skill hint for \"Slipstream\"."
+  },
+  {
+    "id": 2016601,
+    "rarity": 1,
+    "grade": 1,
+    "type": 4,
+    "name": "Playtime's Over!",
+    "description": "A Spark that gives a skill hint for \"Playtime's Over!\"."
+  },
+  {
+    "id": 2016602,
+    "rarity": 2,
+    "grade": 1,
+    "type": 4,
+    "name": "Playtime's Over!",
+    "description": "A Spark that gives a skill hint for \"Playtime's Over!\"."
+  },
+  {
+    "id": 2016603,
+    "rarity": 3,
+    "grade": 1,
+    "type": 4,
+    "name": "Playtime's Over!",
+    "description": "A Spark that gives a skill hint for \"Playtime's Over!\"."
+  },
+  {
+    "id": 3000101,
+    "rarity": 1,
+    "grade": 1,
+    "type": 6,
+    "name": "URA Finale",
+    "description": "A Spark that increases Speed and Stamina."
+  },
+  {
+    "id": 3000102,
+    "rarity": 2,
+    "grade": 1,
+    "type": 6,
+    "name": "URA Finale",
+    "description": "A Spark that increases Speed and Stamina."
+  },
+  {
+    "id": 3000103,
+    "rarity": 3,
+    "grade": 1,
+    "type": 6,
+    "name": "URA Finale",
+    "description": "A Spark that increases Speed and Stamina."
+  },
+  {
+    "id": 10010101,
+    "rarity": 1,
+    "grade": 2,
+    "type": 3,
+    "name": "Shooting Star",
+    "description": "A Spark that gives a skill hint for \"Shooting Star\"."
+  },
+  {
+    "id": 10010102,
+    "rarity": 2,
+    "grade": 2,
+    "type": 3,
+    "name": "Shooting Star",
+    "description": "A Spark that gives a skill hint for \"Shooting Star\"."
+  },
+  {
+    "id": 10010103,
+    "rarity": 3,
+    "grade": 2,
+    "type": 3,
+    "name": "Shooting Star",
+    "description": "A Spark that gives a skill hint for \"Shooting Star\"."
+  },
+  {
+    "id": 10020101,
+    "rarity": 1,
+    "grade": 2,
+    "type": 3,
+    "name": "The View from the Lead Is Mine!",
+    "description": "A Spark that gives a skill hint for \"The View from the Lead Is Mine!\"."
+  },
+  {
+    "id": 10020102,
+    "rarity": 2,
+    "grade": 2,
+    "type": 3,
+    "name": "The View from the Lead Is Mine!",
+    "description": "A Spark that gives a skill hint for \"The View from the Lead Is Mine!\"."
+  },
+  {
+    "id": 10020103,
+    "rarity": 3,
+    "grade": 2,
+    "type": 3,
+    "name": "The View from the Lead Is Mine!",
+    "description": "A Spark that gives a skill hint for \"The View from the Lead Is Mine!\"."
+  },
+  {
+    "id": 10030101,
+    "rarity": 1,
+    "grade": 2,
+    "type": 3,
+    "name": "Sky-High Teio Step",
+    "description": "A Spark that gives a skill hint for \"Sky-High Teio Step\"."
+  },
+  {
+    "id": 10030102,
+    "rarity": 2,
+    "grade": 2,
+    "type": 3,
+    "name": "Sky-High Teio Step",
+    "description": "A Spark that gives a skill hint for \"Sky-High Teio Step\"."
+  },
+  {
+    "id": 10030103,
+    "rarity": 3,
+    "grade": 2,
+    "type": 3,
+    "name": "Sky-High Teio Step",
+    "description": "A Spark that gives a skill hint for \"Sky-High Teio Step\"."
+  },
+  {
+    "id": 10040101,
+    "rarity": 1,
+    "grade": 2,
+    "type": 3,
+    "name": "Red Shift/LP1211-M",
+    "description": "A Spark that gives a skill hint for \"Red Shift/LP1211-M\"."
+  },
+  {
+    "id": 10040102,
+    "rarity": 2,
+    "grade": 2,
+    "type": 3,
+    "name": "Red Shift/LP1211-M",
+    "description": "A Spark that gives a skill hint for \"Red Shift/LP1211-M\"."
+  },
+  {
+    "id": 10040103,
+    "rarity": 3,
+    "grade": 2,
+    "type": 3,
+    "name": "Red Shift/LP1211-M",
+    "description": "A Spark that gives a skill hint for \"Red Shift/LP1211-M\"."
+  },
+  {
+    "id": 10060101,
+    "rarity": 1,
+    "grade": 2,
+    "type": 3,
+    "name": "Triumphant Pulse",
+    "description": "A Spark that gives a skill hint for \"Triumphant Pulse\"."
+  },
+  {
+    "id": 10060102,
+    "rarity": 2,
+    "grade": 2,
+    "type": 3,
+    "name": "Triumphant Pulse",
+    "description": "A Spark that gives a skill hint for \"Triumphant Pulse\"."
+  },
+  {
+    "id": 10060103,
+    "rarity": 3,
+    "grade": 2,
+    "type": 3,
+    "name": "Triumphant Pulse",
+    "description": "A Spark that gives a skill hint for \"Triumphant Pulse\"."
+  },
+  {
+    "id": 10070101,
+    "rarity": 1,
+    "grade": 2,
+    "type": 3,
+    "name": "Anchors Aweigh!",
+    "description": "A Spark that gives a skill hint for \"Anchors Aweigh!\"."
+  },
+  {
+    "id": 10070102,
+    "rarity": 2,
+    "grade": 2,
+    "type": 3,
+    "name": "Anchors Aweigh!",
+    "description": "A Spark that gives a skill hint for \"Anchors Aweigh!\"."
+  },
+  {
+    "id": 10070103,
+    "rarity": 3,
+    "grade": 2,
+    "type": 3,
+    "name": "Anchors Aweigh!",
+    "description": "A Spark that gives a skill hint for \"Anchors Aweigh!\"."
+  },
+  {
+    "id": 10080101,
+    "rarity": 1,
+    "grade": 2,
+    "type": 3,
+    "name": "Cut and Drive!",
+    "description": "A Spark that gives a skill hint for \"Cut and Drive!\"."
+  },
+  {
+    "id": 10080102,
+    "rarity": 2,
+    "grade": 2,
+    "type": 3,
+    "name": "Cut and Drive!",
+    "description": "A Spark that gives a skill hint for \"Cut and Drive!\"."
+  },
+  {
+    "id": 10080103,
+    "rarity": 3,
+    "grade": 2,
+    "type": 3,
+    "name": "Cut and Drive!",
+    "description": "A Spark that gives a skill hint for \"Cut and Drive!\"."
+  },
+  {
+    "id": 10090101,
+    "rarity": 1,
+    "grade": 2,
+    "type": 3,
+    "name": "Resplendent Red Ace",
+    "description": "A Spark that gives a skill hint for \"Resplendent Red Ace\"."
+  },
+  {
+    "id": 10090102,
+    "rarity": 2,
+    "grade": 2,
+    "type": 3,
+    "name": "Resplendent Red Ace",
+    "description": "A Spark that gives a skill hint for \"Resplendent Red Ace\"."
+  },
+  {
+    "id": 10090103,
+    "rarity": 3,
+    "grade": 2,
+    "type": 3,
+    "name": "Resplendent Red Ace",
+    "description": "A Spark that gives a skill hint for \"Resplendent Red Ace\"."
+  },
+  {
+    "id": 10100101,
+    "rarity": 1,
+    "grade": 2,
+    "type": 3,
+    "name": "Shooting for Victory!",
+    "description": "A Spark that gives a skill hint for \"Shooting for Victory!\"."
+  },
+  {
+    "id": 10100102,
+    "rarity": 2,
+    "grade": 2,
+    "type": 3,
+    "name": "Shooting for Victory!",
+    "description": "A Spark that gives a skill hint for \"Shooting for Victory!\"."
+  },
+  {
+    "id": 10100103,
+    "rarity": 3,
+    "grade": 2,
+    "type": 3,
+    "name": "Shooting for Victory!",
+    "description": "A Spark that gives a skill hint for \"Shooting for Victory!\"."
+  },
+  {
+    "id": 10110101,
+    "rarity": 1,
+    "grade": 2,
+    "type": 3,
+    "name": "Where There's a Will, There's a Way",
+    "description": "A Spark that gives a skill hint for \"Where There's a Will, There's a Way\"."
+  },
+  {
+    "id": 10110102,
+    "rarity": 2,
+    "grade": 2,
+    "type": 3,
+    "name": "Where There's a Will, There's a Way",
+    "description": "A Spark that gives a skill hint for \"Where There's a Will, There's a Way\"."
+  },
+  {
+    "id": 10110103,
+    "rarity": 3,
+    "grade": 2,
+    "type": 3,
+    "name": "Where There's a Will, There's a Way",
+    "description": "A Spark that gives a skill hint for \"Where There's a Will, There's a Way\"."
+  },
+  {
+    "id": 10130101,
+    "rarity": 1,
+    "grade": 2,
+    "type": 3,
+    "name": "The Duty of Dignity Calls",
+    "description": "A Spark that gives a skill hint for \"The Duty of Dignity Calls\"."
+  },
+  {
+    "id": 10130102,
+    "rarity": 2,
+    "grade": 2,
+    "type": 3,
+    "name": "The Duty of Dignity Calls",
+    "description": "A Spark that gives a skill hint for \"The Duty of Dignity Calls\"."
+  },
+  {
+    "id": 10130103,
+    "rarity": 3,
+    "grade": 2,
+    "type": 3,
+    "name": "The Duty of Dignity Calls",
+    "description": "A Spark that gives a skill hint for \"The Duty of Dignity Calls\"."
+  },
+  {
+    "id": 10140101,
+    "rarity": 1,
+    "grade": 2,
+    "type": 3,
+    "name": "Victoria por plancha \u2606",
+    "description": "A Spark that gives a skill hint for \"Victoria por plancha \u2606\"."
+  },
+  {
+    "id": 10140102,
+    "rarity": 2,
+    "grade": 2,
+    "type": 3,
+    "name": "Victoria por plancha \u2606",
+    "description": "A Spark that gives a skill hint for \"Victoria por plancha \u2606\"."
+  },
+  {
+    "id": 10140103,
+    "rarity": 3,
+    "grade": 2,
+    "type": 3,
+    "name": "Victoria por plancha \u2606",
+    "description": "A Spark that gives a skill hint for \"Victoria por plancha \u2606\"."
+  },
+  {
+    "id": 10150101,
+    "rarity": 1,
+    "grade": 2,
+    "type": 3,
+    "name": "This Dance Is for Vittoria!",
+    "description": "A Spark that gives a skill hint for \"This Dance Is for Vittoria!\"."
+  },
+  {
+    "id": 10150102,
+    "rarity": 2,
+    "grade": 2,
+    "type": 3,
+    "name": "This Dance Is for Vittoria!",
+    "description": "A Spark that gives a skill hint for \"This Dance Is for Vittoria!\"."
+  },
+  {
+    "id": 10150103,
+    "rarity": 3,
+    "grade": 2,
+    "type": 3,
+    "name": "This Dance Is for Vittoria!",
+    "description": "A Spark that gives a skill hint for \"This Dance Is for Vittoria!\"."
+  },
+  {
+    "id": 10170101,
+    "rarity": 1,
+    "grade": 2,
+    "type": 3,
+    "name": "Behold Thine Emperor's Divine Might",
+    "description": "A Spark that gives a skill hint for \"Behold Thine Emperor's Divine Might\"."
+  },
+  {
+    "id": 10170102,
+    "rarity": 2,
+    "grade": 2,
+    "type": 3,
+    "name": "Behold Thine Emperor's Divine Might",
+    "description": "A Spark that gives a skill hint for \"Behold Thine Emperor's Divine Might\"."
+  },
+  {
+    "id": 10170103,
+    "rarity": 3,
+    "grade": 2,
+    "type": 3,
+    "name": "Behold Thine Emperor's Divine Might",
+    "description": "A Spark that gives a skill hint for \"Behold Thine Emperor's Divine Might\"."
+  },
+  {
+    "id": 10180101,
+    "rarity": 1,
+    "grade": 2,
+    "type": 3,
+    "name": "Blazing Pride",
+    "description": "A Spark that gives a skill hint for \"Blazing Pride\"."
+  },
+  {
+    "id": 10180102,
+    "rarity": 2,
+    "grade": 2,
+    "type": 3,
+    "name": "Blazing Pride",
+    "description": "A Spark that gives a skill hint for \"Blazing Pride\"."
+  },
+  {
+    "id": 10180103,
+    "rarity": 3,
+    "grade": 2,
+    "type": 3,
+    "name": "Blazing Pride",
+    "description": "A Spark that gives a skill hint for \"Blazing Pride\"."
+  },
+  {
+    "id": 10230101,
+    "rarity": 1,
+    "grade": 2,
+    "type": 3,
+    "name": "\u2234win Q.E.D.",
+    "description": "A Spark that gives a skill hint for \"\u2234win Q.E.D.\"."
+  },
+  {
+    "id": 10230102,
+    "rarity": 2,
+    "grade": 2,
+    "type": 3,
+    "name": "\u2234win Q.E.D.",
+    "description": "A Spark that gives a skill hint for \"\u2234win Q.E.D.\"."
+  },
+  {
+    "id": 10230103,
+    "rarity": 3,
+    "grade": 2,
+    "type": 3,
+    "name": "\u2234win Q.E.D.",
+    "description": "A Spark that gives a skill hint for \"\u2234win Q.E.D.\"."
+  },
+  {
+    "id": 10240101,
+    "rarity": 1,
+    "grade": 2,
+    "type": 3,
+    "name": "Flashy\u2606Landing",
+    "description": "A Spark that gives a skill hint for \"Flashy\u2606Landing\"."
+  },
+  {
+    "id": 10240102,
+    "rarity": 2,
+    "grade": 2,
+    "type": 3,
+    "name": "Flashy\u2606Landing",
+    "description": "A Spark that gives a skill hint for \"Flashy\u2606Landing\"."
+  },
+  {
+    "id": 10240103,
+    "rarity": 3,
+    "grade": 2,
+    "type": 3,
+    "name": "Flashy\u2606Landing",
+    "description": "A Spark that gives a skill hint for \"Flashy\u2606Landing\"."
+  },
+  {
+    "id": 10260101,
+    "rarity": 1,
+    "grade": 2,
+    "type": 3,
+    "name": "G00 1st. F\u221e;",
+    "description": "A Spark that gives a skill hint for \"G00 1st. F\u221e;\"."
+  },
+  {
+    "id": 10260102,
+    "rarity": 2,
+    "grade": 2,
+    "type": 3,
+    "name": "G00 1st. F\u221e;",
+    "description": "A Spark that gives a skill hint for \"G00 1st. F\u221e;\"."
+  },
+  {
+    "id": 10260103,
+    "rarity": 3,
+    "grade": 2,
+    "type": 3,
+    "name": "G00 1st. F\u221e;",
+    "description": "A Spark that gives a skill hint for \"G00 1st. F\u221e;\"."
+  },
+  {
+    "id": 10270101,
+    "rarity": 1,
+    "grade": 2,
+    "type": 3,
+    "name": "Let's Pump Some Iron!",
+    "description": "A Spark that gives a skill hint for \"Let's Pump Some Iron!\"."
+  },
+  {
+    "id": 10270102,
+    "rarity": 2,
+    "grade": 2,
+    "type": 3,
+    "name": "Let's Pump Some Iron!",
+    "description": "A Spark that gives a skill hint for \"Let's Pump Some Iron!\"."
+  },
+  {
+    "id": 10270103,
+    "rarity": 3,
+    "grade": 2,
+    "type": 3,
+    "name": "Let's Pump Some Iron!",
+    "description": "A Spark that gives a skill hint for \"Let's Pump Some Iron!\"."
+  },
+  {
+    "id": 10300101,
+    "rarity": 1,
+    "grade": 2,
+    "type": 3,
+    "name": "Blue Rose Closer",
+    "description": "A Spark that gives a skill hint for \"Blue Rose Closer\"."
+  },
+  {
+    "id": 10300102,
+    "rarity": 2,
+    "grade": 2,
+    "type": 3,
+    "name": "Blue Rose Closer",
+    "description": "A Spark that gives a skill hint for \"Blue Rose Closer\"."
+  },
+  {
+    "id": 10300103,
+    "rarity": 3,
+    "grade": 2,
+    "type": 3,
+    "name": "Blue Rose Closer",
+    "description": "A Spark that gives a skill hint for \"Blue Rose Closer\"."
+  },
+  {
+    "id": 10320101,
+    "rarity": 1,
+    "grade": 2,
+    "type": 3,
+    "name": "U=ma2",
+    "description": "A Spark that gives a skill hint for \"U=ma2\"."
+  },
+  {
+    "id": 10320102,
+    "rarity": 2,
+    "grade": 2,
+    "type": 3,
+    "name": "U=ma2",
+    "description": "A Spark that gives a skill hint for \"U=ma2\"."
+  },
+  {
+    "id": 10320103,
+    "rarity": 3,
+    "grade": 2,
+    "type": 3,
+    "name": "U=ma2",
+    "description": "A Spark that gives a skill hint for \"U=ma2\"."
+  },
+  {
+    "id": 10350101,
+    "rarity": 1,
+    "grade": 2,
+    "type": 3,
+    "name": "Our Ticket to Win!",
+    "description": "A Spark that gives a skill hint for \"Our Ticket to Win!\"."
+  },
+  {
+    "id": 10350102,
+    "rarity": 2,
+    "grade": 2,
+    "type": 3,
+    "name": "Our Ticket to Win!",
+    "description": "A Spark that gives a skill hint for \"Our Ticket to Win!\"."
+  },
+  {
+    "id": 10350103,
+    "rarity": 3,
+    "grade": 2,
+    "type": 3,
+    "name": "Our Ticket to Win!",
+    "description": "A Spark that gives a skill hint for \"Our Ticket to Win!\"."
+  },
+  {
+    "id": 10410101,
+    "rarity": 1,
+    "grade": 2,
+    "type": 3,
+    "name": "Genius x Bakushin = Victory",
+    "description": "A Spark that gives a skill hint for \"Genius x Bakushin = Victory\"."
+  },
+  {
+    "id": 10410102,
+    "rarity": 2,
+    "grade": 2,
+    "type": 3,
+    "name": "Genius x Bakushin = Victory",
+    "description": "A Spark that gives a skill hint for \"Genius x Bakushin = Victory\"."
+  },
+  {
+    "id": 10410103,
+    "rarity": 3,
+    "grade": 2,
+    "type": 3,
+    "name": "Genius x Bakushin = Victory",
+    "description": "A Spark that gives a skill hint for \"Genius x Bakushin = Victory\"."
+  },
+  {
+    "id": 10450101,
+    "rarity": 1,
+    "grade": 2,
+    "type": 3,
+    "name": "Pure Heart",
+    "description": "A Spark that gives a skill hint for \"Pure Heart\"."
+  },
+  {
+    "id": 10450102,
+    "rarity": 2,
+    "grade": 2,
+    "type": 3,
+    "name": "Pure Heart",
+    "description": "A Spark that gives a skill hint for \"Pure Heart\"."
+  },
+  {
+    "id": 10450103,
+    "rarity": 3,
+    "grade": 2,
+    "type": 3,
+    "name": "Pure Heart",
+    "description": "A Spark that gives a skill hint for \"Pure Heart\"."
+  },
+  {
+    "id": 10520101,
+    "rarity": 1,
+    "grade": 2,
+    "type": 3,
+    "name": "Super-Duper Climax",
+    "description": "A Spark that gives a skill hint for \"Super-Duper Climax\"."
+  },
+  {
+    "id": 10520102,
+    "rarity": 2,
+    "grade": 2,
+    "type": 3,
+    "name": "Super-Duper Climax",
+    "description": "A Spark that gives a skill hint for \"Super-Duper Climax\"."
+  },
+  {
+    "id": 10520103,
+    "rarity": 3,
+    "grade": 2,
+    "type": 3,
+    "name": "Super-Duper Climax",
+    "description": "A Spark that gives a skill hint for \"Super-Duper Climax\"."
+  },
+  {
+    "id": 10560101,
+    "rarity": 1,
+    "grade": 2,
+    "type": 3,
+    "name": "I See Victory in My Future!",
+    "description": "A Spark that gives a skill hint for \"I See Victory in My Future!\"."
+  },
+  {
+    "id": 10560102,
+    "rarity": 2,
+    "grade": 2,
+    "type": 3,
+    "name": "I See Victory in My Future!",
+    "description": "A Spark that gives a skill hint for \"I See Victory in My Future!\"."
+  },
+  {
+    "id": 10560103,
+    "rarity": 3,
+    "grade": 2,
+    "type": 3,
+    "name": "I See Victory in My Future!",
+    "description": "A Spark that gives a skill hint for \"I See Victory in My Future!\"."
+  },
+  {
+    "id": 10600101,
+    "rarity": 1,
+    "grade": 2,
+    "type": 3,
+    "name": "Just a Little Farther!",
+    "description": "A Spark that gives a skill hint for \"Just a Little Farther!\"."
+  },
+  {
+    "id": 10600102,
+    "rarity": 2,
+    "grade": 2,
+    "type": 3,
+    "name": "Just a Little Farther!",
+    "description": "A Spark that gives a skill hint for \"Just a Little Farther!\"."
+  },
+  {
+    "id": 10600103,
+    "rarity": 3,
+    "grade": 2,
+    "type": 3,
+    "name": "Just a Little Farther!",
+    "description": "A Spark that gives a skill hint for \"Just a Little Farther!\"."
+  },
+  {
+    "id": 10610101,
+    "rarity": 1,
+    "grade": 2,
+    "type": 3,
+    "name": "Prideful King",
+    "description": "A Spark that gives a skill hint for \"Prideful King\"."
+  },
+  {
+    "id": 10610102,
+    "rarity": 2,
+    "grade": 2,
+    "type": 3,
+    "name": "Prideful King",
+    "description": "A Spark that gives a skill hint for \"Prideful King\"."
+  },
+  {
+    "id": 10610103,
+    "rarity": 3,
+    "grade": 2,
+    "type": 3,
+    "name": "Prideful King",
+    "description": "A Spark that gives a skill hint for \"Prideful King\"."
+  }
+]
