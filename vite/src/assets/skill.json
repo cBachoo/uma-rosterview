@@ -200,6 +200,16 @@
     "icon_id": 20043
   },
   {
+    "id": 100051,
+    "name": "Lights of Vaudeville",
+    "description": "Greatly increase velocity with a dazzling display when just breaking out of the pack toward the front on the final straight.",
+    "rarity": 5,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner==0&order_rate<=30&behind_near_lane_time>=1",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
     "id": 100061,
     "name": "Triumphant Pulse",
     "description": "Greatly increase ability to break out of the pack by opening up a path when positioned toward the front with 200m remaining.",
@@ -260,6 +270,16 @@
     "icon_id": 20013
   },
   {
+    "id": 100121,
+    "name": "You and Me! One-on-One!",
+    "description": "Increase velocity when passing another runner on the outside toward the back on the final straight.",
+    "rarity": 5,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner==0&is_behind_in==1&change_order_onetime<0&order_rate>=40",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
     "id": 100131,
     "name": "The Duty of Dignity Calls",
     "description": "Increase velocity with the determination to not be overtaken when positioned toward the front on the final corner.",
@@ -290,6 +310,16 @@
     "icon_id": 20013
   },
   {
+    "id": 100161,
+    "name": "Shadow Break",
+    "description": "Increase velocity with beastly strength when passing another runner on the outside on the final corner or later.",
+    "rarity": 5,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&order>=2&order_rate<=75&is_behind_in==1&change_order_onetime<0",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
     "id": 100171,
     "name": "Behold Thine Emperor's Divine Might",
     "description": "Greatly increase velocity on the final straight after passing another runner 3 times late-race.",
@@ -308,6 +338,16 @@
     "condition_1": "is_finalcorner==1&corner!=0&order>=4&change_order_onetime<0",
     "condition_2": "",
     "icon_id": 20013
+  },
+  {
+    "id": 100201,
+    "name": "Angling and Scheming",
+    "description": "Increase acceleration at an opportune moment when in the lead on a corner late-race.",
+    "rarity": 5,
+    "category": 5,
+    "condition_1": "phase>=2&corner!=0&order==1",
+    "condition_2": "",
+    "icon_id": 20043
   },
   {
     "id": 100231,
@@ -380,6 +420,36 @@
     "icon_id": 20013
   },
   {
+    "id": 100371,
+    "name": "Schwarzes Schwert",
+    "description": "Increase velocity in a dash for the lead after running calmly and according to plan up until the final straight.",
+    "rarity": 5,
+    "category": 5,
+    "condition_1": "is_badstart==0&temptation_count==0&order>=3&is_finalcorner==1&corner==0",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
+    "id": 100381,
+    "name": "#LookatCurren",
+    "description": "Gain momentum and begin to advance when passing another runner while well-positioned around halfway through the race.",
+    "rarity": 5,
+    "category": 5,
+    "condition_1": "distance_rate>=50&distance_rate<=65&order>=3&order_rate<=40&change_order_onetime<0",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
+    "id": 100401,
+    "name": "KEEP IT REAL.",
+    "description": "Moderately increase acceleration steadily with a wink when starting to make a move from midpack in the second half of the race.",
+    "rarity": 5,
+    "category": 5,
+    "condition_1": "distance_rate>=50&order_rate>=40&order_rate<=70&is_overtake==1",
+    "condition_2": "",
+    "icon_id": 20043
+  },
+  {
     "id": 100411,
     "name": "Genius x Bakushin = Victory",
     "description": "Increase velocity with BAKUSHIN power when engaged in a challenge toward the front in the second half of the race.",
@@ -398,6 +468,26 @@
     "condition_1": "phase_random==1&order>=2&order_rate<=40",
     "condition_2": "",
     "icon_id": 20023
+  },
+  {
+    "id": 100461,
+    "name": "SPARKLY\u2606STARDOM",
+    "description": "Become empowered against ceding the spotlight when about to lose the lead on a straight mid-race.",
+    "rarity": 5,
+    "category": 5,
+    "condition_1": "phase==1&corner==0&order==1&bashin_diff_behind<=1",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
+    "id": 100501,
+    "name": "Nemesis",
+    "description": "Increase velocity with smoldering ambition when moving up from a position toward the back of the pack on the final corner.",
+    "rarity": 5,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner!=0&order_rate>=50&order_rate<=75&is_overtake==1",
+    "condition_2": "",
+    "icon_id": 20013
   },
   {
     "id": 100521,
@@ -420,6 +510,16 @@
     "icon_id": 20013
   },
   {
+    "id": 100581,
+    "name": "I Never Goof Up!",
+    "description": "Aim for the front with unwavering determination when passing another runner from midpack or further back on a corner late-race.",
+    "rarity": 5,
+    "category": 5,
+    "condition_1": "phase>=2&corner!=0&order>=3&change_order_onetime<0",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
     "id": 100601,
     "name": "Just a Little Farther!",
     "description": "Increase velocity with flaring fighting spirit when positioned 3rd and about to lose late-race.",
@@ -436,6 +536,96 @@
     "rarity": 4,
     "category": 5,
     "condition_1": "temptation_count==0&remain_distance<=201&remain_distance>=199&order>=5&order_rate<=60",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
+    "id": 110011,
+    "name": "Dazzl'n \u266a Diver",
+    "description": "Recover endurance by relaxing after activating 2 skills mid-race.",
+    "rarity": 5,
+    "category": 5,
+    "condition_1": "phase==1&order>=2&order_rate<=70&activate_count_middle>=2",
+    "condition_2": "",
+    "icon_id": 20023
+  },
+  {
+    "id": 110031,
+    "name": "Certain Victory",
+    "description": "Increase velocity with an indomitable fighting spirit when on the heels of another runner toward the front on the final straight.",
+    "rarity": 5,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner==0&is_overtake==1&order<=5&order_rate<=50&overtake_target_no_order_up_time>=2",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
+    "id": 110041,
+    "name": "A Kiss for Courage",
+    "description": "Increase velocity enthusiastically when positioned toward the front in the second half of the race after recovering endurance with a skill.",
+    "rarity": 5,
+    "category": 5,
+    "condition_1": "distance_rate>=50&activate_count_heal>=1&order<=3",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
+    "id": 110111,
+    "name": "Superior Heal",
+    "description": "Recover endurance with a gentle light when dropping down toward the back mid-race.",
+    "rarity": 5,
+    "category": 5,
+    "condition_1": "phase==1&change_order_onetime>0&order_rate>=40",
+    "condition_2": "",
+    "icon_id": 20023
+  },
+  {
+    "id": 110131,
+    "name": "Legacy of the Strong",
+    "description": "Increase velocity when pressured by another runner and running out of energy toward the front on the final corner or later.",
+    "rarity": 5,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&hp_per<=35&order<=3&order_rate<=50&bashin_diff_behind<=1&overtake_target_time>=1",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
+    "id": 110141,
+    "name": "Condor's Fury",
+    "description": "Increase acceleration with blazing passion when aiming for the front from midpack on the final corner.",
+    "rarity": 5,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner!=0&is_overtake==1&order>=4&order_rate<=75",
+    "condition_2": "",
+    "icon_id": 20043
+  },
+  {
+    "id": 110181,
+    "name": "Eternal Moments",
+    "description": "Increase velocity when starting to make a move from a position toward the front mid-race.",
+    "rarity": 5,
+    "category": 5,
+    "condition_1": "phase_random==1&order>=3&order_rate<=50&is_overtake==1",
+    "condition_2": "",
+    "icon_id": 20013
+  },
+  {
+    "id": 110241,
+    "name": "Flowery\u2606Maneuver",
+    "description": "Increase velocity when passing another runner toward the front on the final corner. If passing toward the back, increase acceleration instead.",
+    "rarity": 5,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner!=0&order_rate<=40&change_order_onetime<0",
+    "condition_2": "is_finalcorner==1&corner!=0&order_rate>=50&order_rate<=80&change_order_onetime<0",
+    "icon_id": 20013
+  },
+  {
+    "id": 110561,
+    "name": "Bountiful Harvest",
+    "description": "Increase velocity with a surge of great fortune when pressured by another runner toward the back in the second half of the race.",
+    "rarity": 5,
+    "category": 5,
+    "condition_1": "distance_rate>=50&order_rate>=40&overtake_target_time>=2",
     "condition_2": "",
     "icon_id": 20013
   },
@@ -2470,6 +2660,16 @@
     "icon_id": 20051
   },
   {
+    "id": 201011,
+    "name": "Adored by All",
+    "description": "Intimidate runners behind when positioned toward the front early-race. (Sprint)",
+    "rarity": 2,
+    "category": 1,
+    "condition_1": "distance_type==1&phase_random==0&order<=3&accumulatetime>=5",
+    "condition_2": "",
+    "icon_id": 30012
+  },
+  {
     "id": 201012,
     "name": "Intimidate",
     "description": "Moderately intimidate runners behind when positioned toward the front early-race. (Sprint)",
@@ -2948,6 +3148,16 @@
     "condition_1": "running_style==1&corner_random==1@running_style==1&corner_random==2@running_style==1&corner_random==3@running_style==1&corner_random==4",
     "condition_2": "",
     "icon_id": 20011
+  },
+  {
+    "id": 201261,
+    "name": "Sixth Sense",
+    "description": "Avoid becoming surrounded early-race. (Front Runner)",
+    "rarity": 2,
+    "category": 1,
+    "condition_1": "running_style==1&phase==0&blocked_all_continuetime>=1",
+    "condition_2": "",
+    "icon_id": 20052
   },
   {
     "id": 201262,
@@ -3640,6 +3850,146 @@
     "icon_id": 20011
   },
   {
+    "id": 201671,
+    "name": "Trending in the Charts!",
+    "description": "Increase velocity when engaged in a challenge mid-race. (Dirt)",
+    "rarity": 2,
+    "category": 2,
+    "condition_1": "ground_type==2&phase==1&blocked_side_continuetime>=2",
+    "condition_2": "",
+    "icon_id": 20012
+  },
+  {
+    "id": 201672,
+    "name": "Top Pick",
+    "description": "Slightly increase velocity when engaged in a challenge mid-race. (Dirt)",
+    "rarity": 1,
+    "category": 2,
+    "condition_1": "ground_type==2&phase==1&blocked_side_continuetime>=2",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 210011,
+    "name": "Burning Spirit SPD",
+    "description": "Burn bright with team spirit, increasing velocity in proportion to the total Speed of racing team members mid-race.",
+    "rarity": 2,
+    "category": 2,
+    "condition_1": "phase_random==1",
+    "condition_2": "",
+    "icon_id": 20102
+  },
+  {
+    "id": 210012,
+    "name": "Ignited Spirit SPD",
+    "description": "Burn bright with team spirit, slightly increasing velocity in proportion to the total Speed of racing team members mid-race.",
+    "rarity": 1,
+    "category": 2,
+    "condition_1": "phase_random==1",
+    "condition_2": "",
+    "icon_id": 20101
+  },
+  {
+    "id": 210021,
+    "name": "Burning Spirit STA",
+    "description": "Burn bright with team spirit, recovering endurance in proportion to the total Stamina of racing team members mid-race.",
+    "rarity": 2,
+    "category": 2,
+    "condition_1": "phase_random==1",
+    "condition_2": "",
+    "icon_id": 20112
+  },
+  {
+    "id": 210022,
+    "name": "Ignited Spirit STA",
+    "description": "Burn bright with team spirit, slightly recovering endurance in proportion to the total Stamina of racing team members mid-race.",
+    "rarity": 1,
+    "category": 2,
+    "condition_1": "phase_random==1",
+    "condition_2": "",
+    "icon_id": 20111
+  },
+  {
+    "id": 210031,
+    "name": "Burning Spirit PWR",
+    "description": "Burn bright with team spirit, increasing acceleration in proportion to the total Power of racing team members late-race.",
+    "rarity": 2,
+    "category": 3,
+    "condition_1": "phase_random==2",
+    "condition_2": "",
+    "icon_id": 20122
+  },
+  {
+    "id": 210032,
+    "name": "Ignited Spirit PWR",
+    "description": "Burn bright with team spirit, slightly increasing acceleration in proportion to the total Power of racing team members late-race.",
+    "rarity": 1,
+    "category": 3,
+    "condition_1": "phase_random==2",
+    "condition_2": "",
+    "icon_id": 20121
+  },
+  {
+    "id": 210041,
+    "name": "Burning Spirit GUTS",
+    "description": "Burn bright with team spirit, increasing vigor in proportion to the total Guts of racing team members late-race.",
+    "rarity": 2,
+    "category": 3,
+    "condition_1": "phase_random==2",
+    "condition_2": "",
+    "icon_id": 20102
+  },
+  {
+    "id": 210042,
+    "name": "Ignited Spirit GUTS",
+    "description": "Burn bright with team spirit, very slightly increasing vigor in proportion to the total Guts of racing team members late-race.",
+    "rarity": 1,
+    "category": 3,
+    "condition_1": "phase_random==2",
+    "condition_2": "",
+    "icon_id": 20101
+  },
+  {
+    "id": 210051,
+    "name": "Burning Spirit WIT",
+    "description": "Burn bright with team spirit, increasing strategic navigation in proportion to the total Wit of racing team members early-race.",
+    "rarity": 2,
+    "category": 1,
+    "condition_1": "phase_random==0",
+    "condition_2": "",
+    "icon_id": 20132
+  },
+  {
+    "id": 210052,
+    "name": "Ignited Spirit WIT",
+    "description": "Burn bright with team spirit, slightly increasing strategic navigation in proportion to the total Wit of racing team members early-race.",
+    "rarity": 1,
+    "category": 1,
+    "condition_1": "phase_random==0",
+    "condition_2": "",
+    "icon_id": 20131
+  },
+  {
+    "id": 300011,
+    "name": "Unquenched Thirst",
+    "description": "Moderately increase performance with the desire to race.",
+    "rarity": 1,
+    "category": 0,
+    "condition_1": "track_id==10008",
+    "condition_2": "",
+    "icon_id": 10021
+  },
+  {
+    "id": 300021,
+    "name": "Unchanging",
+    "description": "Greatly increase performance with the same ambition of days past.",
+    "rarity": 2,
+    "category": 0,
+    "condition_1": "season==4",
+    "condition_2": "",
+    "icon_id": 10012
+  },
+  {
     "id": 900011,
     "name": "Shooting Star",
     "description": "Slightly increase velocity when passing another runner toward the front late-race.",
@@ -3678,6 +4028,16 @@
     "condition_1": "is_finalcorner==1&order<=5&order_rate<=50",
     "condition_2": "",
     "icon_id": 20041
+  },
+  {
+    "id": 900051,
+    "name": "Lights of Vaudeville",
+    "description": "Moderately increase velocity when just breaking out of the pack toward the front on the final straight.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner==0&order_rate<=30&behind_near_lane_time>=1",
+    "condition_2": "",
+    "icon_id": 20011
   },
   {
     "id": 900061,
@@ -3740,6 +4100,16 @@
     "icon_id": 20011
   },
   {
+    "id": 900121,
+    "name": "You and Me! One-on-One!",
+    "description": "Slightly increase velocity when passing another runner on the outside toward the back on the final straight.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner==0&is_behind_in==1&change_order_onetime<0&order_rate>=40",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
     "id": 900131,
     "name": "The Duty of Dignity Calls",
     "description": "Slightly increase velocity when positioned toward the front on the final corner.",
@@ -3770,6 +4140,16 @@
     "icon_id": 20011
   },
   {
+    "id": 900161,
+    "name": "Shadow Break",
+    "description": "Slightly increase velocity when passing another runner on the outside on the final corner or later.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&order>=2&order_rate<=75&is_behind_in==1&change_order_onetime<0",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
     "id": 900171,
     "name": "Behold Thine Emperor's Divine Might",
     "description": "Moderately increase velocity on the final straight after passing another runner 3 times late-race.",
@@ -3788,6 +4168,16 @@
     "condition_1": "is_finalcorner==1&corner!=0&order>=4&change_order_onetime<0",
     "condition_2": "",
     "icon_id": 20011
+  },
+  {
+    "id": 900201,
+    "name": "Angling and Scheming",
+    "description": "Slightly increase acceleration when in the lead on a corner late-race.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "phase>=2&corner!=0&order==1",
+    "condition_2": "",
+    "icon_id": 20041
   },
   {
     "id": 900231,
@@ -3860,6 +4250,36 @@
     "icon_id": 20011
   },
   {
+    "id": 900371,
+    "name": "Schwarzes Schwert",
+    "description": "Slightly increase velocity in a dash for the lead after running calmly and according to plan up until the final straight.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "is_badstart==0&temptation_count==0&order>=3&is_finalcorner==1&corner==0",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 900381,
+    "name": "#LookatCurren",
+    "description": "Very slightly begin to advance when passing another runner while well-positioned around halfway through the race.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "distance_rate>=50&distance_rate<=65&order>=3&order_rate<=40&change_order_onetime<0",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 900401,
+    "name": "KEEP IT REAL.",
+    "description": "Very slightly increase acceleration steadily when starting to make a move from midpack in the second half of the race.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "distance_rate>=50&order_rate>=40&order_rate<=70&is_overtake==1",
+    "condition_2": "",
+    "icon_id": 20041
+  },
+  {
     "id": 900411,
     "name": "Genius x Bakushin = Victory",
     "description": "Slightly increase velocity when engaged in a challenge toward the front in the second half of the race.",
@@ -3878,6 +4298,26 @@
     "condition_1": "phase_random==1&order>=2&order_rate<=40",
     "condition_2": "",
     "icon_id": 20021
+  },
+  {
+    "id": 900461,
+    "name": "SPARKLY\u2606STARDOM",
+    "description": "Become very slightly empowered against ceding the spotlight when about to lose the lead on a straight mid-race.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "phase==1&corner==0&order==1&bashin_diff_behind<=1",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 900501,
+    "name": "Nemesis",
+    "description": "Slightly increase velocity when moving up from a position toward the back of the pack on the final corner.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner!=0&order_rate>=50&order_rate<=75&is_overtake==1",
+    "condition_2": "",
+    "icon_id": 20011
   },
   {
     "id": 900521,
@@ -3900,6 +4340,16 @@
     "icon_id": 20011
   },
   {
+    "id": 900581,
+    "name": "I Never Goof Up!",
+    "description": "Very slightly aim for the front when passing another runner from midpack or further back on a corner late-race.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "phase>=2&corner!=0&order>=3&change_order_onetime<0",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
     "id": 900601,
     "name": "Just a Little Farther!",
     "description": "Slightly increase velocity when positioned 3rd and about to lose late-race.",
@@ -3916,6 +4366,96 @@
     "rarity": 1,
     "category": 5,
     "condition_1": "temptation_count==0&remain_distance<=201&remain_distance>=199&order>=5&order_rate<=60",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 910011,
+    "name": "Dazzl'n \u266a Diver",
+    "description": "Slightly recover endurance after activating 2 skills mid-race.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "phase==1&order>=2&order_rate<=70&activate_count_middle>=2",
+    "condition_2": "",
+    "icon_id": 20021
+  },
+  {
+    "id": 910031,
+    "name": "Certain Victory",
+    "description": "Slightly increase velocity when on the heels of another runner toward the front on the final straight.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner==0&is_overtake==1&order<=5&order_rate<=50&overtake_target_no_order_up_time>=2",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 910041,
+    "name": "A Kiss for Courage",
+    "description": "Slightly increase velocity when positioned toward the front in the second half of the race after recovering endurance with a skill.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "distance_rate>=50&activate_count_heal>=1&order<=3",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 910111,
+    "name": "Superior Heal",
+    "description": "Slightly recover endurance when dropping down toward the back mid-race.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "phase==1&change_order_onetime>0&order_rate>=40",
+    "condition_2": "",
+    "icon_id": 20021
+  },
+  {
+    "id": 910131,
+    "name": "Legacy of the Strong",
+    "description": "Slightly increase velocity when pressured by another runner and running out of energy toward the front on the final corner or later.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&hp_per<=35&order<=3&order_rate<=50&bashin_diff_behind<=1&overtake_target_time>=1",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 910141,
+    "name": "Condor's Fury",
+    "description": "Slightly increase acceleration when aiming for the front from midpack on the final corner.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner!=0&is_overtake==1&order>=4&order_rate<=75",
+    "condition_2": "",
+    "icon_id": 20041
+  },
+  {
+    "id": 910181,
+    "name": "Eternal Moments",
+    "description": "Slightly increase velocity when starting to make a move from a position toward the front mid-race.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "phase_random==1&order>=3&order_rate<=50&is_overtake==1",
+    "condition_2": "",
+    "icon_id": 20011
+  },
+  {
+    "id": 910241,
+    "name": "Flowery\u2606Maneuver",
+    "description": "Slightly increase velocity when passing another runner toward the front on the final corner. If passing toward the back, slightly increase acceleration instead.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "is_finalcorner==1&corner!=0&order_rate<=40&change_order_onetime<0",
+    "condition_2": "is_finalcorner==1&corner!=0&order_rate>=50&order_rate<=80&change_order_onetime<0",
+    "icon_id": 20011
+  },
+  {
+    "id": 910561,
+    "name": "Bountiful Harvest",
+    "description": "Slightly increase velocity with a surge of fortune when pressured by another runner toward the back in the second half of the race.",
+    "rarity": 1,
+    "category": 5,
+    "condition_1": "distance_rate>=50&order_rate>=40&overtake_target_time>=2",
     "condition_2": "",
     "icon_id": 20011
   }
