@@ -14,8 +14,14 @@
             stats: boolean;
             factors: boolean;
         };
+        filters: {
+            blues: { [key: string]: boolean | number; stars: number };
+            reds: { [key: string]: boolean | number; stars: number };
+            greens: { stars: number };
+            whites: { [key: string]: boolean | number; stars: number };
+        };
     }
-    const { charaData, display }: Props = $props();
+    const { charaData, display, filters }: Props = $props();
 
     const charaCard = $derived(charaCardsData[charaData.card_id]);
     const charaCardLabel = $derived(
@@ -121,7 +127,7 @@
                 {#if display.factors}
                     <div class="mb-2">
                         <small class="text-muted">Current Unit Sparks:</small>
-                        <FactorList factorIds={charaData.factor_id_array}
+                        <FactorList factorIds={charaData.factor_id_array} {filters}
                         ></FactorList>
                     </div>
                     <hr />
@@ -132,6 +138,7 @@
                             >
                             <FactorList
                                 factorIds={successionChara.factor_id_array}
+                                {filters}
                             ></FactorList>
                         </div>
                         {#if index < charaData.succession_chara_array.slice(0, 2).length - 1}
@@ -157,6 +164,7 @@
                             <SuccessionChara
                                 successionCharaData={successionChara}
                                 trainedCharaID={charaData.chara_seed}
+                                {filters}
                             ></SuccessionChara>
                         {/each}
                     </div>

@@ -206,7 +206,7 @@
     <div class="row row-cols-1 row-cols-lg-2 g-5 py-4">
         {#each trainedCharasFiltered as chara (chara.chara_seed)}
             <div class="col">
-                <Chara charaData={chara} display={display.value}></Chara>
+                <Chara charaData={chara} display={display.value} {filters}></Chara>
             </div>
         {/each}
     </div>

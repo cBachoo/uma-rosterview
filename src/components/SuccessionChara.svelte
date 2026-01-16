@@ -6,8 +6,14 @@
     interface Props {
         successionCharaData: SuccessionCharaData;
         trainedCharaID: number;
+        filters: {
+            blues: { [key: string]: boolean | number; stars: number };
+            reds: { [key: string]: boolean | number; stars: number };
+            greens: { stars: number };
+            whites: { [key: string]: boolean | number; stars: number };
+        };
     }
-    const { successionCharaData, trainedCharaID }: Props = $props();
+    const { successionCharaData, trainedCharaID, filters }: Props = $props();
 
     const charaCard = $derived(charaCardsData[successionCharaData.card_id]);
     const successionCharaLabel = $derived(
@@ -36,7 +42,7 @@
         data-bs-parent={`#${succesionCharaID}`}
     >
         <div class="accordion-body p-2">
-            <FactorList factorIds={successionCharaData.factor_id_array}
+            <FactorList factorIds={successionCharaData.factor_id_array} {filters}
             ></FactorList>
         </div>
     </div>
