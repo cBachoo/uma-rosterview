@@ -1,7 +1,11 @@
 <script lang="ts">
     import type { CharaData } from "../types";
 
-    let { uploaddata, onImport }: { uploaddata: (data: CharaData[]) => void; onImport?: () => void } = $props();
+    let {
+        uploaddata,
+        onImport,
+    }: { uploaddata: (data: CharaData[]) => void; onImport?: () => void } =
+        $props();
 
     let files: FileList | null = $state(null);
     $effect(() => {
@@ -30,17 +34,18 @@
         <div class="text-center mb-5">
             <h4 class="mb-3">Upload Your Roster</h4>
             <p class="text-muted mb-4">
-                Select your exported <code>data.json</code> file to view your trained characters
+                Select your exported <code>data.json</code> file to view your trained
+                characters
             </p>
             <div class="upload-zone p-3 rounded-3 mb-4">
-                <input 
-                    bind:files 
-                    type="file" 
-                    class="form-control form-control-lg upload-input" 
+                <input
+                    bind:files
+                    type="file"
+                    class="form-control form-control-lg upload-input"
                     accept=".json"
                 />
             </div>
-            
+
             {#if onImport}
                 <div class="divider-text">
                     <span class="text-muted px-3">or</span>
@@ -60,12 +65,14 @@
                 <!-- Step 1 -->
                 <div class="step-item d-flex p-4 border-bottom">
                     <div class="step-number me-4">
-                        <span class="badge bg-slate rounded-circle fs-5">1</span>
+                        <span class="badge bg-slate rounded-circle fs-5">1</span
+                        >
                     </div>
                     <div class="step-content flex-grow-1">
                         <h6 class="mb-2">Download the Extractor Tool</h6>
                         <p class="text-muted mb-3">
-                            Get UmaExtractor from GitHub to export your game data.
+                            Get UmaExtractor from GitHub to export your game
+                            data.
                         </p>
                         <div class="btn-group" role="group">
                             <a
@@ -91,14 +98,18 @@
                 <!-- Step 2 -->
                 <div class="step-item d-flex p-4 border-bottom">
                     <div class="step-number me-4">
-                        <span class="badge bg-slate rounded-circle fs-5">2</span>
+                        <span class="badge bg-slate rounded-circle fs-5">2</span
+                        >
                     </div>
                     <div class="step-content flex-grow-1">
                         <h6 class="mb-2">Navigate to Veteran List</h6>
                         <p class="text-muted mb-3">
-                            In the game, go to Enhance, then Inheritance, then Veteran List.
+                            In the game, go to Enhance, then Inheritance, then
+                            Veteran List.
                         </p>
-                        <div class="guide-images d-flex align-items-center justify-content-center gap-3 flex-wrap">
+                        <div
+                            class="guide-images d-flex align-items-center justify-content-center gap-3 flex-wrap"
+                        >
                             <div class="guide-step text-center">
                                 <img
                                     class="img-fluid rounded shadow-sm"
@@ -106,7 +117,9 @@
                                     alt="Step 1: Enhance"
                                     style="height: 72px;"
                                 />
-                                <small class="d-block mt-1 text-muted">Enhance</small>
+                                <small class="d-block mt-1 text-muted"
+                                    >Enhance</small
+                                >
                             </div>
                             <span class="text-muted fs-4">&rarr;</span>
                             <div class="guide-step text-center">
@@ -116,7 +129,9 @@
                                     alt="Step 2: Inheritance"
                                     style="height: 72px;"
                                 />
-                                <small class="d-block mt-1 text-muted">Inheritance</small>
+                                <small class="d-block mt-1 text-muted"
+                                    >Inheritance</small
+                                >
                             </div>
                             <span class="text-muted fs-4">&rarr;</span>
                             <div class="guide-step text-center">
@@ -126,7 +141,9 @@
                                     alt="Step 3: Veteran List"
                                     style="height: 72px;"
                                 />
-                                <small class="d-block mt-1 text-muted">Veteran List</small>
+                                <small class="d-block mt-1 text-muted"
+                                    >Veteran List</small
+                                >
                             </div>
                         </div>
                     </div>
@@ -135,13 +152,19 @@
                 <!-- Step 3 -->
                 <div class="step-item d-flex p-4 border-bottom">
                     <div class="step-number me-4">
-                        <span class="badge bg-slate rounded-circle fs-5">3</span>
+                        <span class="badge bg-slate rounded-circle fs-5">3</span
+                        >
                     </div>
                     <div class="step-content flex-grow-1">
                         <h6 class="mb-2">Run the Extractor</h6>
                         <p class="text-muted mb-0">
-                            Execute <code class="bg-light px-2 py-1 rounded">umaextractor.exe</code> 
-                            while viewing the Veteran List. It will generate a <code class="bg-light px-2 py-1 rounded">data.json</code> file.
+                            Execute <code class="bg-light px-2 py-1 rounded"
+                                >umaextractor.exe</code
+                            >
+                            while viewing the Veteran List. It will generate a
+                            <code class="bg-light px-2 py-1 rounded"
+                                >data.json</code
+                            > file.
                         </p>
                     </div>
                 </div>
@@ -149,12 +172,14 @@
                 <!-- Step 4 -->
                 <div class="step-item d-flex p-4">
                     <div class="step-number me-4">
-                        <span class="badge bg-slate rounded-circle fs-5">4</span>
+                        <span class="badge bg-slate rounded-circle fs-5">4</span
+                        >
                     </div>
                     <div class="step-content flex-grow-1">
                         <h6 class="mb-2">Upload Your Data</h6>
                         <p class="text-muted mb-0">
-                            Use the upload area above to load your exported file and view your roster.
+                            Use the upload area above to load your exported file
+                            and view your roster.
                         </p>
                     </div>
                 </div>
@@ -162,6 +187,13 @@
         </div>
     </div>
 </div>
+
+<!-- Footer -->
+<footer class="text-center py-4 mt-5 border-top">
+    <div class="container">
+        <p class="text-muted mb-0">Contributors: Bachoo, Terumi</p>
+    </div>
+</footer>
 
 <style>
     /* Slate color palette */
@@ -246,7 +278,7 @@
 
     .divider-text::before,
     .divider-text::after {
-        content: '';
+        content: "";
         flex: 1;
         border-bottom: 1px solid #dee2e6;
     }

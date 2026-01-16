@@ -4,7 +4,13 @@
     import Filter from "../components/Filter.svelte";
     import { stateStorage } from "../localstorage.svelte";
     import { charaCardsData, factorsData, skillsData } from "../data";
-    import { encodeCharas, decodeCharas, getEncodedFromUrl, setEncodedToUrl, clearUrlEncoding } from "../encoding";
+    import {
+        encodeCharas,
+        decodeCharas,
+        getEncodedFromUrl,
+        setEncodedToUrl,
+        clearUrlEncoding,
+    } from "../encoding";
 
     interface Props {
         trainedCharas: CharaData[];
@@ -30,10 +36,10 @@
             const url = `${window.location.origin}${window.location.pathname}#${encoded}`;
             await navigator.clipboard.writeText(url);
             exportMessage = "Link copied to clipboard!";
-            setTimeout(() => exportMessage = "", 3000);
+            setTimeout(() => (exportMessage = ""), 3000);
         } catch (err) {
             exportMessage = "Failed to copy";
-            setTimeout(() => exportMessage = "", 3000);
+            setTimeout(() => (exportMessage = ""), 3000);
         }
     }
 
@@ -47,8 +53,8 @@
         try {
             // Extract hash from URL or use as-is
             let encoded = importText.trim();
-            if (encoded.includes('#')) {
-                encoded = encoded.split('#')[1];
+            if (encoded.includes("#")) {
+                encoded = encoded.split("#")[1];
             }
             const imported = decodeCharas(encoded);
             if (imported.length === 0) {
@@ -124,7 +130,13 @@
                 if (trainedCharas.indexOf(chara) === 0) {
                     console.log("First chara card_id:", chara.card_id);
                     console.log("First chara factors:", chara.factor_id_array);
-                    console.log("Factor lookup results:", chara.factor_id_array.map(id => ({ id, factor: factorsData[id] })));
+                    console.log(
+                        "Factor lookup results:",
+                        chara.factor_id_array.map((id) => ({
+                            id,
+                            factor: factorsData[id],
+                        })),
+                    );
                 }
 
                 // Factor filters
@@ -214,16 +226,28 @@
             <!-- Left side: Home, Export/Import -->
             <div class="d-flex gap-2 align-items-center">
                 {#if onHome}
-                    <button class="btn btn-slate-light btn-sm" onclick={onHome} title="Back to upload">
+                    <button
+                        class="btn btn-slate-light btn-sm"
+                        onclick={onHome}
+                        title="Back to upload"
+                    >
                         Home
                     </button>
                 {/if}
-                
+
                 <div class="btn-group">
-                    <button class="btn btn-slate btn-sm" onclick={handleExport} title="Copy shareable link">
+                    <button
+                        class="btn btn-slate btn-sm"
+                        onclick={handleExport}
+                        title="Copy shareable link"
+                    >
                         Export
                     </button>
-                    <button class="btn btn-slate-light btn-sm" onclick={handleImport} title="Import from link">
+                    <button
+                        class="btn btn-slate-light btn-sm"
+                        onclick={handleImport}
+                        title="Import from link"
+                    >
                         Import
                     </button>
                 </div>
@@ -231,7 +255,7 @@
                     <span class="badge bg-success">{exportMessage}</span>
                 {/if}
             </div>
-            
+
             <!-- Right side: Display, Filters -->
             <div class="d-flex gap-2 align-items-center">
                 <div class="dropdown">
@@ -248,7 +272,8 @@
                         <li>
                             <button
                                 class="dropdown-item"
-                                onclickcapture={(e) => onDisplayClick(e, "stats")}
+                                onclickcapture={(e) =>
+                                    onDisplayClick(e, "stats")}
                             >
                                 <div class="form-check">
                                     <input
@@ -257,8 +282,9 @@
                                         id="displayStats"
                                         bind:checked={display.value.stats}
                                     />
-                                    <label class="form-check-label" for="displayStats"
-                                        >Stats</label
+                                    <label
+                                        class="form-check-label"
+                                        for="displayStats">Stats</label
                                     >
                                 </div>
                             </button>
@@ -266,7 +292,8 @@
                         <li>
                             <button
                                 class="dropdown-item"
-                                onclickcapture={(e) => onDisplayClick(e, "factors")}
+                                onclickcapture={(e) =>
+                                    onDisplayClick(e, "factors")}
                             >
                                 <div class="form-check">
                                     <input
@@ -275,8 +302,9 @@
                                         id="displaySparks"
                                         bind:checked={display.value.factors}
                                     />
-                                    <label class="form-check-label" for="displaySparks"
-                                        >Sparks</label
+                                    <label
+                                        class="form-check-label"
+                                        for="displaySparks">Sparks</label
                                     >
                                 </div>
                             </button>
@@ -292,7 +320,8 @@
     <div class="row row-cols-1 row-cols-lg-2 g-5 py-4">
         {#each trainedCharasFiltered as chara (chara.chara_seed)}
             <div class="col">
-                <Chara charaData={chara} display={display.value} {filters}></Chara>
+                <Chara charaData={chara} display={display.value} {filters}
+                ></Chara>
             </div>
         {/each}
     </div>
@@ -305,14 +334,20 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Import Characters</h5>
-                        <button type="button" class="btn-close" onclick={closeImportModal}></button>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            onclick={closeImportModal}
+                        ></button>
                     </div>
                     <div class="modal-body">
                         <div class="mb-3">
-                            <label for="importInput" class="form-label">Paste the shared link:</label>
-                            <input 
-                                type="text" 
-                                class="form-control" 
+                            <label for="importInput" class="form-label"
+                                >Paste the shared link:</label
+                            >
+                            <input
+                                type="text"
+                                class="form-control"
                                 id="importInput"
                                 bind:value={importText}
                                 placeholder="https://...#encoded-data"
@@ -323,14 +358,29 @@
                         {/if}
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" onclick={closeImportModal}>Cancel</button>
-                        <button type="button" class="btn btn-primary" onclick={processImport}>Import</button>
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            onclick={closeImportModal}>Cancel</button
+                        >
+                        <button
+                            type="button"
+                            class="btn btn-primary"
+                            onclick={processImport}>Import</button
+                        >
                     </div>
                 </div>
             </div>
         </div>
     {/if}
 </div>
+
+<!-- Footer -->
+<footer class="text-center py-4 mt-5 border-top">
+    <div class="container">
+        <p class="text-muted mb-0">Contributors: Bachoo, Terumi</p>
+    </div>
+</footer>
 
 <style>
     .btn-slate {
