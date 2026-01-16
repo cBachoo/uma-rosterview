@@ -1,15 +1,15 @@
 <script lang="ts">
-  import Factor from "./Factor.svelte";
+    import Factor from "./Factor.svelte";
+    import { factorsData } from "../data";
 
-  interface Props {
-    factorIds: number[];
-  }
-
-  const { factorIds }: Props = $props();
+    interface Props {
+        factorIds: number[];
+    }
+    const { factorIds }: Props = $props();
 </script>
 
 <div class="d-flex flex-wrap gap-1">
-  {#each factorIds as factorId}
-    <Factor {factorId} />
-  {/each}
+    {#each factorIds.filter((id) => factorsData[id]) as factorId}
+        <Factor {factorId} />
+    {/each}
 </div>

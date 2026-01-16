@@ -1,47 +1,49 @@
-# Svelte + TS + Vite
+# Uma Musume Roster Viewer
 
-This template should help get you started developing with Svelte and TypeScript in Vite.
+A web application for easily viewing and searching your umamusume veteran roster, displaying their stats, skills, inheritance factors (sparks).
 
-## Recommended IDE Setup
+## Features
 
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
+- **Character List**: Browse trained Uma Musume characters with their details
+- **Stats Display**: View speed, stamina, power, guts, and wit stats
+- **Skills**: Display equipped skills with icons
+- **Factors/Sparks**: Show inheritance factors color-coded by type:
+  - Blue: Stats (Speed, Stamina, Power, Guts, Wit)
+  - Pink: Aptitudes (Turf, Dirt, Running Styles, Distances)
+  - Green: Race factors
+  - White: Skill hints
+- **Succession**: View parent characters and their factors
+- **Filtering**: Advanced filters for factor types with star ratings
+- **Search**: Search by character name, skill names, or factor names
+- **Display Options**: Toggle display of stats and factors
 
-## Need an official Svelte framework?
+## Data Structure
 
-Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
+The app uses JSON data files:
+- `characard.json`: Character information
+- `skill.json`: Skill data
+- `factor.json`: Factor/spark definitions
+- `supportcard.json`: Support card data
 
-## Technical considerations
+Character data includes trained stats, skills, factors, and succession arrays.
 
-**Why use this over SvelteKit?**
+## Tech Stack
 
-- It brings its own routing solution which might not be preferable for some users.
-- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
+- **Frontend**: Svelte with TypeScript
+- **Build Tool**: Vite
+- **Styling**: Bootstrap 5
+- **Icons**: Custom PNG assets
 
-This template contains as little as possible to get started with Vite + TypeScript + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
+## Getting Started
 
-Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Run development server: `npm run dev`
+4. Build for production: `npm run build`
 
-**Why `global.d.ts` instead of `compilerOptions.types` inside `jsconfig.json` or `tsconfig.json`?**
+## Project Structure
 
-Setting `compilerOptions.types` shuts out all other types not explicitly listed in the configuration. Using triple-slash references keeps the default TypeScript setting of accepting type information from the entire workspace, while also adding `svelte` and `vite/client` type information.
-
-**Why include `.vscode/extensions.json`?**
-
-Other templates indirectly recommend extensions via the README, but this file allows VS Code to prompt the user to install the recommended extension upon opening the project.
-
-**Why enable `allowJs` in the TS template?**
-
-While `allowJs: false` would indeed prevent the use of `.js` files in the project, it does not prevent the use of JavaScript syntax in `.svelte` files. In addition, it would force `checkJs: false`, bringing the worst of both worlds: not being able to guarantee the entire codebase is TypeScript, and also having worse typechecking for the existing JavaScript. In addition, there are valid use cases in which a mixed codebase may be relevant.
-
-**Why is HMR not preserving my local component state?**
-
-HMR state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/rixo/svelte-hmr#svelte-hmr).
-
-If you have state that's important to retain within a component, consider creating an external store which would not be replaced by HMR.
-
-```ts
-// store.ts
-// An extremely simple external store
-import { writable } from 'svelte/store'
-export default writable(0)
-```
+- `src/components/`: Svelte components
+- `src/pages/`: Page components
+- `src/assets/`: Data JSON files and images
+- `public/`: Static assets (character images, etc.)

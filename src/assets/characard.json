@@ -3,564 +3,282 @@
     "id": 100101,
     "chara_id": 1001,
     "name": "[Special Dreamer] Special Week",
-    "race_dress": [
-      100101,
-      100101,
-      100101,
-      100101,
-      100101
-    ]
+    "race_dress": [100101, 100101, 100101, 100101, 100101]
   },
   {
     "id": 100102,
     "chara_id": 1001,
     "name": "[Hopp'n\u266aHappy Heart] Special Week",
-    "race_dress": [
-      100130,
-      100130,
-      100130,
-      100130,
-      100130
-    ]
+    "race_dress": [100130, 100130, 100130, 100130, 100130]
   },
   {
     "id": 100201,
     "chara_id": 1002,
     "name": "[Innocent Silence] Silence Suzuka",
-    "race_dress": [
-      100201,
-      100201,
-      100201,
-      100201,
-      100201
-    ]
+    "race_dress": [100201, 100201, 100201, 100201, 100201]
   },
   {
     "id": 100301,
     "chara_id": 1003,
     "name": "[Peak Joy] Tokai Teio",
-    "race_dress": [
-      100301,
-      100301,
-      100301,
-      100301,
-      100301
-    ]
+    "race_dress": [100301, 100301, 100301, 100301, 100301]
   },
   {
     "id": 100302,
     "chara_id": 1003,
     "name": "[Beyond the Horizon] Tokai Teio",
-    "race_dress": [
-      100302,
-      100302,
-      100302,
-      100302,
-      100302
-    ]
+    "race_dress": [100302, 100302, 100302, 100302, 100302]
   },
   {
     "id": 100401,
     "chara_id": 1004,
     "name": "[Formula R] Maruzensky",
-    "race_dress": [
-      100401,
-      100401,
-      100401,
-      100401,
-      100401
-    ]
+    "race_dress": [100401, 100401, 100401, 100401, 100401]
   },
   {
     "id": 100402,
     "chara_id": 1004,
     "name": "[Hot\u2606Summer Night] Maruzensky",
-    "race_dress": [
-      100430,
-      100430,
-      100430,
-      100430,
-      100430
-    ]
+    "race_dress": [100430, 100430, 100430, 100430, 100430]
   },
   {
     "id": 100501,
     "chara_id": 1005,
     "name": "[Shooting Star Revue] Fuji Kiseki",
-    "race_dress": [
-      100501,
-      100501,
-      100501,
-      100501,
-      100501
-    ]
+    "race_dress": [100501, 100501, 100501, 100501, 100501]
   },
   {
     "id": 100601,
     "chara_id": 1006,
     "name": "[Starlight Beat] Oguri Cap",
-    "race_dress": [
-      100601,
-      100601,
-      100601,
-      100601,
-      100601
-    ]
+    "race_dress": [100601, 100601, 100601, 100601, 100601]
   },
   {
     "id": 101001,
     "chara_id": 1010,
     "name": "[Wild Frontier] Taiki Shuttle",
-    "race_dress": [
-      101001,
-      101001,
-      101001,
-      101001,
-      101001
-    ]
+    "race_dress": [101001, 101001, 101001, 101001, 101001]
   },
   {
     "id": 101102,
     "chara_id": 1011,
     "name": "[Saintly Jade Cleric] Grass Wonder",
-    "race_dress": [
-      101116,
-      101116,
-      101116,
-      101116,
-      101116
-    ]
+    "race_dress": [101116, 101116, 101116, 101116, 101116]
   },
   {
     "id": 101201,
     "chara_id": 1012,
     "name": "[Azure Amazon] Hishi Amazon",
-    "race_dress": [
-      101201,
-      101201,
-      101201,
-      101201,
-      101201
-    ]
+    "race_dress": [101201, 101201, 101201, 101201, 101201]
   },
   {
     "id": 101301,
     "chara_id": 1013,
     "name": "[Frontline Elegance] Mejiro McQueen",
-    "race_dress": [
-      101301,
-      101301,
-      101301,
-      101301,
-      101301
-    ]
+    "race_dress": [101301, 101301, 101301, 101301, 101301]
   },
   {
     "id": 101302,
     "chara_id": 1013,
     "name": "[End of the Skies] Mejiro McQueen",
-    "race_dress": [
-      101302,
-      101302,
-      101302,
-      101302,
-      101302
-    ]
+    "race_dress": [101302, 101302, 101302, 101302, 101302]
   },
   {
     "id": 101402,
     "chara_id": 1014,
     "name": "[Kukulkan Warrior] El Condor Pasa",
-    "race_dress": [
-      101416,
-      101416,
-      101416,
-      101416,
-      101416
-    ]
+    "race_dress": [101416, 101416, 101416, 101416, 101416]
   },
   {
     "id": 101501,
     "chara_id": 1015,
     "name": "[O Sole Suo!] T.M. Opera O",
-    "race_dress": [
-      101501,
-      101501,
-      101501,
-      101501,
-      101501
-    ]
+    "race_dress": [101501, 101501, 101501, 101501, 101501]
   },
   {
     "id": 101601,
     "chara_id": 1016,
     "name": "[Maverick] Narita Brian",
-    "race_dress": [
-      101601,
-      101601,
-      101601,
-      101601,
-      101601
-    ]
+    "race_dress": [101601, 101601, 101601, 101601, 101601]
   },
   {
     "id": 101701,
     "chara_id": 1017,
     "name": "[Emperor's Path] Symboli Rudolf",
-    "race_dress": [
-      101701,
-      101701,
-      101701,
-      101701,
-      101701
-    ]
+    "race_dress": [101701, 101701, 101701, 101701, 101701]
   },
   {
     "id": 101802,
     "chara_id": 1018,
     "name": "[Quercus Civilis] Air Groove",
-    "race_dress": [
-      101826,
-      101826,
-      101826,
-      101826,
-      101826
-    ]
+    "race_dress": [101826, 101826, 101826, 101826, 101826]
   },
   {
     "id": 102001,
     "chara_id": 1020,
     "name": "[Reeling in the Big One] Seiun Sky",
-    "race_dress": [
-      102001,
-      102001,
-      102001,
-      102001,
-      102001
-    ]
+    "race_dress": [102001, 102001, 102001, 102001, 102001]
   },
   {
     "id": 102301,
     "chara_id": 1023,
     "name": "[pf. Winning Equation...] Biwa Hayahide",
-    "race_dress": [
-      102301,
-      102301,
-      102301,
-      102301,
-      102301
-    ]
+    "race_dress": [102301, 102301, 102301, 102301, 102301]
   },
   {
     "id": 102402,
     "chara_id": 1024,
     "name": "[Sunlight Bouquet] Mayano Top Gun",
-    "race_dress": [
-      102426,
-      102426,
-      102426,
-      102426,
-      102426
-    ]
+    "race_dress": [102426, 102426, 102426, 102426, 102426]
   },
   {
     "id": 102601,
     "chara_id": 1026,
     "name": "[MB-19890425] Mihono Bourbon",
-    "race_dress": [
-      102601,
-      102601,
-      102601,
-      102601,
-      102601
-    ]
+    "race_dress": [102601, 102601, 102601, 102601, 102601]
   },
   {
     "id": 103001,
     "chara_id": 1030,
     "name": "[Rosy Dreams] Rice Shower",
-    "race_dress": [
-      103001,
-      103001,
-      103001,
-      103001,
-      103001
-    ]
+    "race_dress": [103001, 103001, 103001, 103001, 103001]
   },
   {
     "id": 103701,
     "chara_id": 1037,
     "name": "[Meisterschaft] Eishin Flash",
-    "race_dress": [
-      103701,
-      103701,
-      103701,
-      103701,
-      103701
-    ]
+    "race_dress": [103701, 103701, 103701, 103701, 103701]
   },
   {
     "id": 103801,
     "chara_id": 1038,
     "name": "[Fille \u00c9clair] Curren Chan",
-    "race_dress": [
-      103801,
-      103801,
-      103801,
-      103801,
-      103801
-    ]
+    "race_dress": [103801, 103801, 103801, 103801, 103801]
   },
   {
     "id": 104001,
     "chara_id": 1040,
     "name": "[Authentic / 1928] Gold City",
-    "race_dress": [
-      104001,
-      104001,
-      104001,
-      104001,
-      104001
-    ]
+    "race_dress": [104001, 104001, 104001, 104001, 104001]
   },
   {
     "id": 104601,
     "chara_id": 1046,
     "name": "[LOVE\u26064EVER] Smart Falcon",
-    "race_dress": [
-      104601,
-      104601,
-      104601,
-      104601,
-      104601
-    ]
+    "race_dress": [104601, 104601, 104601, 104601, 104601]
   },
   {
     "id": 105001,
     "chara_id": 1050,
     "name": "[Nevertheless] Narita Taishin",
-    "race_dress": [
-      105001,
-      105001,
-      105001,
-      105001,
-      105001
-    ]
+    "race_dress": [105001, 105001, 105001, 105001, 105001]
   },
   {
     "id": 105602,
     "chara_id": 1056,
     "name": "[Lucky Tidings] Matikanefukukitaru",
-    "race_dress": [
-      105623,
-      105623,
-      105623,
-      105623,
-      105623
-    ]
+    "race_dress": [105623, 105623, 105623, 105623, 105623]
   },
   {
     "id": 105801,
     "chara_id": 1058,
     "name": "[Turbulent Blue] Meisho Doto",
-    "race_dress": [
-      105801,
-      105801,
-      105801,
-      105801,
-      105801
-    ]
+    "race_dress": [105801, 105801, 105801, 105801, 105801]
   },
   {
     "id": 100701,
     "chara_id": 1007,
     "name": "[Red Strife] Gold Ship",
-    "race_dress": [
-      101,
-      101,
-      100701,
-      100701,
-      100701
-    ]
+    "race_dress": [101, 101, 100701, 100701, 100701]
   },
   {
     "id": 100801,
     "chara_id": 1008,
     "name": "[Wild Top Gear] Vodka",
-    "race_dress": [
-      101,
-      101,
-      100801,
-      100801,
-      100801
-    ]
+    "race_dress": [101, 101, 100801, 100801, 100801]
   },
   {
     "id": 100901,
     "chara_id": 1009,
     "name": "[Peak Blue] Daiwa Scarlet",
-    "race_dress": [
-      101,
-      101,
-      100901,
-      100901,
-      100901
-    ]
+    "race_dress": [101, 101, 100901, 100901, 100901]
   },
   {
     "id": 101101,
     "chara_id": 1011,
     "name": "[Stone-Piercing Blue] Grass Wonder",
-    "race_dress": [
-      101,
-      101,
-      101101,
-      101101,
-      101101
-    ]
+    "race_dress": [101, 101, 101101, 101101, 101101]
   },
   {
     "id": 101401,
     "chara_id": 1014,
     "name": "[El\u2606N\u00famero 1] El Condor Pasa",
-    "race_dress": [
-      101,
-      101,
-      101401,
-      101401,
-      101401
-    ]
+    "race_dress": [101, 101, 101401, 101401, 101401]
   },
   {
     "id": 101801,
     "chara_id": 1018,
     "name": "[Empress Road] Air Groove",
-    "race_dress": [
-      101,
-      101,
-      101801,
-      101801,
-      101801
-    ]
+    "race_dress": [101, 101, 101801, 101801, 101801]
   },
   {
     "id": 102401,
     "chara_id": 1024,
     "name": "[Scramble\u2606Zone] Mayano Top Gun",
-    "race_dress": [
-      101,
-      101,
-      102401,
-      102401,
-      102401
-    ]
+    "race_dress": [101, 101, 102401, 102401, 102401]
   },
   {
     "id": 104501,
     "chara_id": 1045,
     "name": "[Murmuring Stream] Super Creek",
-    "race_dress": [
-      101,
-      101,
-      104501,
-      104501,
-      104501
-    ]
+    "race_dress": [101, 101, 104501, 104501, 104501]
   },
   {
     "id": 102701,
     "chara_id": 1027,
     "name": "[Down the Line] Mejiro Ryan",
-    "race_dress": [
-      101,
-      101,
-      102701,
-      102701,
-      102701
-    ]
+    "race_dress": [101, 101, 102701, 102701, 102701]
   },
   {
     "id": 103201,
     "chara_id": 1032,
     "name": "[Tach-nology] Agnes Tachyon",
-    "race_dress": [
-      101,
-      101,
-      103201,
-      103201,
-      103201
-    ]
+    "race_dress": [101, 101, 103201, 103201, 103201]
   },
   {
     "id": 103501,
     "chara_id": 1035,
     "name": "[Get to Winning!] Winning Ticket",
-    "race_dress": [
-      101,
-      101,
-      103501,
-      103501,
-      103501
-    ]
+    "race_dress": [101, 101, 103501, 103501, 103501]
   },
   {
     "id": 104101,
     "chara_id": 1041,
     "name": "[Blossom in Learning] Sakura Bakushin O",
-    "race_dress": [
-      101,
-      101,
-      104101,
-      104101,
-      104101
-    ]
+    "race_dress": [101, 101, 104101, 104101, 104101]
   },
   {
     "id": 105201,
     "chara_id": 1052,
     "name": "[Bestest Prize \u266a] Haru Urara",
-    "race_dress": [
-      101,
-      101,
-      105201,
-      105201,
-      105201
-    ]
+    "race_dress": [101, 101, 105201, 105201, 105201]
   },
   {
     "id": 105601,
     "chara_id": 1056,
     "name": "[Rising\u2606Fortune] Matikanefukukitaru",
-    "race_dress": [
-      101,
-      101,
-      105601,
-      105601,
-      105601
-    ]
+    "race_dress": [101, 101, 105601, 105601, 105601]
   },
   {
     "id": 106001,
     "chara_id": 1060,
     "name": "[Poinsettia Ribbon] Nice Nature",
-    "race_dress": [
-      101,
-      101,
-      106001,
-      106001,
-      106001
-    ]
+    "race_dress": [101, 101, 106001, 106001, 106001]
   },
   {
     "id": 106101,
     "chara_id": 1061,
     "name": "[King of Emeralds] King Halo",
-    "race_dress": [
-      101,
-      101,
-      106101,
-      106101,
-      106101
-    ]
+    "race_dress": [101, 101, 106101, 106101, 106101]
   }
 ]
