@@ -1,5 +1,5 @@
 import factorData from "./assets/factor.json";
-import characardData from "./assets/characard.json";
+import charaCardDataRaw from "./assets/TerumiCharacterData_FixedDuplicates.json";
 import skillData from "./assets/skill.json";
 
 interface Factor {
@@ -7,6 +7,13 @@ interface Factor {
 	name: string;
 	type: number;
 	rarity: number;
+}
+
+interface TerumiCharaCard {
+	cardId: number;
+	charaId: number;
+	charaName: string;
+	cardTitle: string;
 }
 
 interface CharaCard {
@@ -26,8 +33,17 @@ interface Skill {
 const createLookup = <T extends { id: number }>(data: T[]) =>
 	Object.fromEntries(data.map((item) => [item.id, item]));
 
+const transformCharaCard = (raw: TerumiCharaCard): CharaCard => ({
+	id: raw.cardId,
+	chara_id: raw.charaId,
+	name: `${raw.cardTitle} ${raw.charaName}`,
+	race_dress: Array(5).fill(raw.cardId),
+});
+
 const factorsData = createLookup((factorData as any).value as Factor[]);
-const charaCardsData = createLookup(characardData as CharaCard[]);
+const charaCardsData = createLookup(
+	(charaCardDataRaw.value as TerumiCharaCard[]).map(transformCharaCard)
+);
 const skillsData = createLookup(skillData as Skill[]);
 
 export { factorsData, charaCardsData, skillsData };
