@@ -59,12 +59,12 @@
     </button>
     
     {#if selectedWhites.length > 0}
-        <div class="d-flex flex-wrap gap-1 mt-1">
+        <div class="d-flex flex-wrap gap-1 mt-1" style="max-width: 100%; overflow: hidden;">
             {#each selectedWhites as { name, stars }}
-                <span class="badge bg-secondary text-white d-flex align-items-center gap-1">
+                <span class="badge bg-secondary text-white d-flex align-items-center gap-1" style="max-width: 100%; font-size: 0.7rem;">
                     <select
-                        class="border-0 bg-transparent text-white"
-                        style="width: 45px; font-size: 0.75rem; padding: 0; outline: none; -webkit-appearance: none; appearance: none; cursor: pointer;"
+                        class="border-0 bg-transparent text-white flex-shrink-0"
+                        style="width: 40px; font-size: 0.7rem; padding: 0; outline: none; -webkit-appearance: none; appearance: none; cursor: pointer;"
                         value={stars}
                         onchange={(e) => selectSkill(name, parseInt(e.currentTarget.value))}
                     >
@@ -72,10 +72,10 @@
                             <option value={star} class="text-dark bg-white">{star}★</option>
                         {/each}
                     </select>
-                    {name}
+                    <span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 120px;" title={name}>{name}</span>
                     <button 
-                        class="btn-close btn-close-white btn-close-sm ms-1" 
-                        style="font-size: 0.6rem;"
+                        class="btn-close btn-close-white btn-close-sm ms-1 flex-shrink-0" 
+                        style="font-size: 0.5rem;"
                         onclick={() => removeSkill(name)}
                     ></button>
                 </span>
