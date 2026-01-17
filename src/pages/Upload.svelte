@@ -191,7 +191,10 @@
 <!-- Footer -->
 <footer class="text-center py-4 mt-5 border-top">
     <div class="container">
-        <p class="text-muted mb-0">Contributors: Bachoo, Terumi</p>
+        <p class="text-muted mb-0">
+            Original creator: <a href="https://github.com/rockisch" target="_blank" rel="noopener">Rockisch</a>
+            · Contributors: Bachoo, Terumi
+        </p>
     </div>
 </footer>
 
