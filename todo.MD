@@ -18,3 +18,5 @@ generate sharable link so others can view x user's sparks
 ### rating
 generic lineage rater (g1 wins/list of skills/star amount)
 track specific rater (e.g uma stan higher bias for long races)
+
+testing
