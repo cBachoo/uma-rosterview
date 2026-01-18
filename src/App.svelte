@@ -2,6 +2,7 @@
     import Logo from "./assets/cafe.png";
     import TrainedCharaList from "./pages/TrainedCharaList.svelte";
     import Upload from "./pages/Upload.svelte";
+    import UnifiedTopBar from "./components/UnifiedTopBar.svelte";
     import {
         decodeCharas,
         getEncodedFromUrl,
@@ -77,6 +78,10 @@
         clearUrlEncoding();
     }
 </script>
+
+{#if !trainedCharas}
+    <UnifiedTopBar currentApp="sparks" />
+{/if}
 
 <main class="container container-fluid text-center">
     {#if trainedCharas}
