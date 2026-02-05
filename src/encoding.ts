@@ -4,7 +4,7 @@
  * Inspired by Wynnbuilder's encoding system.
  * Uses a compact binary format converted to Base64 for URL sharing.
  *
- * ENCODING SPEC V3:
+ * ENCODING SPEC V4:
  *
  *
  * Header (8 bits):
@@ -13,6 +13,8 @@
  * Per Character:
  *   - card_id: 20 bits (supports up to 1M)
  *   - talent_level: 3 bits (1-5 stored as 0-4)
+ *   - rank_score flag: 1 bit (0 = no rank_score, 1 = has rank_score)
+ *   - rank_score: 15 bits if flag is 1 (0-32767)
  *   - Stats (5 x 11 bits = 55 bits): speed, stamina, power, guts, wiz (0-2047)
  *   - Aptitudes (10 x 3 bits = 30 bits): each 1-8 mapped to 0-7
  *   - Factor count: 4 bits (0-15)
@@ -45,7 +47,7 @@
  *
  */
 
-const ENCODING_VERSION = 3;
+const ENCODING_VERSION = 4;
 
 // Custom Base64 alphabet (URL-safe)
 const BASE64_CHARS =
@@ -231,7 +233,7 @@ async function decompressData(data: Uint8Array): Promise<Uint8Array> {
 }
 
 /**
- * Encode a single character to BitVector (V3 - Fixed)
+ * Encode a single character to BitVector (V4)
  */
 function encodeChara(bv: BitVector, chara: CharaData): void {
   // card_id: 20 bits
@@ -239,6 +241,14 @@ function encodeChara(bv: BitVector, chara: CharaData): void {
 
   // talent_level: 3 bits (1-5 stored as 0-4)
   bv.write(chara.talent_level - 1, 3);
+
+  // rank_score: 1 bit flag + 15 bits if present
+  if (chara.rank_score !== undefined) {
+    bv.write(1, 1); // Flag: has rank_score
+    bv.write(Math.min(chara.rank_score, 32767), 15);
+  } else {
+    bv.write(0, 1); // Flag: no rank_score
+  }
 
   // Stats: 5 x 11 bits (0-2047)
   bv.write(Math.min(chara.speed, 2047), 11);
@@ -289,13 +299,17 @@ function encodeChara(bv: BitVector, chara: CharaData): void {
 }
 
 /**
- * Decode a single character from BitVector (V3 - Fixed)
+ * Decode a single character from BitVector (V4)
  */
 function decodeChara(bv: BitVector): CharaData | null {
-  if (bv.remaining() < 108) return null; // Minimum bits needed
+  if (bv.remaining() < 109) return null; // Minimum bits needed (108 + 1 for rank_score flag)
 
   const card_id = bv.read(20); // 20 bits
   const talent_level = bv.read(3) + 1;
+
+  // rank_score: 1 bit flag + 15 bits if present
+  const hasRankScore = bv.read(1);
+  const rank_score = hasRankScore ? bv.read(15) : undefined;
 
   const speed = bv.read(11);
   const stamina = bv.read(11);
@@ -355,6 +369,7 @@ function decodeChara(bv: BitVector): CharaData | null {
     create_time: new Date().toISOString().replace("T", " ").slice(0, 19),
     rarity: 3, // Default
     chara_seed: Math.floor(Math.random() * 1000000),
+    rank_score,
     speed,
     stamina,
     power,
@@ -477,7 +492,7 @@ export async function decodeCharas(encoded: string): Promise<CharaData[]> {
     let index = 0;
 
     // Keep decoding until we run out of bits
-    while (bv.remaining() >= 108) {
+    while (bv.remaining() >= 109) {
       console.log(
         `Decoding character ${index + 1}, remaining bits:`,
         bv.remaining(),

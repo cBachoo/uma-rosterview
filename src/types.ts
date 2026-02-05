@@ -25,6 +25,7 @@ interface CharaData extends CharaBaseData {
   create_time: string;
   rarity: number;
   chara_seed: number;
+  rank_score?: number;
 
   speed: number;
   stamina: number;

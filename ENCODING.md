@@ -6,6 +6,7 @@ The encoding uses a binary vector to store all relevant information about traine
 The encoder encodes the following information per character:
 - Character card ID
 - Talent level
+- Rank score (optional)
 - Base statistics (speed, stamina, power, guts, wisdom)
 - Aptitudes for distances, ground types, and running styles
 - Inherited factors (sparks)
@@ -16,7 +17,7 @@ All IDs are stored directly in the binary format. The encoding is designed to be
 
 For URLs with multiple characters, the encoded data is automatically compressed using gzip (via the CompressionStream API) to reduce size by approximately 60-70%. The decoder automatically detects and handles both compressed and uncompressed formats.
 
-# Specification - V3
+# Specification - V4
 
 This section details each part of the encoded vectors and how to interpret them.
 
@@ -36,9 +37,9 @@ This section details each part of the encoded vectors and how to interpret them.
 | ------- | ---------------- | -------- | ------- |
 | Version | 8                | `uint8`  | [0, 255] |
 
-The version field identifies the encoding format. Current version is 3.
+The version field identifies the encoding format. Current version is 4.
 
-There is no character count field. The decoder reads characters until the bit stream is exhausted. The minimum number of bits required per character is 108 (without any factors, skills, or parents).
+There is no character count field. The decoder reads characters until the bit stream is exhausted. The minimum number of bits required per character is 109 (without any factors, skills, or parents).
 
 ### 2 - Character Data
 
@@ -46,12 +47,20 @@ Each character is encoded sequentially with the following fields.
 
 #### 2.1 - Basic Information
 
-| field        | length (in bits) | values   | range       |
-| ------------ | ---------------- | -------- | ----------- |
-| card_id      | 20               | `uint32` | [0, 1048575] |
-| talent_level | 3                | `uint8`  | [0, 4]       |
+| field            | length (in bits) | values   | range       |
+| ---------------- | ---------------- | -------- | ----------- |
+| card_id          | 20               | `uint32` | [0, 1048575] |
+| talent_level     | 3                | `uint8`  | [0, 4]       |
+| rank_score_flag  | 1                | `uint8`  | [0, 1]       |
+| rank_score       | 15 (conditional) | `uint16` | [0, 32767]   |
 
 The `card_id` identifies the character card. The `talent_level` is stored as `actual_level - 1`, so values 1-5 are stored as 0-4.
+
+The `rank_score_flag` indicates whether the character has a rank score:
+- 0: No rank_score (rank_score field is not encoded)
+- 1: Has rank_score (rank_score field follows, 15 bits)
+
+The `rank_score` field is only present if `rank_score_flag` is 1. It stores the character's total rank score (0-32767).
 
 #### 2.2 - Statistics
 
@@ -214,17 +223,19 @@ For browsers without support, the encoder gracefully falls back to uncompressed 
 
 1. Convert Base64 string to bit vector
 2. Read first 8 bits as version number
-3. Verify version is 3
+3. Verify version is 4
 4. If version mismatch, return empty result
 
 ### 3 - Character Decoding
 
 For each character in the bit stream:
 
-1. Check if at least 108 bits remain (minimum character size)
+1. Check if at least 109 bits remain (minimum character size)
 2. Read fields in order:
    - card_id (20 bits)
    - talent_level (3 bits), add 1 to get actual value
+   - rank_score_flag (1 bit)
+   - rank_score (15 bits, only if flag is 1)
    - Statistics (5 fields x 11 bits each)
    - Aptitudes (10 fields x 3 bits each), add 1 to each value
    - factor_count (4 bits)
@@ -238,7 +249,7 @@ For each character in the bit stream:
      - parent_factor_count (4 bits)
      - For each parent factor: factor_id (24 bits)
 
-3. Continue reading characters until fewer than 108 bits remain
+3. Continue reading characters until fewer than 109 bits remain
 4. Return array of decoded characters
 
 ### 4 - Default Values
@@ -255,15 +266,28 @@ These fields are not preserved in the encoding.
 
 ### Bit Breakdown per Character
 
-Minimum bits per character (no factors, skills, or parents):
+Minimum bits per character (no factors, skills, or parents, no rank_score):
 ```
-Version:    8 bits (once per encoding, not per character)
-card_id:   20 bits
-talent:     3 bits
-Stats:     55 bits (11 * 5)
-Aptitudes: 30 bits (3 * 10)
-Counts:    12 bits (4 + 6 + 2)
-Total:    120 bits minimum per character
+Version:       8 bits (once per encoding, not per character)
+card_id:      20 bits
+talent:        3 bits
+rank_score:    1 bit (flag only, if no rank_score)
+Stats:        55 bits (11 * 5)
+Aptitudes:    30 bits (3 * 10)
+Counts:       12 bits (4 + 6 + 2)
+Total:       121 bits minimum per character
+```
+
+With rank_score:
+```
+Version:       8 bits (once per encoding, not per character)
+card_id:      20 bits
+talent:        3 bits
+rank_score:   16 bits (1 bit flag + 15 bits value)
+Stats:        55 bits (11 * 5)
+Aptitudes:    30 bits (3 * 10)
+Counts:       12 bits (4 + 6 + 2)
+Total:       136 bits minimum per character with rank_score
 ```
 
 Additional bits for variable data:
@@ -274,15 +298,15 @@ Parents:  (2 + 47 * count) bits per parent base
           + (4 + 24 * factor_count) bits per parent's factors
 ```
 
-Average character with typical data (6 factors, 9 skills, 6 parents each with 6 factors):
+Average character with typical data (with rank_score, 6 factors, 9 skills, 6 parents each with 6 factors):
 ```
-Base:      120 bits
+Base:      136 bits (includes 16-bit rank_score)
 Factors:   148 bits (4 + 24*6)
 Skills:    195 bits (6 + 21*9)
 Parents:   858 bits (2 + 6*(47 + 4 + 24*6))
-Total:    1321 bits per character
-         = 221 Base64 characters (uncompressed)
-         = ~80 Base64 characters (compressed)
+Total:    1337 bits per character
+         = 223 Base64 characters (uncompressed)
+         = ~81 Base64 characters (compressed)
 ```
 
 ### URL Length Estimates
@@ -342,4 +366,4 @@ To add new encoding versions:
 3. Update version check in decoder to handle multiple versions
 4. Maintain backward compatibility by keeping old decode functions
 
-The current implementation only supports V3 and provides limited backward compatibility with V2 for migration purposes.
+The current implementation only supports V4. Previous versions (V3, V2) are not supported and will return an empty result if detected.

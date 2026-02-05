@@ -58,6 +58,9 @@
             currentPage = "affinity";
         } else if (hash.startsWith("/")) {
             currentPage = "roster";
+        } else {
+            // Empty hash or encoded data - show roster
+            currentPage = "roster";
         }
     }
 
@@ -115,11 +118,12 @@
     }
 
     function showAffinityPage() {
-        window.location.hash = "#/affinity";
+        window.location.hash = "/affinity";
     }
 
     function showRosterPage() {
         window.location.hash = "";
+        currentPage = "roster";
     }
 </script>
 

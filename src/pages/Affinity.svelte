@@ -1,7 +1,10 @@
 <script lang="ts">
     import type { CharaData } from "../types";
     import Chara from "../components/Chara.svelte";
-    import { calculateSingleParentAffinity, type AffinityResult } from "../affinity";
+    import {
+        calculateSingleParentAffinity,
+        type AffinityResult,
+    } from "../affinity";
     import { charaCardsData } from "../data";
     import TerumiCharacterData from "../assets/TerumiCharacterData.json";
 
@@ -31,7 +34,9 @@
     );
 
     let selectedCharaId = $state<string>("");
-    let sortedUmas = $state<Array<{ uma: CharaData; affinity: AffinityResult }>>([]);
+    let sortedUmas = $state<
+        Array<{ uma: CharaData; affinity: AffinityResult }>
+    >([]);
 
     // Default display settings for Chara component
     const display = { stats: true, factors: true };
@@ -63,23 +68,33 @@
                 continue;
             }
 
-            const affinity = calculateSingleParentAffinity(selectedCharaId, uma);
+            const affinity = calculateSingleParentAffinity(
+                selectedCharaId,
+                uma,
+            );
             results.push({ uma, affinity });
         }
 
         // Sort by total affinity (descending)
         sortedUmas = results.sort(
-            (a, b) => b.affinity.totalAffinity - a.affinity.totalAffinity
+            (a, b) => b.affinity.totalAffinity - a.affinity.totalAffinity,
         );
 
-        console.log(`[Affinity Page] Evaluated ${sortedUmas.length} umas from roster (filtered out selected character)`);
-        console.log(`[Affinity Page] Top affinity: ${sortedUmas[0]?.affinity.totalAffinity || 0}`);
+        console.log(
+            `[Affinity Page] Evaluated ${sortedUmas.length} umas from roster (filtered out selected character)`,
+        );
+        console.log(
+            `[Affinity Page] Top affinity: ${sortedUmas[0]?.affinity.totalAffinity || 0}`,
+        );
         if (sortedUmas.length > 0) {
-            console.log(`[Affinity Page] Top 3 umas:`, sortedUmas.slice(0, 3).map(u => ({
-                uma: u.uma.card_id,
-                total: u.affinity.totalAffinity,
-                breakdown: u.affinity.breakdown
-            })));
+            console.log(
+                `[Affinity Page] Top 3 umas:`,
+                sortedUmas.slice(0, 3).map((u) => ({
+                    uma: u.uma.card_id,
+                    total: u.affinity.totalAffinity,
+                    breakdown: u.affinity.breakdown,
+                })),
+            );
         }
     }
 
@@ -134,23 +149,28 @@
             </p>
             <hr />
             <p class="mb-0">
-                <strong>Affinity</strong> is calculated based on shared
-                relations (properties like running style, mare status, etc.) and
-                shared race wins between the uma, its parents, and grandparents.
+                <strong>Affinity</strong> is calculated based on shared relations
+                (properties like running style, mare status, etc.) and shared race
+                wins between the uma, its parents, and grandparents.
             </p>
         </div>
     {:else}
         <!-- Results count -->
         <div class="mb-3">
             <p class="text-muted">
-                Showing {sortedUmas.length} uma(s) as potential Parent 1 sorted by affinity with
+                Showing {sortedUmas.length} uma(s) as potential Parent 1 sorted by
+                affinity with
                 <strong
-                    >{uniqueCharacters.find((c) => c.charaId === selectedCharaId)
-                        ?.charaName}</strong
+                    >{uniqueCharacters.find(
+                        (c) => c.charaId === selectedCharaId,
+                    )?.charaName}</strong
                 >
             </p>
             <p class="text-muted text-sm">
-                <em>Note: Parent 2 affinity is not calculated (placeholder = 0)</em>
+                <em
+                    >Note: Parent 2 affinity is not calculated (Values will be
+                    slightly lower than in-game)</em
+                >
             </p>
         </div>
     {/if}
@@ -162,12 +182,12 @@
                 <div class="col">
                     <!-- Affinity badges -->
                     <div class="affinity-score-badge">
-                        <span class="badge bg-primary">
+                        <span class="badge badge-total">
                             Total: {item.affinity.totalAffinity}
                         </span>
                         {#if item.affinity.breakdown.p1 > 0}
                             <span
-                                class="badge bg-secondary"
+                                class="badge badge-p1"
                                 title="Direct affinity between target and P1"
                             >
                                 P1: {item.affinity.breakdown.p1}
@@ -175,7 +195,7 @@
                         {/if}
                         {#if item.affinity.breakdown.p1_1 > 0}
                             <span
-                                class="badge bg-info"
+                                class="badge badge-gp"
                                 title="Grandparent 1 contribution: aff(P1,GP1) + race(P1,GP1)"
                             >
                                 GP1: {item.affinity.breakdown.p1_1}
@@ -183,7 +203,7 @@
                         {/if}
                         {#if item.affinity.breakdown.p1_2 > 0}
                             <span
-                                class="badge bg-info"
+                                class="badge badge-gp"
                                 title="Grandparent 2 contribution: aff(P1,GP2) + race(P1,GP2)"
                             >
                                 GP2: {item.affinity.breakdown.p1_2}
@@ -211,6 +231,21 @@
     .affinity-score-badge .badge {
         font-size: 0.75rem;
         padding: 0.35rem 0.6rem;
+    }
+
+    .badge-total {
+        background-color: #0d6efd;
+        color: #ffffff;
+    }
+
+    .badge-p1 {
+        background-color: #6c757d;
+        color: #ffffff;
+    }
+
+    .badge-gp {
+        background-color: #0dcaf0;
+        color: #000000;
     }
 
     .text-sm {
