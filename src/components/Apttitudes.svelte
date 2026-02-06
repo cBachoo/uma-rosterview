@@ -9,14 +9,14 @@
         const results = [];
         if (charaData.proper_ground_dirt >= 8) results.push("Dirt");
         if (charaData.proper_ground_turf >= 8) results.push("Turf");
-        if (charaData.proper_distance_short >= 8) results.push("Short");
+        if (charaData.proper_distance_short >= 8) results.push("Sprint");
         if (charaData.proper_distance_mile >= 8) results.push("Mile");
         if (charaData.proper_distance_middle >= 8) results.push("Medium");
         if (charaData.proper_distance_long >= 8) results.push("Long");
         if (charaData.proper_running_style_nige >= 8) results.push("Front");
-        if (charaData.proper_running_style_oikomi >= 8) results.push("Pace");
+        if (charaData.proper_running_style_oikomi >= 8) results.push("End");
         if (charaData.proper_running_style_sashi >= 8) results.push("Late");
-        if (charaData.proper_running_style_senko >= 8) results.push("End");
+        if (charaData.proper_running_style_senko >= 8) results.push("Pace");
         return results.join(", ");
     });
 </script>
