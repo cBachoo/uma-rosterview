@@ -69,32 +69,34 @@ The `card_id` identifies the character card (e.g., 100601 for Special Week).
 
 All statistics are 11 bits each, supporting values from 0 to 2047. Values are clamped to this range during encoding.
 
-##### 2.3 Aptitudes (30 bits total)
+##### 2.3 Aptitudes (40 bits total)
 
 | Field                        | Length (bits) | Type    | Range   |
 |------------------------------|---------------|---------|---------|
-| proper_distance_short        | 3             | `uint8` | [0, 7]  |
-| proper_distance_mile         | 3             | `uint8` | [0, 7]  |
-| proper_distance_middle       | 3             | `uint8` | [0, 7]  |
-| proper_distance_long         | 3             | `uint8` | [0, 7]  |
-| proper_ground_turf           | 3             | `uint8` | [0, 7]  |
-| proper_ground_dirt           | 3             | `uint8` | [0, 7]  |
-| proper_running_style_nige    | 3             | `uint8` | [0, 7]  |
-| proper_running_style_senko   | 3             | `uint8` | [0, 7]  |
-| proper_running_style_sashi   | 3             | `uint8` | [0, 7]  |
-| proper_running_style_oikomi  | 3             | `uint8` | [0, 7]  |
+| proper_distance_short        | 4             | `uint8` | [0, 9]  |
+| proper_distance_mile         | 4             | `uint8` | [0, 9]  |
+| proper_distance_middle       | 4             | `uint8` | [0, 9]  |
+| proper_distance_long         | 4             | `uint8` | [0, 9]  |
+| proper_ground_turf           | 4             | `uint8` | [0, 9]  |
+| proper_ground_dirt           | 4             | `uint8` | [0, 9]  |
+| proper_running_style_nige    | 4             | `uint8` | [0, 9]  |
+| proper_running_style_senko   | 4             | `uint8` | [0, 9]  |
+| proper_running_style_sashi   | 4             | `uint8` | [0, 9]  |
+| proper_running_style_oikomi  | 4             | `uint8` | [0, 9]  |
 
-Aptitudes range from 1-8 in the game (G to S rank). They are stored as `aptitude - 1`, mapping the range to 0-7.
+Aptitudes range from 0-9 in the game. They are stored directly without adjustment. Values are clamped to 9 if they exceed this range during encoding.
 
 **Aptitude Grades:**
-- 0 → G (worst)
-- 1 → F
-- 2 → E
-- 3 → D
-- 4 → C
-- 5 → B
-- 6 → A
-- 7 → S (best)
+- 0 → erm...
+- 1 → G
+- 2 → F
+- 3 → E
+- 4 → D
+- 5 → C
+- 6 → B
+- 7 → A
+- 8 → S
+- 9 → :buh:
 
 ##### 2.4 Skills (Variable length)
 
@@ -134,58 +136,58 @@ Minimum bits (no skills):
 Version:       8 bits
 card_id:      20 bits
 Stats:        55 bits (11 × 5)
-Aptitudes:    30 bits (3 × 10)
+Aptitudes:    40 bits (4 × 10)
 skill_count:   6 bits
-Total:       119 bits minimum
-            = 20 Base64 characters
+Total:       129 bits minimum
+            = 22 Base64 characters
 ```
 
 With skills:
 ```
-Base:         119 bits
+Base:         129 bits
 Per skill:     24 bits
-Total:        119 + (24 × skill_count) bits
+Total:        129 + (24 × skill_count) bits
 ```
 
 ### Examples
 
 **Character with 10 skills:**
 ```
-119 + (24 × 10) = 359 bits
-                = 60 Base64 characters
+129 + (24 × 10) = 369 bits
+                = 62 Base64 characters
 ```
 
 **Character with 30 skills:**
 ```
-119 + (24 × 30) = 839 bits
-                = 140 Base64 characters
+129 + (24 × 30) = 849 bits
+                = 142 Base64 characters
 ```
 
 **Character with 63 skills (maximum):**
 ```
-119 + (24 × 63) = 1,631 bits
-                 = 272 Base64 characters
+129 + (24 × 63) = 1,641 bits
+                 = 274 Base64 characters
 ```
 
 ### Typical Size Range
 
 | Skill Count | Approximate Length |
 |-------------|-------------------|
-| 0-10        | 50-80 chars       |
-| 10-20       | 80-120 chars      |
-| 20-30       | 120-160 chars     |
-| 30-50       | 160-240 chars     |
-| 50-63       | 240-280 chars     |
+| 0-10        | 50-85 chars       |
+| 10-20       | 85-125 chars      |
+| 20-30       | 125-165 chars     |
+| 30-50       | 165-245 chars     |
+| 50-63       | 245-280 chars     |
 
-Most trained uma have 8-20 skills, resulting in codes of **60-130 characters** - very compact and easy to copy/paste.
+Most trained uma have 8-20 skills, resulting in codes of **62-135 characters** - very compact and easy to copy/paste.
 
 ## Encoding Process
 
 1. Create a BitVector instance
 2. Write version header (8 bits, value = 1)
 3. Write card_id (20 bits)
-4. Write stats in order: speed, stamina, power, guts, wiz (11 bits each)
-5. Write aptitudes in order: distances, grounds, styles (3 bits each, subtract 1 from actual value)
+4. Write stats in order: speed, stamina, power, guts, wiz (11 bits each, clamped to 2047)
+5. Write aptitudes in order: distances, grounds, styles (4 bits each, clamped to 9)
 6. Write skill_count (6 bits, max 63)
 7. For each skill:
    - Write skill_id (20 bits)
@@ -196,11 +198,11 @@ Most trained uma have 8-20 skills, resulting in codes of **60-130 characters** -
 ## Decoding Process
 
 1. Convert Base64 string to BitVector
-2. Check minimum bits (119)
+2. Check minimum bits (129)
 3. Read version (8 bits), verify it's 1
 4. Read card_id (20 bits)
 5. Read stats (5 × 11 bits each)
-6. Read aptitudes (10 × 3 bits each), add 1 to each value
+6. Read aptitudes (10 × 4 bits each)
 7. Read skill_count (6 bits)
 8. For each skill:
    - Read skill_id (20 bits)

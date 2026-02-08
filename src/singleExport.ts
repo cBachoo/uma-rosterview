@@ -16,7 +16,7 @@
  * Single Character:
  *   - card_id: 20 bits (supports up to 1M)
  *   - Stats (5 x 11 bits = 55 bits): speed, stamina, power, guts, wiz (0-2047)
- *   - Aptitudes (10 x 3 bits = 30 bits): each 1-8 mapped to 0-7
+ *   - Aptitudes (10 x 4 bits = 40 bits): each 0-9
  *   - Skill count: 6 bits (0-63)
  *   - Skills: count x 24 bits (20 for skill_id + 4 for level 1-16)
  */
@@ -140,17 +140,17 @@ export function encodeSingleUma(data: SingleExportData): string {
   bv.write(Math.min(data.guts, 2047), 11);
   bv.write(Math.min(data.wiz, 2047), 11);
 
-  // Aptitudes: 10 x 3 bits (1-8 stored as 0-7)
-  bv.write(data.proper_distance_short - 1, 3);
-  bv.write(data.proper_distance_mile - 1, 3);
-  bv.write(data.proper_distance_middle - 1, 3);
-  bv.write(data.proper_distance_long - 1, 3);
-  bv.write(data.proper_ground_turf - 1, 3);
-  bv.write(data.proper_ground_dirt - 1, 3);
-  bv.write(data.proper_running_style_nige - 1, 3);
-  bv.write(data.proper_running_style_senko - 1, 3);
-  bv.write(data.proper_running_style_sashi - 1, 3);
-  bv.write(data.proper_running_style_oikomi - 1, 3);
+  // Aptitudes: 10 x 4 bits (0-9)
+  bv.write(Math.min(data.proper_distance_short, 9), 4);
+  bv.write(Math.min(data.proper_distance_mile, 9), 4);
+  bv.write(Math.min(data.proper_distance_middle, 9), 4);
+  bv.write(Math.min(data.proper_distance_long, 9), 4);
+  bv.write(Math.min(data.proper_ground_turf, 9), 4);
+  bv.write(Math.min(data.proper_ground_dirt, 9), 4);
+  bv.write(Math.min(data.proper_running_style_nige, 9), 4);
+  bv.write(Math.min(data.proper_running_style_senko, 9), 4);
+  bv.write(Math.min(data.proper_running_style_sashi, 9), 4);
+  bv.write(Math.min(data.proper_running_style_oikomi, 9), 4);
 
   // Skills: 6-bit count + 24-bit entries (20 for skill_id + 4 for level)
   const skills = data.skill_array.slice(0, 63); // Max 63
@@ -170,8 +170,8 @@ export function decodeSingleUma(encoded: string): SingleExportData | null {
   try {
     const bv = BitVector.fromBase64(encoded);
 
-    // Check minimum bits (version + card_id + stats + aptitudes + skill_count = 8 + 20 + 55 + 30 + 6 = 119)
-    if (bv.remaining() < 119) {
+    // Check minimum bits (version + card_id + stats + aptitudes + skill_count = 8 + 20 + 55 + 40 + 6 = 129)
+    if (bv.remaining() < 129) {
       console.error("Insufficient bits for single uma decode");
       return null;
     }
@@ -196,16 +196,16 @@ export function decodeSingleUma(encoded: string): SingleExportData | null {
     const wiz = bv.read(11);
 
     // Aptitudes
-    const proper_distance_short = bv.read(3) + 1;
-    const proper_distance_mile = bv.read(3) + 1;
-    const proper_distance_middle = bv.read(3) + 1;
-    const proper_distance_long = bv.read(3) + 1;
-    const proper_ground_turf = bv.read(3) + 1;
-    const proper_ground_dirt = bv.read(3) + 1;
-    const proper_running_style_nige = bv.read(3) + 1;
-    const proper_running_style_senko = bv.read(3) + 1;
-    const proper_running_style_sashi = bv.read(3) + 1;
-    const proper_running_style_oikomi = bv.read(3) + 1;
+    const proper_distance_short = bv.read(4);
+    const proper_distance_mile = bv.read(4);
+    const proper_distance_middle = bv.read(4);
+    const proper_distance_long = bv.read(4);
+    const proper_ground_turf = bv.read(4);
+    const proper_ground_dirt = bv.read(4);
+    const proper_running_style_nige = bv.read(4);
+    const proper_running_style_senko = bv.read(4);
+    const proper_running_style_sashi = bv.read(4);
+    const proper_running_style_oikomi = bv.read(4);
 
     // Skills
     const skillCount = bv.read(6);
