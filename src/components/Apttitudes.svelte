@@ -24,7 +24,7 @@
 {#if sranks}
     <ul class="list-group list-group-horizontal flex-fill mt-2">
         <li class="list-group-item">
-            <img src={`/rank/utx_ico_statusrank_14.png`} alt="S Rank" />
+            <img src={`/status/srank.png`} alt="S Rank" />
             {sranks}
         </li>
     </ul>

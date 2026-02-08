@@ -16,8 +16,9 @@
         trainedCharas: CharaData[];
         onHome?: () => void;
         onAffinityClick?: () => void;
+        onExportTestClick?: () => void;
     }
-    const { trainedCharas, onHome, onAffinityClick }: Props = $props();
+    const { trainedCharas, onHome, onAffinityClick, onExportTestClick }: Props = $props();
 
     const display = stateStorage("display", { stats: true, factors: true });
     function onDisplayClick(event: Event, key: string) {
@@ -567,6 +568,16 @@
                         title="Open affinity calculator"
                     >
                         Affinity Calculator
+                    </button>
+                {/if}
+
+                {#if onExportTestClick}
+                    <button
+                        class="btn btn-info btn-sm"
+                        onclick={onExportTestClick}
+                        title="Test single uma export/import"
+                    >
+                        Export Test
                     </button>
                 {/if}
 

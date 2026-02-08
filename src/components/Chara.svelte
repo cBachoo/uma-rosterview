@@ -6,6 +6,7 @@
     import SuccessionChara from "./SuccessionChara.svelte";
     import FactorList from "./FactorList.svelte";
     import Apttitudes from "./Apttitudes.svelte";
+    import { encodeSingleUma, charaToSingleExport } from "../singleExport";
 
     interface Props {
         charaData: CharaData;
@@ -21,6 +22,20 @@
         };
     }
     const { charaData, display, filters }: Props = $props();
+
+    let exportSuccess = $state(false);
+
+    async function handleExport() {
+        try {
+            const exportData = charaToSingleExport(charaData);
+            const encoded = encodeSingleUma(exportData);
+            await navigator.clipboard.writeText(encoded);
+            exportSuccess = true;
+            setTimeout(() => (exportSuccess = false), 2000);
+        } catch (err) {
+            console.error("Failed to copy export code:", err);
+        }
+    }
 
     const charaCard = $derived(charaCardsData[charaData.card_id]);
     const charaCardLabel = $derived(
@@ -99,9 +114,7 @@
     }
 
     const rankBadgeNumber = $derived(getRankBadgeNumber(charaData.rank_score));
-    const rankBadgeUrl = $derived(
-        `/rank/utx_ico_statusrank_${rankBadgeNumber}.png`,
-    );
+    const rankBadgeUrl = $derived(`/rank/utx_txt_rank_${rankBadgeNumber}.png`);
 </script>
 
 <div class="card h-100">
@@ -128,7 +141,7 @@
             </div>
             <div
                 class="font-monospace text-end d-flex flex-column"
-                style="font-size: 14px;"
+                style="font-size: 14px; gap: 4px;"
             >
                 {#if charaData.rank_score !== undefined}
                     <div style="font-weight: 600;">
@@ -137,6 +150,14 @@
                 {/if}
                 <div>{charaDatetime[0]}</div>
                 <div>{charaDatetime[1]}</div>
+                <button
+                    class="btn btn-sm btn-outline-primary mt-1"
+                    onclick={handleExport}
+                    title="Copy export code to clipboard"
+                    style="font-size: 11px; padding: 2px 8px;"
+                >
+                    {exportSuccess ? "✓ Copied!" : "Export"}
+                </button>
             </div>
         </div>
         <!-- <ul class="nav nav-tabs card-header-tabs" role="tablist">
