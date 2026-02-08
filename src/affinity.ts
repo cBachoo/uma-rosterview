@@ -158,15 +158,14 @@ export interface AffinityResult {
  * p0 = Target character (the NEW uma we want to breed, selected by user)
  * p1 = uma1 (Parent 1 from roster - the uma we're evaluating)
  * p2 = Placeholder (Parent 2 - not calculated, assumed to contribute 0)
- * p1.1 = uma1.succession_chara_array[1] (p1's parent 1, becomes p0's grandparent 1)
- * p1.2 = uma1.succession_chara_array[4] (p1's parent 2, becomes p0's grandparent 2)
+ * p1.1 = uma1.succession_chara_array[0] (p1's parent 1, becomes p0's grandparent 1)
+ * p1.2 = uma1.succession_chara_array[1] (p1's parent 2, becomes p0's grandparent 2)
  *
  * SUCCESSION_CHARA_ARRAY STRUCTURE:
  * ==================================
  * Array indices (not position_id):
- * [0] = uma's first parent
- * [1] = uma's first parent's first parent (used as GP1)
- * [4] = uma's first parent's second parent (used as GP2)
+ * [0] = uma's first parent (position_id 10, used as GP1)
+ * [1] = uma's second parent (position_id 20, used as GP2)
  *
  * AFFINITY FORMULA:
  * ==================
@@ -213,10 +212,10 @@ export function calculateSingleParentAffinity(
 
   // Extract uma1's parents from succession_chara_array using direct array indices
   // These become p0's grandparents in the breeding lineage
-  // Index 1 = parent 1 of uma1 (becomes GP1)
-  // Index 4 = parent 2 of uma1 (becomes GP2)
-  const p1_1 = uma1.succession_chara_array?.[1];
-  const p1_2 = uma1.succession_chara_array?.[4];
+  // Index 0 = parent 1 of uma1 (becomes GP1) - position_id 10
+  // Index 1 = parent 2 of uma1 (becomes GP2) - position_id 20
+  const p1_1 = uma1.succession_chara_array?.[0];
+  const p1_2 = uma1.succession_chara_array?.[1];
 
   // Calculate p1 direct affinity with target (p0)
   // This is the base affinity between the new uma and parent 1
