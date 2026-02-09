@@ -171,8 +171,8 @@
             <div class="d-flex justify-content-between align-items-center mb-2">
                 <div>
                     <p class="text-muted mb-1">
-                        Showing {filteredUmas.length} of {sortedUmas.length} uma(s) as potential Parent 1 sorted by
-                        affinity with
+                        Showing {filteredUmas.length} of {sortedUmas.length} uma(s)
+                        as potential Parent 1 sorted by affinity with
                         <strong
                             >{uniqueCharacters.find(
                                 (c) => c.charaId === selectedCharaId,
@@ -181,8 +181,8 @@
                     </p>
                     <p class="text-muted text-sm mb-0">
                         <em
-                            >Note: Parent 2 affinity is not calculated (Values will be
-                            slightly lower than in-game)</em
+                            >Note: Parent 2 affinity is not calculated (Values
+                            will be slightly lower than in-game)</em
                         >
                     </p>
                 </div>
@@ -240,7 +240,8 @@
         </div>
     {:else if selectedCharaId && searchQuery}
         <div class="alert alert-warning" role="alert">
-            No characters found matching "{searchQuery}". Try a different search term.
+            No characters found matching "{searchQuery}". Try a different search
+            term.
         </div>
     {/if}
 </div>

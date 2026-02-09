@@ -1,5 +1,5 @@
-import relationsData from "./assets/relations.json";
-import relationMembersData from "./assets/relation_members.json";
+import relationsData from "./assets/succession_relation.json";
+import relationMembersData from "./assets/succession_relation_member.json";
 import { charaCardsData } from "./data";
 import type { CharaData, SuccessionCharaData } from "./types";
 
@@ -9,15 +9,17 @@ const relationPoints = new Map<string, number>();
 
 // Process relations.json to build point lookup
 relationsData.forEach((relation) => {
-  relationPoints.set(relation.relation_type, parseInt(relation.relation_point));
+  relationPoints.set(relation.relation_type.toString(), relation.relation_point);
 });
 
 // Process relation_members.json to build chara -> relations lookup
 relationMembersData.forEach((member) => {
-  if (!relationsByCharaId.has(member.chara_id)) {
-    relationsByCharaId.set(member.chara_id, new Set());
+  const charaIdStr = member.chara_id.toString();
+  const relationTypeStr = member.relation_type.toString();
+  if (!relationsByCharaId.has(charaIdStr)) {
+    relationsByCharaId.set(charaIdStr, new Set());
   }
-  relationsByCharaId.get(member.chara_id)!.add(member.relation_type);
+  relationsByCharaId.get(charaIdStr)!.add(relationTypeStr);
 });
 
 console.log(`[Affinity] Loaded ${relationPoints.size} relation types`);
