@@ -19,7 +19,7 @@
     }
     const { trainedCharas, onHome, onAffinityClick }: Props = $props();
 
-    const display = stateStorage("display", { stats: true, factors: true });
+    const display = stateStorage("display", { stats: true, factors: true, racesWon: false });
     function onDisplayClick(event: Event, key: string) {
         event.preventDefault();
         display.value[key] = !display.value[key];
@@ -640,6 +640,26 @@
                                     <label
                                         class="form-check-label"
                                         for="displaySparks">Sparks</label
+                                    >
+                                </div>
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                class="dropdown-item"
+                                onclickcapture={(e) =>
+                                    onDisplayClick(e, "racesWon")}
+                            >
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        id="displayracesWon"
+                                        bind:checked={display.value.racesWon}
+                                    />
+                                    <label
+                                        class="form-check-label"
+                                        for="displayracesWon">Races</label
                                     >
                                 </div>
                             </button>
