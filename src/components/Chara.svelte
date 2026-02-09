@@ -6,12 +6,14 @@
     import SuccessionChara from "./SuccessionChara.svelte";
     import FactorList from "./FactorList.svelte";
     import Apttitudes from "./Apttitudes.svelte";
+    import RacesWon from "./RacesWon.svelte";
 
     interface Props {
         charaData: CharaData;
         display: {
             stats: boolean;
             factors: boolean;
+            racesWon: boolean;
         };
         filters: {
             blues: { [key: string]: boolean | number; stars: number };
@@ -216,6 +218,23 @@
                             <hr />
                         {/if}
                     {/each}
+                {/if}
+                {#if display.racesWon}
+                    <hr />
+                    <RacesWon
+                        title="Current Unit Races Won:"
+                        winSaddleIds={charaData.win_saddle_id_array}
+                    />
+
+                    <RacesWon
+                        title="Parent 1 Races Won:"
+                        winSaddleIds={charaData.succession_chara_array[0]?.win_saddle_id_array}
+                    />
+
+                    <RacesWon
+                        title="Parent 2 Races Won:"
+                        winSaddleIds={charaData.succession_chara_array[1]?.win_saddle_id_array}
+                    />
                 {/if}
             </div>
             <div
