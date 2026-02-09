@@ -141,7 +141,7 @@
     <UnifiedTopBar currentApp="sparks" />
 {/if}
 
-<main class="container container-fluid text-center">
+<main class="container-fluid text-center">
     {#if trainedCharas}
         {#if currentPage === "affinity"}
             <Affinity {trainedCharas}></Affinity>
@@ -241,5 +241,10 @@
 
     p {
         opacity: 10%;
+    }
+
+    main.container-fluid {
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 </style>

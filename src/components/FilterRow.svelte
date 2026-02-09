@@ -23,32 +23,33 @@
         onRemove,
     }: Props = $props();
 
-    const min = filterType === "blues" ? 0 : 0;
-    const max = filterType === "blues" ? 9 : 9;
+    // All filters use 0-9 range
+    const min = 0;
+    const max = 9;
 
     const ticks = Array.from({ length: max - min + 1 }, (_, i) => i + min);
 
     function handleMinChange(e: Event) {
         const target = e.target as HTMLInputElement;
         const newMin = parseInt(target.value);
-        // Prevent min from reaching or exceeding max
-        if (newMin < maxValue) {
+        // Allow min to equal max (for exact value filtering)
+        if (newMin <= maxValue) {
             onMinChange(newMin);
         } else {
-            target.value = (maxValue - 1).toString();
-            onMinChange(maxValue - 1);
+            target.value = maxValue.toString();
+            onMinChange(maxValue);
         }
     }
 
     function handleMaxChange(e: Event) {
         const target = e.target as HTMLInputElement;
         const newMax = parseInt(target.value);
-        // Prevent max from reaching or going below min
-        if (newMax > minValue) {
+        // Allow max to equal min (for exact value filtering)
+        if (newMax >= minValue) {
             onMaxChange(newMax);
         } else {
-            target.value = (minValue + 1).toString();
-            onMaxChange(minValue + 1);
+            target.value = minValue.toString();
+            onMaxChange(minValue);
         }
     }
 </script>
@@ -59,23 +60,27 @@
         : 'red-factor'}"
 >
     <div class="row-top">
-        <select
-            class="form-select form-select-sm factor-select"
-            value={selectedStat}
-            onchange={(e) =>
-                onStatChange((e.target as HTMLSelectElement).value)}
-        >
-            {#each availableStats as stat}
-                <option value={stat}>{stat}</option>
-            {/each}
-        </select>
+        {#if selectedStat === "Total"}
+            <div class="total-label">{selectedStat}</div>
+        {:else}
+            <select
+                class="form-select form-select-sm factor-select"
+                value={selectedStat}
+                onchange={(e) =>
+                    onStatChange((e.target as HTMLSelectElement).value)}
+            >
+                {#each availableStats as stat}
+                    <option value={stat}>{stat}</option>
+                {/each}
+            </select>
+        {/if}
         <button
             type="button"
             class="btn btn-sm btn-danger remove-btn"
             onclick={onRemove}
-            title="Remove filter"
+            title={selectedStat === "Total" ? "Reset to max range" : "Remove filter"}
         >
-            ✕
+            {selectedStat === "Total" ? "↺" : "✕"}
         </button>
     </div>
     <div class="row-bottom">
@@ -142,6 +147,17 @@
         min-width: 0;
         font-size: 0.875rem;
         padding: 0.25rem 0.5rem;
+    }
+
+    .total-label {
+        flex: 1;
+        min-width: 0;
+        font-size: 0.875rem;
+        padding: 0.25rem 0.5rem;
+        font-weight: 600;
+        color: #495057;
+        display: flex;
+        align-items: center;
     }
 
     .remove-btn {

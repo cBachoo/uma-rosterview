@@ -100,6 +100,8 @@
     let filters = $state({
         blues: [] as FilterItem[],
         reds: [] as FilterItem[],
+        totalBlues: { min: 0, max: 9 },
+        totalReds: { min: 0, max: 9 },
         greens: { stars: 0 },
         whites: {} as { [key: string]: number },
         whitesIncludeParents: false,
@@ -246,6 +248,64 @@
                             isDisplayed = false;
                             break;
                         }
+                    }
+                }
+
+                // Total Blues filter - sum stars for the blue factor
+                if (filters.totalBlues.min > 0 || filters.totalBlues.max < 9) {
+                    // Get blue factors from lineage
+                    const currentBlue = chara.factor_id_array
+                        .map((id) => factorsData[id])
+                        .find((f) => f?.type === 1);
+                    const parent1Blue =
+                        chara.succession_chara_array[0]?.factor_id_array
+                            .map((id) => factorsData[id])
+                            .find((f) => f?.type === 1);
+                    const parent2Blue =
+                        chara.succession_chara_array[1]?.factor_id_array
+                            .map((id) => factorsData[id])
+                            .find((f) => f?.type === 1);
+
+                    // Sum the stars for the blue factor (unit + parent1 + parent2)
+                    const totalBlueStars =
+                        (currentBlue?.rarity || 0) +
+                        (parent1Blue?.rarity || 0) +
+                        (parent2Blue?.rarity || 0);
+
+                    if (
+                        totalBlueStars < filters.totalBlues.min ||
+                        totalBlueStars > filters.totalBlues.max
+                    ) {
+                        isDisplayed = false;
+                    }
+                }
+
+                // Total Reds filter - sum stars for the red factor
+                if (filters.totalReds.min > 0 || filters.totalReds.max < 9) {
+                    // Get red factors from lineage
+                    const currentRed = chara.factor_id_array
+                        .map((id) => factorsData[id])
+                        .find((f) => f?.type === 2);
+                    const parent1Red =
+                        chara.succession_chara_array[0]?.factor_id_array
+                            .map((id) => factorsData[id])
+                            .find((f) => f?.type === 2);
+                    const parent2Red =
+                        chara.succession_chara_array[1]?.factor_id_array
+                            .map((id) => factorsData[id])
+                            .find((f) => f?.type === 2);
+
+                    // Sum the stars for the red factor (unit + parent1 + parent2)
+                    const totalRedStars =
+                        (currentRed?.rarity || 0) +
+                        (parent1Red?.rarity || 0) +
+                        (parent2Red?.rarity || 0);
+
+                    if (
+                        totalRedStars < filters.totalReds.min ||
+                        totalRedStars > filters.totalReds.max
+                    ) {
+                        isDisplayed = false;
                     }
                 }
 
@@ -527,7 +587,7 @@
         </div>
     </nav>
 
-    <div class="row row-cols-1 row-cols-lg-2 g-5 py-4">
+    <div class="row row-cols-1 row-cols-lg-4 g-3 py-4">
         {#each trainedCharasFiltered as chara (chara.chara_seed)}
             <div class="col">
                 <Chara charaData={chara} display={display.value} {filters}

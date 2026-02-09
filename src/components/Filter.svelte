@@ -10,6 +10,8 @@
         filters: {
             blues: FilterItem[];
             reds: FilterItem[];
+            totalBlues: { min: number; max: number };
+            totalReds: { min: number; max: number };
             greens: { stars: number };
             whites: { [key: string]: number };
             whitesIncludeParents: boolean;
@@ -146,6 +148,8 @@
     function resetFilters() {
         filters.blues = [];
         filters.reds = [];
+        filters.totalBlues = { min: 0, max: 9 };
+        filters.totalReds = { min: 0, max: 9 };
         filters.greens.stars = 0;
 
         const whiteKeys = Object.keys(filters.whites);
@@ -229,6 +233,26 @@
                             <div class="col-md-6">
                                 <div class="filter-section">
                                     <h6 class="mb-2">Blues (Stats)</h6>
+
+                                    <!-- Total Blues Slider -->
+                                    <div class="total-filter mb-3">
+                                        <label class="form-label text-muted mb-1" style="font-size: 0.875rem;">Total Blues (All Stats Combined)</label>
+                                        <FilterRow
+                                            filterType="blues"
+                                            selectedStat="Total"
+                                            minValue={filters.totalBlues.min}
+                                            maxValue={filters.totalBlues.max}
+                                            availableStats={["Total"]}
+                                            onStatChange={() => {}}
+                                            onMinChange={(v) => (filters.totalBlues.min = v)}
+                                            onMaxChange={(v) => (filters.totalBlues.max = v)}
+                                            onRemove={() => {
+                                                filters.totalBlues.min = 0;
+                                                filters.totalBlues.max = 9;
+                                            }}
+                                        />
+                                    </div>
+
                                     <!-- Advanced Blues (Lineage Mode) -->
                                     <div class="filters-list">
                                         {#each filters.blues as filter (filter.id)}
@@ -271,6 +295,26 @@
                             <div class="col-md-6">
                                 <div class="filter-section">
                                     <h6 class="mb-2">Reds (Aptitudes)</h6>
+
+                                    <!-- Total Reds Slider -->
+                                    <div class="total-filter mb-3">
+                                        <label class="form-label text-muted mb-1" style="font-size: 0.875rem;">Total Reds (Unit + Parents)</label>
+                                        <FilterRow
+                                            filterType="reds"
+                                            selectedStat="Total"
+                                            minValue={filters.totalReds.min}
+                                            maxValue={filters.totalReds.max}
+                                            availableStats={["Total"]}
+                                            onStatChange={() => {}}
+                                            onMinChange={(v) => (filters.totalReds.min = v)}
+                                            onMaxChange={(v) => (filters.totalReds.max = v)}
+                                            onRemove={() => {
+                                                filters.totalReds.min = 0;
+                                                filters.totalReds.max = 9;
+                                            }}
+                                        />
+                                    </div>
+
                                     <!-- Advanced Reds (Lineage Mode) -->
                                     <div class="filters-list">
                                         {#each filters.reds as filter (filter.id)}
