@@ -18,7 +18,8 @@
         onAffinityClick?: () => void;
         onExportTestClick?: () => void;
     }
-    const { trainedCharas, onHome, onAffinityClick, onExportTestClick }: Props = $props();
+    const { trainedCharas, onHome, onAffinityClick, onExportTestClick }: Props =
+        $props();
 
     const display = stateStorage("display", { stats: true, factors: true });
     function onDisplayClick(event: Event, key: string) {
@@ -80,7 +81,14 @@
     }
 
     let searchQuery = $state("");
-    let sortBy = $state<"date-desc" | "date-asc" | "rank-desc" | "rank-asc" | "skills-desc" | "skills-asc">("date-desc");
+    let sortBy = $state<
+        | "date-desc"
+        | "date-asc"
+        | "rank-desc"
+        | "rank-asc"
+        | "skills-desc"
+        | "skills-asc"
+    >("date-desc");
 
     interface FilterItem {
         id: string;
@@ -159,12 +167,14 @@
                     const currentBlue = chara.factor_id_array
                         .map((id) => factorsData[id])
                         .find((f) => f?.type === 1);
-                    const parent1Blue = chara.succession_chara_array[0]?.factor_id_array
-                        .map((id) => factorsData[id])
-                        .find((f) => f?.type === 1);
-                    const parent2Blue = chara.succession_chara_array[1]?.factor_id_array
-                        .map((id) => factorsData[id])
-                        .find((f) => f?.type === 1);
+                    const parent1Blue =
+                        chara.succession_chara_array[0]?.factor_id_array
+                            .map((id) => factorsData[id])
+                            .find((f) => f?.type === 1);
+                    const parent2Blue =
+                        chara.succession_chara_array[1]?.factor_id_array
+                            .map((id) => factorsData[id])
+                            .find((f) => f?.type === 1);
 
                     // Calculate stars per stat
                     const statStars = {
@@ -176,13 +186,16 @@
                     };
                     [currentBlue, parent1Blue, parent2Blue].forEach((f) => {
                         if (f && f.name in statStars) {
-                            statStars[f.name as keyof typeof statStars] += f.rarity;
+                            statStars[f.name as keyof typeof statStars] +=
+                                f.rarity;
                         }
                     });
 
                     // Check each filter
                     for (const filter of filters.blues) {
-                        const statValue = statStars[filter.stat as keyof typeof statStars] || 0;
+                        const statValue =
+                            statStars[filter.stat as keyof typeof statStars] ||
+                            0;
                         if (statValue < filter.min || statValue > filter.max) {
                             isDisplayed = false;
                             break;
@@ -196,12 +209,14 @@
                     const currentRed = chara.factor_id_array
                         .map((id) => factorsData[id])
                         .find((f) => f?.type === 2);
-                    const parent1Red = chara.succession_chara_array[0]?.factor_id_array
-                        .map((id) => factorsData[id])
-                        .find((f) => f?.type === 2);
-                    const parent2Red = chara.succession_chara_array[1]?.factor_id_array
-                        .map((id) => factorsData[id])
-                        .find((f) => f?.type === 2);
+                    const parent1Red =
+                        chara.succession_chara_array[0]?.factor_id_array
+                            .map((id) => factorsData[id])
+                            .find((f) => f?.type === 2);
+                    const parent2Red =
+                        chara.succession_chara_array[1]?.factor_id_array
+                            .map((id) => factorsData[id])
+                            .find((f) => f?.type === 2);
 
                     // Calculate stars per aptitude
                     const aptStars = {
@@ -218,13 +233,15 @@
                     };
                     [currentRed, parent1Red, parent2Red].forEach((f) => {
                         if (f && f.name in aptStars) {
-                            aptStars[f.name as keyof typeof aptStars] += f.rarity;
+                            aptStars[f.name as keyof typeof aptStars] +=
+                                f.rarity;
                         }
                     });
 
                     // Check each filter
                     for (const filter of filters.reds) {
-                        const aptValue = aptStars[filter.stat as keyof typeof aptStars] || 0;
+                        const aptValue =
+                            aptStars[filter.stat as keyof typeof aptStars] || 0;
                         if (aptValue < filter.min || aptValue > filter.max) {
                             isDisplayed = false;
                             break;

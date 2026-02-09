@@ -270,7 +270,9 @@ export function charaToSingleExport(chara: CharaData): SingleExportData {
 /**
  * Convert SingleExportData to partial CharaData (for import)
  */
-export function singleExportToChara(data: SingleExportData): Partial<CharaData> {
+export function singleExportToChara(
+  data: SingleExportData,
+): Partial<CharaData> {
   return {
     card_id: data.card_id,
     speed: data.speed,

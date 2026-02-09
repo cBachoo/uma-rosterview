@@ -30,7 +30,7 @@
                 const sortTypeB = typeB > 3 ? 4 : typeB;
 
                 return sortTypeA - sortTypeB;
-            })
+            }),
     );
 </script>
 

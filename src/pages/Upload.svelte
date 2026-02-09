@@ -192,8 +192,18 @@
 <footer class="text-center py-4 mt-5 border-top">
     <div class="container">
         <p class="text-muted mb-0">
-            Original creator: <a href="https://github.com/rockisch" target="_blank" rel="noopener">Rockisch</a>
-            · Contributors: <a href="https://github.com/cBachoo" target="_blank" rel="noopener">Bachoo</a>, <a href="https://github.com/xancia" target="_blank" rel="noopener">Terumi</a>
+            Original creator: <a
+                href="https://github.com/rockisch"
+                target="_blank"
+                rel="noopener">Rockisch</a
+            >
+            · Contributors:
+            <a href="https://github.com/cBachoo" target="_blank" rel="noopener"
+                >Bachoo</a
+            >,
+            <a href="https://github.com/xancia" target="_blank" rel="noopener"
+                >Terumi</a
+            >
         </p>
     </div>
 </footer>

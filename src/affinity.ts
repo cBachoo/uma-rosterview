@@ -9,7 +9,10 @@ const relationPoints = new Map<string, number>();
 
 // Process relations.json to build point lookup
 relationsData.forEach((relation) => {
-  relationPoints.set(relation.relation_type.toString(), relation.relation_point);
+  relationPoints.set(
+    relation.relation_type.toString(),
+    relation.relation_point,
+  );
 });
 
 // Process relation_members.json to build chara -> relations lookup
@@ -228,16 +231,22 @@ export function calculateSingleParentAffinity(
   // Calculate grandparent 1 contribution (p1.1)
   // Formula: p1.1_aff = aff(p0,p1,p1.1) + race(p1,p1.1)
   // This uses 3-way affinity to check what p0, p1, and p1.1 all share in common
+  // SPECIAL RULE: If GP1 is the same character as p0, base affinity is 0 (but races still count)
   if (p1_1) {
     const p1_1CharaId = getCharaId(p1_1.card_id);
     const p1_1Races = p1_1.win_saddle_id_array || [];
 
-    // 3-way affinity between target (p0), parent (p1), and grandparent (p1.1)
-    const gp1Affinity = calculateBaseAffinity([
-      targetCharaId,
-      p1CharaId,
-      p1_1CharaId,
-    ]);
+    // Check if grandparent is the same character as target (p0)
+    // If so, base affinity should be 0, but race affinity still counts
+    let gp1Affinity = 0;
+    if (p1_1CharaId !== targetCharaId) {
+      // 3-way affinity between target (p0), parent (p1), and grandparent (p1.1)
+      gp1Affinity = calculateBaseAffinity([
+        targetCharaId,
+        p1CharaId,
+        p1_1CharaId,
+      ]);
+    }
     const gp1Races = calculateSharedRaces(p1Races, p1_1Races);
 
     // Track GP1 contribution separately for UI display
@@ -250,16 +259,22 @@ export function calculateSingleParentAffinity(
   // Calculate grandparent 2 contribution (p1.2)
   // Formula: p1.2_aff = aff(p0,p1,p1.2) + race(p1,p1.2)
   // This uses 3-way affinity to check what p0, p1, and p1.2 all share in common
+  // SPECIAL RULE: If GP2 is the same character as p0, base affinity is 0 (but races still count)
   if (p1_2) {
     const p1_2CharaId = getCharaId(p1_2.card_id);
     const p1_2Races = p1_2.win_saddle_id_array || [];
 
-    // 3-way affinity between target (p0), parent (p1), and grandparent (p1.2)
-    const gp2Affinity = calculateBaseAffinity([
-      targetCharaId,
-      p1CharaId,
-      p1_2CharaId,
-    ]);
+    // Check if grandparent is the same character as target (p0)
+    // If so, base affinity should be 0, but race affinity still counts
+    let gp2Affinity = 0;
+    if (p1_2CharaId !== targetCharaId) {
+      // 3-way affinity between target (p0), parent (p1), and grandparent (p1.2)
+      gp2Affinity = calculateBaseAffinity([
+        targetCharaId,
+        p1CharaId,
+        p1_2CharaId,
+      ]);
+    }
     const gp2Races = calculateSharedRaces(p1Races, p1_2Races);
 
     // Track GP2 contribution separately for UI display

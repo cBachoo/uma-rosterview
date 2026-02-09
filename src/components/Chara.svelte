@@ -216,8 +216,12 @@
                     {/if}
                 {/if}
                 {#if display.factors}
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                        <small class="text-muted">{showSkills ? "Skills" : "Sparks"}:</small>
+                    <div
+                        class="d-flex justify-content-between align-items-center mb-2"
+                    >
+                        <small class="text-muted"
+                            >{showSkills ? "Skills" : "Sparks"}:</small
+                        >
                         <button
                             class="btn btn-sm btn-outline-secondary"
                             onclick={() => (showSkills = !showSkills)}
@@ -254,10 +258,17 @@
                         <div class="skills-list">
                             {#each charaData.skill_array as skill}
                                 {@const skillInfo = skillsData[skill.skill_id]}
-                                <span class="badge bg-secondary me-1 mb-1" title={skillInfo?.skillName || `Skill ${skill.skill_id}`}>
-                                    {skillInfo?.skillName || `Skill ${skill.skill_id}`}
+                                <span
+                                    class="badge bg-secondary me-1 mb-1"
+                                    title={skillInfo?.skillName ||
+                                        `Skill ${skill.skill_id}`}
+                                >
+                                    {skillInfo?.skillName ||
+                                        `Skill ${skill.skill_id}`}
                                     {#if skill.level > 1}
-                                        <span class="badge bg-info ms-1">Lv{skill.level}</span>
+                                        <span class="badge bg-info ms-1"
+                                            >Lv{skill.level}</span
+                                        >
                                     {/if}
                                 </span>
                             {/each}

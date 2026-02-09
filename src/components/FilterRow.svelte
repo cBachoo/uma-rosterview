@@ -53,12 +53,17 @@
     }
 </script>
 
-<div class="factor-row-item {filterType === 'blues' ? 'blue-factor' : 'red-factor'}">
+<div
+    class="factor-row-item {filterType === 'blues'
+        ? 'blue-factor'
+        : 'red-factor'}"
+>
     <div class="row-top">
         <select
             class="form-select form-select-sm factor-select"
             value={selectedStat}
-            onchange={(e) => onStatChange((e.target as HTMLSelectElement).value)}
+            onchange={(e) =>
+                onStatChange((e.target as HTMLSelectElement).value)}
         >
             {#each availableStats as stat}
                 <option value={stat}>{stat}</option>
@@ -94,12 +99,16 @@
             <div class="track-bg"></div>
             <div
                 class="track-active"
-                style="left: {((minValue - min) / (max - min)) * 100}%; width: {((maxValue - minValue) / (max - min)) * 100}%;"
+                style="left: {((minValue - min) / (max - min)) *
+                    100}%; width: {((maxValue - minValue) / (max - min)) *
+                    100}%;"
             ></div>
         </div>
         <div class="slider-labels-row">
             {#each ticks as tick}
-                <span class:active={tick >= minValue && tick <= maxValue}>{tick}★</span>
+                <span class:active={tick >= minValue && tick <= maxValue}
+                    >{tick}★</span
+                >
             {/each}
         </div>
     </div>
@@ -239,7 +248,9 @@
         background: #0d6efd;
         border-radius: 2px;
         z-index: 2;
-        transition: left 0.1s, width 0.1s;
+        transition:
+            left 0.1s,
+            width 0.1s;
     }
 
     .slider-labels-row {

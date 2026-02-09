@@ -119,9 +119,9 @@
 
                         <div class="alert alert-info mb-0">
                             <small
-                                ><strong>Export includes:</strong> Card ID,
-                                Stats (Speed/Stamina/Power/Guts/Wiz), Aptitudes
-                                (Distance/Ground/Style), Skills with levels</small
+                                ><strong>Export includes:</strong> Card ID, Stats
+                                (Speed/Stamina/Power/Guts/Wiz), Aptitudes (Distance/Ground/Style),
+                                Skills with levels</small
                             >
                         </div>
                     {/if}
@@ -264,7 +264,9 @@
                     <h6>What's Included:</h6>
                     <ul>
                         <li>Card ID</li>
-                        <li>Base Stats (Speed, Stamina, Power, Guts, Wisdom)</li>
+                        <li>
+                            Base Stats (Speed, Stamina, Power, Guts, Wisdom)
+                        </li>
                         <li>
                             Aptitudes (Distance, Ground Type, Running Style) -
                             values 1-8
@@ -287,8 +289,8 @@
                     <p class="mb-0">
                         The code uses a compact binary format (Version 1)
                         converted to URL-safe Base64. Typical code length is
-                        60-130 characters for 8-20 skills. Maximum supported:
-                        63 skills (up to 272 characters).
+                        60-130 characters for 8-20 skills. Maximum supported: 63
+                        skills (up to 272 characters).
                     </p>
                 </div>
             </div>
