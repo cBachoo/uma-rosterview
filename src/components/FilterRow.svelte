@@ -78,7 +78,9 @@
             type="button"
             class="btn btn-sm btn-danger remove-btn"
             onclick={onRemove}
-            title={selectedStat === "Total" ? "Reset to max range" : "Remove filter"}
+            title={selectedStat === "Total"
+                ? "Reset to max range"
+                : "Remove filter"}
         >
             {selectedStat === "Total" ? "↺" : "✕"}
         </button>
