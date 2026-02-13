@@ -48,7 +48,7 @@
     let searchQuery = $state("");
 
     // Default display settings for Chara component
-    const display = { stats: true, factors: true };
+    const display = { stats: true, factors: true, racesWon: false };
 
     // Filters state
     let filters = $state({
