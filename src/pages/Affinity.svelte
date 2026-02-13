@@ -1,17 +1,25 @@
 <script lang="ts">
     import type { CharaData } from "../types";
     import Chara from "../components/Chara.svelte";
+    import Filter from "../components/Filter.svelte";
     import {
         calculateSingleParentAffinity,
         type AffinityResult,
     } from "../affinity";
-    import { charaCardsData } from "../data";
+    import { charaCardsData, factorsData } from "../data";
     import TerumiCharacterData from "../assets/TerumiCharacterData.json";
 
     interface Props {
         trainedCharas: CharaData[];
     }
     const { trainedCharas }: Props = $props();
+
+    interface FilterItem {
+        id: string;
+        stat: string;
+        min: number;
+        max: number;
+    }
 
     function goBack() {
         window.location.hash = "";
@@ -42,13 +50,34 @@
     // Default display settings for Chara component
     const display = { stats: true, factors: true, racesWon: false };
 
-    // Default filters (required by Chara component but not used for filtering here)
-    const filters = {
-        blues: { stars: 1 },
-        reds: { stars: 1 },
-        greens: { stars: 1 },
-        whites: {},
-    };
+    // Filters state
+    let filters = $state({
+        blues: [] as FilterItem[],
+        reds: [] as FilterItem[],
+        totalBlues: { min: 0, max: 9 },
+        totalReds: { min: 0, max: 9 },
+        greens: { stars: 0 },
+        whites: {} as { [key: string]: number },
+        whitesIncludeParents: false,
+    });
+
+    const availableWhites = $derived(() => {
+        const factorIds = new Set<number>();
+        trainedCharas.forEach((chara) => {
+            chara.factor_id_array.forEach((id) => factorIds.add(id));
+            chara.succession_chara_array.forEach((s) =>
+                s.factor_id_array.forEach((id) => factorIds.add(id)),
+            );
+        });
+        const whiteNames = new Set<string>();
+        factorIds.forEach((id) => {
+            const f = factorsData[id];
+            // Type 4 = skill, Type 5 = race, Type 6 = scenario
+            if (f?.type === 4 || f?.type === 5 || f?.type === 6)
+                whiteNames.add(f.name);
+        });
+        return Array.from(whiteNames).sort();
+    });
 
     function calculateAffinities() {
         if (!selectedCharaId) {
@@ -105,14 +134,241 @@
         calculateAffinities();
     }
 
-    // Filter sorted umas based on search query
+    // Filter sorted umas based on search query and filters
     const filteredUmas = $derived.by(() => {
-        if (!searchQuery) return sortedUmas;
+        let result = sortedUmas;
 
-        return sortedUmas.filter((item) => {
-            const charaName = charaCardsData[item.uma.card_id]?.name || "";
-            return charaName.toLowerCase().includes(searchQuery.toLowerCase());
+        // Search filter
+        if (searchQuery) {
+            result = result.filter((item) => {
+                const charaName = charaCardsData[item.uma.card_id]?.name || "";
+                return charaName.toLowerCase().includes(searchQuery.toLowerCase());
+            });
+        }
+
+        // Apply factor filters
+        result = result.filter((item) => {
+            const chara = item.uma;
+            let isDisplayed = true;
+
+            const allFactors = chara.factor_id_array;
+
+            // Blues - Dynamic filters
+            if (filters.blues.length > 0) {
+                const currentBlue = chara.factor_id_array
+                    .map((id) => factorsData[id])
+                    .find((f) => f?.type === 1);
+                const parent1Blue =
+                    chara.succession_chara_array[0]?.factor_id_array
+                        .map((id) => factorsData[id])
+                        .find((f) => f?.type === 1);
+                const parent2Blue =
+                    chara.succession_chara_array[1]?.factor_id_array
+                        .map((id) => factorsData[id])
+                        .find((f) => f?.type === 1);
+
+                const statStars = {
+                    Speed: 0,
+                    Stamina: 0,
+                    Power: 0,
+                    Guts: 0,
+                    Wit: 0,
+                };
+                [currentBlue, parent1Blue, parent2Blue].forEach((f) => {
+                    if (f && f.name in statStars) {
+                        statStars[f.name as keyof typeof statStars] += f.rarity;
+                    }
+                });
+
+                for (const filter of filters.blues) {
+                    const statValue =
+                        statStars[filter.stat as keyof typeof statStars] || 0;
+                    if (statValue < filter.min || statValue > filter.max) {
+                        isDisplayed = false;
+                        break;
+                    }
+                }
+            }
+
+            // Reds - Dynamic filters
+            if (filters.reds.length > 0) {
+                const currentRed = chara.factor_id_array
+                    .map((id) => factorsData[id])
+                    .find((f) => f?.type === 2);
+                const parent1Red =
+                    chara.succession_chara_array[0]?.factor_id_array
+                        .map((id) => factorsData[id])
+                        .find((f) => f?.type === 2);
+                const parent2Red =
+                    chara.succession_chara_array[1]?.factor_id_array
+                        .map((id) => factorsData[id])
+                        .find((f) => f?.type === 2);
+
+                const aptStars = {
+                    Turf: 0,
+                    Dirt: 0,
+                    "Front Runner": 0,
+                    "Pace Chaser": 0,
+                    "Late Surger": 0,
+                    "End Closer": 0,
+                    Sprint: 0,
+                    Mile: 0,
+                    Medium: 0,
+                    Long: 0,
+                };
+                [currentRed, parent1Red, parent2Red].forEach((f) => {
+                    if (f && f.name in aptStars) {
+                        aptStars[f.name as keyof typeof aptStars] += f.rarity;
+                    }
+                });
+
+                for (const filter of filters.reds) {
+                    const aptValue =
+                        aptStars[filter.stat as keyof typeof aptStars] || 0;
+                    if (aptValue < filter.min || aptValue > filter.max) {
+                        isDisplayed = false;
+                        break;
+                    }
+                }
+            }
+
+            // Total Blues filter
+            if (filters.totalBlues.min > 0 || filters.totalBlues.max < 9) {
+                const currentBlue = chara.factor_id_array
+                    .map((id) => factorsData[id])
+                    .find((f) => f?.type === 1);
+                const parent1Blue =
+                    chara.succession_chara_array[0]?.factor_id_array
+                        .map((id) => factorsData[id])
+                        .find((f) => f?.type === 1);
+                const parent2Blue =
+                    chara.succession_chara_array[1]?.factor_id_array
+                        .map((id) => factorsData[id])
+                        .find((f) => f?.type === 1);
+
+                const totalBlueStars =
+                    (currentBlue?.rarity || 0) +
+                    (parent1Blue?.rarity || 0) +
+                    (parent2Blue?.rarity || 0);
+
+                if (
+                    totalBlueStars < filters.totalBlues.min ||
+                    totalBlueStars > filters.totalBlues.max
+                ) {
+                    isDisplayed = false;
+                }
+            }
+
+            // Total Reds filter
+            if (filters.totalReds.min > 0 || filters.totalReds.max < 9) {
+                const currentRed = chara.factor_id_array
+                    .map((id) => factorsData[id])
+                    .find((f) => f?.type === 2);
+                const parent1Red =
+                    chara.succession_chara_array[0]?.factor_id_array
+                        .map((id) => factorsData[id])
+                        .find((f) => f?.type === 2);
+                const parent2Red =
+                    chara.succession_chara_array[1]?.factor_id_array
+                        .map((id) => factorsData[id])
+                        .find((f) => f?.type === 2);
+
+                const totalRedStars =
+                    (currentRed?.rarity || 0) +
+                    (parent1Red?.rarity || 0) +
+                    (parent2Red?.rarity || 0);
+
+                if (
+                    totalRedStars < filters.totalReds.min ||
+                    totalRedStars > filters.totalReds.max
+                ) {
+                    isDisplayed = false;
+                }
+            }
+
+            // Greens
+            if (filters.greens.stars > 1) {
+                const hasGreen = allFactors.some((id) => {
+                    const f = factorsData[id];
+                    return f?.type === 3 && f.rarity >= filters.greens.stars;
+                });
+                isDisplayed = isDisplayed && hasGreen;
+            }
+
+            // Whites
+            const selectedWhites = Object.entries(filters.whites)
+                .filter(([_, v]) => v > 0)
+                .map(([k, v]) => ({ name: k, minStars: v }));
+            if (selectedWhites.length > 0) {
+                if (filters.whitesIncludeParents) {
+                    const hasAllWhites = selectedWhites.every(
+                        ({ name, minStars }) => {
+                            const currentWhite = chara.factor_id_array
+                                .map((id) => factorsData[id])
+                                .find(
+                                    (f) =>
+                                        f &&
+                                        (f.type === 4 ||
+                                            f.type === 5 ||
+                                            f.type === 6) &&
+                                        f.name === name,
+                                );
+
+                            const parent1White =
+                                chara.succession_chara_array[0]?.factor_id_array
+                                    .map((id) => factorsData[id])
+                                    .find(
+                                        (f) =>
+                                            f &&
+                                            (f.type === 4 ||
+                                                f.type === 5 ||
+                                                f.type === 6) &&
+                                            f.name === name,
+                                    );
+
+                            const parent2White =
+                                chara.succession_chara_array[1]?.factor_id_array
+                                    .map((id) => factorsData[id])
+                                    .find(
+                                        (f) =>
+                                            f &&
+                                            (f.type === 4 ||
+                                                f.type === 5 ||
+                                                f.type === 6) &&
+                                            f.name === name,
+                                    );
+
+                            const totalStars =
+                                (currentWhite?.rarity || 0) +
+                                (parent1White?.rarity || 0) +
+                                (parent2White?.rarity || 0);
+
+                            return totalStars >= minStars;
+                        },
+                    );
+                    isDisplayed = isDisplayed && hasAllWhites;
+                } else {
+                    const hasAllWhites = selectedWhites.every(
+                        ({ name, minStars }) =>
+                            allFactors.some((id) => {
+                                const f = factorsData[id];
+                                return (
+                                    (f?.type === 4 ||
+                                        f?.type === 5 ||
+                                        f?.type === 6) &&
+                                    f.name === name &&
+                                    f.rarity >= minStars
+                                );
+                            }),
+                    );
+                    isDisplayed = isDisplayed && hasAllWhites;
+                }
+            }
+
+            return isDisplayed;
         });
+
+        return result;
     });
 </script>
 
@@ -127,6 +383,9 @@
                 <span class="navbar-brand mb-0 h1">Affinity Calculator</span>
 
                 <div class="ms-auto d-flex align-items-center gap-2">
+                    {#if selectedCharaId}
+                        <Filter {filters} {availableWhites} />
+                    {/if}
                     <label for="targetCharaSelect" class="form-label mb-0"
                         >Select Target Uma:</label
                     >
@@ -171,8 +430,8 @@
             <div class="d-flex justify-content-between align-items-center mb-2">
                 <div>
                     <p class="text-muted mb-1">
-                        Showing {filteredUmas.length} of {sortedUmas.length} uma(s) as potential Parent 1 sorted by
-                        affinity with
+                        Showing {filteredUmas.length} of {sortedUmas.length} uma(s)
+                        as potential Parent 1 sorted by affinity with
                         <strong
                             >{uniqueCharacters.find(
                                 (c) => c.charaId === selectedCharaId,
@@ -181,8 +440,8 @@
                     </p>
                     <p class="text-muted text-sm mb-0">
                         <em
-                            >Note: Parent 2 affinity is not calculated (Values will be
-                            slightly lower than in-game)</em
+                            >Note: Parent 2 affinity is not calculated (Values
+                            will be slightly lower than in-game)</em
                         >
                     </p>
                 </div>
@@ -199,7 +458,7 @@
 
     <!-- Display sorted umas in grid -->
     {#if selectedCharaId && filteredUmas.length > 0}
-        <div class="row row-cols-1 row-cols-lg-2 g-5 py-4">
+        <div class="row row-cols-1 row-cols-lg-4 g-3 py-4">
             {#each filteredUmas as item (item.uma.chara_seed)}
                 <div class="col">
                     <!-- Affinity badges -->
@@ -240,7 +499,8 @@
         </div>
     {:else if selectedCharaId && searchQuery}
         <div class="alert alert-warning" role="alert">
-            No characters found matching "{searchQuery}". Try a different search term.
+            No characters found matching "{searchQuery}". Try a different search
+            term.
         </div>
     {/if}
 </div>

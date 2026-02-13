@@ -1,1 +1,36 @@
 @import "bootstrap/scss/bootstrap";
+
+// Site-wide horizontal padding
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.container-fluid {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+// More padding on larger screens
+@media (min-width: 992px) {
+    .container-fluid {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+// Reduce column padding in rows
+.row > .col,
+.row > [class*="col-"] {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+// Further reduce on mobile
+@media (max-width: 991px) {
+    .row > .col,
+    .row > [class*="col-"] {
+        padding-left: 0.25rem;
+        padding-right: 0.25rem;
+    }
+}

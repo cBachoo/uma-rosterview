@@ -80,6 +80,11 @@
 </span>
 
 <style>
+    .text-bg-danger {
+        background-color: #c6417b !important;
+        color: #fff !important;
+    }
+
     .highlight {
         border: 2px solid gold;
         box-shadow: 0 0 4px gold;

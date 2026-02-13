@@ -1,5 +1,5 @@
-import relationsData from "./assets/relations.json";
-import relationMembersData from "./assets/relation_members.json";
+import relationsData from "./assets/succession_relation.json";
+import relationMembersData from "./assets/succession_relation_member.json";
 import { charaCardsData } from "./data";
 import type { CharaData, SuccessionCharaData } from "./types";
 
@@ -9,15 +9,20 @@ const relationPoints = new Map<string, number>();
 
 // Process relations.json to build point lookup
 relationsData.forEach((relation) => {
-  relationPoints.set(relation.relation_type, parseInt(relation.relation_point));
+  relationPoints.set(
+    relation.relation_type.toString(),
+    relation.relation_point,
+  );
 });
 
 // Process relation_members.json to build chara -> relations lookup
 relationMembersData.forEach((member) => {
-  if (!relationsByCharaId.has(member.chara_id)) {
-    relationsByCharaId.set(member.chara_id, new Set());
+  const charaIdStr = member.chara_id.toString();
+  const relationTypeStr = member.relation_type.toString();
+  if (!relationsByCharaId.has(charaIdStr)) {
+    relationsByCharaId.set(charaIdStr, new Set());
   }
-  relationsByCharaId.get(member.chara_id)!.add(member.relation_type);
+  relationsByCharaId.get(charaIdStr)!.add(relationTypeStr);
 });
 
 console.log(`[Affinity] Loaded ${relationPoints.size} relation types`);
@@ -158,15 +163,14 @@ export interface AffinityResult {
  * p0 = Target character (the NEW uma we want to breed, selected by user)
  * p1 = uma1 (Parent 1 from roster - the uma we're evaluating)
  * p2 = Placeholder (Parent 2 - not calculated, assumed to contribute 0)
- * p1.1 = uma1.succession_chara_array[1] (p1's parent 1, becomes p0's grandparent 1)
- * p1.2 = uma1.succession_chara_array[4] (p1's parent 2, becomes p0's grandparent 2)
+ * p1.1 = uma1.succession_chara_array[0] (p1's parent 1, becomes p0's grandparent 1)
+ * p1.2 = uma1.succession_chara_array[1] (p1's parent 2, becomes p0's grandparent 2)
  *
  * SUCCESSION_CHARA_ARRAY STRUCTURE:
  * ==================================
  * Array indices (not position_id):
- * [0] = uma's first parent
- * [1] = uma's first parent's first parent (used as GP1)
- * [4] = uma's first parent's second parent (used as GP2)
+ * [0] = uma's first parent (position_id 10, used as GP1)
+ * [1] = uma's second parent (position_id 20, used as GP2)
  *
  * AFFINITY FORMULA:
  * ==================
@@ -213,10 +217,10 @@ export function calculateSingleParentAffinity(
 
   // Extract uma1's parents from succession_chara_array using direct array indices
   // These become p0's grandparents in the breeding lineage
-  // Index 1 = parent 1 of uma1 (becomes GP1)
-  // Index 4 = parent 2 of uma1 (becomes GP2)
-  const p1_1 = uma1.succession_chara_array?.[1];
-  const p1_2 = uma1.succession_chara_array?.[4];
+  // Index 0 = parent 1 of uma1 (becomes GP1) - position_id 10
+  // Index 1 = parent 2 of uma1 (becomes GP2) - position_id 20
+  const p1_1 = uma1.succession_chara_array?.[0];
+  const p1_2 = uma1.succession_chara_array?.[1];
 
   // Calculate p1 direct affinity with target (p0)
   // This is the base affinity between the new uma and parent 1
@@ -227,16 +231,22 @@ export function calculateSingleParentAffinity(
   // Calculate grandparent 1 contribution (p1.1)
   // Formula: p1.1_aff = aff(p0,p1,p1.1) + race(p1,p1.1)
   // This uses 3-way affinity to check what p0, p1, and p1.1 all share in common
+  // SPECIAL RULE: If GP1 is the same character as p0, base affinity is 0 (but races still count)
   if (p1_1) {
     const p1_1CharaId = getCharaId(p1_1.card_id);
     const p1_1Races = p1_1.win_saddle_id_array || [];
 
-    // 3-way affinity between target (p0), parent (p1), and grandparent (p1.1)
-    const gp1Affinity = calculateBaseAffinity([
-      targetCharaId,
-      p1CharaId,
-      p1_1CharaId,
-    ]);
+    // Check if grandparent is the same character as target (p0)
+    // If so, base affinity should be 0, but race affinity still counts
+    let gp1Affinity = 0;
+    if (p1_1CharaId !== targetCharaId) {
+      // 3-way affinity between target (p0), parent (p1), and grandparent (p1.1)
+      gp1Affinity = calculateBaseAffinity([
+        targetCharaId,
+        p1CharaId,
+        p1_1CharaId,
+      ]);
+    }
     const gp1Races = calculateSharedRaces(p1Races, p1_1Races);
 
     // Track GP1 contribution separately for UI display
@@ -249,16 +259,22 @@ export function calculateSingleParentAffinity(
   // Calculate grandparent 2 contribution (p1.2)
   // Formula: p1.2_aff = aff(p0,p1,p1.2) + race(p1,p1.2)
   // This uses 3-way affinity to check what p0, p1, and p1.2 all share in common
+  // SPECIAL RULE: If GP2 is the same character as p0, base affinity is 0 (but races still count)
   if (p1_2) {
     const p1_2CharaId = getCharaId(p1_2.card_id);
     const p1_2Races = p1_2.win_saddle_id_array || [];
 
-    // 3-way affinity between target (p0), parent (p1), and grandparent (p1.2)
-    const gp2Affinity = calculateBaseAffinity([
-      targetCharaId,
-      p1CharaId,
-      p1_2CharaId,
-    ]);
+    // Check if grandparent is the same character as target (p0)
+    // If so, base affinity should be 0, but race affinity still counts
+    let gp2Affinity = 0;
+    if (p1_2CharaId !== targetCharaId) {
+      // 3-way affinity between target (p0), parent (p1), and grandparent (p1.2)
+      gp2Affinity = calculateBaseAffinity([
+        targetCharaId,
+        p1CharaId,
+        p1_2CharaId,
+      ]);
+    }
     const gp2Races = calculateSharedRaces(p1Races, p1_2Races);
 
     // Track GP2 contribution separately for UI display
