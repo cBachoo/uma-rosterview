@@ -228,12 +228,14 @@
 
                     <RacesWon
                         title="Parent 1 Victories:"
-                        winSaddleIds={charaData.succession_chara_array[0]?.win_saddle_id_array}
+                        winSaddleIds={charaData.succession_chara_array[0]
+                            ?.win_saddle_id_array}
                     />
 
                     <RacesWon
                         title="Parent 2 Victories:"
-                        winSaddleIds={charaData.succession_chara_array[1]?.win_saddle_id_array}
+                        winSaddleIds={charaData.succession_chara_array[1]
+                            ?.win_saddle_id_array}
                     />
                 {/if}
             </div>

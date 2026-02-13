@@ -1,13 +1,6 @@
 <script lang="ts">
-    // This whole component is vibe-coded
-    import racesJson from "../assets/races.json";
-
-    interface Race {
-        group_id: number;
-        race_id: number;
-        race_name: string;
-        saddle_id: number;
-    }
+    import { racesBySaddleId, getRaceThumbnailUrl } from "../races";
+    import type { Race } from "../races";
 
     interface Props {
         title: string;
@@ -16,26 +9,11 @@
 
     const { title, winSaddleIds = [] }: Props = $props();
 
-    const races = racesJson as Race[];
-
-    // Map saddle_id → race
-    const raceBySaddleId = $derived.by(() => {
-        const map = new Map<number, Race>();
-        for (const race of races) {
-            map.set(race.saddle_id, race);
-        }
-        return map;
-    });
-
     const wonRaces = $derived(
         winSaddleIds
-            .map((id) => raceBySaddleId.get(id))
+            .map((id) => racesBySaddleId.get(id))
             .filter((r): r is Race => !!r),
     );
-
-    function raceThumbnailUrl(raceId: number): string {
-        return `/race_thumbnail/thum_race_rt_000_${raceId}_00.webp`;
-    }
 </script>
 
 <div class="mb-2">
@@ -43,12 +21,9 @@
 
     <div class="races-container mt-1">
         {#each wonRaces as race}
-            <div
-                class="race-thumb"
-                title={race.race_name}
-            >
+            <div class="race-thumb" title={race.race_name}>
                 <img
-                    src={raceThumbnailUrl(race.race_id)}
+                    src={getRaceThumbnailUrl(race.race_id)}
                     alt={race.race_name}
                     loading="lazy"
                 />
