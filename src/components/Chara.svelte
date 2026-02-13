@@ -1,11 +1,12 @@
 <script lang="ts">
     import type { CharaData } from "../types";
-    import { charaCardsData } from "../data";
+    import { charaCardsData, skillsData } from "../data";
     import { getIconCardId } from "../iconMapping";
     import Stats from "./Stats.svelte";
     import SuccessionChara from "./SuccessionChara.svelte";
     import FactorList from "./FactorList.svelte";
     import Apttitudes from "./Apttitudes.svelte";
+    import { encodeSingleUma, charaToSingleExport } from "../singleExport";
 
     interface Props {
         charaData: CharaData;
@@ -21,6 +22,21 @@
         };
     }
     const { charaData, display, filters }: Props = $props();
+
+    let exportSuccess = $state(false);
+    let showSkills = $state(false);
+
+    async function handleExport() {
+        try {
+            const exportData = charaToSingleExport(charaData);
+            const encoded = encodeSingleUma(exportData);
+            await navigator.clipboard.writeText(encoded);
+            exportSuccess = true;
+            setTimeout(() => (exportSuccess = false), 2000);
+        } catch (err) {
+            console.error("Failed to copy export code:", err);
+        }
+    }
 
     const charaCard = $derived(charaCardsData[charaData.card_id]);
     const charaCardLabel = $derived(
@@ -99,9 +115,7 @@
     }
 
     const rankBadgeNumber = $derived(getRankBadgeNumber(charaData.rank_score));
-    const rankBadgeUrl = $derived(
-        `/rank/utx_ico_statusrank_${rankBadgeNumber}.png`,
-    );
+    const rankBadgeUrl = $derived(`/rank/utx_txt_rank_${rankBadgeNumber}.png`);
 </script>
 
 <div class="card h-100">
@@ -128,7 +142,7 @@
             </div>
             <div
                 class="font-monospace text-end d-flex flex-column"
-                style="font-size: 14px;"
+                style="font-size: 14px; gap: 4px;"
             >
                 {#if charaData.rank_score !== undefined}
                     <div style="font-weight: 600;">
@@ -137,6 +151,14 @@
                 {/if}
                 <div>{charaDatetime[0]}</div>
                 <div>{charaDatetime[1]}</div>
+                <button
+                    class="btn btn-sm btn-outline-primary mt-1"
+                    onclick={handleExport}
+                    title="Copy export code to clipboard"
+                    style="font-size: 11px; padding: 2px 8px;"
+                >
+                    {exportSuccess ? "✓ Copied!" : "Export"}
+                </button>
             </div>
         </div>
         <!-- <ul class="nav nav-tabs card-header-tabs" role="tablist">
@@ -194,28 +216,64 @@
                     {/if}
                 {/if}
                 {#if display.factors}
-                    <div class="mb-2">
-                        <small class="text-muted">Current Unit Sparks:</small>
-                        <FactorList
-                            factorIds={charaData.factor_id_array}
-                            {filters}
-                        ></FactorList>
+                    <div
+                        class="d-flex justify-content-between align-items-center mb-2"
+                    >
+                        <small class="text-muted"
+                            >{showSkills ? "Skills" : "Sparks"}:</small
+                        >
+                        <button
+                            class="btn btn-sm btn-outline-secondary"
+                            onclick={() => (showSkills = !showSkills)}
+                            style="font-size: 11px; padding: 2px 8px;"
+                        >
+                            {showSkills ? "Show Sparks" : "Show Skills"}
+                        </button>
                     </div>
-                    <hr />
-                    {#each charaData.succession_chara_array.slice(0, 2) as successionChara, index}
+
+                    {#if !showSkills}
                         <div class="mb-2">
-                            <small class="text-muted"
-                                >Parent {index + 1} Sparks:</small
-                            >
+                            <small class="text-muted">Current Unit:</small>
                             <FactorList
-                                factorIds={successionChara.factor_id_array}
+                                factorIds={charaData.factor_id_array}
                                 {filters}
                             ></FactorList>
                         </div>
-                        {#if index < charaData.succession_chara_array.slice(0, 2).length - 1}
-                            <hr />
-                        {/if}
-                    {/each}
+                        <hr />
+                        {#each charaData.succession_chara_array.slice(0, 2) as successionChara, index}
+                            <div class="mb-2">
+                                <small class="text-muted"
+                                    >Parent {index + 1}:</small
+                                >
+                                <FactorList
+                                    factorIds={successionChara.factor_id_array}
+                                    {filters}
+                                ></FactorList>
+                            </div>
+                            {#if index < charaData.succession_chara_array.slice(0, 2).length - 1}
+                                <hr />
+                            {/if}
+                        {/each}
+                    {:else}
+                        <div class="skills-list">
+                            {#each charaData.skill_array as skill}
+                                {@const skillInfo = skillsData[skill.skill_id]}
+                                <span
+                                    class="badge bg-secondary me-1 mb-1"
+                                    title={skillInfo?.skillName ||
+                                        `Skill ${skill.skill_id}`}
+                                >
+                                    {skillInfo?.skillName ||
+                                        `Skill ${skill.skill_id}`}
+                                    {#if skill.level > 1}
+                                        <span class="badge bg-info ms-1"
+                                            >Lv{skill.level}</span
+                                        >
+                                    {/if}
+                                </span>
+                            {/each}
+                        </div>
+                    {/if}
                 {/if}
             </div>
             <div
@@ -256,5 +314,16 @@
     .rank-badge {
         height: 32px;
         width: auto;
+    }
+    .skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+    .skills-list .badge {
+        font-size: 0.75rem;
+        font-weight: normal;
+        white-space: normal;
+        text-align: left;
     }
 </style>

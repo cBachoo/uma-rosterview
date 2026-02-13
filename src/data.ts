@@ -1,11 +1,19 @@
 import factorData from "./assets/TerumiFactorData.json";
 import charaCardDataRaw from "./assets/TerumiCharacterData.json";
+import skillDataRaw from "./assets/TerumiSimpleSkillData.json";
 
 interface Factor {
   id: number;
   name: string;
   type: number;
   rarity: number;
+}
+
+interface Skill {
+  skillId: number;
+  skillName: string;
+  rarity: number;
+  skillCategory: string;
 }
 
 interface TerumiCharaCard {
@@ -37,5 +45,19 @@ const charaCardsData = createLookup(
   (charaCardDataRaw.value as TerumiCharaCard[]).map(transformCharaCard),
 );
 
-export { factorsData, charaCardsData };
-export type { Factor, CharaCard };
+const transformSkill = (raw: any): Skill => ({
+  skillId: raw.skillId,
+  skillName: raw.skillName,
+  rarity: raw.rarity,
+  skillCategory: raw.skillCategory,
+});
+
+const skillsData = Object.fromEntries(
+  (skillDataRaw.value as any[]).map((skill) => {
+    const transformed = transformSkill(skill);
+    return [transformed.skillId, transformed];
+  }),
+);
+
+export { factorsData, charaCardsData, skillsData };
+export type { Factor, CharaCard, Skill };

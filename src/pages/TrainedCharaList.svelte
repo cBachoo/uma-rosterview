@@ -79,52 +79,27 @@
     }
 
     let searchQuery = $state("");
+    let sortBy = $state<
+        | "date-desc"
+        | "date-asc"
+        | "rank-desc"
+        | "rank-asc"
+        | "skills-desc"
+        | "skills-asc"
+    >("date-desc");
+
+    interface FilterItem {
+        id: string;
+        stat: string;
+        min: number;
+        max: number;
+    }
 
     let filters = $state({
-        blues: {
-            speed: false,
-            stamina: false,
-            power: false,
-            guts: false,
-            wit: false,
-            stars: 1,
-            useTotalStars: false,
-            totalStars: 9,
-            minStars: {
-                speed: 0,
-                stamina: 0,
-                power: 0,
-                guts: 0,
-                wit: 0,
-            },
-        },
-        reds: {
-            turf: false,
-            dirt: false,
-            frontRunner: false,
-            paceChaser: false,
-            lateSurger: false,
-            endCloser: false,
-            sprint: false,
-            mile: false,
-            medium: false,
-            long: false,
-            stars: 1,
-            useTotalStars: false,
-            totalStars: 9,
-            minStars: {
-                turf: 0,
-                dirt: 0,
-                frontRunner: 0,
-                paceChaser: 0,
-                lateSurger: 0,
-                endCloser: 0,
-                sprint: 0,
-                mile: 0,
-                medium: 0,
-                long: 0,
-            },
-        },
+        blues: [] as FilterItem[],
+        reds: [] as FilterItem[],
+        totalBlues: { min: 0, max: 9 },
+        totalReds: { min: 0, max: 9 },
         greens: { stars: 0 },
         whites: {} as { [key: string]: number },
         whitesIncludeParents: false,
@@ -186,58 +161,20 @@
 
                 const allFactors = chara.factor_id_array;
 
-                // Blues
-                if (filters.blues.useTotalStars) {
-                    // Get blue spark from current unit (type === 1)
+                // Blues - Dynamic filters
+                if (filters.blues.length > 0) {
+                    // Get blue factors from lineage
                     const currentBlue = chara.factor_id_array
                         .map((id) => factorsData[id])
                         .find((f) => f?.type === 1);
-
-                    // Get blue spark from each parent
                     const parent1Blue =
                         chara.succession_chara_array[0]?.factor_id_array
                             .map((id) => factorsData[id])
                             .find((f) => f?.type === 1);
-
                     const parent2Blue =
                         chara.succession_chara_array[1]?.factor_id_array
                             .map((id) => factorsData[id])
                             .find((f) => f?.type === 1);
-
-                    // Sum their rarity values
-                    const totalBlueStars =
-                        (currentBlue?.rarity || 0) +
-                        (parent1Blue?.rarity || 0) +
-                        (parent2Blue?.rarity || 0);
-
-                    // Debug for first chara
-                    if (trainedCharas.indexOf(chara) === 0) {
-                        console.log("=== Blue Lineage Debug ===");
-                        console.log(
-                            "Current unit blue:",
-                            currentBlue?.name,
-                            currentBlue?.rarity,
-                        );
-                        console.log(
-                            "Parent 1 blue:",
-                            parent1Blue?.name,
-                            parent1Blue?.rarity,
-                        );
-                        console.log(
-                            "Parent 2 blue:",
-                            parent2Blue?.name,
-                            parent2Blue?.rarity,
-                        );
-                        console.log("Total blue stars:", totalBlueStars);
-                        console.log("Required:", filters.blues.totalStars);
-                    }
-
-                    // Collect all 3 blue factors for stat checking
-                    const blueFactors = [
-                        currentBlue,
-                        parent1Blue,
-                        parent2Blue,
-                    ].filter(Boolean);
 
                     // Calculate stars per stat
                     const statStars = {
@@ -247,97 +184,39 @@
                         Guts: 0,
                         Wit: 0,
                     };
-                    blueFactors.forEach((f) => {
+                    [currentBlue, parent1Blue, parent2Blue].forEach((f) => {
                         if (f && f.name in statStars) {
                             statStars[f.name as keyof typeof statStars] +=
                                 f.rarity;
                         }
                     });
 
-                    // Check total requirement
-                    if (totalBlueStars < filters.blues.totalStars) {
-                        isDisplayed = false;
-                    } else {
-                        // Check individual stat minimums
-                        const statMap = {
-                            Speed: "speed",
-                            Stamina: "stamina",
-                            Power: "power",
-                            Guts: "guts",
-                            Wit: "wit",
-                        } as const;
-                        for (const [factorName, filterKey] of Object.entries(
-                            statMap,
-                        )) {
-                            const minRequired =
-                                filters.blues.minStars[
-                                    filterKey as keyof typeof filters.blues.minStars
-                                ];
-                            if (
-                                minRequired > 0 &&
-                                statStars[
-                                    factorName as keyof typeof statStars
-                                ] < minRequired
-                            ) {
-                                isDisplayed = false;
-                                break;
-                            }
+                    // Check each filter
+                    for (const filter of filters.blues) {
+                        const statValue =
+                            statStars[filter.stat as keyof typeof statStars] ||
+                            0;
+                        if (statValue < filter.min || statValue > filter.max) {
+                            isDisplayed = false;
+                            break;
                         }
-                    }
-                } else {
-                    const selectedBlues = Object.entries(filters.blues)
-                        .filter(
-                            ([k, v]) =>
-                                k !== "stars" &&
-                                k !== "useTotalStars" &&
-                                k !== "totalStars" &&
-                                k !== "minStars" &&
-                                v,
-                        )
-                        .map(([k]) => k.charAt(0).toUpperCase() + k.slice(1));
-                    if (selectedBlues.length > 0) {
-                        const hasBlue = allFactors.some((id) => {
-                            const f = factorsData[id];
-                            return (
-                                f?.type === 1 &&
-                                selectedBlues.includes(f.name) &&
-                                f.rarity >= filters.blues.stars
-                            );
-                        });
-                        isDisplayed = isDisplayed && hasBlue;
                     }
                 }
 
-                // Reds
-                if (filters.reds.useTotalStars) {
-                    // Get red spark from current unit (type === 2)
+                // Reds - Dynamic filters
+                if (filters.reds.length > 0) {
+                    // Get red factors from lineage
                     const currentRed = chara.factor_id_array
                         .map((id) => factorsData[id])
                         .find((f) => f?.type === 2);
-
-                    // Get red spark from each parent
                     const parent1Red =
                         chara.succession_chara_array[0]?.factor_id_array
                             .map((id) => factorsData[id])
                             .find((f) => f?.type === 2);
-
                     const parent2Red =
                         chara.succession_chara_array[1]?.factor_id_array
                             .map((id) => factorsData[id])
                             .find((f) => f?.type === 2);
-
-                    // Sum their rarity values
-                    const totalRedStars =
-                        (currentRed?.rarity || 0) +
-                        (parent1Red?.rarity || 0) +
-                        (parent2Red?.rarity || 0);
-
-                    // Collect all 3 red factors for aptitude checking
-                    const redFactors = [
-                        currentRed,
-                        parent1Red,
-                        parent2Red,
-                    ].filter(Boolean);
 
                     // Calculate stars per aptitude
                     const aptStars = {
@@ -352,72 +231,79 @@
                         Medium: 0,
                         Long: 0,
                     };
-                    redFactors.forEach((f) => {
+                    [currentRed, parent1Red, parent2Red].forEach((f) => {
                         if (f && f.name in aptStars) {
                             aptStars[f.name as keyof typeof aptStars] +=
                                 f.rarity;
                         }
                     });
 
-                    // Check total requirement
-                    if (totalRedStars < filters.reds.totalStars) {
-                        isDisplayed = false;
-                    } else {
-                        // Check individual aptitude minimums
-                        const aptMap = {
-                            Turf: "turf",
-                            Dirt: "dirt",
-                            "Front Runner": "frontRunner",
-                            "Pace Chaser": "paceChaser",
-                            "Late Surger": "lateSurger",
-                            "End Closer": "endCloser",
-                            Sprint: "sprint",
-                            Mile: "mile",
-                            Medium: "medium",
-                            Long: "long",
-                        } as const;
-                        for (const [factorName, filterKey] of Object.entries(
-                            aptMap,
-                        )) {
-                            const minRequired =
-                                filters.reds.minStars[
-                                    filterKey as keyof typeof filters.reds.minStars
-                                ];
-                            if (
-                                minRequired > 0 &&
-                                aptStars[factorName as keyof typeof aptStars] <
-                                    minRequired
-                            ) {
-                                isDisplayed = false;
-                                break;
-                            }
+                    // Check each filter
+                    for (const filter of filters.reds) {
+                        const aptValue =
+                            aptStars[filter.stat as keyof typeof aptStars] || 0;
+                        if (aptValue < filter.min || aptValue > filter.max) {
+                            isDisplayed = false;
+                            break;
                         }
                     }
-                } else {
-                    const selectedReds = Object.entries(filters.reds)
-                        .filter(
-                            ([k, v]) =>
-                                k !== "stars" &&
-                                k !== "useTotalStars" &&
-                                k !== "totalStars" &&
-                                k !== "minStars" &&
-                                v,
-                        )
-                        .map(
-                            ([k]) =>
-                                (nameMap as Record<string, string>)[k] ||
-                                k.charAt(0).toUpperCase() + k.slice(1),
-                        );
-                    if (selectedReds.length > 0) {
-                        const hasRed = allFactors.some((id) => {
-                            const f = factorsData[id];
-                            return (
-                                f?.type === 2 &&
-                                selectedReds.includes(f.name) &&
-                                f.rarity >= filters.reds.stars
-                            );
-                        });
-                        isDisplayed = isDisplayed && hasRed;
+                }
+
+                // Total Blues filter - sum stars for the blue factor
+                if (filters.totalBlues.min > 0 || filters.totalBlues.max < 9) {
+                    // Get blue factors from lineage
+                    const currentBlue = chara.factor_id_array
+                        .map((id) => factorsData[id])
+                        .find((f) => f?.type === 1);
+                    const parent1Blue =
+                        chara.succession_chara_array[0]?.factor_id_array
+                            .map((id) => factorsData[id])
+                            .find((f) => f?.type === 1);
+                    const parent2Blue =
+                        chara.succession_chara_array[1]?.factor_id_array
+                            .map((id) => factorsData[id])
+                            .find((f) => f?.type === 1);
+
+                    // Sum the stars for the blue factor (unit + parent1 + parent2)
+                    const totalBlueStars =
+                        (currentBlue?.rarity || 0) +
+                        (parent1Blue?.rarity || 0) +
+                        (parent2Blue?.rarity || 0);
+
+                    if (
+                        totalBlueStars < filters.totalBlues.min ||
+                        totalBlueStars > filters.totalBlues.max
+                    ) {
+                        isDisplayed = false;
+                    }
+                }
+
+                // Total Reds filter - sum stars for the red factor
+                if (filters.totalReds.min > 0 || filters.totalReds.max < 9) {
+                    // Get red factors from lineage
+                    const currentRed = chara.factor_id_array
+                        .map((id) => factorsData[id])
+                        .find((f) => f?.type === 2);
+                    const parent1Red =
+                        chara.succession_chara_array[0]?.factor_id_array
+                            .map((id) => factorsData[id])
+                            .find((f) => f?.type === 2);
+                    const parent2Red =
+                        chara.succession_chara_array[1]?.factor_id_array
+                            .map((id) => factorsData[id])
+                            .find((f) => f?.type === 2);
+
+                    // Sum the stars for the red factor (unit + parent1 + parent2)
+                    const totalRedStars =
+                        (currentRed?.rarity || 0) +
+                        (parent1Red?.rarity || 0) +
+                        (parent2Red?.rarity || 0);
+
+                    if (
+                        totalRedStars < filters.totalReds.min ||
+                        totalRedStars > filters.totalReds.max
+                    ) {
+                        isDisplayed = false;
                     }
                 }
 
@@ -541,7 +427,24 @@
 
                 return isDisplayed;
             })
-            .sort((a, b) => b.create_time.localeCompare(a.create_time)),
+            .sort((a, b) => {
+                switch (sortBy) {
+                    case "date-desc":
+                        return b.create_time.localeCompare(a.create_time);
+                    case "date-asc":
+                        return a.create_time.localeCompare(b.create_time);
+                    case "rank-desc":
+                        return (b.rank_score || 0) - (a.rank_score || 0);
+                    case "rank-asc":
+                        return (a.rank_score || 0) - (b.rank_score || 0);
+                    case "skills-desc":
+                        return b.skill_array.length - a.skill_array.length;
+                    case "skills-asc":
+                        return a.skill_array.length - b.skill_array.length;
+                    default:
+                        return 0;
+                }
+            }),
     );
 </script>
 
@@ -655,11 +558,24 @@
                     bind:value={searchQuery}
                     style="width: 200px;"
                 />
+
+                <select
+                    class="form-select form-select-sm"
+                    bind:value={sortBy}
+                    style="width: 180px;"
+                >
+                    <option value="date-desc">Latest First</option>
+                    <option value="date-asc">Oldest First</option>
+                    <option value="rank-desc">Highest Rank</option>
+                    <option value="rank-asc">Lowest Rank</option>
+                    <option value="skills-desc">Most Skills</option>
+                    <option value="skills-asc">Fewest Skills</option>
+                </select>
             </div>
         </div>
     </nav>
 
-    <div class="row row-cols-1 row-cols-lg-2 g-5 py-4">
+    <div class="row row-cols-1 row-cols-lg-4 g-3 py-4">
         {#each trainedCharasFiltered as chara (chara.chara_seed)}
             <div class="col">
                 <Chara charaData={chara} display={display.value} {filters}
