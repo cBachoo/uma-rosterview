@@ -3,7 +3,6 @@
     import TrainedCharaList from "./pages/TrainedCharaList.svelte";
     import Affinity from "./pages/Affinity.svelte";
     import Upload from "./pages/Upload.svelte";
-    import ExportTest from "./pages/ExportTest.svelte";
     import UnifiedTopBar from "./components/UnifiedTopBar.svelte";
     import {
         decodeCharas,
@@ -14,7 +13,7 @@
     import type { CharaData } from "./types";
 
     let trainedCharas: CharaData[] | undefined = $state();
-    let currentPage = $state<"roster" | "affinity" | "export-test">("roster");
+    let currentPage = $state<"roster" | "affinity">("roster");
     let showImportModal = $state(false);
     let importText = $state("");
     let importError = $state("");
@@ -26,9 +25,6 @@
         // Check if it's a route
         if (hash.startsWith("/affinity")) {
             currentPage = "affinity";
-            return null;
-        } else if (hash.startsWith("/export-test")) {
-            currentPage = "export-test";
             return null;
         } else if (hash.startsWith("/")) {
             currentPage = "roster";
@@ -60,8 +56,6 @@
         const hash = window.location.hash.slice(1);
         if (hash.startsWith("/affinity")) {
             currentPage = "affinity";
-        } else if (hash.startsWith("/export-test")) {
-            currentPage = "export-test";
         } else if (hash.startsWith("/")) {
             currentPage = "roster";
         } else {
@@ -131,10 +125,6 @@
         window.location.hash = "";
         currentPage = "roster";
     }
-
-    function showExportTestPage() {
-        window.location.hash = "/export-test";
-    }
 </script>
 
 {#if !trainedCharas}
@@ -145,14 +135,11 @@
     {#if trainedCharas}
         {#if currentPage === "affinity"}
             <Affinity {trainedCharas}></Affinity>
-        {:else if currentPage === "export-test"}
-            <ExportTest {trainedCharas}></ExportTest>
         {:else}
             <TrainedCharaList
                 {trainedCharas}
                 onHome={goHome}
                 onAffinityClick={showAffinityPage}
-                onExportTestClick={showExportTestPage}
             ></TrainedCharaList>
         {/if}
     {:else}
