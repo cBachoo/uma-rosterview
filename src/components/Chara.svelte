@@ -7,12 +7,14 @@
     import FactorList from "./FactorList.svelte";
     import Apttitudes from "./Apttitudes.svelte";
     import { encodeSingleUma, charaToSingleExport } from "../singleExport";
+    import RacesWon from "./RacesWon.svelte";
 
     interface Props {
         charaData: CharaData;
         display: {
             stats: boolean;
             factors: boolean;
+            racesWon: boolean;
         };
         filters: {
             blues: { [key: string]: boolean | number; stars: number };
@@ -274,6 +276,25 @@
                             {/each}
                         </div>
                     {/if}
+                {/if}
+                {#if display.racesWon}
+                    <hr />
+                    <RacesWon
+                        title="Current Unit Victories:"
+                        winSaddleIds={charaData.win_saddle_id_array}
+                    />
+
+                    <RacesWon
+                        title="Parent 1 Victories:"
+                        winSaddleIds={charaData.succession_chara_array[0]
+                            ?.win_saddle_id_array}
+                    />
+
+                    <RacesWon
+                        title="Parent 2 Victories:"
+                        winSaddleIds={charaData.succession_chara_array[1]
+                            ?.win_saddle_id_array}
+                    />
                 {/if}
             </div>
             <div
