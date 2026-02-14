@@ -59,6 +59,28 @@
         greens: { stars: 0 },
         whites: {} as { [key: string]: number },
         whitesIncludeParents: false,
+        lineageMode: true, // Always true for affinity - we care about breeding potential
+        simpleBlues: {
+            speed: false,
+            stamina: false,
+            power: false,
+            guts: false,
+            wit: false,
+            stars: 1,
+        },
+        simpleReds: {
+            turf: false,
+            dirt: false,
+            frontRunner: false,
+            paceChaser: false,
+            lateSurger: false,
+            endCloser: false,
+            sprint: false,
+            mile: false,
+            medium: false,
+            long: false,
+            stars: 1,
+        },
     });
 
     const availableWhites = $derived(() => {
@@ -142,7 +164,9 @@
         if (searchQuery) {
             result = result.filter((item) => {
                 const charaName = charaCardsData[item.uma.card_id]?.name || "";
-                return charaName.toLowerCase().includes(searchQuery.toLowerCase());
+                return charaName
+                    .toLowerCase()
+                    .includes(searchQuery.toLowerCase());
             });
         }
 
@@ -153,87 +177,191 @@
 
             const allFactors = chara.factor_id_array;
 
-            // Blues - Dynamic filters
-            if (filters.blues.length > 0) {
-                const currentBlue = chara.factor_id_array
-                    .map((id) => factorsData[id])
-                    .find((f) => f?.type === 1);
-                const parent1Blue =
-                    chara.succession_chara_array[0]?.factor_id_array
+            // Blues filtering - check mode
+            if (filters.lineageMode) {
+                // Lineage Mode: Dynamic filters
+                if (filters.blues.length > 0) {
+                    const currentBlue = chara.factor_id_array
                         .map((id) => factorsData[id])
                         .find((f) => f?.type === 1);
-                const parent2Blue =
-                    chara.succession_chara_array[1]?.factor_id_array
-                        .map((id) => factorsData[id])
-                        .find((f) => f?.type === 1);
+                    const parent1Blue =
+                        chara.succession_chara_array[0]?.factor_id_array
+                            .map((id) => factorsData[id])
+                            .find((f) => f?.type === 1);
+                    const parent2Blue =
+                        chara.succession_chara_array[1]?.factor_id_array
+                            .map((id) => factorsData[id])
+                            .find((f) => f?.type === 1);
 
-                const statStars = {
-                    Speed: 0,
-                    Stamina: 0,
-                    Power: 0,
-                    Guts: 0,
-                    Wit: 0,
-                };
-                [currentBlue, parent1Blue, parent2Blue].forEach((f) => {
-                    if (f && f.name in statStars) {
-                        statStars[f.name as keyof typeof statStars] += f.rarity;
+                    const statStars = {
+                        Speed: 0,
+                        Stamina: 0,
+                        Power: 0,
+                        Guts: 0,
+                        Wit: 0,
+                    };
+                    [currentBlue, parent1Blue, parent2Blue].forEach((f) => {
+                        if (f && f.name in statStars) {
+                            statStars[f.name as keyof typeof statStars] +=
+                                f.rarity;
+                        }
+                    });
+
+                    for (const filter of filters.blues) {
+                        const statValue =
+                            statStars[filter.stat as keyof typeof statStars] ||
+                            0;
+                        if (statValue < filter.min || statValue > filter.max) {
+                            isDisplayed = false;
+                            break;
+                        }
                     }
-                });
+                }
+            } else {
+                // Simple Mode: Check only current unit's blue factor (OR logic)
+                const hasBlueSelection =
+                    filters.simpleBlues.speed ||
+                    filters.simpleBlues.stamina ||
+                    filters.simpleBlues.power ||
+                    filters.simpleBlues.guts ||
+                    filters.simpleBlues.wit;
 
-                for (const filter of filters.blues) {
-                    const statValue =
-                        statStars[filter.stat as keyof typeof statStars] || 0;
-                    if (statValue < filter.min || statValue > filter.max) {
+                if (hasBlueSelection) {
+                    const currentBlue = chara.factor_id_array
+                        .map((id) => factorsData[id])
+                        .find((f) => f?.type === 1);
+
+                    // Show if the blue factor matches ANY selected stat with required stars
+                    const matchesAnyBlue =
+                        (filters.simpleBlues.speed &&
+                            currentBlue?.name === "Speed" &&
+                            currentBlue.rarity >= filters.simpleBlues.stars) ||
+                        (filters.simpleBlues.stamina &&
+                            currentBlue?.name === "Stamina" &&
+                            currentBlue.rarity >= filters.simpleBlues.stars) ||
+                        (filters.simpleBlues.power &&
+                            currentBlue?.name === "Power" &&
+                            currentBlue.rarity >= filters.simpleBlues.stars) ||
+                        (filters.simpleBlues.guts &&
+                            currentBlue?.name === "Guts" &&
+                            currentBlue.rarity >= filters.simpleBlues.stars) ||
+                        (filters.simpleBlues.wit &&
+                            currentBlue?.name === "Wit" &&
+                            currentBlue.rarity >= filters.simpleBlues.stars);
+
+                    if (!matchesAnyBlue) {
                         isDisplayed = false;
-                        break;
                     }
                 }
             }
 
-            // Reds - Dynamic filters
-            if (filters.reds.length > 0) {
-                const currentRed = chara.factor_id_array
-                    .map((id) => factorsData[id])
-                    .find((f) => f?.type === 2);
-                const parent1Red =
-                    chara.succession_chara_array[0]?.factor_id_array
+            // Reds filtering - check mode
+            if (filters.lineageMode) {
+                // Lineage Mode: Dynamic filters
+                if (filters.reds.length > 0) {
+                    const currentRed = chara.factor_id_array
                         .map((id) => factorsData[id])
                         .find((f) => f?.type === 2);
-                const parent2Red =
-                    chara.succession_chara_array[1]?.factor_id_array
-                        .map((id) => factorsData[id])
-                        .find((f) => f?.type === 2);
+                    const parent1Red =
+                        chara.succession_chara_array[0]?.factor_id_array
+                            .map((id) => factorsData[id])
+                            .find((f) => f?.type === 2);
+                    const parent2Red =
+                        chara.succession_chara_array[1]?.factor_id_array
+                            .map((id) => factorsData[id])
+                            .find((f) => f?.type === 2);
 
-                const aptStars = {
-                    Turf: 0,
-                    Dirt: 0,
-                    "Front Runner": 0,
-                    "Pace Chaser": 0,
-                    "Late Surger": 0,
-                    "End Closer": 0,
-                    Sprint: 0,
-                    Mile: 0,
-                    Medium: 0,
-                    Long: 0,
-                };
-                [currentRed, parent1Red, parent2Red].forEach((f) => {
-                    if (f && f.name in aptStars) {
-                        aptStars[f.name as keyof typeof aptStars] += f.rarity;
+                    const aptStars = {
+                        Turf: 0,
+                        Dirt: 0,
+                        "Front Runner": 0,
+                        "Pace Chaser": 0,
+                        "Late Surger": 0,
+                        "End Closer": 0,
+                        Sprint: 0,
+                        Mile: 0,
+                        Medium: 0,
+                        Long: 0,
+                    };
+                    [currentRed, parent1Red, parent2Red].forEach((f) => {
+                        if (f && f.name in aptStars) {
+                            aptStars[f.name as keyof typeof aptStars] +=
+                                f.rarity;
+                        }
+                    });
+
+                    for (const filter of filters.reds) {
+                        const aptValue =
+                            aptStars[filter.stat as keyof typeof aptStars] || 0;
+                        if (aptValue < filter.min || aptValue > filter.max) {
+                            isDisplayed = false;
+                            break;
+                        }
                     }
-                });
+                }
+            } else {
+                // Simple Mode: Check only current unit's red factor (OR logic)
+                const hasRedSelection =
+                    filters.simpleReds.turf ||
+                    filters.simpleReds.dirt ||
+                    filters.simpleReds.frontRunner ||
+                    filters.simpleReds.paceChaser ||
+                    filters.simpleReds.lateSurger ||
+                    filters.simpleReds.endCloser ||
+                    filters.simpleReds.sprint ||
+                    filters.simpleReds.mile ||
+                    filters.simpleReds.medium ||
+                    filters.simpleReds.long;
 
-                for (const filter of filters.reds) {
-                    const aptValue =
-                        aptStars[filter.stat as keyof typeof aptStars] || 0;
-                    if (aptValue < filter.min || aptValue > filter.max) {
+                if (hasRedSelection) {
+                    const currentRed = chara.factor_id_array
+                        .map((id) => factorsData[id])
+                        .find((f) => f?.type === 2);
+
+                    // Show if the red factor matches ANY selected aptitude with required stars
+                    const matchesAnyRed =
+                        (filters.simpleReds.turf &&
+                            currentRed?.name === "Turf" &&
+                            currentRed.rarity >= filters.simpleReds.stars) ||
+                        (filters.simpleReds.dirt &&
+                            currentRed?.name === "Dirt" &&
+                            currentRed.rarity >= filters.simpleReds.stars) ||
+                        (filters.simpleReds.frontRunner &&
+                            currentRed?.name === "Front Runner" &&
+                            currentRed.rarity >= filters.simpleReds.stars) ||
+                        (filters.simpleReds.paceChaser &&
+                            currentRed?.name === "Pace Chaser" &&
+                            currentRed.rarity >= filters.simpleReds.stars) ||
+                        (filters.simpleReds.lateSurger &&
+                            currentRed?.name === "Late Surger" &&
+                            currentRed.rarity >= filters.simpleReds.stars) ||
+                        (filters.simpleReds.endCloser &&
+                            currentRed?.name === "End Closer" &&
+                            currentRed.rarity >= filters.simpleReds.stars) ||
+                        (filters.simpleReds.sprint &&
+                            currentRed?.name === "Sprint" &&
+                            currentRed.rarity >= filters.simpleReds.stars) ||
+                        (filters.simpleReds.mile &&
+                            currentRed?.name === "Mile" &&
+                            currentRed.rarity >= filters.simpleReds.stars) ||
+                        (filters.simpleReds.medium &&
+                            currentRed?.name === "Medium" &&
+                            currentRed.rarity >= filters.simpleReds.stars) ||
+                        (filters.simpleReds.long &&
+                            currentRed?.name === "Long" &&
+                            currentRed.rarity >= filters.simpleReds.stars);
+
+                    if (!matchesAnyRed) {
                         isDisplayed = false;
-                        break;
                     }
                 }
             }
 
-            // Total Blues filter
-            if (filters.totalBlues.min > 0 || filters.totalBlues.max < 9) {
+            // Total Blues filter (lineage mode only)
+            if (
+                filters.lineageMode &&
+                (filters.totalBlues.min > 0 || filters.totalBlues.max < 9)
+            ) {
                 const currentBlue = chara.factor_id_array
                     .map((id) => factorsData[id])
                     .find((f) => f?.type === 1);
@@ -259,8 +387,11 @@
                 }
             }
 
-            // Total Reds filter
-            if (filters.totalReds.min > 0 || filters.totalReds.max < 9) {
+            // Total Reds filter (lineage mode only)
+            if (
+                filters.lineageMode &&
+                (filters.totalReds.min > 0 || filters.totalReds.max < 9)
+            ) {
                 const currentRed = chara.factor_id_array
                     .map((id) => factorsData[id])
                     .find((f) => f?.type === 2);
@@ -458,42 +589,52 @@
 
     <!-- Display sorted umas in grid -->
     {#if selectedCharaId && filteredUmas.length > 0}
-        <div class="row row-cols-1 row-cols-lg-4 g-3 py-4">
+        <div
+            class="row row-cols-1 row-cols-lg-4 g-3 py-4"
+            style="overflow: visible;"
+        >
             {#each filteredUmas as item (item.uma.chara_seed)}
-                <div class="col">
-                    <!-- Affinity badges -->
-                    <div class="affinity-score-badge">
-                        <span class="badge badge-total">
-                            Total: {item.affinity.totalAffinity}
-                        </span>
-                        {#if item.affinity.breakdown.p1 > 0}
-                            <span
-                                class="badge badge-p1"
-                                title="Direct affinity between target and P1"
-                            >
-                                P1: {item.affinity.breakdown.p1}
-                            </span>
-                        {/if}
-                        {#if item.affinity.breakdown.p1_1 > 0}
-                            <span
-                                class="badge badge-gp"
-                                title="Grandparent 1 contribution: aff(P1,GP1) + race(P1,GP1)"
-                            >
-                                GP1: {item.affinity.breakdown.p1_1}
-                            </span>
-                        {/if}
-                        {#if item.affinity.breakdown.p1_2 > 0}
-                            <span
-                                class="badge badge-gp"
-                                title="Grandparent 2 contribution: aff(P1,GP2) + race(P1,GP2)"
-                            >
-                                GP2: {item.affinity.breakdown.p1_2}
-                            </span>
-                        {/if}
-                    </div>
+                <div class="col" style="overflow: visible;">
+                    <div class="affinity-card-wrapper">
+                        <!-- Affinity badges section -->
+                        <div class="affinity-badge-section">
+                            <div class="affinity-score-badge">
+                                <span class="badge badge-total">
+                                    Total: {item.affinity.totalAffinity}
+                                </span>
+                                {#if item.affinity.breakdown.p1 >= 0}
+                                    <span
+                                        class="badge badge-p1"
+                                        title="Direct affinity between target and P1"
+                                    >
+                                        P1: {item.affinity.breakdown.p1}
+                                    </span>
+                                {/if}
+                                {#if item.affinity.breakdown.p1_1 >= 0}
+                                    <span
+                                        class="badge badge-gp"
+                                        title="Grandparent 1 contribution: aff(P1,GP1) + race(P1,GP1)"
+                                    >
+                                        GP1: {item.affinity.breakdown.p1_1}
+                                    </span>
+                                {/if}
+                                {#if item.affinity.breakdown.p1_2 >= 0}
+                                    <span
+                                        class="badge badge-gp"
+                                        title="Grandparent 2 contribution: aff(P1,GP2) + race(P1,GP2)"
+                                    >
+                                        GP2: {item.affinity.breakdown.p1_2}
+                                    </span>
+                                {/if}
+                            </div>
+                        </div>
 
-                    <!-- Uma card -->
-                    <Chara charaData={item.uma} {display} {filters}></Chara>
+                        <!-- Uma card section -->
+                        <div class="uma-card-section">
+                            <Chara charaData={item.uma} {display} {filters}
+                            ></Chara>
+                        </div>
+                    </div>
                 </div>
             {/each}
         </div>
@@ -506,11 +647,33 @@
 </div>
 
 <style>
+    .affinity-card-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .affinity-badge-section {
+        padding: 0.5rem;
+        position: relative;
+        z-index: 10;
+        min-height: 3rem;
+        display: flex;
+        align-items: center;
+        border: 1px solid #64748b;
+        border-radius: 0.25rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .uma-card-section {
+        position: relative;
+        z-index: 1;
+    }
+
     .affinity-score-badge {
         display: flex;
         gap: 0.5rem;
         flex-wrap: wrap;
-        margin-bottom: 1rem;
         align-items: center;
     }
 

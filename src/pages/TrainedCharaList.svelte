@@ -19,7 +19,11 @@
     }
     const { trainedCharas, onHome, onAffinityClick }: Props = $props();
 
-    const display = stateStorage("display", { stats: true, factors: true, racesWon: false });
+    const display = stateStorage("display", {
+        stats: true,
+        factors: true,
+        racesWon: false,
+    });
     function onDisplayClick(event: Event, key: string) {
         event.preventDefault();
         display.value[key] = !display.value[key];
@@ -103,6 +107,28 @@
         greens: { stars: 0 },
         whites: {} as { [key: string]: number },
         whitesIncludeParents: false,
+        lineageMode: false,
+        simpleBlues: {
+            speed: false,
+            stamina: false,
+            power: false,
+            guts: false,
+            wit: false,
+            stars: 1,
+        },
+        simpleReds: {
+            turf: false,
+            dirt: false,
+            frontRunner: false,
+            paceChaser: false,
+            lateSurger: false,
+            endCloser: false,
+            sprint: false,
+            mile: false,
+            medium: false,
+            long: false,
+            stars: 1,
+        },
     });
 
     const availableWhites = $derived(() => {
@@ -161,96 +187,206 @@
 
                 const allFactors = chara.factor_id_array;
 
-                // Blues - Dynamic filters
-                if (filters.blues.length > 0) {
-                    // Get blue factors from lineage
-                    const currentBlue = chara.factor_id_array
-                        .map((id) => factorsData[id])
-                        .find((f) => f?.type === 1);
-                    const parent1Blue =
-                        chara.succession_chara_array[0]?.factor_id_array
+                // Blues filtering - check mode
+                if (filters.lineageMode) {
+                    // Lineage Mode: Dynamic filters
+                    if (filters.blues.length > 0) {
+                        // Get blue factors from lineage
+                        const currentBlue = chara.factor_id_array
                             .map((id) => factorsData[id])
                             .find((f) => f?.type === 1);
-                    const parent2Blue =
-                        chara.succession_chara_array[1]?.factor_id_array
-                            .map((id) => factorsData[id])
-                            .find((f) => f?.type === 1);
+                        const parent1Blue =
+                            chara.succession_chara_array[0]?.factor_id_array
+                                .map((id) => factorsData[id])
+                                .find((f) => f?.type === 1);
+                        const parent2Blue =
+                            chara.succession_chara_array[1]?.factor_id_array
+                                .map((id) => factorsData[id])
+                                .find((f) => f?.type === 1);
 
-                    // Calculate stars per stat
-                    const statStars = {
-                        Speed: 0,
-                        Stamina: 0,
-                        Power: 0,
-                        Guts: 0,
-                        Wit: 0,
-                    };
-                    [currentBlue, parent1Blue, parent2Blue].forEach((f) => {
-                        if (f && f.name in statStars) {
-                            statStars[f.name as keyof typeof statStars] +=
-                                f.rarity;
+                        // Calculate stars per stat
+                        const statStars = {
+                            Speed: 0,
+                            Stamina: 0,
+                            Power: 0,
+                            Guts: 0,
+                            Wit: 0,
+                        };
+                        [currentBlue, parent1Blue, parent2Blue].forEach((f) => {
+                            if (f && f.name in statStars) {
+                                statStars[f.name as keyof typeof statStars] +=
+                                    f.rarity;
+                            }
+                        });
+
+                        // Check each filter
+                        for (const filter of filters.blues) {
+                            const statValue =
+                                statStars[
+                                    filter.stat as keyof typeof statStars
+                                ] || 0;
+                            if (
+                                statValue < filter.min ||
+                                statValue > filter.max
+                            ) {
+                                isDisplayed = false;
+                                break;
+                            }
                         }
-                    });
+                    }
+                } else {
+                    // Simple Mode: Check only current unit's blue factor (OR logic)
+                    const hasBlueSelection =
+                        filters.simpleBlues.speed ||
+                        filters.simpleBlues.stamina ||
+                        filters.simpleBlues.power ||
+                        filters.simpleBlues.guts ||
+                        filters.simpleBlues.wit;
 
-                    // Check each filter
-                    for (const filter of filters.blues) {
-                        const statValue =
-                            statStars[filter.stat as keyof typeof statStars] ||
-                            0;
-                        if (statValue < filter.min || statValue > filter.max) {
+                    if (hasBlueSelection) {
+                        const currentBlue = chara.factor_id_array
+                            .map((id) => factorsData[id])
+                            .find((f) => f?.type === 1);
+
+                        // Show if the blue factor matches ANY selected stat with required stars
+                        const matchesAnyBlue =
+                            (filters.simpleBlues.speed &&
+                                currentBlue?.name === "Speed" &&
+                                currentBlue.rarity >= filters.simpleBlues.stars) ||
+                            (filters.simpleBlues.stamina &&
+                                currentBlue?.name === "Stamina" &&
+                                currentBlue.rarity >= filters.simpleBlues.stars) ||
+                            (filters.simpleBlues.power &&
+                                currentBlue?.name === "Power" &&
+                                currentBlue.rarity >= filters.simpleBlues.stars) ||
+                            (filters.simpleBlues.guts &&
+                                currentBlue?.name === "Guts" &&
+                                currentBlue.rarity >= filters.simpleBlues.stars) ||
+                            (filters.simpleBlues.wit &&
+                                currentBlue?.name === "Wit" &&
+                                currentBlue.rarity >= filters.simpleBlues.stars);
+
+                        if (!matchesAnyBlue) {
                             isDisplayed = false;
-                            break;
                         }
                     }
                 }
 
-                // Reds - Dynamic filters
-                if (filters.reds.length > 0) {
-                    // Get red factors from lineage
-                    const currentRed = chara.factor_id_array
-                        .map((id) => factorsData[id])
-                        .find((f) => f?.type === 2);
-                    const parent1Red =
-                        chara.succession_chara_array[0]?.factor_id_array
+                // Reds filtering - check mode
+                if (filters.lineageMode) {
+                    // Lineage Mode: Dynamic filters
+                    if (filters.reds.length > 0) {
+                        // Get red factors from lineage
+                        const currentRed = chara.factor_id_array
                             .map((id) => factorsData[id])
                             .find((f) => f?.type === 2);
-                    const parent2Red =
-                        chara.succession_chara_array[1]?.factor_id_array
-                            .map((id) => factorsData[id])
-                            .find((f) => f?.type === 2);
+                        const parent1Red =
+                            chara.succession_chara_array[0]?.factor_id_array
+                                .map((id) => factorsData[id])
+                                .find((f) => f?.type === 2);
+                        const parent2Red =
+                            chara.succession_chara_array[1]?.factor_id_array
+                                .map((id) => factorsData[id])
+                                .find((f) => f?.type === 2);
 
-                    // Calculate stars per aptitude
-                    const aptStars = {
-                        Turf: 0,
-                        Dirt: 0,
-                        "Front Runner": 0,
-                        "Pace Chaser": 0,
-                        "Late Surger": 0,
-                        "End Closer": 0,
-                        Sprint: 0,
-                        Mile: 0,
-                        Medium: 0,
-                        Long: 0,
-                    };
-                    [currentRed, parent1Red, parent2Red].forEach((f) => {
-                        if (f && f.name in aptStars) {
-                            aptStars[f.name as keyof typeof aptStars] +=
-                                f.rarity;
+                        // Calculate stars per aptitude
+                        const aptStars = {
+                            Turf: 0,
+                            Dirt: 0,
+                            "Front Runner": 0,
+                            "Pace Chaser": 0,
+                            "Late Surger": 0,
+                            "End Closer": 0,
+                            Sprint: 0,
+                            Mile: 0,
+                            Medium: 0,
+                            Long: 0,
+                        };
+                        [currentRed, parent1Red, parent2Red].forEach((f) => {
+                            if (f && f.name in aptStars) {
+                                aptStars[f.name as keyof typeof aptStars] +=
+                                    f.rarity;
+                            }
+                        });
+
+                        // Check each filter
+                        for (const filter of filters.reds) {
+                            const aptValue =
+                                aptStars[
+                                    filter.stat as keyof typeof aptStars
+                                ] || 0;
+                            if (
+                                aptValue < filter.min ||
+                                aptValue > filter.max
+                            ) {
+                                isDisplayed = false;
+                                break;
+                            }
                         }
-                    });
+                    }
+                } else {
+                    // Simple Mode: Check only current unit's red factor
+                    const hasRedSelection =
+                        filters.simpleReds.turf ||
+                        filters.simpleReds.dirt ||
+                        filters.simpleReds.frontRunner ||
+                        filters.simpleReds.paceChaser ||
+                        filters.simpleReds.lateSurger ||
+                        filters.simpleReds.endCloser ||
+                        filters.simpleReds.sprint ||
+                        filters.simpleReds.mile ||
+                        filters.simpleReds.medium ||
+                        filters.simpleReds.long;
 
-                    // Check each filter
-                    for (const filter of filters.reds) {
-                        const aptValue =
-                            aptStars[filter.stat as keyof typeof aptStars] || 0;
-                        if (aptValue < filter.min || aptValue > filter.max) {
+                    if (hasRedSelection) {
+                        const currentRed = chara.factor_id_array
+                            .map((id) => factorsData[id])
+                            .find((f) => f?.type === 2);
+
+                        // Show if the red factor matches ANY selected aptitude with required stars
+                        const matchesAnyRed =
+                            (filters.simpleReds.turf &&
+                                currentRed?.name === "Turf" &&
+                                currentRed.rarity >= filters.simpleReds.stars) ||
+                            (filters.simpleReds.dirt &&
+                                currentRed?.name === "Dirt" &&
+                                currentRed.rarity >= filters.simpleReds.stars) ||
+                            (filters.simpleReds.frontRunner &&
+                                currentRed?.name === "Front Runner" &&
+                                currentRed.rarity >= filters.simpleReds.stars) ||
+                            (filters.simpleReds.paceChaser &&
+                                currentRed?.name === "Pace Chaser" &&
+                                currentRed.rarity >= filters.simpleReds.stars) ||
+                            (filters.simpleReds.lateSurger &&
+                                currentRed?.name === "Late Surger" &&
+                                currentRed.rarity >= filters.simpleReds.stars) ||
+                            (filters.simpleReds.endCloser &&
+                                currentRed?.name === "End Closer" &&
+                                currentRed.rarity >= filters.simpleReds.stars) ||
+                            (filters.simpleReds.sprint &&
+                                currentRed?.name === "Sprint" &&
+                                currentRed.rarity >= filters.simpleReds.stars) ||
+                            (filters.simpleReds.mile &&
+                                currentRed?.name === "Mile" &&
+                                currentRed.rarity >= filters.simpleReds.stars) ||
+                            (filters.simpleReds.medium &&
+                                currentRed?.name === "Medium" &&
+                                currentRed.rarity >= filters.simpleReds.stars) ||
+                            (filters.simpleReds.long &&
+                                currentRed?.name === "Long" &&
+                                currentRed.rarity >= filters.simpleReds.stars);
+
+                        if (!matchesAnyRed) {
                             isDisplayed = false;
-                            break;
                         }
                     }
                 }
 
-                // Total Blues filter - sum stars for the blue factor
-                if (filters.totalBlues.min > 0 || filters.totalBlues.max < 9) {
+                // Total Blues filter - sum stars for the blue factor (lineage mode only)
+                if (
+                    filters.lineageMode &&
+                    (filters.totalBlues.min > 0 || filters.totalBlues.max < 9)
+                ) {
                     // Get blue factors from lineage
                     const currentBlue = chara.factor_id_array
                         .map((id) => factorsData[id])
@@ -278,8 +414,11 @@
                     }
                 }
 
-                // Total Reds filter - sum stars for the red factor
-                if (filters.totalReds.min > 0 || filters.totalReds.max < 9) {
+                // Total Reds filter - sum stars for the red factor (lineage mode only)
+                if (
+                    filters.lineageMode &&
+                    (filters.totalReds.min > 0 || filters.totalReds.max < 9)
+                ) {
                     // Get red factors from lineage
                     const currentRed = chara.factor_id_array
                         .map((id) => factorsData[id])

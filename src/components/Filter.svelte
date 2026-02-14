@@ -15,6 +15,28 @@
             greens: { stars: number };
             whites: { [key: string]: number };
             whitesIncludeParents: boolean;
+            lineageMode: boolean;
+            simpleBlues: {
+                speed: boolean;
+                stamina: boolean;
+                power: boolean;
+                guts: boolean;
+                wit: boolean;
+                stars: number;
+            };
+            simpleReds: {
+                turf: boolean;
+                dirt: boolean;
+                frontRunner: boolean;
+                paceChaser: boolean;
+                lateSurger: boolean;
+                endCloser: boolean;
+                sprint: boolean;
+                mile: boolean;
+                medium: boolean;
+                long: boolean;
+                stars: number;
+            };
         };
         availableWhites: string[] | (() => string[]);
     }
@@ -25,31 +47,6 @@
     let { filters, availableWhites }: Props = $props();
 
     let showModal = $state(false);
-    let lineageMode = $state(false);
-
-    // Simple mode selections
-    let simpleBlues = $state({
-        speed: false,
-        stamina: false,
-        power: false,
-        guts: false,
-        wit: false,
-        stars: 1,
-    });
-
-    let simpleReds = $state({
-        turf: false,
-        dirt: false,
-        frontRunner: false,
-        paceChaser: false,
-        lateSurger: false,
-        endCloser: false,
-        sprint: false,
-        mile: false,
-        medium: false,
-        long: false,
-        stars: 1,
-    });
 
     const blueStats = ["Speed", "Stamina", "Power", "Guts", "Wit"];
     const redStats = [
@@ -158,7 +155,7 @@
         });
         filters.whitesIncludeParents = false;
 
-        simpleBlues = {
+        filters.simpleBlues = {
             speed: false,
             stamina: false,
             power: false,
@@ -166,7 +163,7 @@
             wit: false,
             stars: 1,
         };
-        simpleReds = {
+        filters.simpleReds = {
             turf: false,
             dirt: false,
             frontRunner: false,
@@ -180,7 +177,7 @@
             stars: 1,
         };
 
-        lineageMode = false;
+        filters.lineageMode = false;
     }
 </script>
 
@@ -211,7 +208,7 @@
                                 class="form-check-input"
                                 type="checkbox"
                                 id="lineageModeToggle"
-                                bind:checked={lineageMode}
+                                bind:checked={filters.lineageMode}
                             />
                             <label
                                 class="form-check-label"
@@ -226,7 +223,7 @@
                         </div>
                     </div>
 
-                    {#if lineageMode}
+                    {#if filters.lineageMode}
                         <!-- Lineage Mode: Blues/Reds on top row (more width) -->
                         <div class="row g-3 mb-3">
                             <!-- Blues Column -->
@@ -236,7 +233,11 @@
 
                                     <!-- Total Blues Slider -->
                                     <div class="total-filter mb-3">
-                                        <label class="form-label text-muted mb-1" style="font-size: 0.875rem;">Total Blues (All Stats Combined)</label>
+                                        <label
+                                            class="form-label text-muted mb-1"
+                                            style="font-size: 0.875rem;"
+                                            >Total Blues (All Stats Combined)</label
+                                        >
                                         <FilterRow
                                             filterType="blues"
                                             selectedStat="Total"
@@ -244,8 +245,10 @@
                                             maxValue={filters.totalBlues.max}
                                             availableStats={["Total"]}
                                             onStatChange={() => {}}
-                                            onMinChange={(v) => (filters.totalBlues.min = v)}
-                                            onMaxChange={(v) => (filters.totalBlues.max = v)}
+                                            onMinChange={(v) =>
+                                                (filters.totalBlues.min = v)}
+                                            onMaxChange={(v) =>
+                                                (filters.totalBlues.max = v)}
                                             onRemove={() => {
                                                 filters.totalBlues.min = 0;
                                                 filters.totalBlues.max = 9;
@@ -298,7 +301,11 @@
 
                                     <!-- Total Reds Slider -->
                                     <div class="total-filter mb-3">
-                                        <label class="form-label text-muted mb-1" style="font-size: 0.875rem;">Total Reds (Unit + Parents)</label>
+                                        <label
+                                            class="form-label text-muted mb-1"
+                                            style="font-size: 0.875rem;"
+                                            >Total Reds (Unit + Parents)</label
+                                        >
                                         <FilterRow
                                             filterType="reds"
                                             selectedStat="Total"
@@ -306,8 +313,10 @@
                                             maxValue={filters.totalReds.max}
                                             availableStats={["Total"]}
                                             onStatChange={() => {}}
-                                            onMinChange={(v) => (filters.totalReds.min = v)}
-                                            onMaxChange={(v) => (filters.totalReds.max = v)}
+                                            onMinChange={(v) =>
+                                                (filters.totalReds.min = v)}
+                                            onMaxChange={(v) =>
+                                                (filters.totalReds.max = v)}
                                             onRemove={() => {
                                                 filters.totalReds.min = 0;
                                                 filters.totalReds.max = 9;
@@ -436,7 +445,9 @@
                                             class="form-check-input"
                                             type="checkbox"
                                             id="blueSpeed2"
-                                            bind:checked={simpleBlues.speed}
+                                            bind:checked={
+                                                filters.simpleBlues.speed
+                                            }
                                         />
                                         <label
                                             class="form-check-label"
@@ -448,7 +459,9 @@
                                             class="form-check-input"
                                             type="checkbox"
                                             id="blueStamina2"
-                                            bind:checked={simpleBlues.stamina}
+                                            bind:checked={
+                                                filters.simpleBlues.stamina
+                                            }
                                         />
                                         <label
                                             class="form-check-label"
@@ -460,7 +473,9 @@
                                             class="form-check-input"
                                             type="checkbox"
                                             id="bluePower2"
-                                            bind:checked={simpleBlues.power}
+                                            bind:checked={
+                                                filters.simpleBlues.power
+                                            }
                                         />
                                         <label
                                             class="form-check-label"
@@ -472,7 +487,9 @@
                                             class="form-check-input"
                                             type="checkbox"
                                             id="blueGuts2"
-                                            bind:checked={simpleBlues.guts}
+                                            bind:checked={
+                                                filters.simpleBlues.guts
+                                            }
                                         />
                                         <label
                                             class="form-check-label"
@@ -484,7 +501,9 @@
                                             class="form-check-input"
                                             type="checkbox"
                                             id="blueWit2"
-                                            bind:checked={simpleBlues.wit}
+                                            bind:checked={
+                                                filters.simpleBlues.wit
+                                            }
                                         />
                                         <label
                                             class="form-check-label"
@@ -496,29 +515,32 @@
                                     <div class="btn-group" role="group">
                                         <button
                                             type="button"
-                                            class="btn {simpleBlues.stars === 1
+                                            class="btn {filters.simpleBlues
+                                                .stars === 1
                                                 ? 'btn-primary'
                                                 : 'btn-outline-secondary'} btn-sm"
                                             onclick={() =>
-                                                (simpleBlues.stars = 1)}
+                                                (filters.simpleBlues.stars = 1)}
                                             >1</button
                                         >
                                         <button
                                             type="button"
-                                            class="btn {simpleBlues.stars === 2
+                                            class="btn {filters.simpleBlues
+                                                .stars === 2
                                                 ? 'btn-primary'
                                                 : 'btn-outline-secondary'} btn-sm"
                                             onclick={() =>
-                                                (simpleBlues.stars = 2)}
+                                                (filters.simpleBlues.stars = 2)}
                                             >2</button
                                         >
                                         <button
                                             type="button"
-                                            class="btn {simpleBlues.stars === 3
+                                            class="btn {filters.simpleBlues
+                                                .stars === 3
                                                 ? 'btn-primary'
                                                 : 'btn-outline-secondary'} btn-sm"
                                             onclick={() =>
-                                                (simpleBlues.stars = 3)}
+                                                (filters.simpleBlues.stars = 3)}
                                             >3</button
                                         >
                                     </div>
@@ -534,7 +556,9 @@
                                             class="form-check-input"
                                             type="checkbox"
                                             id="redTurf2"
-                                            bind:checked={simpleReds.turf}
+                                            bind:checked={
+                                                filters.simpleReds.turf
+                                            }
                                         />
                                         <label
                                             class="form-check-label"
@@ -546,7 +570,9 @@
                                             class="form-check-input"
                                             type="checkbox"
                                             id="redDirt2"
-                                            bind:checked={simpleReds.dirt}
+                                            bind:checked={
+                                                filters.simpleReds.dirt
+                                            }
                                         />
                                         <label
                                             class="form-check-label"
@@ -559,7 +585,7 @@
                                             type="checkbox"
                                             id="redFrontRunner2"
                                             bind:checked={
-                                                simpleReds.frontRunner
+                                                filters.simpleReds.frontRunner
                                             }
                                         />
                                         <label
@@ -573,7 +599,9 @@
                                             class="form-check-input"
                                             type="checkbox"
                                             id="redPaceChaser2"
-                                            bind:checked={simpleReds.paceChaser}
+                                            bind:checked={
+                                                filters.simpleReds.paceChaser
+                                            }
                                         />
                                         <label
                                             class="form-check-label"
@@ -586,7 +614,9 @@
                                             class="form-check-input"
                                             type="checkbox"
                                             id="redLateSurger2"
-                                            bind:checked={simpleReds.lateSurger}
+                                            bind:checked={
+                                                filters.simpleReds.lateSurger
+                                            }
                                         />
                                         <label
                                             class="form-check-label"
@@ -599,7 +629,9 @@
                                             class="form-check-input"
                                             type="checkbox"
                                             id="redEndCloser2"
-                                            bind:checked={simpleReds.endCloser}
+                                            bind:checked={
+                                                filters.simpleReds.endCloser
+                                            }
                                         />
                                         <label
                                             class="form-check-label"
@@ -612,7 +644,9 @@
                                             class="form-check-input"
                                             type="checkbox"
                                             id="redSprint2"
-                                            bind:checked={simpleReds.sprint}
+                                            bind:checked={
+                                                filters.simpleReds.sprint
+                                            }
                                         />
                                         <label
                                             class="form-check-label"
@@ -624,7 +658,9 @@
                                             class="form-check-input"
                                             type="checkbox"
                                             id="redMile2"
-                                            bind:checked={simpleReds.mile}
+                                            bind:checked={
+                                                filters.simpleReds.mile
+                                            }
                                         />
                                         <label
                                             class="form-check-label"
@@ -636,7 +672,9 @@
                                             class="form-check-input"
                                             type="checkbox"
                                             id="redMedium2"
-                                            bind:checked={simpleReds.medium}
+                                            bind:checked={
+                                                filters.simpleReds.medium
+                                            }
                                         />
                                         <label
                                             class="form-check-label"
@@ -648,7 +686,9 @@
                                             class="form-check-input"
                                             type="checkbox"
                                             id="redLong2"
-                                            bind:checked={simpleReds.long}
+                                            bind:checked={
+                                                filters.simpleReds.long
+                                            }
                                         />
                                         <label
                                             class="form-check-label"
@@ -660,29 +700,32 @@
                                     <div class="btn-group" role="group">
                                         <button
                                             type="button"
-                                            class="btn {simpleReds.stars === 1
+                                            class="btn {filters.simpleReds
+                                                .stars === 1
                                                 ? 'btn-primary'
                                                 : 'btn-outline-secondary'} btn-sm"
                                             onclick={() =>
-                                                (simpleReds.stars = 1)}
+                                                (filters.simpleReds.stars = 1)}
                                             >1</button
                                         >
                                         <button
                                             type="button"
-                                            class="btn {simpleReds.stars === 2
+                                            class="btn {filters.simpleReds
+                                                .stars === 2
                                                 ? 'btn-primary'
                                                 : 'btn-outline-secondary'} btn-sm"
                                             onclick={() =>
-                                                (simpleReds.stars = 2)}
+                                                (filters.simpleReds.stars = 2)}
                                             >2</button
                                         >
                                         <button
                                             type="button"
-                                            class="btn {simpleReds.stars === 3
+                                            class="btn {filters.simpleReds
+                                                .stars === 3
                                                 ? 'btn-primary'
                                                 : 'btn-outline-secondary'} btn-sm"
                                             onclick={() =>
-                                                (simpleReds.stars = 3)}
+                                                (filters.simpleReds.stars = 3)}
                                             >3</button
                                         >
                                     </div>
