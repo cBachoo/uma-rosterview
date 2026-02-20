@@ -12,6 +12,7 @@
     } from "./utils/encoding";
 
     import type { CharaData } from "./types";
+    import { normalizeRosterData } from "./utils/normalize";
 
     let trainedCharas: CharaData[] | undefined = $state();
     let currentPage = $state<"roster" | "affinity" | "planner">("roster");
@@ -79,8 +80,8 @@
         const loader = import.meta.glob("../data.json")["../data.json"];
         if (loader) {
             loader().then((resp) => {
-                let data = resp as { default: CharaData[] };
-                trainedCharas = data.default;
+                let data = resp as { default: unknown };
+                trainedCharas = normalizeRosterData(data.default);
             });
         }
     }

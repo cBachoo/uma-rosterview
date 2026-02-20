@@ -1,5 +1,6 @@
 <script lang="ts">
     import type { CharaData } from "../types";
+    import { normalizeRosterData } from "../utils/normalize";
 
     let {
         uploaddata,
@@ -16,7 +17,7 @@
             reader.onload = (e) => {
                 try {
                     const content = e.target?.result as string;
-                    const data: CharaData[] = JSON.parse(content);
+                    const data = normalizeRosterData(JSON.parse(content));
                     uploaddata(data);
                 } catch (error) {
                     console.error("Failed to parse JSON file:", error);

@@ -22,9 +22,10 @@ interface SuccessionCharaData extends CharaBaseData {
 }
 
 interface CharaData extends CharaBaseData {
-  create_time: string;
+  create_time?: string;
   rarity: number;
-  chara_seed: number;
+  chara_seed?: number;
+  trained_chara_id?: number;
   rank_score?: number;
 
   speed: number;

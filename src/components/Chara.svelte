@@ -47,7 +47,7 @@
     );
 
     const charaCreateTimeLabel = $derived(
-        new Date(charaData.create_time).toLocaleString(),
+        charaData.create_time ? new Date(charaData.create_time).toLocaleString() : "",
     );
     const charaThumb = $derived.by(() => {
         if (!charaCard) return "";
@@ -62,7 +62,7 @@
         return `/chara/uma/chr_icon_${charaId}_${paddedIconCardId}_${suffix}.webp`;
     });
 
-    const charaDatetime = $derived(charaData.create_time.split(" "));
+    const charaDatetime = $derived(charaData.create_time?.split(" ") ?? []);
 
     // Map rank_score to badge image number
     function getRankBadgeNumber(score: number | undefined): string {
