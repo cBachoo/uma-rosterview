@@ -4,7 +4,7 @@ This document describes the encoding format used for exporting individual uma da
 
 ## Overview
 
-The single uma export format is a simplified, compact encoding designed for sharing individual character data. It includes only the essential information needed to represent an uma's trained state: stats, aptitudes, and skills.
+The single uma export format is a simplified, compact encoding designed for sharing individual character data. It includes only the essential information needed to represent an uma's trained state: stats, aptitudes, creation date, rank score, and skills.
 
 The encoding uses a binary vector format converted to URL-safe Base64, making it suitable for copying/pasting or embedding in URLs.
 
@@ -14,22 +14,22 @@ The single export format includes:
 - **Card ID**: Character card identifier
 - **Base Statistics**: Speed, Stamina, Power, Guts, Wisdom
 - **Aptitudes**: Distance (Short/Mile/Middle/Long), Ground (Turf/Dirt), Running Style (Nige/Senko/Sashi/Oikomi)
+- **Creation Date**: When the uma was trained (Unix timestamp, second precision)
+- **Rank Score**: Competitive rank score, if present (optional)
 - **Skills**: All learned skills with their levels (1-16)
 
 ## What's NOT Included
 
 The following fields are excluded to keep the encoding compact:
 - Talent level
-- Rank score
 - Rarity
 - Character seed
 - Factors (sparks)
 - Parent information
 - Support cards
-- Create time
 - Win saddle IDs
 
-## Encoding Specification - Version 1
+## Encoding Specification - Version 2
 
 ### Notation
 
@@ -45,7 +45,7 @@ The following fields are excluded to keep the encoding compact:
 |---------|---------------|---------|-----------|
 | Version | 8             | `uint8` | [0, 255]  |
 
-The version field identifies the encoding format. Current version is **1**.
+The version field identifies the encoding format. Current version is **2**.
 
 #### 2. Character Data
 
@@ -98,7 +98,27 @@ Aptitudes range from 0-9 in the game. They are stored directly without adjustmen
 - 8 → S
 - 9 → :buh:
 
-##### 2.4 Skills (Variable length)
+##### 2.4 Creation Date (32 bits)
+
+| Field       | Length (bits) | Type     | Range                      |
+|-------------|---------------|----------|----------------------------|
+| create_time | 32            | `uint32` | [0, 4294967295]            |
+
+Stored as a Unix timestamp in seconds (seconds since 1970-01-01 00:00:00 UTC). Supports dates up to the year 2106.
+
+- **Encoding**: The `"YYYY-MM-DD HH:MM:SS"` string is parsed as UTC, divided by 1000, floored, and written as an unsigned 32-bit integer (`>>> 0`).
+- **Decoding**: The integer is multiplied by 1000 to get milliseconds, converted to a `Date`, and formatted back as `"YYYY-MM-DD HH:MM:SS"` (UTC).
+
+##### 2.5 Rank Score (1 or 16 bits)
+
+| Field            | Length (bits) | Type    | Notes                          |
+|------------------|---------------|---------|--------------------------------|
+| rank_score_flag  | 1             | `uint1` | `0` = absent, `1` = present   |
+| rank_score       | 15            | `uint16`| Only written if flag is `1`    |
+
+The rank score is optional. When absent only the single flag bit is written (saving 15 bits). When present, the flag is `1` followed by the 15-bit value, supporting scores from 0 to 32767.
+
+##### 2.6 Skills (Variable length)
 
 | Field       | Length (bits)   | Type     | Range         |
 |-------------|-----------------|----------|---------------|
@@ -131,94 +151,115 @@ This differs from standard Base64 which uses `+` and `/`. The URL-safe variant u
 
 ### Bit Breakdown
 
-Minimum bits (no skills):
+Minimum bits (no rank_score, no skills):
 ```
-Version:       8 bits
-card_id:      20 bits
-Stats:        55 bits (11 × 5)
-Aptitudes:    40 bits (4 × 10)
-skill_count:   6 bits
-Total:       129 bits minimum
-            = 22 Base64 characters
+Version:           8 bits
+card_id:          20 bits
+Stats:            55 bits (11 × 5)
+Aptitudes:        40 bits (4 × 10)
+create_time:      32 bits
+rank_score_flag:   1 bit
+skill_count:       6 bits
+Total:           162 bits minimum
+                = 27 Base64 characters
+```
+
+With rank_score:
+```
+Base:            162 bits
+rank_score:      +15 bits
+Total:           177 bits
+                = 30 Base64 characters
 ```
 
 With skills:
 ```
-Base:         129 bits
-Per skill:     24 bits
-Total:        129 + (24 × skill_count) bits
+Base:            162 bits  (or 177 with rank_score)
+Per skill:        24 bits
+Total:           162 + (24 × skill_count) bits
 ```
 
 ### Examples
 
-**Character with 10 skills:**
+**Character with 10 skills (no rank score):**
 ```
-129 + (24 × 10) = 369 bits
-                = 62 Base64 characters
+162 + (24 × 10) = 402 bits
+                = 67 Base64 characters
+```
+
+**Character with 10 skills (with rank score):**
+```
+177 + (24 × 10) = 417 bits
+                = 70 Base64 characters
 ```
 
 **Character with 30 skills:**
 ```
-129 + (24 × 30) = 849 bits
-                = 142 Base64 characters
+162 + (24 × 30) = 882 bits
+                = 147 Base64 characters
 ```
 
 **Character with 63 skills (maximum):**
 ```
-129 + (24 × 63) = 1,641 bits
-                 = 274 Base64 characters
+162 + (24 × 63) = 1,674 bits
+                 = 279 Base64 characters
 ```
 
 ### Typical Size Range
 
 | Skill Count | Approximate Length |
 |-------------|-------------------|
-| 0-10        | 50-85 chars       |
-| 10-20       | 85-125 chars      |
-| 20-30       | 125-165 chars     |
-| 30-50       | 165-245 chars     |
-| 50-63       | 245-280 chars     |
+| 0-10        | 55-90 chars       |
+| 10-20       | 90-130 chars      |
+| 20-30       | 130-170 chars     |
+| 30-50       | 170-250 chars     |
+| 50-63       | 250-285 chars     |
 
-Most trained uma have 8-20 skills, resulting in codes of **62-135 characters** - very compact and easy to copy/paste.
+Most trained uma have 8-20 skills, resulting in codes of **67-140 characters** - very compact and easy to copy/paste.
 
 ## Encoding Process
 
 1. Create a BitVector instance
-2. Write version header (8 bits, value = 1)
+2. Write version header (8 bits, value = 2)
 3. Write card_id (20 bits)
 4. Write stats in order: speed, stamina, power, guts, wiz (11 bits each, clamped to 2047)
 5. Write aptitudes in order: distances, grounds, styles (4 bits each, clamped to 9)
-6. Write skill_count (6 bits, max 63)
-7. For each skill:
+6. Write create_time as Unix timestamp in seconds (32 bits, unsigned)
+7. Write rank_score flag (1 bit); if `1`, write rank_score (15 bits, clamped to 32767)
+8. Write skill_count (6 bits, max 63)
+9. For each skill:
    - Write skill_id (20 bits)
    - Write level - 1 (4 bits)
-8. Pad bit vector to multiple of 6
-9. Convert to URL-safe Base64
+10. Pad bit vector to multiple of 6
+11. Convert to URL-safe Base64
 
 ## Decoding Process
 
 1. Convert Base64 string to BitVector
-2. Check minimum bits (129)
-3. Read version (8 bits), verify it's 1
+2. Check minimum bits (162)
+3. Read version (8 bits), verify it's 2
 4. Read card_id (20 bits)
 5. Read stats (5 × 11 bits each)
 6. Read aptitudes (10 × 4 bits each)
-7. Read skill_count (6 bits)
-8. For each skill:
-   - Read skill_id (20 bits)
-   - Read level (4 bits), add 1 for actual level
-9. Return SingleExportData object
+7. Read create_time (32 bits); convert to `"YYYY-MM-DD HH:MM:SS"` string
+8. Read rank_score_flag (1 bit); if `1`, read rank_score (15 bits)
+9. Read skill_count (6 bits)
+10. For each skill:
+    - Read skill_id (20 bits)
+    - Read level (4 bits), add 1 for actual level
+11. Return SingleExportData object
 
 ## Error Handling
 
 ### Encoding Errors
 - Stats are clamped to 0-2047 if they exceed the range
+- Rank score is clamped to 0-32767 if it exceeds the range
 - Skill levels are clamped to 0-15 (representing 1-16)
 - Only the first 63 skills are encoded if more are present
 
 ### Decoding Errors
 - Returns `null` if insufficient bits for minimum character data
-- Returns `null` if version doesn't match (expected: 1)
+- Returns `null` if version doesn't match (expected: 2)
 - Logs errors to console for debugging
 - Stops reading skills if insufficient bits remain
 
@@ -226,11 +267,12 @@ Most trained uma have 8-20 skills, resulting in codes of **62-135 characters** -
 
 | Feature              | Single Export | Full Roster |
 |----------------------|---------------|-------------|
-| Version              | 1             | 4           |
-| Per Character        | 60-280 chars  | 200-250 chars |
+| Version              | 2             | 4           |
+| Per Character        | 67-285 chars  | 200-250 chars |
 | Factors              | ❌            | ✅          |
 | Parents              | ❌            | ✅          |
-| Rank Score           | ❌            | ✅          |
+| Rank Score           | ✅            | ✅          |
+| Create Time          | ✅            | ❌          |
 | Talent Level         | ❌            | ✅          |
 | Compression          | ❌            | ✅ (gzip)   |
 | Multiple Characters  | ❌            | ✅          |
@@ -288,8 +330,6 @@ To support new encoding versions:
 4. Maintain backward compatibility for older versions
 
 Potential future additions:
-- V2: Add optional fields (factors, parents) with flags
-- V3: Include rank score and talent level
 - V4: Add compression for very large skill lists
 
 ## Usage Examples
@@ -320,15 +360,22 @@ const decoded = decodeSingleUma(code);
 if (decoded) {
   console.log('Card ID:', decoded.card_id);
   console.log('Speed:', decoded.speed);
+  console.log('Created:', decoded.create_time);
+  console.log('Rank Score:', decoded.rank_score ?? 'N/A');
   console.log('Skills:', decoded.skill_array.length);
 }
 ```
 
 ## Version History
 
-### Version 1 (Current)
+### Version 2 (Current)
+- Added `create_time` as a 32-bit Unix timestamp in seconds
+- Added optional `rank_score` with 1-bit presence flag + 15-bit value
+- Minimum payload size increased from 129 → 162 bits
+
+### Version 1
 - Initial release
-- Supports card_id, stats, aptitudes, and skills
+- Supported card_id, stats, aptitudes, and skills
 - Skills support levels 1-16 (4 bits per level)
 - Maximum 63 skills (6-bit count field, same as full roster)
 - No compression (codes are already compact)
