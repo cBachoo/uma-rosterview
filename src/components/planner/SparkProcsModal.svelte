@@ -22,7 +22,6 @@
             case "pinkSpark": return "text-danger";
             case "greenSpark": return "text-success";
             case "whiteSpark": return "text-secondary";
-            case "raceSpark": return "text-warning";
             default: return "text-muted";
         }
     };
@@ -33,7 +32,6 @@
             case "pinkSpark": return "Aptitude";
             case "greenSpark": return "Unique";
             case "whiteSpark": return "Skill";
-            case "raceSpark": return "Race";
             default: return type;
         }
     };

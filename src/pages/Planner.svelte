@@ -5,6 +5,7 @@
         calculateBaseAffinity,
     } from "../utils/affinity";
     import { charaCardsData } from "../data";
+    import { racesArray } from "../utils/races";
     import PlannerUmaCard from "../components/planner/PlannerUmaCard.svelte";
     import UmaSelectionModal from "../components/planner/UmaSelectionModal.svelte";
     import SparkProcsModal from "../components/planner/SparkProcsModal.svelte";
@@ -282,6 +283,23 @@
         };
     }
 
+    /**
+     * Returns a copy of the uma with user-configured races (string names) merged
+     * into win_saddle_id_array as saddle IDs. This is necessary because:
+     * - Roster umas: win_saddle_id_array comes from game data; user may add extra races via spark selector
+     * - Borrow umas: win_saddle_id_array comes from base character data; user-added races are in uma.races
+     * calculateSingleParentAffinity uses win_saddle_id_array for race(p1, GP) comparisons.
+     */
+    function withMergedRaces(uma: UmaWithSparks): UmaWithSparks {
+        if (!uma.races || uma.races.length === 0) return uma;
+        const mergedIds = new Set(uma.win_saddle_id_array || []);
+        for (const raceName of uma.races) {
+            const race = racesArray.find((r) => r.race_name === raceName);
+            if (race) mergedIds.add(race.saddle_id);
+        }
+        return { ...uma, win_saddle_id_array: Array.from(mergedIds) };
+    }
+
     function recalculateAffinity() {
         // Reset all
         p1Affinity = 0;
@@ -298,10 +316,12 @@
         const targetCharaId = targetCard.chara_id.toString();
 
         // Calculate parent affinities
+        // withMergedRaces ensures user-configured race names (uma.races) are
+        // included in win_saddle_id_array so race(p1, GP) comparisons work correctly.
         if (parent1.uma) {
             const result = calculateSingleParentAffinity(
                 targetCharaId,
-                parent1.uma,
+                withMergedRaces(parent1.uma),
             );
             p1Affinity = result.totalAffinity;
         }
@@ -309,7 +329,7 @@
         if (parent2.uma) {
             const result = calculateSingleParentAffinity(
                 targetCharaId,
-                parent2.uma,
+                withMergedRaces(parent2.uma),
             );
             p2Affinity = result.totalAffinity;
         }
@@ -344,7 +364,7 @@
         if (gp1_1.uma) {
             const result = calculateSingleParentAffinity(
                 targetCharaId,
-                gp1_1.uma,
+                withMergedRaces(gp1_1.uma),
             );
             gp1_1Affinity = result.totalAffinity;
         }
@@ -352,7 +372,7 @@
         if (gp1_2.uma) {
             const result = calculateSingleParentAffinity(
                 targetCharaId,
-                gp1_2.uma,
+                withMergedRaces(gp1_2.uma),
             );
             gp1_2Affinity = result.totalAffinity;
         }
@@ -360,7 +380,7 @@
         if (gp2_1.uma) {
             const result = calculateSingleParentAffinity(
                 targetCharaId,
-                gp2_1.uma,
+                withMergedRaces(gp2_1.uma),
             );
             gp2_1Affinity = result.totalAffinity;
         }
@@ -368,7 +388,7 @@
         if (gp2_2.uma) {
             const result = calculateSingleParentAffinity(
                 targetCharaId,
-                gp2_2.uma,
+                withMergedRaces(gp2_2.uma),
             );
             gp2_2Affinity = result.totalAffinity;
         }

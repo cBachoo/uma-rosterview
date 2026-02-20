@@ -3,7 +3,6 @@ import type { CharaData } from "../types";
 interface SparkData {
   stat: string;
   level: number;
-  isRace?: boolean;
 }
 
 const BASE_CHANCE: Record<string, Record<number, number>> = {
@@ -11,7 +10,6 @@ const BASE_CHANCE: Record<string, Record<number, number>> = {
   pinkSpark: { 1: 1, 2: 3, 3: 5 },
   greenSpark: { 1: 5, 2: 10, 3: 15 },
   whiteSpark: { 1: 3, 2: 6, 3: 9 },
-  raceSpark: { 1: 1, 2: 2, 3: 3 },
 };
 
 export function getSparkChance(
@@ -120,35 +118,18 @@ export function calculateSparkProcs(
     }
 
     // Process white sparks
+    // Note: uma.races (G1 race wins) are intentionally excluded — race wins are not
+    // guaranteed to grant a skill, so they don't contribute to inspiration chance.
+    // If a race-won skill is desired in the calculation, add it manually in the Skills tab.
     if (uma.whiteSpark && Array.isArray(uma.whiteSpark)) {
       uma.whiteSpark.forEach((spark: SparkData) => {
         if (!spark.stat || typeof spark.stat !== "string") return;
-        const sparkType = spark.isRace ? "raceSpark" : "whiteSpark";
-        const chance = getSparkChance(spark, affinity, sparkType);
+        const chance = getSparkChance(spark, affinity, "whiteSpark");
         const key = spark.stat;
         if (!sparkMap.has(key)) {
-          sparkMap.set(key, { stat: key, chances: [], type: sparkType });
+          sparkMap.set(key, { stat: key, chances: [], type: "whiteSpark" });
         }
         sparkMap.get(key)!.chances.push(chance);
-      });
-    }
-
-    // Process races
-    if (uma.races && Array.isArray(uma.races)) {
-      uma.races.forEach((raceName: string) => {
-        const chance = getSparkChance(
-          { stat: raceName, level: 1 },
-          affinity,
-          "raceSpark",
-        );
-        if (!sparkMap.has(raceName)) {
-          sparkMap.set(raceName, {
-            stat: raceName,
-            chances: [],
-            type: "raceSpark",
-          });
-        }
-        sparkMap.get(raceName)!.chances.push(chance);
       });
     }
   }
