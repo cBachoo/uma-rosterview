@@ -101,7 +101,7 @@ class BitVector {
 }
 
 // Type imports
-import type { CharaData, SkillData } from "./types";
+import type { CharaData, SkillData } from "../types";
 
 /**
  * Simplified uma data for single export
@@ -231,10 +231,7 @@ export function decodeSingleUma(encoded: string): SingleExportData | null {
     // create_time: 32-bit Unix timestamp in seconds
     const createTimestamp = bv.read(32);
     const createDate = new Date(createTimestamp * 1000);
-    const create_time = createDate
-      .toISOString()
-      .replace("T", " ")
-      .slice(0, 19);
+    const create_time = createDate.toISOString().replace("T", " ").slice(0, 19);
 
     // rank_score: 1-bit flag + 15 bits if present
     const hasRankScore = bv.read(1) === 1;

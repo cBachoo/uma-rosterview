@@ -54,6 +54,18 @@
                     Import from Shared Link
                 </button>
             {/if}
+
+            <div class="mt-4 p-3 bg-light rounded">
+                <p class="mb-2 text-muted">
+                    Want to plan breeding without uploading?
+                </p>
+                <button
+                    class="btn btn-success"
+                    onclick={() => (window.location.hash = "/planner")}
+                >
+                    Open Breeding Planner
+                </button>
+            </div>
         </div>
 
         <!-- Instructions Section -->

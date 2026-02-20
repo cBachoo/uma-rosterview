@@ -154,7 +154,7 @@ class BitVector {
 }
 
 // Type imports
-import type { CharaData, SkillData, SuccessionCharaData } from "./types";
+import type { CharaData, SkillData, SuccessionCharaData } from "../types";
 
 /**
  * Compression helpers

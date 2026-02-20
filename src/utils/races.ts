@@ -1,4 +1,4 @@
-import racesDataRaw from "./assets/races.json";
+import racesDataRaw from "../assets/races.json";
 
 /**
  * Race data interface matching the structure in races.json

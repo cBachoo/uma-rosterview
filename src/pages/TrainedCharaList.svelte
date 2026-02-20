@@ -10,14 +10,16 @@
         getEncodedFromUrl,
         setEncodedToUrl,
         clearUrlEncoding,
-    } from "../encoding";
+    } from "../utils/encoding";
 
     interface Props {
         trainedCharas: CharaData[];
         onHome?: () => void;
         onAffinityClick?: () => void;
+        onPlannerClick?: () => void;
     }
-    const { trainedCharas, onHome, onAffinityClick }: Props = $props();
+    const { trainedCharas, onHome, onAffinityClick, onPlannerClick }: Props =
+        $props();
 
     const display = stateStorage("display", {
         stats: true,
@@ -252,19 +254,24 @@
                         const matchesAnyBlue =
                             (filters.simpleBlues.speed &&
                                 currentBlue?.name === "Speed" &&
-                                currentBlue.rarity >= filters.simpleBlues.stars) ||
+                                currentBlue.rarity >=
+                                    filters.simpleBlues.stars) ||
                             (filters.simpleBlues.stamina &&
                                 currentBlue?.name === "Stamina" &&
-                                currentBlue.rarity >= filters.simpleBlues.stars) ||
+                                currentBlue.rarity >=
+                                    filters.simpleBlues.stars) ||
                             (filters.simpleBlues.power &&
                                 currentBlue?.name === "Power" &&
-                                currentBlue.rarity >= filters.simpleBlues.stars) ||
+                                currentBlue.rarity >=
+                                    filters.simpleBlues.stars) ||
                             (filters.simpleBlues.guts &&
                                 currentBlue?.name === "Guts" &&
-                                currentBlue.rarity >= filters.simpleBlues.stars) ||
+                                currentBlue.rarity >=
+                                    filters.simpleBlues.stars) ||
                             (filters.simpleBlues.wit &&
                                 currentBlue?.name === "Wit" &&
-                                currentBlue.rarity >= filters.simpleBlues.stars);
+                                currentBlue.rarity >=
+                                    filters.simpleBlues.stars);
 
                         if (!matchesAnyBlue) {
                             isDisplayed = false;
@@ -347,31 +354,40 @@
                         const matchesAnyRed =
                             (filters.simpleReds.turf &&
                                 currentRed?.name === "Turf" &&
-                                currentRed.rarity >= filters.simpleReds.stars) ||
+                                currentRed.rarity >=
+                                    filters.simpleReds.stars) ||
                             (filters.simpleReds.dirt &&
                                 currentRed?.name === "Dirt" &&
-                                currentRed.rarity >= filters.simpleReds.stars) ||
+                                currentRed.rarity >=
+                                    filters.simpleReds.stars) ||
                             (filters.simpleReds.frontRunner &&
                                 currentRed?.name === "Front Runner" &&
-                                currentRed.rarity >= filters.simpleReds.stars) ||
+                                currentRed.rarity >=
+                                    filters.simpleReds.stars) ||
                             (filters.simpleReds.paceChaser &&
                                 currentRed?.name === "Pace Chaser" &&
-                                currentRed.rarity >= filters.simpleReds.stars) ||
+                                currentRed.rarity >=
+                                    filters.simpleReds.stars) ||
                             (filters.simpleReds.lateSurger &&
                                 currentRed?.name === "Late Surger" &&
-                                currentRed.rarity >= filters.simpleReds.stars) ||
+                                currentRed.rarity >=
+                                    filters.simpleReds.stars) ||
                             (filters.simpleReds.endCloser &&
                                 currentRed?.name === "End Closer" &&
-                                currentRed.rarity >= filters.simpleReds.stars) ||
+                                currentRed.rarity >=
+                                    filters.simpleReds.stars) ||
                             (filters.simpleReds.sprint &&
                                 currentRed?.name === "Sprint" &&
-                                currentRed.rarity >= filters.simpleReds.stars) ||
+                                currentRed.rarity >=
+                                    filters.simpleReds.stars) ||
                             (filters.simpleReds.mile &&
                                 currentRed?.name === "Mile" &&
-                                currentRed.rarity >= filters.simpleReds.stars) ||
+                                currentRed.rarity >=
+                                    filters.simpleReds.stars) ||
                             (filters.simpleReds.medium &&
                                 currentRed?.name === "Medium" &&
-                                currentRed.rarity >= filters.simpleReds.stars) ||
+                                currentRed.rarity >=
+                                    filters.simpleReds.stars) ||
                             (filters.simpleReds.long &&
                                 currentRed?.name === "Long" &&
                                 currentRed.rarity >= filters.simpleReds.stars);
@@ -588,9 +604,9 @@
 </script>
 
 <div>
-    <nav class="navbar sticky-top navbar-expand bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-slate mb-3">
         <div class="container-fluid">
-            <!-- Left side: Home, Export/Import -->
+            <!-- Left side: Title + Nav links -->
             <div class="d-flex gap-2 align-items-center">
                 {#if onHome}
                     <button
@@ -598,20 +614,21 @@
                         onclick={onHome}
                         title="Back to upload"
                     >
-                        Home
+                        ← Home
                     </button>
                 {/if}
 
-                {#if onAffinityClick}
-                    <button
-                        class="btn btn-primary btn-sm"
-                        onclick={onAffinityClick}
-                        title="Open affinity calculator"
-                    >
-                        Affinity Calculator
-                    </button>
-                {/if}
+                <span class="navbar-brand mb-0 h1">Roster</span>
 
+                <div class="vr mx-1"></div>
+
+                <a class="nav-link active" href="#/">Roster</a>
+                <a class="nav-link" href="#/affinity">Affinity</a>
+                <a class="nav-link" href="#/planner">Planner</a>
+            </div>
+
+            <!-- Right side: Controls -->
+            <div class="ms-auto d-flex gap-2 align-items-center">
                 <div class="btn-group">
                     <button
                         class="btn btn-slate btn-sm"
@@ -631,13 +648,10 @@
                 {#if exportMessage}
                     <span class="badge bg-success">{exportMessage}</span>
                 {/if}
-            </div>
 
-            <!-- Right side: Display, Filters -->
-            <div class="d-flex gap-2 align-items-center">
                 <div class="dropdown">
                     <button
-                        class="btn dropdown-toggle"
+                        class="btn btn-slate-light btn-sm dropdown-toggle"
                         type="button"
                         data-bs-toggle="dropdown"
                         data-bs-auto-close="outside"
@@ -710,18 +724,19 @@
                 </div>
 
                 <Filter {filters} {availableWhites} />
+
                 <input
                     type="text"
                     class="form-control form-control-sm"
-                    placeholder="Search characters..."
+                    placeholder="Search..."
                     bind:value={searchQuery}
-                    style="width: 200px;"
+                    style="width: 150px;"
                 />
 
                 <select
                     class="form-select form-select-sm"
                     bind:value={sortBy}
-                    style="width: 180px;"
+                    style="width: 150px;"
                 >
                     <option value="date-desc">Latest First</option>
                     <option value="date-asc">Oldest First</option>
@@ -830,5 +845,32 @@
 
     .btn-group .btn-slate-light:last-child {
         border-right-color: #94a3b8;
+    }
+
+    .bg-slate {
+        background-color: #475569 !important;
+    }
+
+    .navbar-brand {
+        color: white !important;
+        font-weight: bold;
+    }
+
+    .nav-link {
+        color: rgba(255, 255, 255, 0.8) !important;
+    }
+
+    .nav-link:hover {
+        color: white !important;
+    }
+
+    .nav-link.active {
+        color: white !important;
+        font-weight: bold;
+    }
+
+    .vr {
+        border-left: 1px solid rgba(255, 255, 255, 0.3);
+        height: 1.5rem;
     }
 </style>

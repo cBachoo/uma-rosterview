@@ -1,12 +1,12 @@
 <script lang="ts">
     import type { CharaData } from "../types";
     import { charaCardsData, skillsData } from "../data";
-    import { getIconCardId } from "../iconMapping";
+    import { getIconCardId } from "../utils/iconMapping";
     import Stats from "./Stats.svelte";
     import SuccessionChara from "./SuccessionChara.svelte";
     import FactorList from "./FactorList.svelte";
     import Apttitudes from "./Apttitudes.svelte";
-    import { encodeSingleUma, charaToSingleExport } from "../singleExport";
+    import { encodeSingleUma, charaToSingleExport } from "../utils/singleExport";
     import RacesWon from "./RacesWon.svelte";
 
     interface Props {

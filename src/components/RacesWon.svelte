@@ -1,6 +1,6 @@
 <script lang="ts">
-    import { racesBySaddleId, getRaceThumbnailUrl } from "../races";
-    import type { Race } from "../races";
+    import { racesBySaddleId, getRaceThumbnailUrl } from "../utils/races";
+    import type { Race } from "../utils/races";
 
     interface Props {
         title: string;
