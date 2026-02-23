@@ -56,8 +56,12 @@
             );
         }
 
-        // Sort
+        // Sort — blues always at bottom since they're near-guaranteed
         entries.sort(([statA, procA], [statB, procB]) => {
+            const aIsBlue = procA.type === "blueSpark" ? 1 : 0;
+            const bIsBlue = procB.type === "blueSpark" ? 1 : 0;
+            if (aIsBlue !== bIsBlue) return aIsBlue - bIsBlue;
+
             let comparison = 0;
             if (sortBy === "name") {
                 comparison = statA.localeCompare(statB);

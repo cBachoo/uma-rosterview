@@ -143,11 +143,16 @@
         return "apt-low";
     }
 
-    // Get top spark procs sorted by chance
+    // Get top spark procs sorted by chance — blues always at bottom (near-guaranteed)
     const topSparkProcs = $derived(() => {
         if (!sparkProcs) return [];
         return Object.entries(sparkProcs)
-            .sort(([, a], [, b]) => b.chanceAtLeastOnce - a.chanceAtLeastOnce)
+            .sort(([, a], [, b]) => {
+                const aIsBlue = a.type === "blueSpark" ? 1 : 0;
+                const bIsBlue = b.type === "blueSpark" ? 1 : 0;
+                if (aIsBlue !== bIsBlue) return aIsBlue - bIsBlue;
+                return b.chanceAtLeastOnce - a.chanceAtLeastOnce;
+            })
             .slice(0, 5);
     });
 
