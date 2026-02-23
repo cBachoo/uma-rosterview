@@ -138,7 +138,7 @@
     }
 </script>
 
-{#if !trainedCharas}
+{#if !trainedCharas && currentPage !== "planner"}
     <UnifiedTopBar currentApp="sparks" />
 {/if}
 

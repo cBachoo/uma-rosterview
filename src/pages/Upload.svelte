@@ -58,13 +58,13 @@
 
             <div class="mt-4 p-3 bg-slate rounded">
                 <p class="mb-2 text-muted">
-                    Want to plan breeding without uploading?
+                    Want to plan lineages without uploading?
                 </p>
                 <button
                     class="btn btn-success"
                     onclick={() => (window.location.hash = "/planner")}
                 >
-                    Open Breeding Planner
+                    Open Lineage Planner
                 </button>
             </div>
         </div>
