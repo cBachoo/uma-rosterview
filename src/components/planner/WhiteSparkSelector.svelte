@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { skillsData, charaCardsData } from "../../data";
+    import { skillsData, charaCardsData, factorsData } from "../../data";
 
     interface SparkData {
         stat: string;
@@ -19,14 +19,26 @@
         Object.values(charaCardsData).map(card => card.name)
     );
 
-    // Get full skill list from skillsData, excluding character names, sorted alphabetically
-    const allSkills = Object.values(skillsData)
+    // Regular skill names from skillsData
+    const regularSkillNames = Object.values(skillsData)
         .map(skill => skill.skillName)
         .filter((name): name is string =>
             name !== undefined &&
             name.trim() !== '' &&
             !characterNames.has(name)
+        );
+
+    // Race spark skill names from type 5 factors (race-won skills)
+    const raceSparkNames = Array.from(
+        new Set(
+            Object.values(factorsData)
+                .filter(f => f.type === 5 && f.name && f.name.trim() !== '')
+                .map(f => f.name)
         )
+    );
+
+    // Combined and sorted
+    const allSkills = Array.from(new Set([...regularSkillNames, ...raceSparkNames]))
         .sort((a, b) => a.localeCompare(b));
 
     const starLevels = [1, 2, 3];
@@ -69,70 +81,84 @@
 </script>
 
 <div class="modal-backdrop" onclick={onClose}></div>
-<div class="modal-dialog-md">
+<div class="modal-dialog-lg">
     <div class="modal-content" onclick={(e) => e.stopPropagation()}>
         <div class="modal-header">
-            <h6 class="modal-title">White Sparks - Skills ({editingSparks.length} selected)</h6>
+            <h6 class="modal-title">White Sparks — Skills ({editingSparks.length} selected)</h6>
             <button type="button" class="btn-close" onclick={onClose}></button>
         </div>
 
-        <div class="modal-body p-2">
-            <!-- Selected sparks list -->
-            {#if editingSparks.length > 0}
-                <div class="mb-2">
-                    <small class="text-muted text-uppercase fw-bold d-block mb-1">Selected Skills</small>
-                    <div class="selected-sparks">
-                        {#each editingSparks as spark, idx}
-                            <div class="d-flex align-items-center justify-content-between mb-1 p-1 border rounded">
-                                <small>
-                                    {spark.stat} {'★'.repeat(spark.level)}
-                                </small>
-                                <button
-                                    class="btn btn-sm btn-link text-danger p-0"
-                                    onclick={() => removeSpark(idx)}
-                                    style="font-size: 1rem; line-height: 1;"
-                                >
-                                    ×
-                                </button>
-                            </div>
+        <div class="modal-body p-3">
+            <div class="row g-3" style="height: 65vh;">
+                <!-- Left: skill picker -->
+                <div class="col-7 d-flex flex-column">
+                    <small class="text-muted text-uppercase fw-bold d-block mb-2">Add Skill</small>
+                    <input
+                        type="text"
+                        class="form-control form-control-sm mb-2"
+                        placeholder="Search skills..."
+                        bind:value={searchTerm}
+                        autocomplete="off"
+                    />
+                    <!-- Scrollable skill list -->
+                    <div class="skill-list mb-2" style="flex: 1 1 0; min-height: 0;">
+                        {#each filteredSkills as skill}
+                            <button
+                                type="button"
+                                class="skill-item w-100 text-start px-2 py-1 border-0 rounded-1
+                                    {selectedSkill === skill ? 'selected' : ''}"
+                                onclick={() => selectedSkill = skill}
+                                ondblclick={() => { selectedSkill = skill; addSpark(); }}
+                            >
+                                <small>{skill}</small>
+                            </button>
+                        {/each}
+                        {#if filteredSkills.length === 0}
+                            <div class="text-muted text-center py-3"><small>No skills found</small></div>
+                        {/if}
+                    </div>
+                    <!-- Stars + Add -->
+                    <div class="d-flex gap-1 mb-2">
+                        {#each starLevels as level}
+                            <button
+                                class="btn btn-sm flex-fill {selectedLevel === level ? 'btn-warning' : 'btn-outline-warning'}"
+                                onclick={() => selectedLevel = level}
+                            >
+                                <small>{'★'.repeat(level)}</small>
+                            </button>
                         {/each}
                     </div>
-                    <hr class="my-2" />
+                    <button
+                        class="btn btn-sm btn-success w-100"
+                        onclick={addSpark}
+                        disabled={!selectedSkill}
+                    >
+                        <small>Add {selectedSkill ? `"${selectedSkill}"` : 'Skill'} {'★'.repeat(selectedLevel)}</small>
+                    </button>
                 </div>
-            {/if}
 
-            <!-- Add new spark -->
-            <div class="mb-2">
-                <small class="text-muted text-uppercase fw-bold d-block mb-1">Add Skill</small>
-                <input
-                    type="text"
-                    class="form-control form-control-sm mb-2"
-                    placeholder="Search skills..."
-                    bind:value={searchTerm}
-                />
-                <select class="form-select form-select-sm mb-2" bind:value={selectedSkill}>
-                    <option value="">Select skill...</option>
-                    {#each filteredSkills as skill}
-                        <option value={skill}>{skill}</option>
-                    {/each}
-                </select>
-                <div class="d-flex gap-1 mb-2">
-                    {#each starLevels as level}
-                        <button
-                            class="btn btn-sm flex-fill {selectedLevel === level ? 'btn-warning' : 'btn-outline-warning'}"
-                            onclick={() => selectedLevel = level}
-                        >
-                            <small>{'★'.repeat(level)}</small>
-                        </button>
-                    {/each}
+                <!-- Right: selected sparks -->
+                <div class="col-5 d-flex flex-column">
+                    <small class="text-muted text-uppercase fw-bold d-block mb-2">
+                        Selected ({editingSparks.length})
+                    </small>
+                    <div class="selected-sparks" style="flex: 1 1 0; min-height: 0;">
+                        {#if editingSparks.length === 0}
+                            <div class="text-muted text-center py-3"><small>None selected</small></div>
+                        {:else}
+                            {#each editingSparks as spark, idx}
+                                <div class="d-flex align-items-center justify-content-between mb-1 p-1 border rounded">
+                                    <small class="text-truncate me-1">{spark.stat} {'★'.repeat(spark.level)}</small>
+                                    <button
+                                        class="btn btn-sm btn-link text-danger p-0 flex-shrink-0"
+                                        onclick={() => removeSpark(idx)}
+                                        style="font-size: 1rem; line-height: 1;"
+                                    >×</button>
+                                </div>
+                            {/each}
+                        {/if}
+                    </div>
                 </div>
-                <button
-                    class="btn btn-sm btn-success w-100"
-                    onclick={addSpark}
-                    disabled={!selectedSkill}
-                >
-                    <small>Add Skill</small>
-                </button>
             </div>
         </div>
 
@@ -158,16 +184,14 @@
         z-index: 1040;
     }
 
-    .modal-dialog-md {
+    .modal-dialog-lg {
         position: fixed;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 1050;
         width: 90%;
-        max-width: 500px;
-        max-height: 80vh;
-        overflow-y: auto;
+        max-width: 800px;
     }
 
     .modal-content {
@@ -175,6 +199,9 @@
         border: 1px solid var(--bs-border-color);
         border-radius: 0.5rem;
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+        display: flex;
+        flex-direction: column;
+        max-height: 90vh;
     }
 
     .modal-header {
@@ -183,6 +210,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        flex-shrink: 0;
     }
 
     .modal-title {
@@ -192,8 +220,8 @@
 
     .modal-body {
         padding: 0.75rem;
-        max-height: 60vh;
-        overflow-y: auto;
+        overflow: hidden;
+        flex: 1;
     }
 
     .modal-footer {
@@ -202,6 +230,7 @@
         display: flex;
         gap: 0.5rem;
         justify-content: flex-end;
+        flex-shrink: 0;
     }
 
     .btn-close {
@@ -223,8 +252,43 @@
         content: "×";
     }
 
-    .selected-sparks {
-        max-height: 150px;
+    /* Scrollable skill picker list */
+    .skill-list {
         overflow-y: auto;
+        border: 1px solid var(--bs-border-color);
+        border-radius: 0.375rem;
+        background: var(--bs-body-bg);
+        min-height: 0;
+    }
+
+    .skill-item {
+        display: block;
+        background: transparent;
+        color: var(--bs-body-color);
+        cursor: pointer;
+        border-bottom: 1px solid var(--bs-border-color) !important;
+        transition: background 0.1s;
+    }
+
+    .skill-item:last-child {
+        border-bottom: none !important;
+    }
+
+    .skill-item:hover {
+        background: var(--bs-secondary-bg);
+    }
+
+    .skill-item.selected {
+        background: var(--bs-primary);
+        color: white;
+    }
+
+    /* Scrollable selected list */
+    .selected-sparks {
+        overflow-y: auto;
+        border: 1px solid var(--bs-border-color);
+        border-radius: 0.375rem;
+        padding: 0.25rem;
+        min-height: 0;
     }
 </style>

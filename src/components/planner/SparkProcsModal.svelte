@@ -19,7 +19,7 @@
     const getSparkTypeColor = (type: string): string => {
         switch (type) {
             case "blueSpark": return "text-primary";
-            case "pinkSpark": return "text-danger";
+            case "pinkSpark": return "text-pink";
             case "greenSpark": return "text-success";
             case "whiteSpark": return "text-secondary";
             default: return "text-muted";
@@ -209,5 +209,9 @@
 
     .btn-close:before {
         content: "×";
+    }
+
+    .text-pink {
+        color: #c6417b;
     }
 </style>

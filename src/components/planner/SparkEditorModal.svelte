@@ -43,9 +43,9 @@
             options: ['Speed', 'Stamina', 'Power', 'Guts', 'Wits']
         },
         pink: {
-            title: 'Red Spark (Aptitudes)',
-            buttonClass: 'btn-danger',
-            outlineClass: 'btn-outline-danger',
+            title: 'Pink Spark (Aptitudes)',
+            buttonClass: 'btn-pink',
+            outlineClass: 'btn-outline-pink',
             options: ['Turf', 'Dirt', 'Sprint', 'Mile', 'Medium', 'Long', 'Front Runner', 'Pace Chaser', 'Late Surger', 'End Closer']
         },
         green: {
@@ -285,5 +285,25 @@
 
     .btn-close:before {
         content: "×";
+    }
+
+    .btn-pink {
+        background-color: #c6417b;
+        border-color: #c6417b;
+        color: white;
+    }
+    .btn-pink:hover {
+        background-color: #a8325f;
+        border-color: #a8325f;
+        color: white;
+    }
+    .btn-outline-pink {
+        color: #c6417b;
+        border-color: #c6417b;
+        background: transparent;
+    }
+    .btn-outline-pink:hover {
+        background: #c6417b;
+        color: white;
     }
 </style>

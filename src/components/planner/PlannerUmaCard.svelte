@@ -6,6 +6,7 @@
     import WhiteSparkSelector from "./WhiteSparkSelector.svelte";
     import { racesByRaceId } from "../../utils/races";
     import { getSparkChance } from "../../utils/inspiration";
+    import { calculateAptitudeRaises, characterAptitudesByCardId, numToGrade, sparkStatToAptKey } from "../../utils/characters";
 
     interface SparkData {
         stat: string;
@@ -36,9 +37,11 @@
         onGreenSparkChange?: (spark: SparkData) => void;
         onWhiteSparkChange?: (sparks: SparkData[]) => void;
         onRacesChange?: (races: string[]) => void;
+        // Pink sparks from ancestors (GPs for parents, GGPs for GPs) for aptitude raise display
+        ancestorPinkSparks?: Array<{ stat: string; level: number } | undefined | null>;
     }
 
-    const { uma, label, size, borderColor, onSelect, onClear, affinityValue, sparkProcs, onOpenSparkProcs, onBlueSparkChange, onPinkSparkChange, onGreenSparkChange, onWhiteSparkChange, onRacesChange }: Props = $props();
+    const { uma, label, size, borderColor, onSelect, onClear, affinityValue, sparkProcs, onOpenSparkProcs, onBlueSparkChange, onPinkSparkChange, onGreenSparkChange, onWhiteSparkChange, onRacesChange, ancestorPinkSparks }: Props = $props();
 
     // Modal state
     type ModalType = 'blue' | 'pink' | 'green' | 'race' | 'white' | null;
@@ -66,6 +69,50 @@
         if (!uma?.greenSpark || !affinityValue) return 0;
         return getSparkChance(uma.greenSpark, affinityValue, 'greenSpark');
     });
+
+    // Calculate aptitude raises from ancestor pink sparks (GPs → parent, GGPs → GP)
+    const aptitudeRaises = $derived(() => {
+        if (!uma?.card_id || !ancestorPinkSparks?.length) return [];
+        return calculateAptitudeRaises(uma.card_id, ancestorPinkSparks);
+    });
+
+    // Build aptitude display grid with raise highlights
+    const aptitudeGrid = $derived(() => {
+        if (!uma?.card_id) return null;
+        const apts = characterAptitudesByCardId.get(uma.card_id);
+        if (!apts) return null;
+
+        const raisedMap: Record<string, string> = {};
+        for (const raise of aptitudeRaises()) {
+            const key = sparkStatToAptKey[raise.stat];
+            if (key) raisedMap[key] = raise.raisedGrade;
+        }
+
+        const chip = (baseVal: number, key: string) => {
+            const baseGrade = numToGrade[baseVal] || 'G';
+            const raisedGrade = raisedMap[key];
+            return { displayGrade: raisedGrade ?? baseGrade, raised: !!raisedGrade };
+        };
+
+        return {
+            turf:        chip(apts.turf,        'turf'),
+            dirt:        chip(apts.dirt,        'dirt'),
+            sprint:      chip(apts.sprint,      'sprint'),
+            mile:        chip(apts.mile,        'mile'),
+            medium:      chip(apts.medium,      'medium'),
+            long:        chip(apts.long,        'long'),
+            frontRunner: chip(apts.frontRunner, 'frontRunner'),
+            paceChaser:  chip(apts.paceChaser,  'paceChaser'),
+            lateSurger:  chip(apts.lateSurger,  'lateSurger'),
+            endCloser:   chip(apts.endCloser,   'endCloser'),
+        };
+    });
+
+    function getAptClass(grade: string): string {
+        if (grade === 'A' || grade === 'S') return 'apt-high';
+        if (grade === 'B' || grade === 'C') return 'apt-mid';
+        return 'apt-low';
+    }
 
     // Get top spark procs sorted by chance
     const topSparkProcs = $derived(() => {
@@ -188,6 +235,72 @@
                 </div>
             {/if}
 
+            <!-- Aptitude Grid — all cards except GGPs (xs), raises highlighted in gold -->
+            {#if size !== 'xs'}
+                {@const grid = aptitudeGrid()}
+                {#if grid}
+                    <div class="apt-section mb-2 pb-2 border-bottom">
+                        <div class="apt-group-row">
+                            <span class="apt-group-lbl">Surf</span>
+                            <div class="apt-chips-row">
+                                <div class="apt-chip {getAptClass(grid.turf.displayGrade)} {grid.turf.raised ? 'apt-raised' : ''}">
+                                    <span class="apt-lbl">Turf</span>
+                                    <span class="apt-grade">{grid.turf.displayGrade}</span>
+                                </div>
+                                <div class="apt-chip {getAptClass(grid.dirt.displayGrade)} {grid.dirt.raised ? 'apt-raised' : ''}">
+                                    <span class="apt-lbl">Dirt</span>
+                                    <span class="apt-grade">{grid.dirt.displayGrade}</span>
+                                </div>
+                                <div class="apt-chip-empty"></div>
+                                <div class="apt-chip-empty"></div>
+                            </div>
+                        </div>
+                        <div class="apt-group-row">
+                            <span class="apt-group-lbl">Dist</span>
+                            <div class="apt-chips-row">
+                                <div class="apt-chip {getAptClass(grid.sprint.displayGrade)} {grid.sprint.raised ? 'apt-raised' : ''}">
+                                    <span class="apt-lbl">Sprint</span>
+                                    <span class="apt-grade">{grid.sprint.displayGrade}</span>
+                                </div>
+                                <div class="apt-chip {getAptClass(grid.mile.displayGrade)} {grid.mile.raised ? 'apt-raised' : ''}">
+                                    <span class="apt-lbl">Mile</span>
+                                    <span class="apt-grade">{grid.mile.displayGrade}</span>
+                                </div>
+                                <div class="apt-chip {getAptClass(grid.medium.displayGrade)} {grid.medium.raised ? 'apt-raised' : ''}">
+                                    <span class="apt-lbl">Med</span>
+                                    <span class="apt-grade">{grid.medium.displayGrade}</span>
+                                </div>
+                                <div class="apt-chip {getAptClass(grid.long.displayGrade)} {grid.long.raised ? 'apt-raised' : ''}">
+                                    <span class="apt-lbl">Long</span>
+                                    <span class="apt-grade">{grid.long.displayGrade}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="apt-group-row">
+                            <span class="apt-group-lbl">Style</span>
+                            <div class="apt-chips-row">
+                                <div class="apt-chip {getAptClass(grid.frontRunner.displayGrade)} {grid.frontRunner.raised ? 'apt-raised' : ''}">
+                                    <span class="apt-lbl">Front</span>
+                                    <span class="apt-grade">{grid.frontRunner.displayGrade}</span>
+                                </div>
+                                <div class="apt-chip {getAptClass(grid.paceChaser.displayGrade)} {grid.paceChaser.raised ? 'apt-raised' : ''}">
+                                    <span class="apt-lbl">Pace</span>
+                                    <span class="apt-grade">{grid.paceChaser.displayGrade}</span>
+                                </div>
+                                <div class="apt-chip {getAptClass(grid.lateSurger.displayGrade)} {grid.lateSurger.raised ? 'apt-raised' : ''}">
+                                    <span class="apt-lbl">Late</span>
+                                    <span class="apt-grade">{grid.lateSurger.displayGrade}</span>
+                                </div>
+                                <div class="apt-chip {getAptClass(grid.endCloser.displayGrade)} {grid.endCloser.raised ? 'apt-raised' : ''}">
+                                    <span class="apt-lbl">End</span>
+                                    <span class="apt-grade">{grid.endCloser.displayGrade}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {/if}
+            {/if}
+
             <!-- Spark Procs for p0 (Target) -->
             {#if label === "Target" && sparkProcs && topSparkProcs().length > 0}
                 <div class="spark-display">
@@ -212,7 +325,7 @@
                 </div>
             {/if}
 
-            <!-- Spark Selectors for parents/grandparents -->
+            <!-- Spark Selectors for parents/grandparents (lg/md/sm) -->
             {#if label !== "Target" && (size === 'lg' || size === 'md' || size === 'sm')}
                 <div class="spark-selectors d-grid gap-1">
                     <!-- Blue Spark Button -->
@@ -238,7 +351,7 @@
 
                     <!-- Pink Spark Button -->
                     <button
-                        class="btn btn-sm btn-outline-danger text-start px-2 py-1 w-100 d-flex justify-content-between align-items-center"
+                        class="btn btn-sm btn-outline-pink text-start px-2 py-1 w-100 d-flex justify-content-between align-items-center"
                         type="button"
                         onclick={(e) => {
                             e.stopPropagation();
@@ -249,11 +362,11 @@
                             {#if uma.pinkSpark && uma.pinkSpark.stat}
                                 {uma.pinkSpark.stat} {'★'.repeat(uma.pinkSpark.level)}
                             {:else}
-                                Red Spark
+                                Pink Spark
                             {/if}
                         </small>
                         {#if uma.pinkSpark && affinityValue}
-                            <small class="badge bg-danger">{pinkChance().toFixed(0)}%</small>
+                            <small class="badge badge-pink">{pinkChance().toFixed(0)}%</small>
                         {/if}
                     </button>
 
@@ -305,6 +418,40 @@
                             </button>
                         </div>
                     </div>
+
+                    <!-- White spark badge list -->
+                    {#if uma.whiteSpark && uma.whiteSpark.length > 0}
+                        <div class="pt-1 border-top spark-badge-area">
+                            {#each uma.whiteSpark as spark}
+                                <span class="badge bg-secondary me-1 mb-1 spark-badge">
+                                    {spark.stat} {'★'.repeat(spark.level)}
+                                </span>
+                            {/each}
+                        </div>
+                    {/if}
+
+                </div>
+            {/if}
+
+            <!-- GGP (xs): pink spark only for aptitude contribution -->
+            {#if label !== "Target" && size === 'xs'}
+                <div class="mt-1">
+                    <button
+                        class="btn btn-sm btn-outline-pink text-start px-2 py-1 w-100"
+                        type="button"
+                        onclick={(e) => {
+                            e.stopPropagation();
+                            activeModal = 'pink';
+                        }}
+                    >
+                        <small class="fw-semibold">
+                            {#if uma.pinkSpark && uma.pinkSpark.stat}
+                                {uma.pinkSpark.stat} {'★'.repeat(uma.pinkSpark.level)}
+                            {:else}
+                                Pink Spark
+                            {/if}
+                        </small>
+                    </button>
                 </div>
             {/if}
         </div>
@@ -367,17 +514,14 @@
 
     .uma-card-lg {
         min-height: 300px;
-        max-height: 450px;
     }
 
     .uma-card-md {
         min-height: 300px;
-        max-height: 400px;
     }
 
     .uma-card-sm {
         min-height: 300px;
-        max-height: 350px;
     }
 
     .uma-card-xs {
@@ -420,5 +564,99 @@
 
     .x-small {
         font-size: 0.7rem;
+    }
+
+    .spark-badge {
+        font-size: 0.6rem;
+        font-weight: 500;
+    }
+
+    .spark-badge-area {
+        max-height: 72px;
+        overflow-y: auto;
+    }
+
+    .apt-raise-badge {
+        font-size: 0.65rem;
+        font-weight: 500;
+        white-space: nowrap;
+    }
+
+    /* Aptitude Grid */
+    .apt-group-row {
+        display: grid;
+        grid-template-columns: 26px 1fr;
+        align-items: center;
+        gap: 2px;
+        margin-bottom: 2px;
+    }
+
+    .apt-group-lbl {
+        font-size: 0.48rem;
+        font-weight: 700;
+        color: var(--bs-secondary-color);
+        text-transform: uppercase;
+        text-align: right;
+        padding-right: 2px;
+    }
+
+    .apt-chips-row {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2px;
+    }
+
+    .apt-chip {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1px;
+        border-radius: 3px;
+        padding: 2px 3px;
+        border: 1px solid transparent;
+    }
+
+    .apt-chip-empty {
+        visibility: hidden;
+    }
+
+    .apt-lbl {
+        font-size: 0.48rem;
+        color: rgba(255, 255, 255, 0.8);
+        font-weight: 500;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+    }
+
+    .apt-grade {
+        font-size: 0.6rem;
+        font-weight: 700;
+        color: white;
+        min-width: 10px;
+        text-align: right;
+    }
+
+    .apt-high, .apt-mid, .apt-low { background: #757575; }
+
+    .apt-raised {
+        background: #c6417b !important;
+        border-color: #c6417b !important;
+        box-shadow: 0 0 4px rgba(198, 65, 123, 0.65);
+    }
+
+    /* Pink spark button / badge */
+    .btn-outline-pink {
+        color: #c6417b;
+        border-color: #c6417b;
+        background: transparent;
+    }
+    .btn-outline-pink:hover {
+        background: #c6417b;
+        color: white;
+    }
+    .badge-pink {
+        background-color: #c6417b;
+        color: white;
     }
 </style>

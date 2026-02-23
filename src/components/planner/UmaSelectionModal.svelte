@@ -1,3 +1,8 @@
+<script module>
+    // Remember the last selected tab across modal opens (but not for target selection)
+    let rememberedTab: "roster" | "borrow" = "roster";
+</script>
+
 <script lang="ts">
     import type { CharaData } from "../../types";
     import { charaCardsData, skillsData, factorsData } from "../../data";
@@ -29,8 +34,15 @@
     // Enable affinity sorting by default when we have a target
     let sortByAffinity = $state(parentContext?.targetId ? true : false);
 
-    // For target (p0), only allow borrow. For others, default to roster
-    let activeTab = $state<"roster" | "borrow">(isTargetSelection ? "borrow" : "roster");
+    // For target (p0), always use borrow. For others, remember last selected tab
+    let activeTab = $state<"roster" | "borrow">(isTargetSelection ? "borrow" : rememberedTab);
+
+    // Sync tab selection back to module-level memory
+    $effect(() => {
+        if (!isTargetSelection) {
+            rememberedTab = activeTab;
+        }
+    });
 
     // Filters state (same as Affinity.svelte)
     let filters = $state({
@@ -401,15 +413,23 @@
                                                     style="width: 40px; height: 40px; object-fit: cover;"
                                                 />
                                                 <div class="flex-fill" style="min-width: 0;">
-                                                    <div class="fw-bold small text-truncate">{getCharaName(uma.card_id)}</div>
-                                                    {#if sortByAffinity && parentContext?.targetId}
-                                                        {@const targetCharaId = charaCardsData[parentContext.targetId]?.chara_id.toString()}
-                                                        {@const umaCharaId = charaCardsData[uma.card_id]?.chara_id.toString()}
-                                                        {#if targetCharaId && umaCharaId !== targetCharaId}
-                                                            {@const affinity = calculateSingleParentAffinity(targetCharaId, uma)}
-                                                            <small class="text-muted">Affinity: {affinity.totalAffinity}</small>
+                                                    <div class="fw-bold small text-truncate text-center">{getCharaName(uma.card_id)}</div>
+                                                    <div class="d-flex flex-wrap gap-2 justify-content-center">
+                                                        {#if parentContext?.targetId}
+                                                            {@const targetCharaId = charaCardsData[parentContext.targetId]?.chara_id.toString()}
+                                                            {@const umaCharaId = charaCardsData[uma.card_id]?.chara_id.toString()}
+                                                            {#if targetCharaId && umaCharaId !== targetCharaId}
+                                                                {@const affinity = calculateSingleParentAffinity(targetCharaId, uma)}
+                                                                <small class="text-muted">Affinity: <span class="text-body">{affinity.totalAffinity}</span></small>
+                                                            {/if}
                                                         {/if}
-                                                    {/if}
+                                                        {#if uma.rank_score !== undefined}
+                                                            <small class="text-muted">Score: <span class="text-body">{uma.rank_score.toLocaleString()}</span></small>
+                                                        {/if}
+                                                        {#if uma.create_time}
+                                                            <small class="text-muted">{uma.create_time.split(' ')[0]}</small>
+                                                        {/if}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

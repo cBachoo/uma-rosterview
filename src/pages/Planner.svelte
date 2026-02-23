@@ -47,6 +47,15 @@
     let gp1_2: TreeSlot = $state({ uma: null, isBorrow: false });
     let gp2_1: TreeSlot = $state({ uma: null, isBorrow: false });
     let gp2_2: TreeSlot = $state({ uma: null, isBorrow: false });
+    // Great-grandparents (Level 4) - pink spark only, for GP aptitude calculations
+    let ggp1_1_1: TreeSlot = $state({ uma: null, isBorrow: false });
+    let ggp1_1_2: TreeSlot = $state({ uma: null, isBorrow: false });
+    let ggp1_2_1: TreeSlot = $state({ uma: null, isBorrow: false });
+    let ggp1_2_2: TreeSlot = $state({ uma: null, isBorrow: false });
+    let ggp2_1_1: TreeSlot = $state({ uma: null, isBorrow: false });
+    let ggp2_1_2: TreeSlot = $state({ uma: null, isBorrow: false });
+    let ggp2_2_1: TreeSlot = $state({ uma: null, isBorrow: false });
+    let ggp2_2_2: TreeSlot = $state({ uma: null, isBorrow: false });
 
     let showModal = $state(false);
     let modalPosition = $state("");
@@ -118,6 +127,30 @@
                 break;
             case "gp2_2":
                 gp2_2 = value;
+                break;
+            case "ggp1_1_1":
+                ggp1_1_1 = value;
+                break;
+            case "ggp1_1_2":
+                ggp1_1_2 = value;
+                break;
+            case "ggp1_2_1":
+                ggp1_2_1 = value;
+                break;
+            case "ggp1_2_2":
+                ggp1_2_2 = value;
+                break;
+            case "ggp2_1_1":
+                ggp2_1_1 = value;
+                break;
+            case "ggp2_1_2":
+                ggp2_1_2 = value;
+                break;
+            case "ggp2_2_1":
+                ggp2_2_1 = value;
+                break;
+            case "ggp2_2_2":
+                ggp2_2_2 = value;
                 break;
         }
         recalculateAffinity();
@@ -212,19 +245,39 @@
         showModal = false;
     }
 
-    function clearPosition(pos: string) {
-        const slot = getSlotByPosition(pos);
+    const empty = () => ({ uma: null, isBorrow: false });
 
-        // If clearing a parent from roster (not borrow), also clear its grandparents
-        if (pos === "p1" && !slot.isBorrow) {
-            setPosition("gp1_1", { uma: null, isBorrow: false });
-            setPosition("gp1_2", { uma: null, isBorrow: false });
-        } else if (pos === "p2" && !slot.isBorrow) {
-            setPosition("gp2_1", { uma: null, isBorrow: false });
-            setPosition("gp2_2", { uma: null, isBorrow: false });
+    function clearPosition(pos: string) {
+        // Cascade clear — always clear descendants when a position is cleared
+        if (pos === "p1") {
+            setPosition("gp1_1", empty());
+            setPosition("gp1_2", empty());
+            setPosition("ggp1_1_1", empty());
+            setPosition("ggp1_1_2", empty());
+            setPosition("ggp1_2_1", empty());
+            setPosition("ggp1_2_2", empty());
+        } else if (pos === "p2") {
+            setPosition("gp2_1", empty());
+            setPosition("gp2_2", empty());
+            setPosition("ggp2_1_1", empty());
+            setPosition("ggp2_1_2", empty());
+            setPosition("ggp2_2_1", empty());
+            setPosition("ggp2_2_2", empty());
+        } else if (pos === "gp1_1") {
+            setPosition("ggp1_1_1", empty());
+            setPosition("ggp1_1_2", empty());
+        } else if (pos === "gp1_2") {
+            setPosition("ggp1_2_1", empty());
+            setPosition("ggp1_2_2", empty());
+        } else if (pos === "gp2_1") {
+            setPosition("ggp2_1_1", empty());
+            setPosition("ggp2_1_2", empty());
+        } else if (pos === "gp2_2") {
+            setPosition("ggp2_2_1", empty());
+            setPosition("ggp2_2_2", empty());
         }
 
-        setPosition(pos, { uma: null, isBorrow: false });
+        setPosition(pos, empty());
     }
 
     // Spark change handlers
@@ -252,6 +305,22 @@
                 return gp2_1;
             case "gp2_2":
                 return gp2_2;
+            case "ggp1_1_1":
+                return ggp1_1_1;
+            case "ggp1_1_2":
+                return ggp1_1_2;
+            case "ggp1_2_1":
+                return ggp1_2_1;
+            case "ggp1_2_2":
+                return ggp1_2_2;
+            case "ggp2_1_1":
+                return ggp2_1_1;
+            case "ggp2_1_2":
+                return ggp2_1_2;
+            case "ggp2_2_1":
+                return ggp2_2_1;
+            case "ggp2_2_2":
+                return ggp2_2_2;
             default:
                 return { uma: null, isBorrow: false };
         }
@@ -429,6 +498,14 @@
                                 gp1_2Affinity +
                                 gp2_1Affinity +
                                 gp2_2Affinity}
+                            ancestorPinkSparks={[
+                                parent1.uma?.pinkSpark,
+                                parent2.uma?.pinkSpark,
+                                gp1_1.uma?.pinkSpark,
+                                gp1_2.uma?.pinkSpark,
+                                gp2_1.uma?.pinkSpark,
+                                gp2_2.uma?.pinkSpark,
+                            ]}
                             sparkProcs={p0SparkProcs}
                             onOpenSparkProcs={() =>
                                 (showSparkProcsModal = true)}
@@ -452,6 +529,10 @@
                                     onSelect={() => openModal("p1")}
                                     onClear={() => clearPosition("p1")}
                                     affinityValue={p1Affinity}
+                                    ancestorPinkSparks={[
+                                        gp1_1.uma?.pinkSpark,
+                                        gp1_2.uma?.pinkSpark,
+                                    ]}
                                     onBlueSparkChange={handleBlueSparkChange(
                                         "p1",
                                     )}
@@ -476,6 +557,10 @@
                                     onSelect={() => openModal("p2")}
                                     onClear={() => clearPosition("p2")}
                                     affinityValue={p2Affinity}
+                                    ancestorPinkSparks={[
+                                        gp2_1.uma?.pinkSpark,
+                                        gp2_2.uma?.pinkSpark,
+                                    ]}
                                     onBlueSparkChange={handleBlueSparkChange(
                                         "p2",
                                     )}
@@ -496,7 +581,7 @@
                 </div>
 
                 <!-- Level 3: Grandparents -->
-                <div class="row justify-content-center mb-4">
+                <div class="row justify-content-center mb-2">
                     <div class="col-12">
                         <h5 class="text-center mb-3 text-muted fw-bold">
                             Grandparents
@@ -513,6 +598,10 @@
                                         ? undefined
                                         : () => clearPosition("gp1_1")}
                                     affinityValue={gp1_1Affinity}
+                                    ancestorPinkSparks={[
+                                        ggp1_1_1.uma?.pinkSpark,
+                                        ggp1_1_2.uma?.pinkSpark,
+                                    ]}
                                     onBlueSparkChange={handleBlueSparkChange(
                                         "gp1_1",
                                     )}
@@ -539,6 +628,10 @@
                                         ? undefined
                                         : () => clearPosition("gp1_2")}
                                     affinityValue={gp1_2Affinity}
+                                    ancestorPinkSparks={[
+                                        ggp1_2_1.uma?.pinkSpark,
+                                        ggp1_2_2.uma?.pinkSpark,
+                                    ]}
                                     onBlueSparkChange={handleBlueSparkChange(
                                         "gp1_2",
                                     )}
@@ -565,6 +658,10 @@
                                         ? undefined
                                         : () => clearPosition("gp2_1")}
                                     affinityValue={gp2_1Affinity}
+                                    ancestorPinkSparks={[
+                                        ggp2_1_1.uma?.pinkSpark,
+                                        ggp2_1_2.uma?.pinkSpark,
+                                    ]}
                                     onBlueSparkChange={handleBlueSparkChange(
                                         "gp2_1",
                                     )}
@@ -591,6 +688,10 @@
                                         ? undefined
                                         : () => clearPosition("gp2_2")}
                                     affinityValue={gp2_2Affinity}
+                                    ancestorPinkSparks={[
+                                        ggp2_2_1.uma?.pinkSpark,
+                                        ggp2_2_2.uma?.pinkSpark,
+                                    ]}
                                     onBlueSparkChange={handleBlueSparkChange(
                                         "gp2_2",
                                     )}
@@ -605,6 +706,175 @@
                                     )}
                                     onRacesChange={handleRacesChange("gp2_2")}
                                 />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level 4: Great-Grandparents -->
+                <div class="row justify-content-center mb-4">
+                    <div class="col-12">
+                        <h6 class="text-center mb-2 text-muted fw-semibold">
+                            Great-Grandparents <small
+                                class="text-muted fw-normal"
+                            ></small>
+                        </h6>
+                        <div class="row g-2">
+                            <!-- GGPs of GP1.1 -->
+                            <div class="col-6 col-lg-3">
+                                <div class="row g-1">
+                                    <div class="col-6">
+                                        <PlannerUmaCard
+                                            uma={ggp1_1_1.uma}
+                                            label="GGP"
+                                            size="xs"
+                                            borderColor="#7c3aed"
+                                            onSelect={() =>
+                                                openModal("ggp1_1_1")}
+                                            onClear={ggp1_1_1.uma
+                                                ? () =>
+                                                      clearPosition("ggp1_1_1")
+                                                : undefined}
+                                            onPinkSparkChange={handlePinkSparkChange(
+                                                "ggp1_1_1",
+                                            )}
+                                        />
+                                    </div>
+                                    <div class="col-6">
+                                        <PlannerUmaCard
+                                            uma={ggp1_1_2.uma}
+                                            label="GGP"
+                                            size="xs"
+                                            borderColor="#7c3aed"
+                                            onSelect={() =>
+                                                openModal("ggp1_1_2")}
+                                            onClear={ggp1_1_2.uma
+                                                ? () =>
+                                                      clearPosition("ggp1_1_2")
+                                                : undefined}
+                                            onPinkSparkChange={handlePinkSparkChange(
+                                                "ggp1_1_2",
+                                            )}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- GGPs of GP1.2 -->
+                            <div class="col-6 col-lg-3">
+                                <div class="row g-1">
+                                    <div class="col-6">
+                                        <PlannerUmaCard
+                                            uma={ggp1_2_1.uma}
+                                            label="GGP"
+                                            size="xs"
+                                            borderColor="#7c3aed"
+                                            onSelect={() =>
+                                                openModal("ggp1_2_1")}
+                                            onClear={ggp1_2_1.uma
+                                                ? () =>
+                                                      clearPosition("ggp1_2_1")
+                                                : undefined}
+                                            onPinkSparkChange={handlePinkSparkChange(
+                                                "ggp1_2_1",
+                                            )}
+                                        />
+                                    </div>
+                                    <div class="col-6">
+                                        <PlannerUmaCard
+                                            uma={ggp1_2_2.uma}
+                                            label="GGP"
+                                            size="xs"
+                                            borderColor="#7c3aed"
+                                            onSelect={() =>
+                                                openModal("ggp1_2_2")}
+                                            onClear={ggp1_2_2.uma
+                                                ? () =>
+                                                      clearPosition("ggp1_2_2")
+                                                : undefined}
+                                            onPinkSparkChange={handlePinkSparkChange(
+                                                "ggp1_2_2",
+                                            )}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- GGPs of GP2.1 -->
+                            <div class="col-6 col-lg-3">
+                                <div class="row g-1">
+                                    <div class="col-6">
+                                        <PlannerUmaCard
+                                            uma={ggp2_1_1.uma}
+                                            label="GGP"
+                                            size="xs"
+                                            borderColor="#d97706"
+                                            onSelect={() =>
+                                                openModal("ggp2_1_1")}
+                                            onClear={ggp2_1_1.uma
+                                                ? () =>
+                                                      clearPosition("ggp2_1_1")
+                                                : undefined}
+                                            onPinkSparkChange={handlePinkSparkChange(
+                                                "ggp2_1_1",
+                                            )}
+                                        />
+                                    </div>
+                                    <div class="col-6">
+                                        <PlannerUmaCard
+                                            uma={ggp2_1_2.uma}
+                                            label="GGP"
+                                            size="xs"
+                                            borderColor="#d97706"
+                                            onSelect={() =>
+                                                openModal("ggp2_1_2")}
+                                            onClear={ggp2_1_2.uma
+                                                ? () =>
+                                                      clearPosition("ggp2_1_2")
+                                                : undefined}
+                                            onPinkSparkChange={handlePinkSparkChange(
+                                                "ggp2_1_2",
+                                            )}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- GGPs of GP2.2 -->
+                            <div class="col-6 col-lg-3">
+                                <div class="row g-1">
+                                    <div class="col-6">
+                                        <PlannerUmaCard
+                                            uma={ggp2_2_1.uma}
+                                            label="GGP"
+                                            size="xs"
+                                            borderColor="#d97706"
+                                            onSelect={() =>
+                                                openModal("ggp2_2_1")}
+                                            onClear={ggp2_2_1.uma
+                                                ? () =>
+                                                      clearPosition("ggp2_2_1")
+                                                : undefined}
+                                            onPinkSparkChange={handlePinkSparkChange(
+                                                "ggp2_2_1",
+                                            )}
+                                        />
+                                    </div>
+                                    <div class="col-6">
+                                        <PlannerUmaCard
+                                            uma={ggp2_2_2.uma}
+                                            label="GGP"
+                                            size="xs"
+                                            borderColor="#d97706"
+                                            onSelect={() =>
+                                                openModal("ggp2_2_2")}
+                                            onClear={ggp2_2_2.uma
+                                                ? () =>
+                                                      clearPosition("ggp2_2_2")
+                                                : undefined}
+                                            onPinkSparkChange={handlePinkSparkChange(
+                                                "ggp2_2_2",
+                                            )}
+                                        />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
