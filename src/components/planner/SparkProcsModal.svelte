@@ -18,21 +18,31 @@
 
     const getSparkTypeColor = (type: string): string => {
         switch (type) {
-            case "blueSpark": return "text-primary";
-            case "pinkSpark": return "text-pink";
-            case "greenSpark": return "text-success";
-            case "whiteSpark": return "text-secondary";
-            default: return "text-muted";
+            case "blueSpark":
+                return "text-primary";
+            case "pinkSpark":
+                return "text-pink";
+            case "greenSpark":
+                return "text-success";
+            case "whiteSpark":
+                return "text-secondary";
+            default:
+                return "text-muted";
         }
     };
 
     const getSparkTypeLabel = (type: string): string => {
         switch (type) {
-            case "blueSpark": return "Stat";
-            case "pinkSpark": return "Aptitude";
-            case "greenSpark": return "Unique";
-            case "whiteSpark": return "Skill";
-            default: return type;
+            case "blueSpark":
+                return "Stat";
+            case "pinkSpark":
+                return "Aptitude";
+            case "greenSpark":
+                return "Unique";
+            case "whiteSpark":
+                return "Skill";
+            default:
+                return type;
         }
     };
 
@@ -42,7 +52,7 @@
         // Filter by search term
         if (searchTerm) {
             entries = entries.filter(([stat]) =>
-                stat.toLowerCase().includes(searchTerm.toLowerCase())
+                stat.toLowerCase().includes(searchTerm.toLowerCase()),
             );
         }
 
@@ -92,37 +102,50 @@
             </div>
 
             <!-- Sort Headers -->
-            <div class="d-flex gap-2 mb-2 pb-2 border-bottom text-uppercase fw-bold small">
+            <div
+                class="d-flex gap-2 mb-2 pb-2 border-bottom text-uppercase fw-bold small"
+            >
                 <button
                     class="flex-fill btn btn-sm btn-link text-start p-0 text-decoration-none"
                     onclick={() => toggleSort("name")}
                 >
-                    Name {#if sortBy === "name"}{sortDirection === "asc" ? "▲" : "▼"}{/if}
+                    Name {#if sortBy === "name"}{sortDirection === "asc"
+                            ? "▲"
+                            : "▼"}{/if}
                 </button>
                 <button
                     class="btn btn-sm btn-link p-0 text-decoration-none"
                     style="width: 80px;"
                     onclick={() => toggleSort("type")}
                 >
-                    Type {#if sortBy === "type"}{sortDirection === "asc" ? "▲" : "▼"}{/if}
+                    Type {#if sortBy === "type"}{sortDirection === "asc"
+                            ? "▲"
+                            : "▼"}{/if}
                 </button>
                 <button
                     class="btn btn-sm btn-link p-0 text-decoration-none text-end"
                     style="width: 80px;"
                     onclick={() => toggleSort("chance")}
                 >
-                    Chance {#if sortBy === "chance"}{sortDirection === "asc" ? "▲" : "▼"}{/if}
+                    Chance {#if sortBy === "chance"}{sortDirection === "asc"
+                            ? "▲"
+                            : "▼"}{/if}
                 </button>
             </div>
 
             <!-- Results -->
             <div class="spark-list">
                 {#each filteredAndSorted as [stat, proc]}
-                    <div class="d-flex gap-2 align-items-center mb-2 pb-2 border-bottom">
+                    <div
+                        class="d-flex gap-2 align-items-center mb-2 pb-2 border-bottom"
+                    >
                         <div class="flex-fill text-truncate">
                             <small>{stat}</small>
                         </div>
-                        <div class={getSparkTypeColor(proc.type)} style="width: 80px;">
+                        <div
+                            class={getSparkTypeColor(proc.type)}
+                            style="width: 80px;"
+                        >
                             <small>{getSparkTypeLabel(proc.type)}</small>
                         </div>
                         <div class="text-end fw-bold" style="width: 80px;">

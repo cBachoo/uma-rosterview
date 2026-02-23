@@ -16,53 +16,58 @@
 
     // Get all character names to exclude from skill list
     const characterNames = new Set(
-        Object.values(charaCardsData).map(card => card.name)
+        Object.values(charaCardsData).map((card) => card.name),
     );
 
     // Regular skill names from skillsData
     const regularSkillNames = Object.values(skillsData)
-        .map(skill => skill.skillName)
-        .filter((name): name is string =>
-            name !== undefined &&
-            name.trim() !== '' &&
-            !characterNames.has(name)
+        .map((skill) => skill.skillName)
+        .filter(
+            (name): name is string =>
+                name !== undefined &&
+                name.trim() !== "" &&
+                !characterNames.has(name),
         );
 
     // Race spark skill names from type 5 factors (race-won skills)
     const raceSparkNames = Array.from(
         new Set(
             Object.values(factorsData)
-                .filter(f => f.type === 5 && f.name && f.name.trim() !== '')
-                .map(f => f.name)
-        )
+                .filter((f) => f.type === 5 && f.name && f.name.trim() !== "")
+                .map((f) => f.name),
+        ),
     );
 
     // Combined and sorted
-    const allSkills = Array.from(new Set([...regularSkillNames, ...raceSparkNames]))
-        .sort((a, b) => a.localeCompare(b));
+    const allSkills = Array.from(
+        new Set([...regularSkillNames, ...raceSparkNames]),
+    ).sort((a, b) => a.localeCompare(b));
 
     const starLevels = [1, 2, 3];
 
-    let selectedSkill = $state('');
+    let selectedSkill = $state("");
     let selectedLevel = $state(1);
-    let searchTerm = $state('');
+    let searchTerm = $state("");
     let editingSparks = $state<SparkData[]>([...whiteSpark]);
 
     const filteredSkills = $derived.by(() => {
         if (!searchTerm) return allSkills;
-        return allSkills.filter(skill =>
-            skill.toLowerCase().includes(searchTerm.toLowerCase())
+        return allSkills.filter((skill) =>
+            skill.toLowerCase().includes(searchTerm.toLowerCase()),
         );
     });
 
     function addSpark() {
         if (!selectedSkill) return;
 
-        const newSpark: SparkData = { stat: selectedSkill, level: selectedLevel };
+        const newSpark: SparkData = {
+            stat: selectedSkill,
+            level: selectedLevel,
+        };
         editingSparks = [...editingSparks, newSpark];
-        selectedSkill = '';
+        selectedSkill = "";
         selectedLevel = 1;
-        searchTerm = '';
+        searchTerm = "";
     }
 
     function removeSpark(index: number) {
@@ -84,7 +89,9 @@
 <div class="modal-dialog-lg">
     <div class="modal-content" onclick={(e) => e.stopPropagation()}>
         <div class="modal-header">
-            <h6 class="modal-title">White Sparks — Skills ({editingSparks.length} selected)</h6>
+            <h6 class="modal-title">
+                White Sparks — Skills ({editingSparks.length} selected)
+            </h6>
             <button type="button" class="btn-close" onclick={onClose}></button>
         </div>
 
@@ -92,7 +99,10 @@
             <div class="row g-3" style="height: 65vh;">
                 <!-- Left: skill picker -->
                 <div class="col-7 d-flex flex-column">
-                    <small class="text-muted text-uppercase fw-bold d-block mb-2">Add Skill</small>
+                    <small
+                        class="text-muted text-uppercase fw-bold d-block mb-2"
+                        >Add Skill</small
+                    >
                     <input
                         type="text"
                         class="form-control form-control-sm mb-2"
@@ -101,30 +111,41 @@
                         autocomplete="off"
                     />
                     <!-- Scrollable skill list -->
-                    <div class="skill-list mb-2" style="flex: 1 1 0; min-height: 0;">
+                    <div
+                        class="skill-list mb-2"
+                        style="flex: 1 1 0; min-height: 0;"
+                    >
                         {#each filteredSkills as skill}
                             <button
                                 type="button"
                                 class="skill-item w-100 text-start px-2 py-1 border-0 rounded-1
                                     {selectedSkill === skill ? 'selected' : ''}"
-                                onclick={() => selectedSkill = skill}
-                                ondblclick={() => { selectedSkill = skill; addSpark(); }}
+                                onclick={() => (selectedSkill = skill)}
+                                ondblclick={() => {
+                                    selectedSkill = skill;
+                                    addSpark();
+                                }}
                             >
                                 <small>{skill}</small>
                             </button>
                         {/each}
                         {#if filteredSkills.length === 0}
-                            <div class="text-muted text-center py-3"><small>No skills found</small></div>
+                            <div class="text-muted text-center py-3">
+                                <small>No skills found</small>
+                            </div>
                         {/if}
                     </div>
                     <!-- Stars + Add -->
                     <div class="d-flex gap-1 mb-2">
                         {#each starLevels as level}
                             <button
-                                class="btn btn-sm flex-fill {selectedLevel === level ? 'btn-warning' : 'btn-outline-warning'}"
-                                onclick={() => selectedLevel = level}
+                                class="btn btn-sm flex-fill {selectedLevel ===
+                                level
+                                    ? 'btn-warning'
+                                    : 'btn-outline-warning'}"
+                                onclick={() => (selectedLevel = level)}
                             >
-                                <small>{'★'.repeat(level)}</small>
+                                <small>{"★".repeat(level)}</small>
                             </button>
                         {/each}
                     </div>
@@ -133,27 +154,45 @@
                         onclick={addSpark}
                         disabled={!selectedSkill}
                     >
-                        <small>Add {selectedSkill ? `"${selectedSkill}"` : 'Skill'} {'★'.repeat(selectedLevel)}</small>
+                        <small
+                            >Add {selectedSkill
+                                ? `"${selectedSkill}"`
+                                : "Skill"}
+                            {"★".repeat(selectedLevel)}</small
+                        >
                     </button>
                 </div>
 
                 <!-- Right: selected sparks -->
                 <div class="col-5 d-flex flex-column">
-                    <small class="text-muted text-uppercase fw-bold d-block mb-2">
+                    <small
+                        class="text-muted text-uppercase fw-bold d-block mb-2"
+                    >
                         Selected ({editingSparks.length})
                     </small>
-                    <div class="selected-sparks" style="flex: 1 1 0; min-height: 0;">
+                    <div
+                        class="selected-sparks"
+                        style="flex: 1 1 0; min-height: 0;"
+                    >
                         {#if editingSparks.length === 0}
-                            <div class="text-muted text-center py-3"><small>None selected</small></div>
+                            <div class="text-muted text-center py-3">
+                                <small>None selected</small>
+                            </div>
                         {:else}
                             {#each editingSparks as spark, idx}
-                                <div class="d-flex align-items-center justify-content-between mb-1 p-1 border rounded">
-                                    <small class="text-truncate me-1">{spark.stat} {'★'.repeat(spark.level)}</small>
+                                <div
+                                    class="d-flex align-items-center justify-content-between mb-1 p-1 border rounded"
+                                >
+                                    <small class="text-truncate me-1"
+                                        >{spark.stat}
+                                        {"★".repeat(spark.level)}</small
+                                    >
                                     <button
                                         class="btn btn-sm btn-link text-danger p-0 flex-shrink-0"
                                         onclick={() => removeSpark(idx)}
                                         style="font-size: 1rem; line-height: 1;"
-                                    >×</button>
+                                        >×</button
+                                    >
                                 </div>
                             {/each}
                         {/if}

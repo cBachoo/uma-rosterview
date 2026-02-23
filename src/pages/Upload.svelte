@@ -56,7 +56,7 @@
                 </button>
             {/if}
 
-            <div class="mt-4 p-3 bg-light rounded">
+            <div class="mt-4 p-3 bg-slate rounded">
                 <p class="mb-2 text-muted">
                     Want to plan breeding without uploading?
                 </p>

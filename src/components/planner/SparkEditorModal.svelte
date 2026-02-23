@@ -6,7 +6,7 @@
         level: number;
     }
 
-    type SparkType = 'blue' | 'pink' | 'green' | 'race';
+    type SparkType = "blue" | "pink" | "green" | "race";
 
     interface Props {
         type: SparkType;
@@ -17,18 +17,27 @@
         cardId?: number;
     }
 
-    const { type, currentValue, onClose, onChange, races = [], cardId }: Props = $props();
+    const {
+        type,
+        currentValue,
+        onClose,
+        onChange,
+        races = [],
+        cardId,
+    }: Props = $props();
 
     // Get unique skill name for this character
     const uniqueSkillName = $derived.by(() => {
-        if (type !== 'green' || !cardId) return '';
+        if (type !== "green" || !cardId) return "";
 
         const card = charaCardsData[cardId];
-        if (!card) return '';
+        if (!card) return "";
 
         // Find the type 3 factor for this character
         const uniqueFactor = Object.values(factorsData).find(
-            factor => factor.type === 3 && factor.name.includes(card.name.split(' ')[1]) // Match character name
+            (factor) =>
+                factor.type === 3 &&
+                factor.name.includes(card.name.split(" ")[1]), // Match character name
         );
 
         return uniqueFactor?.name || `${card.name}'s Unique`;
@@ -37,47 +46,56 @@
     // Configuration per type
     const config = {
         blue: {
-            title: 'Blue Spark (Stats)',
-            buttonClass: 'btn-primary',
-            outlineClass: 'btn-outline-primary',
-            options: ['Speed', 'Stamina', 'Power', 'Guts', 'Wits']
+            title: "Blue Spark (Stats)",
+            buttonClass: "btn-primary",
+            outlineClass: "btn-outline-primary",
+            options: ["Speed", "Stamina", "Power", "Guts", "Wits"],
         },
         pink: {
-            title: 'Pink Spark (Aptitudes)',
-            buttonClass: 'btn-pink',
-            outlineClass: 'btn-outline-pink',
-            options: ['Turf', 'Dirt', 'Sprint', 'Mile', 'Medium', 'Long', 'Front Runner', 'Pace Chaser', 'Late Surger', 'End Closer']
+            title: "Pink Spark (Aptitudes)",
+            buttonClass: "btn-pink",
+            outlineClass: "btn-outline-pink",
+            options: [
+                "Turf",
+                "Dirt",
+                "Sprint",
+                "Mile",
+                "Medium",
+                "Long",
+                "Front Runner",
+                "Pace Chaser",
+                "Late Surger",
+                "End Closer",
+            ],
         },
         green: {
-            title: 'Unique Spark',
-            buttonClass: 'btn-success',
-            outlineClass: 'btn-outline-success',
-            options: []
+            title: "Unique Spark",
+            buttonClass: "btn-success",
+            outlineClass: "btn-outline-success",
+            options: [],
         },
         race: {
-            title: 'G1 Races Won',
-            buttonClass: 'btn-warning',
-            outlineClass: 'btn-outline-warning',
-            options: races
-        }
+            title: "G1 Races Won",
+            buttonClass: "btn-warning",
+            outlineClass: "btn-outline-warning",
+            options: races,
+        },
     };
 
     const currentConfig = config[type];
     const starLevels = [1, 2, 3];
-    const isMultiSelect = type === 'race';
-    const isGreenOnly = type === 'green';
+    const isMultiSelect = type === "race";
+    const isGreenOnly = type === "green";
 
     // State
     let selectedStat = $state(
-        isMultiSelect ? '' : (currentValue as SparkData)?.stat || ''
+        isMultiSelect ? "" : (currentValue as SparkData)?.stat || "",
     );
-    let selectedLevel = $state(
-        (currentValue as SparkData)?.level || 0
-    );
+    let selectedLevel = $state((currentValue as SparkData)?.level || 0);
     let selectedRaces = $state<Set<string>>(
-        new Set(isMultiSelect ? (currentValue as string[]) : [])
+        new Set(isMultiSelect ? (currentValue as string[]) : []),
     );
-    let raceSearch = $state('');
+    let raceSearch = $state("");
 
     function toggleRace(raceName: string) {
         const newSet = new Set(selectedRaces);
@@ -94,7 +112,10 @@
             onChange(Array.from(selectedRaces));
         } else if (isGreenOnly) {
             if (selectedLevel > 0) {
-                onChange({ stat: uniqueSkillName || `p${selectedLevel} unique`, level: selectedLevel });
+                onChange({
+                    stat: uniqueSkillName || `p${selectedLevel} unique`,
+                    level: selectedLevel,
+                });
             }
         } else {
             if (selectedStat && selectedLevel > 0) {
@@ -108,15 +129,17 @@
         if (isMultiSelect) {
             onChange([]);
         } else {
-            onChange({ stat: '', level: 0 });
+            onChange({ stat: "", level: 0 });
         }
         onClose();
     }
 
     const canApply = $derived(
-        isMultiSelect ? true :
-        isGreenOnly ? selectedLevel > 0 :
-        selectedStat && selectedLevel > 0
+        isMultiSelect
+            ? true
+            : isGreenOnly
+              ? selectedLevel > 0
+              : selectedStat && selectedLevel > 0,
     );
 </script>
 
@@ -135,7 +158,10 @@
             {#if isGreenOnly && uniqueSkillName}
                 <!-- Display unique skill name -->
                 <div class="mb-2">
-                    <small class="text-muted text-uppercase fw-bold d-block mb-1">Unique Skill</small>
+                    <small
+                        class="text-muted text-uppercase fw-bold d-block mb-1"
+                        >Unique Skill</small
+                    >
                     <div class="alert alert-success mb-2 py-2">
                         <small>{uniqueSkillName}</small>
                     </div>
@@ -145,8 +171,10 @@
             {#if !isGreenOnly}
                 <!-- Stat/Race Selection -->
                 <div class="mb-2">
-                    <small class="text-muted text-uppercase fw-bold d-block mb-1">
-                        {isMultiSelect ? 'Races' : 'Stat'}
+                    <small
+                        class="text-muted text-uppercase fw-bold d-block mb-1"
+                    >
+                        {isMultiSelect ? "Races" : "Stat"}
                     </small>
                     {#if isMultiSelect}
                         <input
@@ -157,15 +185,22 @@
                         />
                     {/if}
                     <div class="d-grid gap-1">
-                        {#each currentConfig.options.filter(o => !raceSearch || o.toLowerCase().includes(raceSearch.toLowerCase())) as option}
+                        {#each currentConfig.options.filter((o) => !raceSearch || o
+                                    .toLowerCase()
+                                    .includes(raceSearch.toLowerCase())) as option}
                             <button
                                 type="button"
-                                class="btn btn-sm text-start {
+                                class="btn btn-sm text-start {isMultiSelect
+                                    ? selectedRaces.has(option)
+                                        ? currentConfig.buttonClass
+                                        : currentConfig.outlineClass
+                                    : selectedStat === option
+                                      ? currentConfig.buttonClass
+                                      : currentConfig.outlineClass}"
+                                onclick={() =>
                                     isMultiSelect
-                                        ? (selectedRaces.has(option) ? currentConfig.buttonClass : currentConfig.outlineClass)
-                                        : (selectedStat === option ? currentConfig.buttonClass : currentConfig.outlineClass)
-                                }"
-                                onclick={() => isMultiSelect ? toggleRace(option) : selectedStat = option}
+                                        ? toggleRace(option)
+                                        : (selectedStat = option)}
                             >
                                 <small>{option}</small>
                             </button>
@@ -181,14 +216,20 @@
             <!-- Level Selection (not for races) -->
             {#if !isMultiSelect}
                 <div class="mb-2">
-                    <small class="text-muted text-uppercase fw-bold d-block mb-1">Level</small>
+                    <small
+                        class="text-muted text-uppercase fw-bold d-block mb-1"
+                        >Level</small
+                    >
                     <div class="d-flex gap-1">
                         {#each starLevels as level}
                             <button
-                                class="btn btn-sm flex-fill {selectedLevel === level ? 'btn-warning' : 'btn-outline-warning'}"
-                                onclick={() => selectedLevel = level}
+                                class="btn btn-sm flex-fill {selectedLevel ===
+                                level
+                                    ? 'btn-warning'
+                                    : 'btn-outline-warning'}"
+                                onclick={() => (selectedLevel = level)}
                             >
-                                <small>{'★'.repeat(level)}</small>
+                                <small>{"★".repeat(level)}</small>
                             </button>
                         {/each}
                     </div>
@@ -198,7 +239,7 @@
 
         <div class="modal-footer p-2">
             <button class="btn btn-sm btn-secondary" onclick={handleClear}>
-                <small>{isMultiSelect ? 'Clear All' : 'Clear'}</small>
+                <small>{isMultiSelect ? "Clear All" : "Clear"}</small>
             </button>
             <button
                 class="btn btn-sm btn-primary"
