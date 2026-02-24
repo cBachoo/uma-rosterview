@@ -1,12 +1,12 @@
 <script lang="ts">
     import type { CharaData } from "../types";
     import { charaCardsData, skillsData } from "../data";
-    import { getIconCardId } from "../iconMapping";
+    import { getIconCardId } from "../utils/iconMapping";
     import Stats from "./Stats.svelte";
     import SuccessionChara from "./SuccessionChara.svelte";
     import FactorList from "./FactorList.svelte";
     import Apttitudes from "./Apttitudes.svelte";
-    import { encodeSingleUma, charaToSingleExport } from "../singleExport";
+    import { encodeSingleUma, charaToSingleExport } from "../utils/singleExport";
     import RacesWon from "./RacesWon.svelte";
 
     interface Props {
@@ -47,7 +47,7 @@
     );
 
     const charaCreateTimeLabel = $derived(
-        new Date(charaData.create_time).toLocaleString(),
+        charaData.create_time ? new Date(charaData.create_time).toLocaleString() : "",
     );
     const charaThumb = $derived.by(() => {
         if (!charaCard) return "";
@@ -62,7 +62,7 @@
         return `/chara/uma/chr_icon_${charaId}_${paddedIconCardId}_${suffix}.webp`;
     });
 
-    const charaDatetime = $derived(charaData.create_time.split(" "));
+    const charaDatetime = $derived(charaData.create_time?.split(" ") ?? []);
 
     // Map rank_score to badge image number
     function getRankBadgeNumber(score: number | undefined): string {

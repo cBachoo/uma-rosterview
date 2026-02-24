@@ -2,18 +2,20 @@
     import Logo from "./assets/cafe.png";
     import TrainedCharaList from "./pages/TrainedCharaList.svelte";
     import Affinity from "./pages/Affinity.svelte";
+    import Planner from "./pages/Planner.svelte";
     import Upload from "./pages/Upload.svelte";
     import UnifiedTopBar from "./components/UnifiedTopBar.svelte";
     import {
         decodeCharas,
         getEncodedFromUrl,
         clearUrlEncoding,
-    } from "./encoding";
+    } from "./utils/encoding";
 
     import type { CharaData } from "./types";
+    import { normalizeRosterData } from "./utils/normalize";
 
     let trainedCharas: CharaData[] | undefined = $state();
-    let currentPage = $state<"roster" | "affinity">("roster");
+    let currentPage = $state<"roster" | "affinity" | "planner">("roster");
     let showImportModal = $state(false);
     let importText = $state("");
     let importError = $state("");
@@ -25,6 +27,9 @@
         // Check if it's a route
         if (hash.startsWith("/affinity")) {
             currentPage = "affinity";
+            return null;
+        } else if (hash.startsWith("/planner")) {
+            currentPage = "planner";
             return null;
         } else if (hash.startsWith("/")) {
             currentPage = "roster";
@@ -56,6 +61,8 @@
         const hash = window.location.hash.slice(1);
         if (hash.startsWith("/affinity")) {
             currentPage = "affinity";
+        } else if (hash.startsWith("/planner")) {
+            currentPage = "planner";
         } else if (hash.startsWith("/")) {
             currentPage = "roster";
         } else {
@@ -73,8 +80,8 @@
         const loader = import.meta.glob("../data.json")["../data.json"];
         if (loader) {
             loader().then((resp) => {
-                let data = resp as { default: CharaData[] };
-                trainedCharas = data.default;
+                let data = resp as { default: unknown };
+                trainedCharas = normalizeRosterData(data.default);
             });
         }
     }
@@ -121,18 +128,25 @@
         window.location.hash = "/affinity";
     }
 
+    function showPlannerPage() {
+        window.location.hash = "/planner";
+    }
+
     function showRosterPage() {
         window.location.hash = "";
         currentPage = "roster";
     }
 </script>
 
-{#if !trainedCharas}
+{#if !trainedCharas && currentPage !== "planner"}
     <UnifiedTopBar currentApp="sparks" />
 {/if}
 
 <main class="container-fluid text-center">
-    {#if trainedCharas}
+    {#if currentPage === "planner"}
+        <!-- Planner can be accessed without roster data -->
+        <Planner {trainedCharas} onHome={trainedCharas ? showRosterPage : undefined}></Planner>
+    {:else if trainedCharas}
         {#if currentPage === "affinity"}
             <Affinity {trainedCharas}></Affinity>
         {:else}
@@ -140,6 +154,7 @@
                 {trainedCharas}
                 onHome={goHome}
                 onAffinityClick={showAffinityPage}
+                onPlannerClick={showPlannerPage}
             ></TrainedCharaList>
         {/if}
     {:else}

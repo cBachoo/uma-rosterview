@@ -5,7 +5,7 @@
     import {
         calculateSingleParentAffinity,
         type AffinityResult,
-    } from "../affinity";
+    } from "../utils/affinity";
     import { charaCardsData, factorsData } from "../data";
     import TerumiCharacterData from "../assets/TerumiCharacterData.json";
 
@@ -507,33 +507,37 @@
     <!-- Top navigation bar -->
     <nav class="navbar navbar-expand-lg bg-slate mb-3">
         <div class="container-fluid">
-            <div class="d-flex align-items-center gap-3 w-100">
-                <button class="btn btn-slate-light btn-sm" onclick={goBack}>
-                    ← Back to Roster
-                </button>
-                <span class="navbar-brand mb-0 h1">Affinity Calculator</span>
+            <!-- Left side: Title + Nav links -->
+            <div class="d-flex gap-2 align-items-center">
+                <span class="navbar-brand mb-0 h1">Affinity</span>
 
-                <div class="ms-auto d-flex align-items-center gap-2">
-                    {#if selectedCharaId}
-                        <Filter {filters} {availableWhites} />
-                    {/if}
-                    <label for="targetCharaSelect" class="form-label mb-0"
-                        >Select Target Uma:</label
-                    >
-                    <select
-                        id="targetCharaSelect"
-                        class="form-select form-select-sm"
-                        style="width: 250px;"
-                        onchange={onCharaSelect}
-                    >
-                        <option value="">-- Choose an Uma --</option>
-                        {#each uniqueCharacters as char (char.charaId)}
-                            <option value={char.charaId}
-                                >{char.charaName}</option
-                            >
-                        {/each}
-                    </select>
-                </div>
+                <div class="vr mx-1"></div>
+
+                <a class="nav-link" href="#/">Roster</a>
+                <a class="nav-link active" href="#/affinity">Affinity</a>
+                <a class="nav-link" href="#/planner">Planner</a>
+            </div>
+
+            <!-- Right side: Controls -->
+            <div class="ms-auto d-flex align-items-center gap-2">
+                {#if selectedCharaId}
+                    <Filter {filters} {availableWhites} />
+                {/if}
+
+                <label for="targetCharaSelect" class="form-label mb-0 small"
+                    >Target:</label
+                >
+                <select
+                    id="targetCharaSelect"
+                    class="form-select form-select-sm"
+                    style="width: 200px;"
+                    onchange={onCharaSelect}
+                >
+                    <option value="">-- Choose --</option>
+                    {#each uniqueCharacters as char (char.charaId)}
+                        <option value={char.charaId}>{char.charaName}</option>
+                    {/each}
+                </select>
             </div>
         </div>
     </nav>
@@ -714,5 +718,28 @@
     .btn-slate-light:hover {
         background-color: #64748b;
         border-color: #64748b;
+    }
+
+    .navbar-brand {
+        color: white !important;
+        font-weight: bold;
+    }
+
+    .nav-link {
+        color: rgba(255, 255, 255, 0.8) !important;
+    }
+
+    .nav-link:hover {
+        color: white !important;
+    }
+
+    .nav-link.active {
+        color: white !important;
+        font-weight: bold;
+    }
+
+    .vr {
+        border-left: 1px solid rgba(255, 255, 255, 0.3);
+        height: 1.5rem;
     }
 </style>

@@ -1,7 +1,7 @@
-import relationsData from "./assets/succession_relation.json";
-import relationMembersData from "./assets/succession_relation_member.json";
-import { charaCardsData } from "./data";
-import type { CharaData, SuccessionCharaData } from "./types";
+import relationsData from "../assets/succession_relation.json";
+import relationMembersData from "../assets/succession_relation_member.json";
+import { charaCardsData } from "../data";
+import type { CharaData, SuccessionCharaData } from "../types";
 
 // Build lookup maps for efficient affinity calculations
 const relationsByCharaId = new Map<string, Set<string>>();

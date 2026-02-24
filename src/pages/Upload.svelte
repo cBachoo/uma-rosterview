@@ -1,5 +1,6 @@
 <script lang="ts">
     import type { CharaData } from "../types";
+    import { normalizeRosterData } from "../utils/normalize";
 
     let {
         uploaddata,
@@ -16,7 +17,7 @@
             reader.onload = (e) => {
                 try {
                     const content = e.target?.result as string;
-                    const data: CharaData[] = JSON.parse(content);
+                    const data = normalizeRosterData(JSON.parse(content));
                     uploaddata(data);
                 } catch (error) {
                     console.error("Failed to parse JSON file:", error);
@@ -54,6 +55,18 @@
                     Import from Shared Link
                 </button>
             {/if}
+
+            <div class="mt-4 p-3 bg-slate rounded">
+                <p class="mb-2 text-muted">
+                    Want to plan lineages without uploading?
+                </p>
+                <button
+                    class="btn btn-success"
+                    onclick={() => (window.location.hash = "/planner")}
+                >
+                    Open Lineage Planner
+                </button>
+            </div>
         </div>
 
         <!-- Instructions Section -->
