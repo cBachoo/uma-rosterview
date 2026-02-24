@@ -257,31 +257,19 @@
                 {/if}
             </div>
 
-            <!-- Affinity Badge -->
-            {#if affinityValue !== undefined && affinityValue > 0}
+            <!-- Affinity -->
+            {#if affinityValue !== undefined && (label === "Target" || affinityValue > 0)}
                 {@const icon = getAffinityIcon(affinityValue)}
                 <div
-                    class="d-flex justify-content-between align-items-center mb-2"
+                    class="d-flex justify-content-between align-items-center mb-2 {label ===
+                    'Target'
+                        ? 'pb-2 border-bottom'
+                        : ''}"
                 >
-                    <span class="text-muted small text-uppercase">Affinity</span
-                    >
-                    <div class="d-flex align-items-center gap-1">
-                        <span class="fw-bold">{affinityValue}</span>
-                        <span class={icon.color} style="font-size: 0.875rem;"
-                            >{icon.symbol}</span
-                        >
-                    </div>
-                </div>
-            {/if}
-
-            <!-- Affinity for p0 (Target) -->
-            {#if label === "Target" && affinityValue !== undefined}
-                {@const icon = getAffinityIcon(affinityValue)}
-                <div
-                    class="d-flex justify-content-between align-items-center mb-2 pb-2 border-bottom"
-                >
-                    <small class="text-muted text-uppercase fw-bold"
-                        >Affinity</small
+                    <small
+                        class="text-muted text-uppercase {label === 'Target'
+                            ? 'fw-bold'
+                            : ''}">Affinity</small
                     >
                     <div class="d-flex align-items-center gap-1">
                         <span class="fw-bold">{affinityValue}</span>
