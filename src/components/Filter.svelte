@@ -44,7 +44,7 @@
     import SkillFilter from "./SkillFilter.svelte";
     import FilterRow from "./FilterRow.svelte";
 
-    let { filters, availableWhites }: Props = $props();
+    let { filters = $bindable(), availableWhites }: Props = $props();
 
     let showModal = $state(false);
 

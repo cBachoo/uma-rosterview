@@ -429,21 +429,13 @@
 
 <div class="container-fluid px-0">
     <!-- Top navigation bar -->
-    <nav class="navbar navbar-expand-lg bg-slate mb-2 mb-md-3">
-        <div class="container-fluid">
-            <!-- Left side: Title + Nav links -->
-            <div class="d-flex gap-2 align-items-center">
-                <span class="navbar-brand mb-0 h1">Planner</span>
-
-                <div class="vr mx-1"></div>
-
-                <a class="nav-link" href="#/">Roster</a>
-                <a class="nav-link" href="#/affinity">Affinity</a>
-                <a class="nav-link active" href="#/planner">Planner</a>
+    <nav class="planner-topbar">
+        <div class="topbar-content">
+            <div class="nav-pills-container">
+                <a class="nav-pill" href="#/">Roster</a>
+                <a class="nav-pill" href="#/affinity">Affinity</a>
+                <a class="nav-pill active" href="#/planner">Planner</a>
             </div>
-
-            <!-- Right side: Controls -->
-            <div class="ms-auto d-flex align-items-center gap-2"></div>
         </div>
     </nav>
 
@@ -882,31 +874,58 @@
 {/if}
 
 <style>
-    .bg-slate {
-        background-color: #475569 !important;
+    .planner-topbar {
+        background: linear-gradient(135deg, #334155 0%, #1e293b 100%);
+        padding: 0.75rem 1rem;
+        margin-bottom: 1rem;
     }
 
-    .navbar-brand {
-        color: white !important;
-        font-weight: bold;
+    .topbar-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
-    .nav-link {
-        color: rgba(255, 255, 255, 0.8) !important;
+    .nav-pills-container {
+        display: flex;
+        gap: 0.5rem;
+        background: rgba(0, 0, 0, 0.2);
+        padding: 0.25rem;
+        border-radius: 0.5rem;
     }
 
-    .nav-link:hover {
-        color: white !important;
+    .nav-pill {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 0.375rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition: all 0.15s ease;
     }
 
-    .nav-link.active {
-        color: white !important;
-        font-weight: bold;
+    .nav-pill:hover {
+        color: white;
+        background: rgba(255, 255, 255, 0.1);
     }
 
-    .vr {
-        border-left: 1px solid rgba(255, 255, 255, 0.3);
-        height: 1.5rem;
+    .nav-pill.active {
+        color: white;
+        background: #DA3C57;
+    }
+
+    @media (max-width: 575.98px) {
+        .planner-topbar {
+            padding: 0.5rem 0.75rem;
+            margin-bottom: 0.75rem;
+            margin-left: -0.75rem;
+            margin-right: -0.75rem;
+        }
+
+        .nav-pill {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.75rem;
+        }
     }
 
     /* Desktop defaults */
@@ -962,19 +981,6 @@
 
     /* Mobile optimizations */
     @media (max-width: 767.98px) {
-        .navbar {
-            padding: 0.25rem 0.5rem;
-        }
-
-        .navbar-brand {
-            font-size: 1rem;
-        }
-
-        .nav-link {
-            font-size: 0.85rem;
-            padding: 0.25rem 0.4rem !important;
-        }
-
         .planner-container {
             padding: 0 !important;
         }
@@ -1046,19 +1052,6 @@
 
     /* Extra small screens */
     @media (max-width: 575.98px) {
-        .navbar-brand {
-            font-size: 0.85rem;
-        }
-
-        .nav-link {
-            font-size: 0.7rem;
-            padding: 0.15rem 0.25rem !important;
-        }
-
-        .vr {
-            display: none;
-        }
-
         .planner-container {
             padding: 0 !important;
         }

@@ -248,10 +248,8 @@
         padding-right: 1rem;
     }
 
-    @media (max-width: 767.98px) {
-        :global(main.container-fluid:has(.planner-container)) {
-            padding-left: 0;
-            padding-right: 0;
-        }
+    :global(main.container-fluid:has(.planner-container)) {
+        padding-left: 0;
+        padding-right: 0;
     }
 </style>

@@ -375,11 +375,11 @@
         }
 
         // Default sort by date descending
-        return filtered.sort(
-            (a, b) =>
-                (b.trained_chara_create_time || 0) -
-                (a.trained_chara_create_time || 0),
-        );
+        return filtered.sort((a, b) => {
+            const dateA = a.create_time ? new Date(a.create_time).getTime() : 0;
+            const dateB = b.create_time ? new Date(b.create_time).getTime() : 0;
+            return dateB - dateA;
+        });
     });
 
     const filteredBorrow = $derived.by(() => {
@@ -461,23 +461,26 @@
     }
 </script>
 
+<!-- svelte-ignore a11y_click_events_have_key_events -->
+<!-- svelte-ignore a11y_no_static_element_interactions -->
 <div class="modal-backdrop" onclick={onClose}></div>
 <div class="modal-dialog-centered">
+    <!-- svelte-ignore a11y_click_events_have_key_events -->
+    <!-- svelte-ignore a11y_no_static_element_interactions -->
     <div class="modal-content" onclick={(e) => e.stopPropagation()}>
         <div class="modal-header">
             <h5 class="modal-title">Select Uma Musume</h5>
-            <button type="button" class="btn-close" onclick={onClose}></button>
+            <button type="button" class="btn-close" onclick={onClose} aria-label="Close"></button>
         </div>
 
         <div class="modal-body">
             <!-- Search and Filters bar -->
-            <div class="d-flex gap-2 align-items-center mb-3">
+            <div class="d-flex flex-wrap gap-2 align-items-center mb-3">
                 <input
                     type="text"
-                    class="form-control form-control-sm"
+                    class="form-control form-control-sm search-input"
                     placeholder="Search by name..."
                     bind:value={searchTerm}
-                    style="width: 200px;"
                 />
 
                 {#if !isTargetSelection && activeTab === "roster"}
@@ -544,6 +547,8 @@
                         <div class="row g-2">
                             {#each filteredRoster as uma}
                                 <div class="col-12">
+                                    <!-- svelte-ignore a11y_click_events_have_key_events -->
+                                    <!-- svelte-ignore a11y_no_static_element_interactions -->
                                     <div
                                         class="uma-item card"
                                         onclick={() => handleSelectRoster(uma)}
@@ -636,6 +641,8 @@
                     <div class="row g-2">
                         {#each filteredBorrow as char}
                             <div class="col-12">
+                                <!-- svelte-ignore a11y_click_events_have_key_events -->
+                                <!-- svelte-ignore a11y_no_static_element_interactions -->
                                 <div
                                     class="uma-item card"
                                     onclick={() => handleSelectBorrow(char)}
@@ -675,18 +682,15 @@
                                                     {@const charCharaId =
                                                         charCard?.chara_id.toString()}
                                                     {#if targetCharaId && charCharaId !== targetCharaId}
-                                                        {@const minimalUma = {
-                                                            card_id:
-                                                                char.cardId,
-                                                            talent_level: 0,
-                                                            factor_id_array: [],
-                                                            win_saddle_id_array:
-                                                                [],
-                                                        }}
                                                         {@const affinity =
                                                             calculateSingleParentAffinity(
                                                                 targetCharaId,
-                                                                minimalUma,
+                                                                {
+                                                                    card_id: char.cardId,
+                                                                    talent_level: 0,
+                                                                    factor_id_array: [],
+                                                                    win_saddle_id_array: [],
+                                                                } as unknown as CharaData,
                                                             )}
                                                         <small
                                                             class="text-muted"
@@ -714,7 +718,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.7);
+        background: rgba(0, 0, 0, 0.6);
         z-index: 1040;
     }
 
@@ -724,9 +728,9 @@
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 1050;
-        width: 90%;
-        max-width: 800px;
-        max-height: 90vh;
+        width: 94%;
+        max-width: 700px;
+        max-height: 85vh;
     }
 
     .modal-content {
@@ -736,45 +740,126 @@
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
         display: flex;
         flex-direction: column;
-        max-height: 90vh;
+        max-height: 85vh;
+        overflow: hidden;
     }
 
     .modal-header {
-        padding: 1rem;
+        padding: 1rem 1.25rem;
         border-bottom: 1px solid var(--bs-border-color);
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
 
+    .modal-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--bs-body-color);
+        margin: 0;
+    }
+
     .modal-body {
         padding: 1rem;
         overflow-y: auto;
+        overflow-x: hidden;
         flex: 1;
     }
 
+    .search-input {
+        width: 200px;
+        flex-shrink: 0;
+    }
+
+    @media (max-width: 575.98px) {
+        .modal-dialog-centered {
+            width: 96%;
+            max-height: 90vh;
+        }
+
+        .modal-content {
+            max-height: 90vh;
+        }
+
+        .modal-header {
+            padding: 0.75rem 1rem;
+        }
+
+        .modal-title {
+            font-size: 1rem;
+        }
+
+        .modal-body {
+            padding: 0.75rem;
+        }
+
+        .search-input {
+            width: 100%;
+            flex-shrink: 1;
+        }
+    }
+
     .uma-list {
-        height: 55vh;
+        height: 50vh;
         overflow-y: auto;
+        overflow-x: hidden;
+        padding-right: 0.5rem;
+    }
+
+    @media (max-width: 575.98px) {
+        .uma-list {
+            height: 45vh;
+            padding-right: 0.25rem;
+        }
     }
 
     .uma-item {
         cursor: pointer;
-        transition: all 0.2s ease;
+        transition: all 0.15s ease;
         background: var(--bs-body-bg);
         border: 1px solid var(--bs-border-color);
+        border-radius: 0.375rem;
     }
 
     .uma-item:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.3);
         border-color: var(--bs-primary);
+        box-shadow: 0 0 0 1px var(--bs-primary);
+    }
+
+    .nav-tabs {
+        border-bottom: 1px solid var(--bs-border-color);
     }
 
     .nav-link {
         cursor: pointer;
-        background: none;
+        background: transparent;
         border: none;
+        white-space: nowrap;
+        color: var(--bs-body-color);
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+        opacity: 0.7;
+        transition: opacity 0.15s ease;
+    }
+
+    .nav-link:hover {
+        opacity: 1;
+    }
+
+    .nav-link.active {
+        opacity: 1;
+        border-bottom: 2px solid var(--bs-primary);
+    }
+
+    @media (max-width: 575.98px) {
+        .nav-tabs {
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            font-size: 0.75rem;
+            padding: 0.4rem 0.6rem;
+        }
     }
 
     .btn-close {
@@ -786,6 +871,7 @@
         color: var(--bs-body-color);
         opacity: 0.5;
         cursor: pointer;
+        transition: opacity 0.15s ease;
     }
 
     .btn-close:hover {
