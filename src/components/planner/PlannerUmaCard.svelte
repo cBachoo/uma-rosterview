@@ -197,7 +197,7 @@
 
 {#if uma}
     <div
-        class="card {config.card} border-3 shadow-sm h-100 uma-card-clickable"
+        class="card {config.card} border-3 shadow-sm uma-card-clickable"
         style="border-color: {borderColor};"
     >
         <div class="card-body {size === 'lg' || size === 'md' ? 'p-3' : 'p-2'}">
@@ -588,7 +588,7 @@
     <!-- svelte-ignore a11y_click_events_have_key_events -->
     <!-- svelte-ignore a11y_no_static_element_interactions -->
     <div
-        class="card {config.card} border-2 border-dashed shadow-sm h-100 uma-card-placeholder"
+        class="card {config.card} border-2 border-dashed shadow-sm uma-card-placeholder"
         style="border-color: {borderColor};"
         onclick={onSelect}
     >
@@ -658,34 +658,37 @@
         min-height: 300px;
     }
 
+    /* Fixed heights on desktop so all cards of the same size are consistent */
     .uma-card-md {
-        min-height: 300px;
+        height: 460px;
     }
 
     .uma-card-sm {
-        min-height: 300px;
+        height: 420px;
     }
 
     .uma-card-xs {
-        min-height: 180px;
-        max-height: 220px;
+        height: 140px;
     }
 
-    /* Mobile optimizations for card heights */
+    /* Mobile: reset to auto and use min-heights */
     @media (max-width: 767.98px) {
         .uma-card-lg {
             min-height: 200px;
         }
 
         .uma-card-md {
+            height: auto;
             min-height: 180px;
         }
 
         .uma-card-sm {
+            height: auto;
             min-height: 160px;
         }
 
         .uma-card-xs {
+            height: auto;
             min-height: 80px;
             max-height: 120px;
         }
@@ -697,14 +700,17 @@
         }
 
         .uma-card-md {
+            height: auto;
             min-height: 140px;
         }
 
         .uma-card-sm {
+            height: auto;
             min-height: 120px;
         }
 
         .uma-card-xs {
+            height: auto;
             min-height: 60px;
             max-height: 100px;
         }

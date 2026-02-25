@@ -600,7 +600,7 @@
                                     <span>Great-Grandparents</span>
                                 </div>
                                 <div class="row g-1">
-                                    <div class="col-6">
+                                    <div class="col-6 col-md-3">
                                         <PlannerUmaCard
                                             uma={ggp1_1_1.uma}
                                             label="GGP"
@@ -617,7 +617,7 @@
                                             )}
                                         />
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-6 col-md-3">
                                         <PlannerUmaCard
                                             uma={ggp1_1_2.uma}
                                             label="GGP"
@@ -634,7 +634,7 @@
                                             )}
                                         />
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-6 col-md-3">
                                         <PlannerUmaCard
                                             uma={ggp1_2_1.uma}
                                             label="GGP"
@@ -651,7 +651,7 @@
                                             )}
                                         />
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-6 col-md-3">
                                         <PlannerUmaCard
                                             uma={ggp1_2_2.uma}
                                             label="GGP"
@@ -780,7 +780,7 @@
                                     <span>Great-Grandparents</span>
                                 </div>
                                 <div class="row g-1">
-                                    <div class="col-6">
+                                    <div class="col-6 col-md-3">
                                         <PlannerUmaCard
                                             uma={ggp2_1_1.uma}
                                             label="GGP"
@@ -797,7 +797,7 @@
                                             )}
                                         />
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-6 col-md-3">
                                         <PlannerUmaCard
                                             uma={ggp2_1_2.uma}
                                             label="GGP"
@@ -814,7 +814,7 @@
                                             )}
                                         />
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-6 col-md-3">
                                         <PlannerUmaCard
                                             uma={ggp2_2_1.uma}
                                             label="GGP"
@@ -831,7 +831,7 @@
                                             )}
                                         />
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-6 col-md-3">
                                         <PlannerUmaCard
                                             uma={ggp2_2_2.uma}
                                             label="GGP"
