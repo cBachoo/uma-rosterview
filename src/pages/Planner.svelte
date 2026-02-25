@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { CharaData } from "../types";
+    import type { CharaData, SparkData, UmaWithSparks } from "../types";
     import {
         calculateBaseAffinity,
         calculateSharedRaces,
@@ -15,20 +15,6 @@
     interface Props {
         trainedCharas?: CharaData[];
         onHome?: () => void;
-    }
-
-    interface SparkData {
-        stat: string;
-        level: number;
-        isRace?: boolean;
-    }
-
-    interface UmaWithSparks extends CharaData {
-        blueSpark?: SparkData;
-        pinkSpark?: SparkData;
-        greenSpark?: SparkData;
-        whiteSpark?: SparkData[];
-        races?: string[];
     }
 
     interface TreeSlot {
@@ -441,9 +427,9 @@
     }
 </script>
 
-<div class="container-fluid">
+<div class="container-fluid px-0">
     <!-- Top navigation bar -->
-    <nav class="navbar navbar-expand-lg bg-slate mb-3">
+    <nav class="navbar navbar-expand-lg bg-slate mb-2 mb-md-3">
         <div class="container-fluid">
             <!-- Left side: Title + Nav links -->
             <div class="d-flex gap-2 align-items-center">
@@ -461,27 +447,27 @@
         </div>
     </nav>
 
-    <div class="container-fluid p-4" style="max-width: 1400px;">
+    <div class="planner-container">
         <div
-            class="card shadow-lg border-0 rounded-3"
+            class="card shadow-lg border-0 rounded-3 planner-card"
             style="background-color: var(--bs-body-bg);"
         >
             <!-- Header -->
             <div
-                class="card-header text-center py-4 border-0"
+                class="card-header text-center py-2 py-md-4 border-0"
                 style="background-color: transparent; border-bottom: 2px solid #DA3C57;"
             >
-                <h1 class="mb-3" style="color: #DA3C57; font-weight: bold;">
+                <h1 class="mb-1 mb-md-3" style="color: #DA3C57; font-weight: bold;">
                     Lineage Planner
                 </h1>
             </div>
 
             <!-- Tree Content -->
-            <div class="card-body p-4" style="min-height: 600px;">
+            <div class="card-body tree-content">
                 <!-- Level 1: Target -->
-                <div class="row justify-content-center mb-5">
-                    <div class="col-12 col-md-8 col-lg-6 col-xl-4">
-                        <h5 class="text-center mb-3 text-muted fw-bold">
+                <div class="row gx-0 justify-content-center level-section target-section">
+                    <div class="col-12 col-md-8 col-lg-6 col-xl-4 target-col">
+                        <h5 class="text-center mb-3 text-muted fw-bold level-heading">
                             Target
                         </h5>
                         <PlannerUmaCard
@@ -513,14 +499,16 @@
                     </div>
                 </div>
 
-                <!-- Level 2: Parents -->
-                <div class="row justify-content-center mb-4">
-                    <div class="col-12">
-                        <h5 class="text-center mb-3 text-muted fw-bold">
-                            Parents
-                        </h5>
-                        <div class="row g-3 justify-content-center">
-                            <div class="col-6 col-lg-3">
+                <!-- Lineage columns with per-column headings -->
+                <div class="row gx-0 lineage-row">
+                    <!-- Left lineage (Parent 1 / Purple) -->
+                    <div class="col-6 pe-1">
+                        <div class="lineage-column">
+                            <!-- Parent 1 -->
+                            <div class="lineage-section">
+                                <div class="lineage-header" style="border-color: #9b59b6;">
+                                    <span>Parent 1</span>
+                                </div>
                                 <PlannerUmaCard
                                     uma={parent1.uma}
                                     label="Parent 1"
@@ -548,180 +536,75 @@
                                     onRacesChange={handleRacesChange("p1")}
                                 />
                             </div>
-                            <div class="col-6 col-lg-3">
-                                <PlannerUmaCard
-                                    uma={parent2.uma}
-                                    label="Parent 2"
-                                    size="md"
-                                    borderColor="#f39c12"
-                                    onSelect={() => openModal("p2")}
-                                    onClear={() => clearPosition("p2")}
-                                    affinityValue={p2Affinity}
-                                    ancestorPinkSparks={[
-                                        gp2_1.uma?.pinkSpark,
-                                        gp2_2.uma?.pinkSpark,
-                                    ]}
-                                    onBlueSparkChange={handleBlueSparkChange(
-                                        "p2",
-                                    )}
-                                    onPinkSparkChange={handlePinkSparkChange(
-                                        "p2",
-                                    )}
-                                    onGreenSparkChange={handleGreenSparkChange(
-                                        "p2",
-                                    )}
-                                    onWhiteSparkChange={handleWhiteSparkChange(
-                                        "p2",
-                                    )}
-                                    onRacesChange={handleRacesChange("p2")}
-                                />
+                            <!-- Grandparents 1.1 and 1.2 -->
+                            <div class="lineage-section">
+                                <div class="lineage-header lineage-header-sm" style="border-color: #9b59b6;">
+                                    <span>Grandparents</span>
+                                </div>
+                                <div class="d-flex flex-column gap-1">
+                                    <PlannerUmaCard
+                                        uma={gp1_1.uma}
+                                        label="GP1.1"
+                                        size="sm"
+                                        borderColor="#9b59b6"
+                                        onSelect={() => openModal("gp1_1")}
+                                        onClear={gp1_1.autoPopulated
+                                            ? undefined
+                                            : () => clearPosition("gp1_1")}
+                                        affinityValue={gp1_1Affinity}
+                                        ancestorPinkSparks={[
+                                            ggp1_1_1.uma?.pinkSpark,
+                                            ggp1_1_2.uma?.pinkSpark,
+                                        ]}
+                                        onBlueSparkChange={handleBlueSparkChange(
+                                            "gp1_1",
+                                        )}
+                                        onPinkSparkChange={handlePinkSparkChange(
+                                            "gp1_1",
+                                        )}
+                                        onGreenSparkChange={handleGreenSparkChange(
+                                            "gp1_1",
+                                        )}
+                                        onWhiteSparkChange={handleWhiteSparkChange(
+                                            "gp1_1",
+                                        )}
+                                        onRacesChange={handleRacesChange("gp1_1")}
+                                    />
+                                    <PlannerUmaCard
+                                        uma={gp1_2.uma}
+                                        label="GP1.2"
+                                        size="sm"
+                                        borderColor="#9b59b6"
+                                        onSelect={() => openModal("gp1_2")}
+                                        onClear={gp1_2.autoPopulated
+                                            ? undefined
+                                            : () => clearPosition("gp1_2")}
+                                        affinityValue={gp1_2Affinity}
+                                        ancestorPinkSparks={[
+                                            ggp1_2_1.uma?.pinkSpark,
+                                            ggp1_2_2.uma?.pinkSpark,
+                                        ]}
+                                        onBlueSparkChange={handleBlueSparkChange(
+                                            "gp1_2",
+                                        )}
+                                        onPinkSparkChange={handlePinkSparkChange(
+                                            "gp1_2",
+                                        )}
+                                        onGreenSparkChange={handleGreenSparkChange(
+                                            "gp1_2",
+                                        )}
+                                        onWhiteSparkChange={handleWhiteSparkChange(
+                                            "gp1_2",
+                                        )}
+                                        onRacesChange={handleRacesChange("gp1_2")}
+                                    />
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Level 3: Grandparents -->
-                <div class="row justify-content-center mb-2">
-                    <div class="col-12">
-                        <h5 class="text-center mb-3 text-muted fw-bold">
-                            Grandparents
-                        </h5>
-                        <div class="row g-3">
-                            <div class="col-6 col-lg-3">
-                                <PlannerUmaCard
-                                    uma={gp1_1.uma}
-                                    label="GP1.1"
-                                    size="sm"
-                                    borderColor="#9b59b6"
-                                    onSelect={() => openModal("gp1_1")}
-                                    onClear={gp1_1.autoPopulated
-                                        ? undefined
-                                        : () => clearPosition("gp1_1")}
-                                    affinityValue={gp1_1Affinity}
-                                    ancestorPinkSparks={[
-                                        ggp1_1_1.uma?.pinkSpark,
-                                        ggp1_1_2.uma?.pinkSpark,
-                                    ]}
-                                    onBlueSparkChange={handleBlueSparkChange(
-                                        "gp1_1",
-                                    )}
-                                    onPinkSparkChange={handlePinkSparkChange(
-                                        "gp1_1",
-                                    )}
-                                    onGreenSparkChange={handleGreenSparkChange(
-                                        "gp1_1",
-                                    )}
-                                    onWhiteSparkChange={handleWhiteSparkChange(
-                                        "gp1_1",
-                                    )}
-                                    onRacesChange={handleRacesChange("gp1_1")}
-                                />
-                            </div>
-                            <div class="col-6 col-lg-3">
-                                <PlannerUmaCard
-                                    uma={gp1_2.uma}
-                                    label="GP1.2"
-                                    size="sm"
-                                    borderColor="#9b59b6"
-                                    onSelect={() => openModal("gp1_2")}
-                                    onClear={gp1_2.autoPopulated
-                                        ? undefined
-                                        : () => clearPosition("gp1_2")}
-                                    affinityValue={gp1_2Affinity}
-                                    ancestorPinkSparks={[
-                                        ggp1_2_1.uma?.pinkSpark,
-                                        ggp1_2_2.uma?.pinkSpark,
-                                    ]}
-                                    onBlueSparkChange={handleBlueSparkChange(
-                                        "gp1_2",
-                                    )}
-                                    onPinkSparkChange={handlePinkSparkChange(
-                                        "gp1_2",
-                                    )}
-                                    onGreenSparkChange={handleGreenSparkChange(
-                                        "gp1_2",
-                                    )}
-                                    onWhiteSparkChange={handleWhiteSparkChange(
-                                        "gp1_2",
-                                    )}
-                                    onRacesChange={handleRacesChange("gp1_2")}
-                                />
-                            </div>
-                            <div class="col-6 col-lg-3">
-                                <PlannerUmaCard
-                                    uma={gp2_1.uma}
-                                    label="GP2.1"
-                                    size="sm"
-                                    borderColor="#f39c12"
-                                    onSelect={() => openModal("gp2_1")}
-                                    onClear={gp2_1.autoPopulated
-                                        ? undefined
-                                        : () => clearPosition("gp2_1")}
-                                    affinityValue={gp2_1Affinity}
-                                    ancestorPinkSparks={[
-                                        ggp2_1_1.uma?.pinkSpark,
-                                        ggp2_1_2.uma?.pinkSpark,
-                                    ]}
-                                    onBlueSparkChange={handleBlueSparkChange(
-                                        "gp2_1",
-                                    )}
-                                    onPinkSparkChange={handlePinkSparkChange(
-                                        "gp2_1",
-                                    )}
-                                    onGreenSparkChange={handleGreenSparkChange(
-                                        "gp2_1",
-                                    )}
-                                    onWhiteSparkChange={handleWhiteSparkChange(
-                                        "gp2_1",
-                                    )}
-                                    onRacesChange={handleRacesChange("gp2_1")}
-                                />
-                            </div>
-                            <div class="col-6 col-lg-3">
-                                <PlannerUmaCard
-                                    uma={gp2_2.uma}
-                                    label="GP2.2"
-                                    size="sm"
-                                    borderColor="#f39c12"
-                                    onSelect={() => openModal("gp2_2")}
-                                    onClear={gp2_2.autoPopulated
-                                        ? undefined
-                                        : () => clearPosition("gp2_2")}
-                                    affinityValue={gp2_2Affinity}
-                                    ancestorPinkSparks={[
-                                        ggp2_2_1.uma?.pinkSpark,
-                                        ggp2_2_2.uma?.pinkSpark,
-                                    ]}
-                                    onBlueSparkChange={handleBlueSparkChange(
-                                        "gp2_2",
-                                    )}
-                                    onPinkSparkChange={handlePinkSparkChange(
-                                        "gp2_2",
-                                    )}
-                                    onGreenSparkChange={handleGreenSparkChange(
-                                        "gp2_2",
-                                    )}
-                                    onWhiteSparkChange={handleWhiteSparkChange(
-                                        "gp2_2",
-                                    )}
-                                    onRacesChange={handleRacesChange("gp2_2")}
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Level 4: Great-Grandparents -->
-                <div class="row justify-content-center mb-4">
-                    <div class="col-12">
-                        <h6 class="text-center mb-2 text-muted fw-semibold">
-                            Great-Grandparents <small
-                                class="text-muted fw-normal"
-                            ></small>
-                        </h6>
-                        <div class="row g-2">
-                            <!-- GGPs of GP1.1 -->
-                            <div class="col-6 col-lg-3">
+                            <!-- Great-Grandparents (purple lineage) -->
+                            <div class="lineage-section">
+                                <div class="lineage-header lineage-header-xs" style="border-color: #7c3aed;">
+                                    <span>Great-Grandparents</span>
+                                </div>
                                 <div class="row g-1">
                                     <div class="col-6">
                                         <PlannerUmaCard
@@ -757,11 +640,6 @@
                                             )}
                                         />
                                     </div>
-                                </div>
-                            </div>
-                            <!-- GGPs of GP1.2 -->
-                            <div class="col-6 col-lg-3">
-                                <div class="row g-1">
                                     <div class="col-6">
                                         <PlannerUmaCard
                                             uma={ggp1_2_1.uma}
@@ -798,8 +676,113 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- GGPs of GP2.1 -->
-                            <div class="col-6 col-lg-3">
+                        </div>
+                    </div>
+
+                    <!-- Right lineage (Parent 2 / Orange) -->
+                    <div class="col-6 ps-1">
+                        <div class="lineage-column">
+                            <!-- Parent 2 -->
+                            <div class="lineage-section">
+                                <div class="lineage-header" style="border-color: #f39c12;">
+                                    <span>Parent 2</span>
+                                </div>
+                                <PlannerUmaCard
+                                    uma={parent2.uma}
+                                    label="Parent 2"
+                                    size="md"
+                                    borderColor="#f39c12"
+                                    onSelect={() => openModal("p2")}
+                                    onClear={() => clearPosition("p2")}
+                                    affinityValue={p2Affinity}
+                                    ancestorPinkSparks={[
+                                        gp2_1.uma?.pinkSpark,
+                                        gp2_2.uma?.pinkSpark,
+                                    ]}
+                                    onBlueSparkChange={handleBlueSparkChange(
+                                        "p2",
+                                    )}
+                                    onPinkSparkChange={handlePinkSparkChange(
+                                        "p2",
+                                    )}
+                                    onGreenSparkChange={handleGreenSparkChange(
+                                        "p2",
+                                    )}
+                                    onWhiteSparkChange={handleWhiteSparkChange(
+                                        "p2",
+                                    )}
+                                    onRacesChange={handleRacesChange("p2")}
+                                />
+                            </div>
+                            <!-- Grandparents 2.1 and 2.2 -->
+                            <div class="lineage-section">
+                                <div class="lineage-header lineage-header-sm" style="border-color: #f39c12;">
+                                    <span>Grandparents</span>
+                                </div>
+                                <div class="d-flex flex-column gap-1">
+                                    <PlannerUmaCard
+                                        uma={gp2_1.uma}
+                                        label="GP2.1"
+                                        size="sm"
+                                        borderColor="#f39c12"
+                                        onSelect={() => openModal("gp2_1")}
+                                        onClear={gp2_1.autoPopulated
+                                            ? undefined
+                                            : () => clearPosition("gp2_1")}
+                                        affinityValue={gp2_1Affinity}
+                                        ancestorPinkSparks={[
+                                            ggp2_1_1.uma?.pinkSpark,
+                                            ggp2_1_2.uma?.pinkSpark,
+                                        ]}
+                                        onBlueSparkChange={handleBlueSparkChange(
+                                            "gp2_1",
+                                        )}
+                                        onPinkSparkChange={handlePinkSparkChange(
+                                            "gp2_1",
+                                        )}
+                                        onGreenSparkChange={handleGreenSparkChange(
+                                            "gp2_1",
+                                        )}
+                                        onWhiteSparkChange={handleWhiteSparkChange(
+                                            "gp2_1",
+                                        )}
+                                        onRacesChange={handleRacesChange("gp2_1")}
+                                    />
+                                    <PlannerUmaCard
+                                        uma={gp2_2.uma}
+                                        label="GP2.2"
+                                        size="sm"
+                                        borderColor="#f39c12"
+                                        onSelect={() => openModal("gp2_2")}
+                                        onClear={gp2_2.autoPopulated
+                                            ? undefined
+                                            : () => clearPosition("gp2_2")}
+                                        affinityValue={gp2_2Affinity}
+                                        ancestorPinkSparks={[
+                                            ggp2_2_1.uma?.pinkSpark,
+                                            ggp2_2_2.uma?.pinkSpark,
+                                        ]}
+                                        onBlueSparkChange={handleBlueSparkChange(
+                                            "gp2_2",
+                                        )}
+                                        onPinkSparkChange={handlePinkSparkChange(
+                                            "gp2_2",
+                                        )}
+                                        onGreenSparkChange={handleGreenSparkChange(
+                                            "gp2_2",
+                                        )}
+                                        onWhiteSparkChange={handleWhiteSparkChange(
+                                            "gp2_2",
+                                        )}
+                                        onRacesChange={handleRacesChange("gp2_2")}
+                                    />
+                                </div>
+                            </div>
+                            <!-- Great-Grandparents (orange lineage) -->
+                            <div class="lineage-section">
+                                <div class="lineage-header lineage-header-xs" style="border-color: #d97706;">
+                                    <span>Great-Grandparents</span>
+                                </div>
                                 <div class="row g-1">
                                     <div class="col-6">
                                         <PlannerUmaCard
@@ -835,11 +818,6 @@
                                             )}
                                         />
                                     </div>
-                                </div>
-                            </div>
-                            <!-- GGPs of GP2.2 -->
-                            <div class="col-6 col-lg-3">
-                                <div class="row g-1">
                                     <div class="col-6">
                                         <PlannerUmaCard
                                             uma={ggp2_2_1.uma}
@@ -879,6 +857,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
@@ -928,5 +907,214 @@
     .vr {
         border-left: 1px solid rgba(255, 255, 255, 0.3);
         height: 1.5rem;
+    }
+
+    /* Desktop defaults */
+    .planner-container {
+        padding: 1.5rem;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .tree-content {
+        padding: 1.5rem;
+        min-height: 600px;
+    }
+
+    .target-section {
+        margin-bottom: 2.5rem !important;
+    }
+
+    /* Lineage structure */
+    .lineage-row {
+        margin-top: 0.5rem;
+    }
+
+    .lineage-column {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .lineage-section {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .lineage-header {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #6c757d;
+        padding: 0.25rem 0;
+        background: transparent;
+    }
+
+    .lineage-header-sm {
+        font-size: 0.75rem;
+        padding: 0.2rem 0;
+    }
+
+    .lineage-header-xs {
+        font-size: 0.65rem;
+        padding: 0.15rem 0;
+    }
+
+    /* Mobile optimizations */
+    @media (max-width: 767.98px) {
+        .navbar {
+            padding: 0.25rem 0.5rem;
+        }
+
+        .navbar-brand {
+            font-size: 1rem;
+        }
+
+        .nav-link {
+            font-size: 0.85rem;
+            padding: 0.25rem 0.4rem !important;
+        }
+
+        .planner-container {
+            padding: 0 !important;
+        }
+
+        .tree-content {
+            padding: 0 !important;
+            min-height: auto !important;
+        }
+
+        .planner-card {
+            border-radius: 0 !important;
+            margin: 0 !important;
+        }
+
+        .planner-card .card-body {
+            padding: 0.25rem !important;
+        }
+
+        .planner-card .card-header {
+            padding: 0.5rem !important;
+        }
+
+        .planner-card .card-header h1 {
+            font-size: 1.1rem !important;
+            margin-bottom: 0.25rem !important;
+        }
+
+        .level-section {
+            margin-bottom: 0.75rem !important;
+        }
+
+        .target-section {
+            margin-bottom: 1.25rem !important;
+        }
+
+        .target-col {
+            padding: 0 0.5rem;
+        }
+
+        /* Lineage mobile styles */
+        .lineage-column {
+            gap: 0.5rem;
+        }
+
+        .lineage-section {
+            gap: 0.25rem;
+        }
+
+        .lineage-header {
+            font-size: 0.65rem;
+            padding: 0.15rem 0;
+        }
+
+        .lineage-header-sm {
+            font-size: 0.55rem;
+            padding: 0.1rem 0;
+        }
+
+        .lineage-header-xs {
+            font-size: 0.5rem;
+            padding: 0.08rem 0;
+        }
+
+        .level-heading {
+            font-size: 0.8rem !important;
+            margin-bottom: 0.35rem !important;
+        }
+    }
+
+    /* Extra small screens */
+    @media (max-width: 575.98px) {
+        .navbar-brand {
+            font-size: 0.85rem;
+        }
+
+        .nav-link {
+            font-size: 0.7rem;
+            padding: 0.15rem 0.25rem !important;
+        }
+
+        .vr {
+            display: none;
+        }
+
+        .planner-container {
+            padding: 0 !important;
+        }
+
+        .tree-content {
+            padding: 0 !important;
+        }
+
+        .planner-card .card-body {
+            padding: 0.15rem !important;
+        }
+
+        .planner-card .card-header {
+            padding: 0.35rem !important;
+        }
+
+        .planner-card .card-header h1 {
+            font-size: 1rem !important;
+        }
+
+        .level-section {
+            margin-bottom: 0.5rem !important;
+        }
+
+        .target-section {
+            margin-bottom: 1rem !important;
+        }
+
+        .target-col {
+            padding: 0 0.35rem;
+        }
+
+        .level-heading {
+            font-size: 0.75rem !important;
+            margin-bottom: 0.25rem !important;
+        }
+
+        .lineage-header {
+            font-size: 0.55rem;
+            padding: 0.1rem 0;
+        }
+
+        .lineage-header-sm {
+            font-size: 0.5rem;
+        }
+
+        .lineage-header-xs {
+            font-size: 0.45rem;
+        }
+
+        .lineage-column {
+            gap: 0.35rem;
+        }
+
+        .lineage-section {
+            gap: 0.15rem;
+        }
     }
 </style>

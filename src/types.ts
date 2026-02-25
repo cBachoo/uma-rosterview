@@ -52,4 +52,56 @@ interface CharaData extends CharaBaseData {
   win_saddle_id_array?: number[];
 }
 
-export type { CharaData, SkillData, SuccessionCharaData };
+interface SparkData {
+  stat: string;
+  level: number;
+  isRace?: boolean;
+}
+
+// UmaWithSparks can hold either CharaData or SuccessionCharaData with spark overlays
+// Uses partial fields so it works with both types
+interface UmaWithSparks {
+  card_id: number;
+  factor_id_array: number[];
+  talent_level: number;
+  win_saddle_id_array?: number[];
+  position_id?: number;
+  // Spark data overlays
+  blueSpark?: SparkData;
+  pinkSpark?: SparkData;
+  greenSpark?: SparkData;
+  whiteSpark?: SparkData[];
+  races?: string[];
+  // Optional CharaData fields
+  create_time?: string;
+  rarity?: number;
+  chara_seed?: number;
+  trained_chara_id?: number;
+  rank_score?: number;
+  speed?: number;
+  stamina?: number;
+  power?: number;
+  guts?: number;
+  wiz?: number;
+  proper_distance_short?: number;
+  proper_distance_mile?: number;
+  proper_distance_middle?: number;
+  proper_distance_long?: number;
+  proper_ground_dirt?: number;
+  proper_ground_turf?: number;
+  proper_running_style_nige?: number;
+  proper_running_style_oikomi?: number;
+  proper_running_style_sashi?: number;
+  proper_running_style_senko?: number;
+  skill_array?: SkillData[];
+  succession_chara_array?: SuccessionCharaData[];
+  support_card_list?: SupportCardData[];
+}
+
+export type {
+  CharaData,
+  SkillData,
+  SparkData,
+  SuccessionCharaData,
+  UmaWithSparks,
+};

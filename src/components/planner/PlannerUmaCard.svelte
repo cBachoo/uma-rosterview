@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { CharaData } from "../../types";
+    import type { SparkData, UmaWithSparks } from "../../types";
     import { charaCardsData } from "../../data";
     import { getIconCardId } from "../../utils/iconMapping";
     import SparkEditorModal from "./SparkEditorModal.svelte";
@@ -12,20 +12,6 @@
         numToGrade,
         sparkStatToAptKey,
     } from "../../utils/characters";
-
-    interface SparkData {
-        stat: string;
-        level: number;
-        isRace?: boolean;
-    }
-
-    interface UmaWithSparks extends CharaData {
-        blueSpark?: SparkData;
-        pinkSpark?: SparkData;
-        greenSpark?: SparkData;
-        whiteSpark?: SparkData[];
-        races?: string[];
-    }
 
     interface Props {
         uma: UmaWithSparks | null;
@@ -217,6 +203,8 @@
         <div class="card-body {size === 'lg' || size === 'md' ? 'p-3' : 'p-2'}">
             <!-- Header -->
             <div class="d-flex align-items-start justify-content-between mb-2">
+                <!-- svelte-ignore a11y_click_events_have_key_events -->
+                <!-- svelte-ignore a11y_interactive_supports_focus -->
                 <div
                     class="d-flex align-items-center gap-2 flex-grow-1"
                     style="min-width: 0;"
@@ -226,18 +214,18 @@
                     <img
                         src={getCharaImageUrl(uma.card_id, uma.talent_level)}
                         alt={getCharaName(uma.card_id).name}
-                        class="rounded-circle flex-shrink-0"
+                        class="rounded-circle flex-shrink-0 uma-portrait uma-portrait-{size}"
                         style="width: {config.img}px; height: {config.img}px; object-fit: cover; cursor: pointer;"
                     />
                     <div class="flex-grow-1" style="min-width: 0;">
                         {#if uma.card_id}
                             {@const nameData = getCharaName(uma.card_id)}
                             {#if nameData.title}
-                                <div class="small text-muted">
+                                <div class="small text-muted uma-name-title">
                                     {nameData.title}
                                 </div>
                             {/if}
-                            <div class="fw-bold {config.text}">
+                            <div class="fw-bold uma-name {config.text}">
                                 {nameData.name}
                             </div>
                         {/if}
@@ -597,18 +585,20 @@
         </div>
     </div>
 {:else}
+    <!-- svelte-ignore a11y_click_events_have_key_events -->
+    <!-- svelte-ignore a11y_no_static_element_interactions -->
     <div
         class="card {config.card} border-2 border-dashed shadow-sm h-100 uma-card-placeholder"
         style="border-color: {borderColor};"
         onclick={onSelect}
     >
-        <div
-            class="card-body p-3 d-flex flex-column align-items-center justify-content-center"
-        >
+        <div class="card-body p-3 d-flex flex-column align-items-center justify-content-center">
             <div class="text-muted text-center">
                 <div class="mb-2" style="font-size: 2rem;">+</div>
                 <div class="small">Select Uma</div>
-                <div class="x-small text-muted">{label}</div>
+                {#if size !== "xs"}
+                    <div class="x-small text-muted">{label}</div>
+                {/if}
             </div>
         </div>
     </div>
@@ -679,6 +669,228 @@
     .uma-card-xs {
         min-height: 180px;
         max-height: 220px;
+    }
+
+    /* Mobile optimizations for card heights */
+    @media (max-width: 767.98px) {
+        .uma-card-lg {
+            min-height: 200px;
+        }
+
+        .uma-card-md {
+            min-height: 180px;
+        }
+
+        .uma-card-sm {
+            min-height: 160px;
+        }
+
+        .uma-card-xs {
+            min-height: 80px;
+            max-height: 120px;
+        }
+    }
+
+    @media (max-width: 575.98px) {
+        .uma-card-lg {
+            min-height: 160px;
+        }
+
+        .uma-card-md {
+            min-height: 140px;
+        }
+
+        .uma-card-sm {
+            min-height: 120px;
+        }
+
+        .uma-card-xs {
+            min-height: 60px;
+            max-height: 100px;
+        }
+
+        /* Reduce border width on small screens */
+        .uma-card-lg,
+        .uma-card-md,
+        .uma-card-sm,
+        .uma-card-xs {
+            border-width: 2px !important;
+        }
+    }
+
+    /* Mobile text and element scaling */
+    @media (max-width: 767.98px) {
+        .card-body {
+            padding: 0.35rem !important;
+        }
+
+        .card-body .d-flex.gap-2 {
+            gap: 0.35rem !important;
+        }
+
+        .card-body .mb-2 {
+            margin-bottom: 0.35rem !important;
+        }
+
+        .uma-name-title {
+            font-size: 0.6rem !important;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .uma-name {
+            font-size: 0.7rem !important;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .spark-display {
+            font-size: 0.65rem;
+        }
+
+        .spark-badge {
+            font-size: 0.5rem;
+            padding: 0.15rem 0.3rem;
+        }
+
+        .spark-badge-area {
+            max-height: 56px;
+        }
+
+        .apt-group-lbl {
+            display: none;
+        }
+
+        .apt-lbl {
+            font-size: 0.4rem;
+        }
+
+        .apt-grade {
+            font-size: 0.5rem;
+        }
+
+        .apt-chip {
+            padding: 1px 2px;
+        }
+
+        .apt-group-row {
+            grid-template-columns: 1fr;
+        }
+
+        .x-small {
+            font-size: 0.6rem;
+        }
+
+        .apt-raise-badge {
+            font-size: 0.55rem;
+        }
+    }
+
+    @media (max-width: 575.98px) {
+        .card-body {
+            padding: 0.25rem !important;
+        }
+
+        .card-body .d-flex.gap-2 {
+            gap: 0.25rem !important;
+        }
+
+        .card-body .mb-2 {
+            margin-bottom: 0.25rem !important;
+        }
+
+        .uma-name-title {
+            font-size: 0.5rem !important;
+            display: none; /* Hide title on xs screens */
+        }
+
+        .uma-name {
+            font-size: 0.6rem !important;
+        }
+
+        .spark-display {
+            font-size: 0.6rem;
+        }
+
+        .spark-badge {
+            font-size: 0.45rem;
+            padding: 0.1rem 0.2rem;
+        }
+
+        .spark-badge-area {
+            max-height: 48px;
+        }
+
+        .apt-group-lbl {
+            display: none;
+        }
+
+        .apt-lbl {
+            font-size: 0.32rem;
+        }
+
+        .apt-grade {
+            font-size: 0.4rem;
+        }
+
+        .apt-group-row {
+            grid-template-columns: 1fr;
+        }
+
+        .x-small {
+            font-size: 0.55rem;
+        }
+
+        .apt-raise-badge {
+            font-size: 0.5rem;
+        }
+    }
+
+    /* Responsive portrait image sizes */
+    @media (max-width: 767.98px) {
+        .uma-portrait-lg {
+            width: 48px !important;
+            height: 48px !important;
+        }
+
+        .uma-portrait-md {
+            width: 36px !important;
+            height: 36px !important;
+        }
+
+        .uma-portrait-sm {
+            width: 32px !important;
+            height: 32px !important;
+        }
+
+        .uma-portrait-xs {
+            width: 24px !important;
+            height: 24px !important;
+        }
+    }
+
+    @media (max-width: 575.98px) {
+        .uma-portrait-lg {
+            width: 40px !important;
+            height: 40px !important;
+        }
+
+        .uma-portrait-md {
+            width: 32px !important;
+            height: 32px !important;
+        }
+
+        .uma-portrait-sm {
+            width: 28px !important;
+            height: 28px !important;
+        }
+
+        .uma-portrait-xs {
+            width: 22px !important;
+            height: 22px !important;
+        }
     }
 
     .uma-card-clickable:hover,

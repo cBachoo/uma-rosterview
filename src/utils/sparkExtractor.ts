@@ -1,6 +1,6 @@
 import { factorsData, skillsData } from "../data";
 import { racesBySaddleId } from "./races";
-import type { CharaData } from "../types";
+import type { CharaData, SuccessionCharaData } from "../types";
 
 interface SparkData {
   stat: string;
@@ -18,6 +18,9 @@ interface ExtractedSparks {
 interface SparkDataWithType extends SparkData {
   isRace?: boolean;
 }
+
+// Type that accepts both CharaData and SuccessionCharaData for spark extraction
+type SparkSourceData = CharaData | SuccessionCharaData;
 
 // Map factor names to stat names
 const statMapping: Record<string, string> = {
@@ -62,9 +65,11 @@ const aptitudeMapping: Record<string, string> = {
 };
 
 /**
- * Extract spark data from a CharaData object
+ * Extract spark data from a CharaData or SuccessionCharaData object
  */
-export function extractSparksFromCharaData(chara: CharaData): ExtractedSparks {
+export function extractSparksFromCharaData(
+  chara: SparkSourceData,
+): ExtractedSparks {
   const extracted: ExtractedSparks = {
     whiteSpark: [],
     races: [],

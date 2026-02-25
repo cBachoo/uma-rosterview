@@ -76,7 +76,7 @@
     }
 
     // Only load dev data if no URL import happened
-    if (import.meta.env.DEV && !trainedCharas) {
+    if (import.meta.env.DEV && !urlEncoded) {
         const loader = import.meta.glob("../data.json")["../data.json"];
         if (loader) {
             loader().then((resp) => {
@@ -175,6 +175,8 @@
 
     <!-- Import Modal -->
     {#if showImportModal}
+        <!-- svelte-ignore a11y_no_static_element_interactions -->
+        <!-- svelte-ignore a11y_click_events_have_key_events -->
         <div class="modal-backdrop fade show" onclick={closeImportModal}></div>
         <div class="modal fade show d-block" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
@@ -184,6 +186,7 @@
                         <button
                             type="button"
                             class="btn-close"
+                            aria-label="Close"
                             onclick={closeImportModal}
                         ></button>
                     </div>
@@ -232,11 +235,6 @@
 </main>
 
 <style>
-    .title {
-        font-size: 64px;
-        text-align: center;
-    }
-
     .logo {
         transform: scale(0.8);
     }
@@ -248,5 +246,12 @@
     main.container-fluid {
         padding-left: 1rem;
         padding-right: 1rem;
+    }
+
+    @media (max-width: 767.98px) {
+        :global(main.container-fluid:has(.planner-container)) {
+            padding-left: 0;
+            padding-right: 0;
+        }
     }
 </style>
