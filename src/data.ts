@@ -40,9 +40,9 @@ const transformCharaCard = (raw: TerumiCharaCard): CharaCard => ({
   race_dress: Array(5).fill(raw.cardId),
 });
 
-const factorsData = createLookup((factorData as any).value as Factor[]);
+const factorsData = createLookup(factorData as unknown as Factor[]);
 const charaCardsData = createLookup(
-  (charaCardDataRaw.value as TerumiCharaCard[]).map(transformCharaCard),
+  (charaCardDataRaw as unknown as TerumiCharaCard[]).map(transformCharaCard),
 );
 
 const transformSkill = (raw: any): Skill => ({
@@ -53,7 +53,7 @@ const transformSkill = (raw: any): Skill => ({
 });
 
 const skillsData = Object.fromEntries(
-  (skillDataRaw.value as any[]).map((skill) => {
+  (skillDataRaw as unknown as any[]).map((skill) => {
     const transformed = transformSkill(skill);
     return [transformed.skillId, transformed];
   }),

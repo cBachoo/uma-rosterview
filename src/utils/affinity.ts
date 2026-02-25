@@ -1,5 +1,5 @@
-import relationsData from "../assets/succession_relation.json";
-import relationMembersData from "../assets/succession_relation_member.json";
+import relationsData from "../assets/SuccessionRelation.json";
+import relationMembersData from "../assets/SuccessionRelationMember.json";
 import { charaCardsData } from "../data";
 import type { CharaData, SuccessionCharaData } from "../types";
 
@@ -10,15 +10,15 @@ const relationPoints = new Map<string, number>();
 // Process relations.json to build point lookup
 relationsData.forEach((relation) => {
   relationPoints.set(
-    relation.relation_type.toString(),
-    relation.relation_point,
+    relation.relationType.toString(),
+    relation.relationPoint,
   );
 });
 
 // Process relation_members.json to build chara -> relations lookup
 relationMembersData.forEach((member) => {
-  const charaIdStr = member.chara_id.toString();
-  const relationTypeStr = member.relation_type.toString();
+  const charaIdStr = member.charaId.toString();
+  const relationTypeStr = member.relationType.toString();
   if (!relationsByCharaId.has(charaIdStr)) {
     relationsByCharaId.set(charaIdStr, new Set());
   }

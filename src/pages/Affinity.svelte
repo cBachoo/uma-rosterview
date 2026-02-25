@@ -26,7 +26,7 @@
     }
 
     // Get all available character names for the selector
-    const allCharacters = TerumiCharacterData.value
+    const allCharacters = (TerumiCharacterData as unknown as any[])
         .map((card) => ({
             charaId: card.charaId.toString(),
             charaName: card.charaName,

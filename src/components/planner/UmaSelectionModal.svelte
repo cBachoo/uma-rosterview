@@ -119,7 +119,7 @@
     });
 
     // Get all unique characters for borrow
-    const allCharacters = TerumiCharacterData.value
+    const allCharacters = (TerumiCharacterData as unknown as any[])
         .map((card) => ({
             charaId: card.charaId,
             charaName: card.charaName,
