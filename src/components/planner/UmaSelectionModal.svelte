@@ -565,8 +565,8 @@
                                                     alt={getCharaName(
                                                         uma.card_id,
                                                     )}
-                                                    class="rounded-circle flex-shrink-0"
-                                                    style="width: 40px; height: 40px; object-fit: cover;"
+                                                    class="flex-shrink-0"
+                                                    style="width: 40px; height: 40px; object-fit: cover; border-radius: 0.25rem;"
                                                 />
                                                 <div
                                                     class="flex-fill"
@@ -657,8 +657,8 @@
                                                     0,
                                                 )}
                                                 alt={char.charaName}
-                                                class="rounded-circle flex-shrink-0"
-                                                style="width: 40px; height: 40px; object-fit: cover;"
+                                                class="flex-shrink-0"
+                                                style="width: 40px; height: 40px; object-fit: cover; border-radius: 0.25rem;"
                                             />
                                             <div
                                                 class="flex-fill"

@@ -214,8 +214,8 @@
                     <img
                         src={getCharaImageUrl(uma.card_id, uma.talent_level)}
                         alt={getCharaName(uma.card_id).name}
-                        class="rounded-circle flex-shrink-0 uma-portrait uma-portrait-{size}"
-                        style="width: {config.img}px; height: {config.img}px; object-fit: cover; cursor: pointer;"
+                        class="flex-shrink-0 uma-portrait uma-portrait-{size}"
+                        style="width: {config.img}px; height: {config.img}px; object-fit: cover; cursor: pointer; border-radius: 0.25rem;"
                     />
                     <div class="flex-grow-1" style="min-width: 0;">
                         {#if uma.card_id}
