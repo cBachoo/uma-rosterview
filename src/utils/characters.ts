@@ -35,7 +35,7 @@ export const numToGrade: Record<number, string> = {
 
 export const characterAptitudesByCardId: Map<number, CharacterAptitudes> =
   new Map(
-    (TerumiCharacterData.value as any[]).map((card) => [
+    (TerumiCharacterData as unknown as any[]).map((card) => [
       card.cardId,
       {
         turf: gradeToNum[card.aptitudeTurf] ?? 2,
