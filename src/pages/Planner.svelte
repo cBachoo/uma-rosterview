@@ -513,6 +513,10 @@
                                         ancestorPinkSparks={[
                                             gp1_1.uma?.pinkSpark,
                                             gp1_2.uma?.pinkSpark,
+                                            ggp1_1_1.uma?.pinkSpark,
+                                            ggp1_1_2.uma?.pinkSpark,
+                                            ggp1_2_1.uma?.pinkSpark,
+                                            ggp1_2_2.uma?.pinkSpark,
                                         ]}
                                         onBlueSparkChange={handleBlueSparkChange(
                                             "p1",
@@ -693,6 +697,10 @@
                                         ancestorPinkSparks={[
                                             gp2_1.uma?.pinkSpark,
                                             gp2_2.uma?.pinkSpark,
+                                            ggp2_1_1.uma?.pinkSpark,
+                                            ggp2_1_2.uma?.pinkSpark,
+                                            ggp2_2_1.uma?.pinkSpark,
+                                            ggp2_2_2.uma?.pinkSpark,
                                         ]}
                                         onBlueSparkChange={handleBlueSparkChange(
                                             "p2",
