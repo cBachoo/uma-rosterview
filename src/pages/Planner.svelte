@@ -25,23 +25,48 @@
 
     const { trainedCharas = [], onHome }: Props = $props();
 
+    const STORAGE_KEY = "uma-planner-state";
+    const empty = () => ({ uma: null, isBorrow: false });
+
+    function loadSaved(): Record<string, TreeSlot> {
+        try {
+            const raw = localStorage.getItem(STORAGE_KEY);
+            if (raw) return JSON.parse(raw);
+        } catch {}
+        return {};
+    }
+
+    const saved = loadSaved();
+    const slot = (key: string): TreeSlot => saved[key] ?? empty();
+
     // Tree state - all positions independently editable
-    let p0: TreeSlot = $state({ uma: null, isBorrow: false });
-    let parent1: TreeSlot = $state({ uma: null, isBorrow: false });
-    let parent2: TreeSlot = $state({ uma: null, isBorrow: false });
-    let gp1_1: TreeSlot = $state({ uma: null, isBorrow: false });
-    let gp1_2: TreeSlot = $state({ uma: null, isBorrow: false });
-    let gp2_1: TreeSlot = $state({ uma: null, isBorrow: false });
-    let gp2_2: TreeSlot = $state({ uma: null, isBorrow: false });
+    let p0: TreeSlot = $state(slot("p0"));
+    let parent1: TreeSlot = $state(slot("parent1"));
+    let parent2: TreeSlot = $state(slot("parent2"));
+    let gp1_1: TreeSlot = $state(slot("gp1_1"));
+    let gp1_2: TreeSlot = $state(slot("gp1_2"));
+    let gp2_1: TreeSlot = $state(slot("gp2_1"));
+    let gp2_2: TreeSlot = $state(slot("gp2_2"));
     // Great-grandparents (Level 4) - pink spark only, for GP aptitude calculations
-    let ggp1_1_1: TreeSlot = $state({ uma: null, isBorrow: false });
-    let ggp1_1_2: TreeSlot = $state({ uma: null, isBorrow: false });
-    let ggp1_2_1: TreeSlot = $state({ uma: null, isBorrow: false });
-    let ggp1_2_2: TreeSlot = $state({ uma: null, isBorrow: false });
-    let ggp2_1_1: TreeSlot = $state({ uma: null, isBorrow: false });
-    let ggp2_1_2: TreeSlot = $state({ uma: null, isBorrow: false });
-    let ggp2_2_1: TreeSlot = $state({ uma: null, isBorrow: false });
-    let ggp2_2_2: TreeSlot = $state({ uma: null, isBorrow: false });
+    let ggp1_1_1: TreeSlot = $state(slot("ggp1_1_1"));
+    let ggp1_1_2: TreeSlot = $state(slot("ggp1_1_2"));
+    let ggp1_2_1: TreeSlot = $state(slot("ggp1_2_1"));
+    let ggp1_2_2: TreeSlot = $state(slot("ggp1_2_2"));
+    let ggp2_1_1: TreeSlot = $state(slot("ggp2_1_1"));
+    let ggp2_1_2: TreeSlot = $state(slot("ggp2_1_2"));
+    let ggp2_2_1: TreeSlot = $state(slot("ggp2_2_1"));
+    let ggp2_2_2: TreeSlot = $state(slot("ggp2_2_2"));
+
+    $effect(() => {
+        try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify({
+                p0, parent1, parent2,
+                gp1_1, gp1_2, gp2_1, gp2_2,
+                ggp1_1_1, ggp1_1_2, ggp1_2_1, ggp1_2_2,
+                ggp2_1_1, ggp2_1_2, ggp2_2_1, ggp2_2_2,
+            }));
+        } catch {}
+    });
 
     let showModal = $state(false);
     let modalPosition = $state("");
@@ -231,8 +256,6 @@
         showModal = false;
     }
 
-    const empty = () => ({ uma: null, isBorrow: false });
-
     function clearPosition(pos: string) {
         // Cascade clear — always clear descendants when a position is cleared
         if (pos === "p1") {
@@ -357,6 +380,25 @@
             if (race) mergedIds.add(race.saddle_id);
         }
         return { ...uma, win_saddle_id_array: Array.from(mergedIds) };
+    }
+
+    function clearAll() {
+        p0 = empty();
+        parent1 = empty();
+        parent2 = empty();
+        gp1_1 = empty();
+        gp1_2 = empty();
+        gp2_1 = empty();
+        gp2_2 = empty();
+        ggp1_1_1 = empty();
+        ggp1_1_2 = empty();
+        ggp1_2_1 = empty();
+        ggp1_2_2 = empty();
+        ggp2_1_1 = empty();
+        ggp2_1_2 = empty();
+        ggp2_2_1 = empty();
+        ggp2_2_2 = empty();
+        recalculateAffinity();
     }
 
     function recalculateAffinity() {
